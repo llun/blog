@@ -1,12 +1,12 @@
 // @ts-check
 const AWS = require('aws-sdk')
 
-const StackName = 'WebSite'
-const ContentBucket = 'ContentBucket'
+const StackName = 'Website'
+const Bucket = 'ContentBucket'
 
 const template = {
   AWSTemplateFormatVersion: '2010-09-09',
-  Description: 'Blog',
+  Description: 'Blog storage and CDN',
   Mappings: {
     RegionToS3DomainSuffix: {
       'ap-southeast-1': {
@@ -15,7 +15,7 @@ const template = {
     }
   },
   Resources: {
-    [ContentBucket]: {
+    [Bucket]: {
       Type: 'AWS::S3::Bucket',
       Properties: {
         AccessControl: 'PublicRead',
@@ -27,10 +27,10 @@ const template = {
       },
       DeletionPolicy: 'Retain'
     },
-    [`${ContentBucket}Policy`]: {
+    [`${Bucket}Policy`]: {
       Type: 'AWS::S3::BucketPolicy',
       Properties: {
-        Bucket: { Ref: ContentBucket },
+        Bucket: { Ref: Bucket },
         PolicyDocument: {
           Version: '2012-10-17',
           Statement: [
@@ -40,29 +40,26 @@ const template = {
               Principal: '*',
               Action: 's3:GetObject',
               Resource: {
-                'Fn::Join': [
-                  '',
-                  ['arn:aws:s3:::', { Ref: ContentBucket }, '/*']
-                ]
+                'Fn::Join': ['', ['arn:aws:s3:::', { Ref: Bucket }, '/*']]
               }
             }
           ]
         }
       }
     },
-    [`${ContentBucket}CDN`]: {
+    [`${Bucket}CDN`]: {
       Type: 'AWS::CloudFront::Distribution',
       Properties: {
         DistributionConfig: {
           Aliases: ['llun.me', 'www.llun.me'],
           Origins: [
             {
-              Id: ContentBucket,
+              Id: Bucket,
               DomainName: {
                 'Fn::Join': [
                   '.',
                   [
-                    { Ref: ContentBucket },
+                    { Ref: Bucket },
                     {
                       'Fn::FindInMap': [
                         'RegionToS3DomainSuffix',
@@ -80,11 +77,11 @@ const template = {
           ],
           Enabled: true,
           HttpVersion: 'http2',
-          Comment: 'Main Web Content',
+          Comment: 'Blog Content',
           DefaultRootObject: 'index.html',
           PriceClass: 'PriceClass_All',
           DefaultCacheBehavior: {
-            TargetOriginId: ContentBucket,
+            TargetOriginId: Bucket,
             ForwardedValues: {
               QueryString: true
             },
@@ -120,10 +117,13 @@ async function run() {
       throw error
     }
 
-    await cloudformation.createStack({
-      StackName,
-      TemplateBody: JSON.stringify(template)
-    })
+    console.log('Creating new stack')
+    await cloudformation
+      .createStack({
+        StackName,
+        TemplateBody: JSON.stringify(template)
+      })
+      .promise()
   }
 }
 
