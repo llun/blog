@@ -1,0 +1,9 @@
+{
+  "name": "Blog_Edge",
+  "description": "Cloudfront edge handlers",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::107563078874:role/BlogCDNLambdaEdge",
+  "handler": "index.entry",
+  "runtime": "nodejs12.x"
+}

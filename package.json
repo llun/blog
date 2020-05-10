@@ -14,12 +14,21 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "@types/archiver": "^3.1.0",
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^13.13.5",
+    "@types/stream-buffers": "^3.0.3",
+    "@types/yargs": "^15.0.4",
+    "archiver": "^4.0.1",
     "aws-sdk": "^2.673.0",
+    "lodash": "^4.17.15",
     "luxon": "^1.24.1",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.2.7",
     "markdown-it-implicit-figures": "^0.10.0",
     "markdown-it-link-attributes": "^3.0.0",
-    "typescript": "^3.8.3"
+    "stream-buffers": "^3.0.2",
+    "typescript": "^3.8.3",
+    "yargs": "^15.3.1"
   }
 }
