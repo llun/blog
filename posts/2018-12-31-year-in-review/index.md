@@ -5,7 +5,6 @@ description: 2018 year in review
 date: 2018-12-31
 tags:
   - year in review
-layout: layouts/post.njk
 ---
 
 1. Start the year with 3D printed box! It took me few iterationd before starts getting useful. Found out many printer is not good for detail work and better to use CNC but the process will be different. My favorite one currently is from Hackerspace but after this month I’m getting more busy and don’t have time to spent on this.

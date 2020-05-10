@@ -5,7 +5,6 @@ description: First Moots 10,000km
 date: 2020-02-01
 tags:
   - moots
-layout: layouts/post.njk
 ---
 
 ![คันนี้ปั่นครบ 10,000km แล้ว](samoeng.jpg)
