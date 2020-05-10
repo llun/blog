@@ -14,10 +14,12 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "aws-sdk": "^2.673.0",
     "luxon": "^1.24.1",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.2.7",
     "markdown-it-implicit-figures": "^0.10.0",
-    "markdown-it-link-attributes": "^3.0.0"
+    "markdown-it-link-attributes": "^3.0.0",
+    "typescript": "^3.8.3"
   }
 }
