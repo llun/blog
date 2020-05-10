@@ -30,7 +30,7 @@ const template = {
     [`${ContentBucket}Policy`]: {
       Type: 'AWS::S3::BucketPolicy',
       Properties: {
-        Bucket: { Ref: RedirectBucket },
+        Bucket: { Ref: ContentBucket },
         PolicyDocument: {
           Version: '2012-10-17',
           Statement: [
@@ -42,7 +42,7 @@ const template = {
               Resource: {
                 'Fn::Join': [
                   '',
-                  ['arn:aws:s3:::', { Ref: RedirectBucket }, '/*']
+                  ['arn:aws:s3:::', { Ref: ContentBucket }, '/*']
                 ]
               }
             }
@@ -110,9 +110,9 @@ const cloudformation = new AWS.CloudFormation({ region: 'ap-southeast-1' })
 
 async function run() {
   try {
-    const stack = await cloudformation.describeStacks({ StackName }).promise()
+    await cloudformation.describeStacks({ StackName }).promise()
     console.log('Updating stack')
-    await stack
+    await cloudformation
       .updateStack({ StackName, TemplateBody: JSON.stringify(template) })
       .promise()
   } catch (error) {
@@ -120,7 +120,7 @@ async function run() {
       throw error
     }
 
-    await stack.createStack({
+    await cloudformation.createStack({
       StackName,
       TemplateBody: JSON.stringify(template)
     })
