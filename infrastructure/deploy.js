@@ -78,6 +78,7 @@ const cdnResources = {
         Comment: 'Blog Content',
         DefaultRootObject: 'index.html',
         PriceClass: 'PriceClass_All',
+        IPV6Enabled: true,
         DefaultCacheBehavior: {
           TargetOriginId: Bucket,
           ForwardedValues: {
