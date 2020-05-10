@@ -42,7 +42,14 @@ const cdnResources = {
     Type: 'AWS::CloudFront::Distribution',
     Properties: {
       DistributionConfig: {
-        Aliases: ['llun.me', 'www.llun.me'],
+        Aliases: [
+          'llun.me',
+          'www.llun.me',
+          'llun.dev',
+          'www.llun.dev',
+          'llun.bike',
+          'www.llun.bike'
+        ],
         Origins: [
           {
             Id: Bucket,
@@ -78,11 +85,16 @@ const cdnResources = {
             QueryString: true
           },
           Compress: true,
-          ViewerProtocolPolicy: 'redirect-to-https'
+          ViewerProtocolPolicy: 'redirect-to-https',
+          LambdaFunctionAssociations: {
+            EventType: 'origin-request',
+            LambdaFunctionARN:
+              'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_redirectDomain:5'
+          }
         },
         ViewerCertificate: {
           AcmCertificateArn:
-            'arn:aws:acm:us-east-1:107563078874:certificate/620c6054-43e6-4545-822b-56d45254e06e',
+            'arn:aws:acm:us-east-1:107563078874:certificate/95decd54-eaa2-4433-b0ad-dd6dffe0ca08',
           SslSupportMethod: 'sni-only',
           MinimumProtocolVersion: 'TLSv1.2_2018'
         },
