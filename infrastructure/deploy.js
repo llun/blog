@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // @ts-check
 const AWS = require('aws-sdk')
 const StackName = 'Website'
@@ -8,13 +9,12 @@ const s3Resources = {
     Type: 'AWS::S3::Bucket',
     Properties: {
       AccessControl: 'PublicRead',
-      BucketName: 'llun.me',
+      BucketName: 'www.llun.me',
       WebsiteConfiguration: {
         IndexDocument: 'index.html',
         ErrorDocument: '404.html'
       }
-    },
-    DeletionPolicy: 'Retain'
+    }
   },
   [`${Bucket}Policy`]: {
     Type: 'AWS::S3::BucketPolicy',
@@ -74,6 +74,7 @@ const cdnResources = {
         DefaultCacheBehavior: {
           TargetOriginId: Bucket,
           ForwardedValues: {
+            Headers: ['Host'],
             QueryString: true
           },
           Compress: true,
@@ -82,7 +83,8 @@ const cdnResources = {
         ViewerCertificate: {
           AcmCertificateArn:
             'arn:aws:acm:us-east-1:107563078874:certificate/620c6054-43e6-4545-822b-56d45254e06e',
-          SslSupportMethod: 'sni-only'
+          SslSupportMethod: 'sni-only',
+          MinimumProtocolVersion: 'TLSv1.2_2018'
         },
         Logging: {
           Bucket: 'llun.logs.s3.amazonaws.com',

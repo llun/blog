@@ -4,33 +4,31 @@
  * @typedef {{ name: string, description: string, memory: number, timeout: number, role: string, handler: string, runtime: string, environment: Object | null | undefined }} ProjectConfig
  */
 const fs = require('fs')
-const spawn = require('child_process').spawn
 const AWS = require('aws-sdk')
 const archiver = require('archiver')
 const streamBuffers = require('stream-buffers')
 const crypto = require('crypto')
 const _ = require('lodash')
 
-const CONTEXT_ORIGINAL_CONFIG_CONTENT = 'original-config'
 const N_VIRGINIA = 'us-east-1'
 
 const argv = require('yargs')
   .option('awsid', {
     describe: 'AWS Account ID',
-    requiresArg: true,
+    required: true,
     type: 'string'
   })
   .option('cloudfront', {
     describe: 'Cloudfront distribution id',
-    requiresArg: true,
+    required: true,
     type: 'string'
-  }).argv
+  })
+  .help().argv
 
-const func = argv.func
 const distributionId = argv.cloudfront
 const awsId = argv.awsid
 const projectConfig = /** @type {ProjectConfig} */ (JSON.parse(
-  fs.readFileSync('project.json', { encoding: 'utf-8' })
+  fs.readFileSync('project.json', { encoding: 'utf-8' }).toString()
 ))
 
 /**
@@ -185,15 +183,23 @@ async function deploy(functionName) {
       })
       .promise()
 
-    console.log(`> Create current alias for version ${createdResult.Version}`)
+    console.log('> Publishing new version')
+    const latestVersion = await lambda
+      .publishVersion({
+        CodeSha256: digest,
+        FunctionName: name
+      })
+      .promise()
+
+    console.log(`> Create current alias for version ${latestVersion.Version}`)
     await lambda
-      .updateAlias({
+      .createAlias({
         FunctionName: name,
-        FunctionVersion: createdResult.Version,
+        FunctionVersion: latestVersion.Version || '$LATEST',
         Name: 'current'
       })
       .promise()
-    version = createdResult.Version
+    version = latestVersion.Version
   }
 
   return version
@@ -249,10 +255,12 @@ async function updateCloudfront(eventType, version, functionName) {
 }
 
 async function run() {
-  const context = {}
-  const version = await deploy('redirectDomain')
-  // await updateCloudfront('origin-request', version, awsCredential)
-  console.log(version)
+  const targetFunction = 'redirectDomain'
+  const version = await deploy(targetFunction)
+  if (!version) {
+    throw new Error('Fail to deploy function')
+  }
+  await updateCloudfront('origin-response', version, targetFunction)
 }
 
 run()

@@ -15,6 +15,7 @@
     "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@types/archiver": "^3.1.0",
+    "@types/aws-lambda": "^8.10.51",
     "@types/lodash": "^4.14.150",
     "@types/node": "^13.13.5",
     "@types/stream-buffers": "^3.0.3",
