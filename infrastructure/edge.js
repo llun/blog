@@ -244,14 +244,27 @@ async function updateCloudfront(eventType, version, functionName) {
 
   config.DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations = lambdas
 
-  const params = {
-    DistributionConfig: {
-      ...config.DistributionConfig
-    },
-    Id: distributionId,
-    IfMatch: config.ETag
-  }
-  await cloudfront.updateDistribution(params).promise()
+  await cloudfront
+    .updateDistribution({
+      DistributionConfig: {
+        ...config.DistributionConfig
+      },
+      Id: distributionId,
+      IfMatch: config.ETag
+    })
+    .promise()
+  await cloudfront
+    .createInvalidation({
+      DistributionId: distributionId,
+      InvalidationBatch: {
+        CallerReference: `${Date.now()}-invalidation`,
+        Paths: {
+          Quantity: 1,
+          Items: ['/*']
+        }
+      }
+    })
+    .promise()
 }
 
 async function run() {
@@ -260,7 +273,7 @@ async function run() {
   if (!version) {
     throw new Error('Fail to deploy function')
   }
-  await updateCloudfront('origin-response', version, targetFunction)
+  await updateCloudfront('origin-request', version, targetFunction)
 }
 
 run()
