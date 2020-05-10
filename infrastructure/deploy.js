@@ -86,11 +86,13 @@ const cdnResources = {
           },
           Compress: true,
           ViewerProtocolPolicy: 'redirect-to-https',
-          LambdaFunctionAssociations: {
-            EventType: 'origin-request',
-            LambdaFunctionARN:
-              'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_redirectDomain:5'
-          }
+          LambdaFunctionAssociations: [
+            {
+              EventType: 'origin-request',
+              LambdaFunctionARN:
+                'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_redirectDomain:5'
+            }
+          ]
         },
         ViewerCertificate: {
           AcmCertificateArn:
