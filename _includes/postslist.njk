@@ -1,0 +1,21 @@
+<ul reversed class="postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
+  {% for post in postslist | reverse %}
+    <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
+      {% if post.data.external == "ride" %}
+      <a href="https://www.llun.bike{{post.url}}" class="postlist-link">{{ post.data.title }}</a>
+      {% elif post.data.external == "dev" %}
+      <a href="https://www.llun.dev{{post.url}}" class="postlist-link">{{ post.data.title }}</a>
+      {% else %}
+      <a href="{{ post.url | url }}" class="postlist-link">{{ post.data.title }}</a>
+      {% endif %}
+
+      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      {% for tag in post.data.tags %}
+        {%- if tag != "posts" -%}
+          {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+          <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
+        {%- endif -%}
+      {% endfor %}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,23 @@
+{
+  "name": "main-blog",
+  "version": "1.0.0",
+  "description": "My main website and blog posts",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "npx eleventy",
+    "watch": "npx eleventy --watch",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy"
+  },
+  "author": "Maythee Anegboonlap",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "luxon": "^1.23.0",
+    "markdown-it": "^10.0.0",
+    "markdown-it-anchor": "^5.2.7",
+    "markdown-it-implicit-figures": "^0.10.0",
+    "markdown-it-link-attributes": "^3.0.0"
+  }
+}

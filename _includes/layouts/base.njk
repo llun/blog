@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{ lang or 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {{metadata.title}}
+      {% if title %}| {{ title }}
+      {% endif %}
+    </title>
+    <meta name="Description" content="{{ description or metadata.description }}">
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
+  </head>
+  <body>
+    <header>
+      <h1 class="home">
+        <a href="{{ '/' | url }}">{{ metadata.title }}</a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="https://www.llun.bike">🚴‍♂️ Ride</a></li>
+          <li><a href="https://www.llun.dev">👨‍💻 Dev</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main{% if templateclass %} class="{{ templateClass }}" {% endif %}>
+      {{ content | safe }}
+    </main>
+
+    <footer></footer>
+  </html>
