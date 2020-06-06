@@ -15,13 +15,13 @@
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@types/archiver": "^3.1.0",
-    "@types/aws-lambda": "^8.10.51",
-    "@types/lodash": "^4.14.152",
-    "@types/node": "^14.0.5",
+    "@types/aws-lambda": "^8.10.53",
+    "@types/lodash": "^4.14.155",
+    "@types/node": "^14.0.11",
     "@types/stream-buffers": "^3.0.3",
     "@types/yargs": "^15.0.5",
     "archiver": "^4.0.1",
-    "aws-sdk": "^2.683.0",
+    "aws-sdk": "^2.691.0",
     "lodash": "^4.17.15",
     "luxon": "^1.24.1",
     "markdown-it": "^11.0.0",
@@ -29,7 +29,7 @@
     "markdown-it-implicit-figures": "^0.10.0",
     "markdown-it-link-attributes": "^3.0.0",
     "stream-buffers": "^3.0.2",
-    "typescript": "^3.9.3",
+    "typescript": "^3.9.5",
     "yargs": "^15.3.1"
   }
 }
