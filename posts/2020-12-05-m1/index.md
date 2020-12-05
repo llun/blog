@@ -10,7 +10,7 @@ tags:
 
 เดือนที่แล้ว Apple ออก MacBook Air/MacBook Pro 13" และ Mac mini ใหม่ออกมาสิ่งที่ทำให้ทุกคนว้าวคือ CPU ที่รอบนี้ไม่ใช่ Intel แต่เป็น CPU ที่ Apple ทำเองเอา A14 มาปรับปรุงให้แรงขึ้น ใส่ High Performance core เข้าไปเพิ่มและทำ Software ให้แปลงโปรแกรมเก่าๆ ที่เขียนมาเพื่อ CPU Intel ให้มาทำงานบน CPU ของตัวเองได้โดยที่ประสิทธิภาพตกลงไปไม่มาก
 
-![8-core, 4x Firestore, 4x Icestorm](Apple_m1-chip-8-core-cpu-chart_11102020.jpg)
+![8-core, 4x Firestorm, 4x Icestorm](Apple_m1-chip-8-core-cpu-chart_11102020.jpg)
 
 คิดว่าตอนแรกความคาดหวังของการเปลี่ยนสถาปัตยกรรม CPU คงไม่มากนักเพราะว่าที่ผ่านมาการเปลี่ยนแบบนี้มักต้องรอ Software ให้ย้ายมาใช้ code ใหม่ให้พร้อมก่อนแต่รอบนี้ที่ต่างไปคือ Apple ดันทำ CPU ได้โคตรดี ประสิทธิภาพแรงเมื่อเทียบกับราคา และพลังงานที่ใช้ แถม Rosetta2 โปรแกรมที่ใช้แปลง code ดันทำงานได้ดี ดีกว่า[ฝั่ง Microsoft ที่พึ่งออก Laptop คล้ายๆ กันรุ่นที่สอง](https://www.theverge.com/2020/10/23/21526702/microsoft-surface-pro-x-2020-review-arm-windows-10-apps-features-specs-price) แต่ความเร็วกลับไม่ต่างจากรุ่นแรก แถมโปรแกรมที่ใช้ช่วยให้โปรแกรมเก่าทำงานได้ [ก็ยังไม่สมบูรณ์จนกว่าจะปีหน้า](https://www.theverge.com/2020/9/30/21495510/microsoft-windows-on-arm-x64-app-emulation) ทำให้เดือนที่ผ่านมา เรียกว่า Apple ดึงพื้นที่สื่อไปทั้งเดือน
 
