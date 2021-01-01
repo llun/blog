@@ -6,8 +6,8 @@
   <meta property="og:title" content="{{ metadata.title }}{% if title %} | {{ title }}{% endif %}">
   <meta property="og:description" content="{{ description or metadata.description }}">
   {% if image %}<meta property="og:image" content="{{ metadata.url + page.url + image | url }}">{% endif %}
-  <meta name="twitter:card" content="{{ description or metadata.description }}">
   <meta property="og:url" content="{{ metadata.url + page.url }}">
+  <meta name="twitter:card" content="{{ description or metadata.description }}">
   <title>
     {{metadata.title}}{% if title %} | {{ title }}{% endif %}
   </title>
