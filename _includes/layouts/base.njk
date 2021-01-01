@@ -7,7 +7,7 @@
   <meta property="og:description" content="{{ description or metadata.description }}">
   {% if image %}<meta property="og:image" content="{{ metadata.url + page.url + image | url }}">{% endif %}
   <meta property="og:url" content="{{ metadata.url + page.url }}">
-  <meta name="twitter:card" content="{{ description or metadata.description }}">
+  <meta name="twitter:card" content="summary_large_image">
   <title>
     {{metadata.title}}{% if title %} | {{ title }}{% endif %}
   </title>
