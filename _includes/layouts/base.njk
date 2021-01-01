@@ -3,10 +3,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="{{ metadata.title }}{% if title %} | {{ title }}{% endif %}">
+  <meta property="og:description" content="{{ description or metadata.description }}">
+  {% if image %}<meta property="og:image" content="{{ metadata.url + page.url + image | url }}">{% endif %}
+  <meta property="og:url" content="{{ metadata.url + page.url }}">
   <title>
-    {{metadata.title}}
-    {% if title %}| {{ title }}
-    {% endif %}
+    {{metadata.title}}{% if title %} | {{ title }}{% endif %}
   </title>
   <meta name="description" content="{{ description or metadata.description }}">
   <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
