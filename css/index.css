@@ -76,6 +76,8 @@ figcaption {
 }
 iframe {
   margin: auto;
+  border: 1px solid var(--lightgray);
+  padding: 0.25rem;
 }
 nav ul {
   list-style: none;
@@ -108,6 +110,7 @@ nav .icon {
 }
 
 .postlist {
+  line-height: 1.6rem;
   list-style: none;
   padding-left: 0;
 }
