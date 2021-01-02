@@ -36,14 +36,14 @@ It took me around 5 hours (6 if include breaks) to finish this event. Which almo
 This ride is happen to be a good test for my new safety camera too. Fly12ce is really good. It can record the whole ride including good image that can see the plate and environment clearly.
 
 <figure style="display: flex; flex-direction: column">
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hp7bXJghwF4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-bottom: 0.5rem; border:"></iframe>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hp7bXJghwF4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-bottom: 0.5rem; max-width: 100%;"></iframe>
   <figcaption>You can see from above video, even with heavy rain it still work perfectly.</figcaption>
 </figure>
 
 However, it is opposite story for the Fly6ce. The camera is stop working around 80% of my ride. The issue is not the camera itself but somehow, water can get into the device and make my SD Card temporary not usable. The camera itself also get water inside and picture is very foggy. The good thing is this is under the warranty and Cycliq send a new unit for me. (Which seems has the same issue)
 
 <figure style="display: flex; flex-direction: column">
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EfXnQ5Zjo2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-bottom: 0.5rem; border:"></iframe>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EfXnQ5Zjo2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-bottom: 0.5rem; max-width: 100%;"></iframe>
   <figcaption>Fly6ce video, it starts getting foggy around half of the ride.</figcaption>
 </figure>
 
