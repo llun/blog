@@ -1,6 +1,7 @@
 ---
 title: 2017
 lang: en
+image: banner.jpg
 description: 2017 year in review
 date: 2017-12-31
 tags:
