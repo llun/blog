@@ -12,7 +12,7 @@ tags:
 
 Today makes me cycle to work for 1 year and complete a goal last year that I started with learning to cycle. From March to April I fall a few times with a minor injure (which actually more serious than last February this year that I got hit by car) and getting a bike. My requirement for the bike that time is very simple, compact and can get on the MRT. The choices at that time are from Tern Link to Dahon which mostly less than S$1,000 but someone suggested me to get a Brompton and somehow after saw it in Carousell made me own it in just a few days later.
 
-[![My Brompton S6R](brompton-at-stadium-small.jpg)](brompton-at-stadum.jpg)
+[![My Brompton S6R](brompton-at-stadium-small.jpg)](brompton-at-stadium.jpg)
 
 It’s the first bike and I thought most expensive bike at that time, with second hand price S$2,000 made me think that I would cycle this every day to work for at least one year. So in the first month after I got this one I cycled it almost every day.
 
