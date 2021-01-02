@@ -38,18 +38,56 @@ const s3Resources = {
   }
 }
 const cdnResources = {
+  [`${Bucket}CachePolicy`]: {
+    Type: 'AWS::CloudFront::CachePolicy',
+    Properties: {
+      CachePolicyConfig: {
+        Comment: `Cache policy for ${Bucket}`,
+        DefaultTTL: 86400,
+        MaxTTL: 31536000,
+        MinTTL: 1,
+        Name: `${Bucket}CachePolicy`,
+        ParametersInCacheKeyAndForwardedToOrigin: {
+          CookiesConfig: {
+            CookieBehavior: 'none'
+          },
+          EnableAcceptEncodingBrotli: true,
+          EnableAcceptEncodingGzip: true,
+          HeadersConfig: {
+            HeaderBehavior: 'whitelist',
+            Headers: ['Host', 'Origin']
+          },
+          QueryStringsConfig: {
+            QueryStringBehavior: 'none'
+          }
+        }
+      }
+    }
+  },
+  [`${Bucket}OriginRequestPolicy`]: {
+    Type: 'AWS::CloudFront::OriginRequestPolicy',
+    Properties: {
+      OriginRequestPolicyConfig: {
+        Comment: `Origin request policy for ${Bucket}`,
+        CookiesConfig: {
+          CookieBehavior: 'none'
+        },
+        HeadersConfig: {
+          HeaderBehavior: 'whitelist',
+          Headers: ['Host']
+        },
+        Name: `${Bucket}OriginRequestPolicy`,
+        QueryStringsConfig: {
+          QueryStringBehavior: 'none'
+        }
+      }
+    }
+  },
   [`${Bucket}CDN`]: {
     Type: 'AWS::CloudFront::Distribution',
     Properties: {
       DistributionConfig: {
-        Aliases: [
-          'llun.me',
-          'www.llun.me',
-          'llun.dev',
-          'www.llun.dev',
-          'llun.bike',
-          'www.llun.bike'
-        ],
+        Aliases: ['llun.me', 'www.llun.me', 'llun.dev', 'www.llun.dev'],
         Origins: [
           {
             Id: Bucket,
@@ -81,9 +119,11 @@ const cdnResources = {
         IPV6Enabled: true,
         DefaultCacheBehavior: {
           TargetOriginId: Bucket,
-          ForwardedValues: {
-            Headers: ['Host'],
-            QueryString: true
+          CachePolicyId: {
+            Ref: `${Bucket}CachePolicy`
+          },
+          OriginRequestPolicyId: {
+            Ref: `${Bucket}OriginRequestPolicy`
           },
           Compress: true,
           ViewerProtocolPolicy: 'redirect-to-https',
@@ -91,7 +131,7 @@ const cdnResources = {
             {
               EventType: 'origin-request',
               LambdaFunctionARN:
-                'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_redirectDomain:5'
+                'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_redirectDomain:15'
             }
           ]
         },
@@ -99,7 +139,7 @@ const cdnResources = {
           AcmCertificateArn:
             'arn:aws:acm:us-east-1:107563078874:certificate/95decd54-eaa2-4433-b0ad-dd6dffe0ca08',
           SslSupportMethod: 'sni-only',
-          MinimumProtocolVersion: 'TLSv1.2_2018'
+          MinimumProtocolVersion: 'TLSv1.2_2019'
         },
         Logging: {
           Bucket: 'llun.logs.s3.amazonaws.com',

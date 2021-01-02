@@ -1,4 +1,8 @@
 // @ts-check
+/**
+ *
+ * @param {string} url
+ */
 function found(url) {
   console.log(`Redirect to ${url}`)
   return {
@@ -21,17 +25,15 @@ function found(url) {
   }
 }
 
-exports.entry = async function (event, context) {
+/**
+ *
+ * @param {import('aws-lambda').CloudFrontRequestEvent} event
+ */
+exports.entry = async function (event) {
   const record = event.Records[0].cf
   const request = record.request
   if (request.headers.host && request.headers.host.length > 0) {
     const domain = request.headers.host[0].value
-    if (domain.endsWith('llun.bike')) {
-      return found('https://www.llun.me/tags/ride/')
-    }
-    if (domain.endsWith('llun.dev')) {
-      return found('https://www.llun.me/tags/dev/')
-    }
     if (domain !== 'www.llun.me') {
       return found(`https://www.llun.me${request.uri}`)
     }
