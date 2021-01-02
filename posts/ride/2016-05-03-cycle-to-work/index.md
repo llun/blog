@@ -19,13 +19,13 @@ It’s the first bike and I thought most expensive bike at that time, with secon
 In the beginning, I planned to cycle to work in the morning and take the MRT back with bike but in the end I took it to the MRT only 2 or 3 times. I founded out it’s too troublesome to carry on to the MRT station even the bike is just 12kg but it’s not really that convenient like I thought and some time you cannot carry the bike on because it’s too packed and in the rush hour, you even cannot enter to the MRT station (which make sense because the train will be very packed at that time.) In the end only when I cycle to very far distant e.g. Pungol and too lazy to cycle back that’s time I will take the MRT home.
 
 <figure style="display: flex; flex-direction: column">
-  <iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/297717880/embed/d2fc226725d110ea391ce75d6ffaa24f06e37dca' style="margin-bottom: 0.5rem; max-width: 100%;"></iframe>
+  <iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='true' src='https://www.strava.com/activities/297717880/embed/d2fc226725d110ea391ce75d6ffaa24f06e37dca' style="margin-bottom: 0.5rem; max-width: 100%;"></iframe>
 </figure>
 
 First few trip route (like above) I took has a lot zigzag, and mostly on the pedestrian path. So from circuit road, I went down to Sims Dr road and go out to Geylang road which need to cycle on the road for short distant and get on the pedestrian path again and go on it to Clark quay. It’s very slow because on the pedestrian there’re a lot of people walking, also sometime the there’s a slow to go up and down and some slope is not build for the wheel. So few days later, it became like this.
 
 <figure style="display: flex; flex-direction: column">
-  <iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/304889870/embed/dec609f3178a02fd711ab62d15617daed239eda7' style="margin-bottom: 0.5rem; max-width: 100%;"></iframe>
+  <iframe height='405' width='590' frameborder='0' allowtransparency='true' scrolling='true' src='https://www.strava.com/activities/304889870/embed/dec609f3178a02fd711ab62d15617daed239eda7' style="margin-bottom: 0.5rem; max-width: 100%;"></iframe>
 </figure>
 
 I’m afraid of cycle on the road for few days but later I feel it’s more safe than cycle on pedestrian because less sudden change direction like people and most of them are aware and give some space for me. After that I added more gadgets like lighting (actually should install this from the first few days) and camera, found out less car is coming to my lane and mostly will slow down even I don’t record the video. So cycle here (in Singapore) is very safe compare to Bangkok and Thailand which at that time there’re many news about the cyclist got hit by cars.
