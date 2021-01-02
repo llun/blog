@@ -1,6 +1,7 @@
 ---
 title: NTU Bike Rally 2018
 lang: en
+image: changi-checkpoint-brake.jpg
 description: Cycling around Singapore in NTU Bike Rally event in 2018
 date: 2018-03-21
 tags:
