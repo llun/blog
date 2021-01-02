@@ -1,6 +1,7 @@
 ---
 title: Moots 10,000km
 lang: th
+image: samoeng.jpg
 description: First Moots 10,000km
 date: 2020-02-01
 tags:
