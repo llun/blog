@@ -1,6 +1,7 @@
 ---
 title: Cycle to work
 lang: en
+image: brompton-at-stadum.jpg
 description: Cycle to work after 1 year
 date: 2016-05-03
 tags:
