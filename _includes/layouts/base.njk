@@ -20,48 +20,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="alternate" type="application/atom+xml" title="@llun story" href="/feed.xml" />
-  <header>
-    <h1 class="home">
-      <a href="{{ '/' | url }}">{{ metadata.title }}</a>
-    </h1>
-    <nav>
-      <ul>
-        <li>
-          <a href="/">
-            <img class="icon" src="/img/icons/all.png" alt="navigation icon for every posts">
-            <span class="text">All</span>
-          </a>
-        </li>
-        <li>
-          <a href="/tags/ride">
-            <img class="icon" src="/img/icons/ride.png" alt="navigation icon for riding post">
-            <span class="text">Ride</span>
-          </a>
-        </li>
-        <li>
-          <a href="/tags/dev">
-            <img class="icon" src="/img/icons/dev.png" alt="navigation icon for dev post">
-            <span class="text">Dev</span>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:contact@llun.me">
-            <img class="icon" src="/img/icons/contact.png" alt="navigation icon for contact me">
-            <span class="text">Contact</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/llun" target="_blank">
-            <img class="icon" src="/img/icons/github.png" alt="navigation icon for github">
-            <span class="text">Github</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
 
-  <main{% if templateclass %} class="{{ templateClass }}" {% endif %}>
-    {{ content | safe }}
-  </main>
-
-  </html>
+  {{ content | safe }}
+</html>

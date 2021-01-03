@@ -2,18 +2,24 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<div class="title">
-  <h1>{{ title }}</h1>
-</div>
+<main{% if templateclass %} class="{{ templateClass }}" {% endif %}>
+  <p>
+    <a href="{{ '/' | url }}">← Home</a>
+  </p>
 
-<div class="content">
-  {{ content | safe }}
-</div>
+  <div class="title">
+    <h1>{{ title }}</h1>
+  </div>
 
-<p>
-  <a href="mailto:comment@llun.me?subject=Common on post {{ page.url | url }}">Send a comment</a>
-</p>
+  <div class="content">
+    {{ content | safe }}
+  </div>
 
-<p>
-  <a href="{{ '/' | url }}">← Home</a>
-</p>
+  <p>
+    <a href="mailto:comment@llun.me?subject=Common on post {{ page.url | url }}">Send a comment</a>
+  </p>
+
+  <p>
+    <a href="{{ '/' | url }}">← Home</a>
+  </p>
+</main>

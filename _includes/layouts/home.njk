@@ -1,5 +1,47 @@
---- 
-layout: layouts/base.njk 
-templateClass: tmpl-home 
 ---
-{{ content | safe }}
+layout: layouts/base.njk
+templateClass: tmpl-home
+---
+<header>
+  <h1 class="home">
+    <a href="{{ '/' | url }}">{{ metadata.title }}</a>
+  </h1>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">
+          <img class="icon" src="/img/icons/all.png" alt="navigation icon for every posts">
+          <span class="text">All</span>
+        </a>
+      </li>
+      <li>
+        <a href="/tags/ride">
+          <img class="icon" src="/img/icons/ride.png" alt="navigation icon for riding post">
+          <span class="text">Ride</span>
+        </a>
+      </li>
+      <li>
+        <a href="/tags/dev">
+          <img class="icon" src="/img/icons/dev.png" alt="navigation icon for dev post">
+          <span class="text">Dev</span>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:contact@llun.me">
+          <img class="icon" src="/img/icons/contact.png" alt="navigation icon for contact me">
+          <span class="text">Contact</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/llun" target="_blank">
+          <img class="icon" src="/img/icons/github.png" alt="navigation icon for github">
+          <span class="text">Github</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main{% if templateclass %} class="{{ templateClass }}" {% endif %}>
+  {{ content | safe }}
+</main>
