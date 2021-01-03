@@ -1,6 +1,7 @@
 const { DateTime } = require('luxon')
 const fs = require('fs')
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const pluginRss = require('@11ty/eleventy-plugin-rss')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const implicitFigures = require('markdown-it-implicit-figures')
@@ -8,6 +9,7 @@ const mila = require('markdown-it-link-attributes')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight)
+  eleventyConfig.addPlugin(pluginRss)
   eleventyConfig.setDataDeepMerge(true)
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk')
 
