@@ -7,6 +7,7 @@
     "subtitle": "Life, Ride and some Codes",
     "url": "https://www.llun.me/",
     "feedUrl": "https://www.llun.me/feed.xml",
+    "icon": "https://www.llun.me/img/favicon-32x32.png",
     "author": {
       "name": "Maythee Anegboonlap",
       "email": "contact@llun.me"
@@ -18,6 +19,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ metadata.title }}</title>
   <subtitle>{{ metadata.subtitle }}</subtitle>
+  <icon>{{ metadata.icon }}</icon>
   <link href="{{ metadata.feedUrl }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
   <updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
