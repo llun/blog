@@ -4,8 +4,9 @@ lang: th
 description: ใช้ GSI เสมือน Table แยกบน DynamoDB
 date: 2020-11-28
 tags:
-  - dynamodb
+  - AWS Dynamodb
   - table
+  - AWS
 ---
 
 ![DynamoDB GSI](dynamodb_gsi.png)

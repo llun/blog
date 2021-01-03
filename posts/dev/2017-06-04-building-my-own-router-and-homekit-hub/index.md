@@ -4,6 +4,7 @@ lang: en
 description: Running OpenMapTiles on Synology NAS
 date: 2017-06-04
 tags:
+  - Apple
   - homekit
   - router
   - home automation
