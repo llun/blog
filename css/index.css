@@ -25,6 +25,13 @@ main {
   margin: auto;
   padding: 0 1rem;
 }
+header a[href] {
+  color: var(--content);
+  text-decoration: none;
+}
+header a[href]:visited {
+  color: var(--content);
+}
 header a[href]:not(:hover) {
   text-decoration: none;
 }
