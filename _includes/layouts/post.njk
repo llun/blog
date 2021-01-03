@@ -4,7 +4,7 @@ templateClass: tmpl-post
 ---
 <main{% if templateclass %} class="{{ templateClass }}" {% endif %}>
   <p>
-    <a href="{{ '/' | url }}">← Home</a>
+    <a href="javascript:history.back()">← Back</a>
   </p>
 
   <div class="title">
@@ -20,6 +20,6 @@ templateClass: tmpl-post
   </p>
 
   <p>
-    <a href="{{ '/' | url }}">← Home</a>
+    <a href="javascript:history.back()">← Back</a>
   </p>
 </main>
