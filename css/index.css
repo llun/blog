@@ -1,11 +1,11 @@
 :root {
-  --gainsboro: #dcdcdc;
-  --lightgray: #e0e0e0;
-  --gray: #5d5d5d;
-  --darkgray: #333;
-  --navy: #17050f;
-  --blue: #082840;
-  --white: #fff;
+  --content: #001932;
+  --background: #fefefe;
+  --link: #00639b;
+  --visited-link: #003b64;
+  --highlight: #0087ca;
+  --code-background: #dcdcdc;
+  --border: #e0e0e0;
 }
 * {
   box-sizing: border-box;
@@ -15,8 +15,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: var(--darkgray);
-  background-color: var(--white);
+  color: var(--content);
+  background-color: var(--background);
   line-height: 2rem;
 }
 header,
@@ -29,10 +29,10 @@ header a[href]:not(:hover) {
   text-decoration: none;
 }
 a[href] {
-  color: var(--blue);
+  color: var(--link);
 }
 a[href]:visited {
-  color: var(--navy);
+  color: var(--visited-link);
 }
 pre,
 code {
@@ -59,14 +59,14 @@ pre {
   hyphens: none;
   padding: 1em;
   margin: 0.5em 0;
-  background-color: var(--gainsboro);
+  background-color: var(--code-background);
 }
 img {
   max-width: 100%;
   margin: auto;
   margin-bottom: 0.5rem;
   display: block;
-  border: 1px solid var(--lightgray);
+  border: 1px solid var(--border);
   padding: 0.25rem;
 }
 figcaption {
@@ -76,7 +76,7 @@ figcaption {
 }
 iframe {
   margin: auto;
-  border: 1px solid var(--lightgray);
+  border: 1px solid var(--border);
   padding: 0.25rem;
 }
 nav ul {
@@ -119,12 +119,21 @@ nav .icon {
   font-size: 0.95rem;
   font-weight: lighter;
 }
-
 .postlist-link {
   font-size: 1.25rem;
   font-weight: normal;
 }
-
+.postlist-date {
+  display: inline-block;
+  min-width: 5rem;
+  font-size: 0.8rem;
+}
+.title {
+  display: block;
+}
+.title h1 {
+  display: inline;
+}
 .content {
   font-size: 1.25rem;
 }
