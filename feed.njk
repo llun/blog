@@ -39,7 +39,7 @@
     <id>{{ absolutePostUrl }}</id>
     <content type="html">
       <![CDATA[
-        {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+        {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
         <p>
           <a href="mailto:comment@llun.me?subject=Common on post {{ absolutePostUrl }}">Send a comment</a>
         </p>
