@@ -7,7 +7,7 @@ tags:
   - brompton
 ---
 
-Just got a Brompton bike today (S6R) and the first ride is from Bishan park to Circuit road. I took this route because from last week I have tried PCN on changi airport and it's really good. All path are in good condition and don't need to carry for crossing a road but PCN from Bishan to Circuit road is another story.
+Just got Brompton bike today (S6R) and the first ride is from Bishan park to Circuit road. I took this route because from last week I have tried PCN on changi airport and it's really good. All path are in good condition and don't need to carry for crossing a road but PCN from Bishan to Circuit road is another story.
 
 You can see my route here
 
