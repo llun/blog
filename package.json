@@ -9,8 +9,8 @@
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy"
   },
-  "author": "Maythee Anegboonlap",
-  "license": "ISC",
+  "author": "Maythee Anegboonlap <null@llun.dev>",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
