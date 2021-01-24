@@ -17,7 +17,7 @@ tags:
 
 Concept ก็ง่ายมาก GitHub Actions อ่าน feeds source ใน repository จากนั้นก็ดึง rss ล่าสุดมาแล้วก็อ่านแปลงให้เป็น html ธรรมดาไว้สำหรับดูรวมๆ กัน วันแรกเริ่มทำได้ Feeds fetcher มาอย่างรวดเร็วเพราะง่ายมาก ไม่ต้องทำอะไร แค่อ่าน OPML แล้วใช้ curl หรืออะไรก็ได้ไปดึง XML file ออกมา ไอ้ที่เริ่มยากคือ parse RSS/Atom file แต่วันนี้ทำเสร็จจนคิดว่าเอาออกมาโชว์ได้หละหน้าตาประมาณด้านล่างนี้ หรือลองเข้าไปดูได้ที่ [feeds.llun.dev](https://feeds.llun.dev)
 
-[![หน้าตาบน desktop]](desktop-pichi.png)](desktop.png)
+[![หน้าตาบน desktop](desktop-pichi.png)](desktop.png)
 
 หรือถ้าจะดู source ก็ไปดูได้ที่ [Github นี้](https://github.com/llun/feeds) ส่วนตัวอย่างเว็บมาจาก [Github นี้](https://github.com/llun/personal-feeds)
 
