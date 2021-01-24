@@ -15,9 +15,11 @@ tags:
 
 ก็หาอยู่ประมาณนึงจนไปเจอ [Feedbin](https://feedbin.com/) ที่หน้าตาคล้ายกับ [Reeder](https://reederapp.com/) ก็เลยคิดว่าจริงๆ มันก็ไม่น่าจะทำยากอีกอย่าง Github Actions ก็ฟรีแล้ว function หลักๆ ที่ตัวเองใช้ก็แค่ตามข่าวล่าสุด ไม่ได้มี bookmark หรือ search งั้นก็ทำเองเลยดีกว่า (ก่อนจะทำเองจ่ายให้ Reeder ไปก่อนแล้วด้วยนะ)
 
-Concept ก็ง่ายมาก GitHub Actions อ่าน feeds source ใน repository จากนั้นก็ดึง rss ล่าสุดมาแล้วก็อ่านแปลงให้เป็น html ธรรมดาไว้สำหรับดูรวมๆ กัน วันแรกเริ่มทำได้ Feeds fetcher มาอย่างรวดเร็วเพราะง่ายมาก ไม่ต้องทำอะไร แค่อ่าน OPML แล้วใช้ curl หรืออะไรก็ได้ไปดึง XML file ออกมา ไอ้ที่เริ่มยากคือ parse RSS/Atom file
+Concept ก็ง่ายมาก GitHub Actions อ่าน feeds source ใน repository จากนั้นก็ดึง rss ล่าสุดมาแล้วก็อ่านแปลงให้เป็น html ธรรมดาไว้สำหรับดูรวมๆ กัน วันแรกเริ่มทำได้ Feeds fetcher มาอย่างรวดเร็วเพราะง่ายมาก ไม่ต้องทำอะไร แค่อ่าน OPML แล้วใช้ curl หรืออะไรก็ได้ไปดึง XML file ออกมา ไอ้ที่เริ่มยากคือ parse RSS/Atom file แต่วันนี้ทำเสร็จจนคิดว่าเอาออกมาโชว์ได้หละหน้าตาประมาณด้านล่างนี้ หรือลองเข้าไปดูได้ที่ [feeds.llun.dev](https://feeds.llun.dev)
 
-[![วันนี้ทำเสร็จจนคิดว่าเอาออกมาโชว์ได้หละหน้าตาประมาณนี้](desktop-pichi.png)](desktop.png)
+[![หน้าตาบน desktop]](desktop-pichi.png)](desktop.png)
+
+หรือถ้าจะดู source ก็ไปดูได้ที่ [Github นี้](https://github.com/llun/feeds) ส่วนตัวอย่างเว็บมาจาก [Github นี้](https://github.com/llun/personal-feeds)
 
 Features กีมีแค่ประมาณ
 
