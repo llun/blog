@@ -2,7 +2,7 @@
 title: Static feeds aggregator
 lang: th
 image: desktop.png
-description: ใช้ GSI เสมือน Table แยกบน DynamoDB
+description: Github Action for building static feeds aggregator site in your repository
 date: 2021-01-24
 tags:
   - tailwind
