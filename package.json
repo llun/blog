@@ -25,7 +25,7 @@
     "aws-sdk": "^2.888.0",
     "lodash": "^4.17.21",
     "luxon": "^1.26.0",
-    "markdown-it": "^12.0.5",
+    "markdown-it": "^12.0.6",
     "markdown-it-anchor": "^7.1.0",
     "markdown-it-implicit-figures": "^0.10.0",
     "markdown-it-link-attributes": "^3.0.0",
