@@ -16,22 +16,22 @@
     "@11ty/eleventy-plugin-rss": "^1.1.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.2",
     "@types/archiver": "^5.1.1",
-    "@types/aws-lambda": "^8.10.80",
-    "@types/lodash": "^4.14.171",
-    "@types/node": "^16.4.1",
+    "@types/aws-lambda": "^8.10.81",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.4.13",
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.2",
     "archiver": "^5.3.0",
-    "aws-sdk": "^2.953.0",
+    "aws-sdk": "^2.963.0",
     "lodash": "^4.17.21",
     "luxon": "^2.0.1",
-    "markdown-it": "^12.1.0",
+    "markdown-it": "^12.2.0",
     "markdown-it-anchor": "^8.1.2",
     "markdown-it-implicit-figures": "^0.10.0",
     "markdown-it-link-attributes": "^3.0.0",
     "stream-buffers": "^3.0.2",
     "typescript": "^4.3.5",
-    "yargs": "^17.0.1"
+    "yargs": "^17.1.0"
   },
   "resolutions": {
     "**/axios": "^0.21.0"
