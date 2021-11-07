@@ -1,21 +1,25 @@
 import fs from 'fs'
 import path from 'path'
 import yaml from 'yaml'
+import { DateTime } from 'luxon'
 
 import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItFigures from 'markdown-it-implicit-figures'
 import mila from 'markdown-it-link-attributes'
 
+interface PostProperties {
+  title: string
+  lang: string
+  description: string
+  date: string
+  tags?: string[]
+}
+
 export interface Post {
-  properties: {
-    title: string
-    lang: string
-    description: string
-    date: string
-    tags?: string[]
-  }
+  properties: PostProperties
   content: string
+  timestamp: number
 }
 
 export function readAllLeafDirectories(root: string) {
@@ -41,11 +45,14 @@ export function parsePost(file: string): Post {
     const raw = fs.readFileSync(file).toString('utf-8')
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
-    const properties = yaml.parse(raw.substring(begin, end))
+    const properties: PostProperties = yaml.parse(raw.substring(begin, end))
     const content = raw.substring(end + 3).trim()
+    const timestamp = DateTime.fromISO(properties.date).toMillis()
+
     return {
       properties,
-      content
+      content,
+      timestamp
     }
   } catch (error) {
     return null
