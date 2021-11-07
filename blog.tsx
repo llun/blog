@@ -1,5 +1,11 @@
 import fs from 'fs'
 import path from 'path'
+import yaml from 'yaml'
+
+import markdownIt from 'markdown-it'
+import markdownItAnchor from 'markdown-it-anchor'
+import markdownItFigures from 'markdown-it-implicit-figures'
+import mila from 'markdown-it-link-attributes'
 
 export function readAllLeafDirectories(root: string) {
   const posts = fs
@@ -18,10 +24,47 @@ export function readAllLeafDirectories(root: string) {
   return paths
 }
 
-export function getAllPosts() {
-  const paths = readAllLeafDirectories(path.join(process.cwd(), 'posts'))
-  for (const path of paths) {
-    const contents = fs.readdirSync(path)
-    console.log(contents)
+export function parsePost(file: string) {
+  try {
+    fs.statSync(file)
+    const raw = fs.readFileSync(file).toString('utf-8')
+    const begin = raw.indexOf('---')
+    const end = raw.indexOf('---', begin + 3)
+    const properties = yaml.parse(raw.substring(begin, end))
+    const content = raw.substring(end + 3).trim()
+    return {
+      properties,
+      content
+    }
+  } catch (error) {
+    return null
   }
+}
+
+export function getAllPosts() {
+  const md = markdownIt({
+    html: true,
+    breaks: true
+  })
+  md.use(markdownItAnchor, {
+    permalink: true,
+    permalinkClass: 'direct-link',
+    permalinkSymbol: '#'
+  })
+  md.use(markdownItFigures, {
+    figcaption: true
+  })
+  md.use(mila, {
+    pattern: /^https:/,
+    attrs: {
+      target: '_blank',
+      rel: 'noopener'
+    }
+  })
+
+  const paths = readAllLeafDirectories(path.join(process.cwd(), 'posts'))
+  const posts = paths.map((filePath) =>
+    parsePost(path.join(filePath, 'index.md'))
+  )
+  console.log(posts)
 }
