@@ -7,6 +7,17 @@ import markdownItAnchor from 'markdown-it-anchor'
 import markdownItFigures from 'markdown-it-implicit-figures'
 import mila from 'markdown-it-link-attributes'
 
+export interface Post {
+  properties: {
+    title: string
+    lang: string
+    description: string
+    date: string
+    tags?: string[]
+  }
+  content: string
+}
+
 export function readAllLeafDirectories(root: string) {
   const posts = fs
     .readdirSync(root)
@@ -24,7 +35,7 @@ export function readAllLeafDirectories(root: string) {
   return paths
 }
 
-export function parsePost(file: string) {
+export function parsePost(file: string): Post {
   try {
     fs.statSync(file)
     const raw = fs.readFileSync(file).toString('utf-8')
@@ -41,7 +52,7 @@ export function parsePost(file: string) {
   }
 }
 
-export function getAllPosts() {
+export function getAllPosts(): Post[] {
   const md = markdownIt({
     html: true,
     breaks: true
@@ -66,5 +77,5 @@ export function getAllPosts() {
   const posts = paths.map((filePath) =>
     parsePost(path.join(filePath, 'index.md'))
   )
-  console.log(posts)
+  return posts
 }
