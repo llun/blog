@@ -2,9 +2,17 @@ import type { GetStaticPropsContext } from 'next'
 
 import { useRouter } from 'next/router'
 
-import { Config, getConfig } from '../../blog'
+import { Config, getConfig, getAllPosts } from '../../blog'
 import Meta from '../../components/Meta'
 import Header from '../../components/Header'
+
+export async function getStaticPaths() {
+  const posts = getAllPosts()
+  const paths = posts.map((post) => ({
+    params: { id: post.properties.date }
+  }))
+  return { paths, fallback: false }
+}
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const config = getConfig()
