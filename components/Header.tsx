@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import style from './Header.module.css'
 
 export type Page = {
   url: string
@@ -62,24 +63,24 @@ type Props = {
 
 export default ({ title, url, pages = defaultPages }: Props) => (
   <header>
-    <h1 className="home">
+    <h1>
       <Link href={url}>{title}</Link>
     </h1>
-    <nav>
+    <nav className={style.nav}>
       <ul>
         {pages.map((page) => (
           <li key={page.url}>
             {page.target && (
               <a href={page.url} target={page.target}>
-                <img className="icon" {...page.image} />
-                <span className="text">{page.title}</span>
+                <img className={style.icon} {...page.image} />
+                <span className={style.text}>{page.title}</span>
               </a>
             )}
             {!page.target && (
               <Link href={page.url}>
                 <a>
-                  <img className="icon" {...page.image} />
-                  <span className="text">{page.title}</span>
+                  <img className={style.icon} {...page.image} />
+                  <span className={style.text}>{page.title}</span>
                 </a>
               </Link>
             )}
