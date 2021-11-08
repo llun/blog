@@ -1,5 +1,5 @@
-import fs from 'fs'
 import path from 'path'
+import fs from 'fs'
 import yaml from 'yaml'
 import { DateTime } from 'luxon'
 import memoize from 'lodash/memoize'
@@ -21,6 +21,12 @@ export interface Post {
   properties: PostProperties
   content: string
   timestamp: number
+}
+
+export interface Config {
+  title: string
+  description: string
+  url: string
 }
 
 export function readAllLeafDirectories(root: string) {
@@ -90,3 +96,11 @@ export const getAllPosts = memoize((): Post[] => {
   )
   return posts
 })
+
+export const getConfig = memoize(
+  (): Config => ({
+    title: '@แนท',
+    description: 'My notebook',
+    url: 'https://www.llun.me'
+  })
+)
