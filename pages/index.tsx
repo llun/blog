@@ -4,6 +4,7 @@ import { DateTime } from 'luxon'
 import { Post, getAllPosts } from '../blog'
 import Header from '../components/Header'
 import Meta from '../components/Meta'
+import PostList from '../components/PostList'
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const posts = getAllPosts()
@@ -28,21 +29,7 @@ export default ({ posts }: Props) => {
       <Meta title={title} description={description} url={url} />
       <Header title={title} url={url} />
       <main>
-        <ul className="postlist">
-          {subPosts.length &&
-            subPosts.map((post) => (
-              <li className="postlist-item">
-                <time className="postlist-date" dateTime={post.properties.date}>
-                  {DateTime.fromMillis(post.timestamp).toLocaleString(
-                    DateTime.DATE_MED
-                  )}
-                </time>
-                <a href="#" className="postlist-link">
-                  {post.properties.title}
-                </a>
-              </li>
-            ))}
-        </ul>
+        <PostList posts={subPosts} />
       </main>
     </>
   )

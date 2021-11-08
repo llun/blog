@@ -87,25 +87,6 @@ iframe {
   padding: 0.25rem;
 }
 
-.postlist {
-  line-height: 1.6rem;
-  list-style: none;
-  padding-left: 0;
-}
-.postlist-item {
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
-  font-weight: lighter;
-}
-.postlist-link {
-  font-size: 1.25rem;
-  font-weight: normal;
-}
-.postlist-date {
-  display: inline-block;
-  min-width: 5rem;
-  font-size: 0.8rem;
-}
 .title {
   display: block;
 }
