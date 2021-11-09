@@ -8,13 +8,13 @@ import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItFigures from 'markdown-it-implicit-figures'
 import mila from 'markdown-it-link-attributes'
-import { MemoizedFunction } from 'lodash'
 
 interface PostProperties {
   title: string
   lang: string
   description: string
   date: string
+  image?: string
   tags?: string[]
 }
 

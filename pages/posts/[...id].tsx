@@ -50,11 +50,18 @@ interface Props {
 }
 
 export default ({ config, post, id }: Props) => {
-  const { title, description, url } = config
-  const { properties, content } = post
+  const { title, url } = config
+  const { properties, content, file } = post
   return (
     <>
-      <Meta title={title} description={description} url={url} />
+      <Meta
+        title={`${title} | ${properties.title}`}
+        description={properties.description}
+        url={`${url}/posts/${file.id}`}
+        imageUrl={
+          properties.image && `${url}/posts/${file.id}/${properties.image}`
+        }
+      />
       <main>
         <p>
           <Link href="/">← Home</Link>
