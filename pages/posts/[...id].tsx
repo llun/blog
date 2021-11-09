@@ -9,7 +9,7 @@ import Header from '../../components/Header'
 export async function getStaticPaths() {
   const posts = getAllPosts()
   const paths = posts.map((post) => ({
-    params: { id: post.properties.date }
+    params: { id: post.file.id.split('/') }
   }))
   return { paths, fallback: false }
 }

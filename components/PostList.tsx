@@ -18,7 +18,7 @@ export default ({ posts }: Props) => (
               DateTime.DATE_MED
             )}
           </time>
-          <Link href={`/posts/${post.properties.date}`}>
+          <Link href={`/posts/${post.file.id}`}>
             <a className={style.link}>{post.properties.title}</a>
           </Link>
         </li>

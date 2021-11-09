@@ -17,9 +17,15 @@ interface PostProperties {
   tags?: string[]
 }
 
+interface PostFile {
+  id: string
+  name: string
+  category: string | null
+}
+
 export interface Post {
   properties: PostProperties
-  content: string
+  file: PostFile
   timestamp: number
 }
 
@@ -77,11 +83,21 @@ export const parsePost = memoize((file: string): Post => {
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
     const properties: PostProperties = yaml.parse(raw.substring(begin, end))
-    const content = md.render(raw.substring(end + 3).trim())
     const timestamp = DateTime.fromISO(properties.date).toMillis()
+
+    const postPath = path
+      .dirname(file)
+      .substring(path.join(process.cwd(), 'posts').length)
+      .split(path.sep)
+      .slice(1)
+
     return {
       properties,
-      content,
+      file: {
+        id: postPath.length > 1 ? postPath.join('/') : postPath[0],
+        category: postPath.length > 1 ? postPath[0] : null,
+        name: postPath[postPath.length - 1]
+      },
       timestamp
     }
   } catch (error) {
