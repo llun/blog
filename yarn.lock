@@ -286,10 +286,10 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.176.tgz#641150fc1cda36fbfa329de603bbb175d7ee20c0"
   integrity sha512-xZmuPTa3rlZoIbtDUyJKZQimJV3bxCmzMIO2c9Pz9afyDro6kr7R79GwcB6mRhuoPmV2p1Vb66WOJH7F886WKQ==
 
-"@types/luxon@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-2.0.5.tgz#29d3b095d55ee50df8f4cf109b16009334d9828e"
-  integrity sha512-GKrG5v16BOs9XGpouu33hOkAFaiSDi3ZaDXG9F2yAoyzHRBtksZnI60VWY5aM/yAENCccBejrxw8jDY+9OVlxw==
+"@types/luxon@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-2.0.6.tgz#14d022a107c300ef436f84763ba9f1a4f760ee1f"
+  integrity sha512-cjZwmN7ai2MG4xIKyrI1YP9QYU81huqYUHR7M6n1nm1+izqNWrdxihGDkuc7359ILROxpCnTt2A1sbKg7vXk/A==
 
 "@types/markdown-it@^12.2.3":
   version "12.2.3"
@@ -309,10 +309,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.5.tgz#1001cc5e6a3704b83c236027e77f2f58ea010f40"
   integrity sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==
 
-"@types/node@*", "@types/node@^16.11.6":
-  version "16.11.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.6.tgz#6bef7a2a0ad684cf6e90fcfe31cecabd9ce0a3ae"
-  integrity sha512-ua7PgUoeQFjmWPcoo9khiPum3Pd60k4/2ZGXt18sm2Slk0W0xZTqt5Y0Ny1NyBiN1EVQ/+FaF9NcY4Qe6rwk5w==
+"@types/node@*", "@types/node@^16.11.7":
+  version "16.11.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.7.tgz#36820945061326978c42a01e56b61cd223dfdc42"
+  integrity sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw==
 
 "@types/prop-types@*":
   version "15.7.4"
@@ -575,10 +575,10 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-sdk@^2.1023.0:
-  version "2.1023.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1023.0.tgz#0de16e4e8878ccec4fcd0146322dcf94fdbe09ba"
-  integrity sha512-RAI8sUfK+00yL9i3xz5kbM3+t/0mjjnKhKyauXAlJN4seDYtIX5+BqMghpkZwvLBdi6idXIuz+FHWETHZccyuA==
+aws-sdk@^2.1024.0:
+  version "2.1024.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1024.0.tgz#c69ae613a546e56643c921d4aae36d7f8d6f44bc"
+  integrity sha512-FgGvRtxTzgU7iBXG/+hCGqdE2U2gF/NqVDQsTBjrLIbOMiNNheL8uzxcmIKKZ49lFlWwVkM0HNmpEmA5hiLinw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -1446,9 +1446,9 @@ ejs@^2.7.4:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.723:
-  version "1.3.890"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.890.tgz#e7143b659f73dc4d0512d1ae4baeb0fb9e7bc835"
-  integrity sha512-VWlVXSkv0cA/OOehrEyqjUTHwV8YXCPTfPvbtoeU2aHR21vI4Ejh5aC4AxUwOmbLbBgb6Gd3URZahoCxtBqCYQ==
+  version "1.3.891"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.891.tgz#51d7224e64157656276f152a0b3361708fde1bf9"
+  integrity sha512-3cpwR82QkIS01CN/dup/4Yr3BiOiRLlZlcAFn/5FbNCunMO9ojqDgEP9JEo1QNLflu3pEnPWve50gHOEKc7r6w==
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -2564,10 +2564,10 @@ luxon@^1.26.0:
   resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.28.0.tgz#e7f96daad3938c06a62de0fb027115d251251fbf"
   integrity sha512-TfTiyvZhwBYM/7QdAVDh+7dBTBA29v4ik0Ce9zda3Mnf8on1S5KJI8P2jKFZ8+5C0jhmr0KwJEO/Wdpm0VeWJQ==
 
-luxon@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-2.0.2.tgz#11f2cd4a11655fdf92e076b5782d7ede5bcdd133"
-  integrity sha512-ZRioYLCgRHrtTORaZX1mx+jtxKtKuI5ZDvHNAmqpUzGqSrR+tL4FVLn/CUGMA3h0+AKD1MAxGI5GnCqR5txNqg==
+luxon@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-2.1.1.tgz#34052f7a33a7989767637be7cf80b47db264ff88"
+  integrity sha512-6VQVNw7+kQu3hL1ZH5GyOhnk8uZm21xS7XJ/6vDZaFNcb62dpFDKcH8TI5NkoZOdMRxr7af7aYGrJlE/Wv0i1w==
 
 make-dir@^3.0.2:
   version "3.1.0"
@@ -3733,9 +3733,9 @@ slash@^1.0.0:
   integrity sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU=
 
 slugify@^1.4.7:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.6.1.tgz#a5fcaef29f4e57c6e932ce7044b6ffd9cf81b641"
-  integrity sha512-5ofqMTbetNhxlzjYYLBaZFQd6oiTuSkQlyfPEFIMwgUABlZQ0hbk5xIV9Ydd5jghWeRoO7GkiJliUvTpLOjNRA==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.6.2.tgz#4cb97220a2278e1b86fb017c6da668e6a865354c"
+  integrity sha512-XMtI8qD84LwCpthLMBHlIhcrj10cgA+U/Ot8G6FD6uFuWZtMfKK75JO7l81nzpFJsPlsW6LT+VKqWQJW3+6New==
 
 socket.io-adapter@~1.1.0:
   version "1.1.2"
