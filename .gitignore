@@ -2,3 +2,4 @@
 .next
 _site
 node_modules
+.vercel

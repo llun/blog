@@ -33,7 +33,6 @@ export async function getStaticProps(
 
   const contentPath = path.join(process.cwd(), 'posts', ...id, 'index.md')
   const post = parsePost(contentPath, true)
-
   return {
     props: {
       config,
