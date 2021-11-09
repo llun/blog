@@ -1,10 +1,20 @@
 import type { GetStaticPropsContext } from 'next'
 
-import { useRouter } from 'next/router'
+import Link from 'next/link'
+import path from 'path'
 
-import { Config, getConfig, getAllPosts } from '../../blog'
+import { Config, Post, getConfig, getAllPosts, parsePost } from '../../blog'
 import Meta from '../../components/Meta'
-import Header from '../../components/Header'
+import style from './[...id].module.css'
+
+type Params = { id: string[] }
+type Data = {
+  props: {
+    config: Config
+    post: Post
+    id: string[]
+  }
+}
 
 export async function getStaticPaths() {
   const posts = getAllPosts()
@@ -14,29 +24,65 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps(
+  context: GetStaticPropsContext<Params, Data>
+) {
   const config = getConfig()
+  const { params } = context
+  const { id } = params
+
+  const contentPath = path.join(process.cwd(), 'posts', ...id, 'index.md')
+  const post = parsePost(contentPath, true)
+
   return {
     props: {
-      config
+      config,
+      post,
+      id
     }
   }
 }
 
 interface Props {
   config: Config
+  post: Post
+  id: string[]
 }
 
-export default ({ config }: Props) => {
-  const router = useRouter()
-  const { id } = router.query
-
+export default ({ config, post, id }: Props) => {
   const { title, description, url } = config
+  const { properties, content } = post
   return (
     <>
       <Meta title={title} description={description} url={url} />
-      <Header title={title} url={url} />
-      <main>{id}</main>
+      <main>
+        <p>
+          <Link href="/">← Home</Link>
+        </p>
+
+        <div className={style.title}>
+          <h1>{properties.title}</h1>
+        </div>
+
+        <div
+          className={style.content}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+
+        <p>
+          <a
+            href={`mailto:comment@llun.me?subject=Common on post ${id.join(
+              '/'
+            )}`}
+          >
+            Send a comment
+          </a>
+        </p>
+
+        <p>
+          <Link href="/">← Home</Link>
+        </p>
+      </main>
     </>
   )
 }
