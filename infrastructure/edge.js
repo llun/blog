@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // @ts-check
 /**
+ * @typedef {{ awsid: string, cloudfront: string }} Arguments
  * @typedef {{ name: string, description: string, memory: number, timeout: number, role: string, handler: string, runtime: string, environment: Object | null | undefined }} ProjectConfig
  */
 const fs = require('fs')
@@ -12,24 +13,26 @@ const _ = require('lodash')
 
 const N_VIRGINIA = 'us-east-1'
 
-const argv = require('yargs')
-  .option('awsid', {
-    describe: 'AWS Account ID',
-    required: true,
-    type: 'string'
-  })
-  .option('cloudfront', {
-    describe: 'Cloudfront distribution id',
-    required: true,
-    type: 'string'
-  })
-  .help().argv
+const argv = /** @type {Arguments} */ (
+  require('yargs')
+    .option('awsid', {
+      describe: 'AWS Account ID',
+      required: true,
+      type: 'string'
+    })
+    .option('cloudfront', {
+      describe: 'Cloudfront distribution id',
+      required: true,
+      type: 'string'
+    })
+    .help().argv
+)
 
 const distributionId = argv.cloudfront
 const awsId = argv.awsid
-const projectConfig = /** @type {ProjectConfig} */ (JSON.parse(
-  fs.readFileSync('project.json', { encoding: 'utf-8' }).toString()
-))
+const projectConfig = /** @type {ProjectConfig} */ (
+  JSON.parse(fs.readFileSync('project.json', { encoding: 'utf-8' }).toString())
+)
 
 /**
  *
@@ -242,7 +245,8 @@ async function updateCloudfront(eventType, version, functionName) {
   lambdas.Items = handlers
   lambdas.Quantity = handlers.length
 
-  config.DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations = lambdas
+  config.DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations =
+    lambdas
 
   await cloudfront
     .updateDistribution({
