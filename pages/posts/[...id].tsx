@@ -48,7 +48,7 @@ interface Props {
   id: string[]
 }
 
-export default ({ config, post, id }: Props) => {
+const Post = ({ config, post, id }: Props) => {
   const { title, url } = config
   const { properties, content, file } = post
   return (
@@ -92,3 +92,4 @@ export default ({ config, post, id }: Props) => {
     </>
   )
 }
+export default Post

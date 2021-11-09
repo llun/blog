@@ -23,7 +23,7 @@ interface Props {
   config: Config
 }
 
-export default ({ posts, config }: Props) => {
+const Index = ({ posts, config }: Props) => {
   const { title, description, url } = config
   return (
     <>
@@ -35,3 +35,4 @@ export default ({ posts, config }: Props) => {
     </>
   )
 }
+export default Index

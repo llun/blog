@@ -7,7 +7,7 @@ type Props = {
   imageUrl?: string
 }
 
-export default ({ title, description, url, imageUrl }: Props) => (
+const Meta = ({ title, description, url, imageUrl }: Props) => (
   <Head>
     <title>{title}</title>
     <meta charSet="utf-8" />
@@ -38,3 +38,4 @@ export default ({ title, description, url, imageUrl }: Props) => (
     <link rel="manifest" href="/site.webmanifest" />
   </Head>
 )
+export default Meta

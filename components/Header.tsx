@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text */
 import Link from 'next/link'
 import style from './Header.module.css'
 
@@ -61,7 +62,7 @@ type Props = {
   pages?: Page[]
 }
 
-export default ({ title, url, pages = defaultPages }: Props) => (
+const Header = ({ title, url, pages = defaultPages }: Props) => (
   <header>
     <h1>
       <Link href={url}>{title}</Link>
@@ -90,3 +91,4 @@ export default ({ title, url, pages = defaultPages }: Props) => (
     </nav>
   </header>
 )
+export default Header

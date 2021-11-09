@@ -8,7 +8,7 @@ interface Props {
   posts: Post[]
 }
 
-export default ({ posts }: Props) => (
+const PostList = ({ posts }: Props) => (
   <ul className={style.list}>
     {posts.length &&
       posts.map((post) => (
@@ -25,3 +25,4 @@ export default ({ posts }: Props) => (
       ))}
   </ul>
 )
+export default PostList
