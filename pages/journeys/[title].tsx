@@ -1,5 +1,6 @@
 import type { GetStaticPropsContext } from 'next'
 
+import Link from 'next/link'
 import path from 'path'
 
 import { parseJourney, getAllJourneys, Journey } from '../../journey'
@@ -39,14 +40,23 @@ interface Props {
 }
 
 const Journey = ({ config, journey }: Props) => {
-  const { title, description, url } = config
-  const { content } = journey
+  const { title, url } = config
+  const { content, title: journeyTitle, description, name } = journey
   return (
     <>
-      <Meta title={title} description={description} url={url} />
-      <Header title={title} url={url} />
+      <Meta
+        title={`${title}, ${journeyTitle}`}
+        description={description}
+        url={`${url}/journeys/${name}`}
+      />
       <main>
+        <p>
+          <Link href="/journeys">← Journeys</Link>
+        </p>
         <div dangerouslySetInnerHTML={{ __html: content }} />
+        <p>
+          <Link href="/journeys">← Journeys</Link>
+        </p>
       </main>
     </>
   )
