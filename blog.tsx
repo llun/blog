@@ -122,6 +122,12 @@ export const parsePost = (
   }
 }
 
+export const postDescendingComparison = (post1: Post, post2: Post) => {
+  if (post1.timestamp !== post2.timestamp)
+    return post2.timestamp - post1.timestamp
+  return post2.properties.title.localeCompare(post1.properties.title)
+}
+
 export const getAllPosts = memoize((): Post[] => {
   const paths = readAllLeafDirectories(path.join(process.cwd(), 'posts'))
   const posts = paths.map((filePath) =>
