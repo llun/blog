@@ -13,16 +13,11 @@ type Params = {
 
 export async function getStaticPaths() {
   const posts = getAllPosts()
-  const paths = posts
-    .map((post) => [
-      {
-        params: { segment: post.file.id.split('/') }
-      },
-      {
-        params: { segment: [...post.file.id.split('/'), 'index.html'] }
-      }
-    ])
-    .reduce((out, item) => [...out, ...item], [])
+  const paths = posts.map((post) => ({
+    params: {
+      segment: post.file.id.split('/')
+    }
+  }))
   return { paths, fallback: false }
 }
 
@@ -30,18 +25,7 @@ export async function getStaticProps(context: GetStaticPropsContext<Params>) {
   const config = getConfig()
   const { params } = context
   const { segment } = params
-
-  const pathToFile =
-    segment[segment.length - 1] === 'index.html'
-      ? segment.slice(0, segment.length - 1)
-      : segment
-
-  const contentPath = path.join(
-    process.cwd(),
-    'posts',
-    ...pathToFile,
-    'index.md'
-  )
+  const contentPath = path.join(process.cwd(), 'posts', ...segment, 'index.md')
   const post = parsePost(contentPath, true)
   return {
     props: {

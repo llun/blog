@@ -4,7 +4,9 @@
   "description": "My main website and blog posts",
   "scripts": {
     "dev": "next dev",
-    "lint": "next lint"
+    "build": "next build",
+    "lint": "next lint",
+    "export": "next build && next export"
   },
   "author": "Maythee Anegboonlap <null@llun.dev>",
   "license": "UNLICENSED",
