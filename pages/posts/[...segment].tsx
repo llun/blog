@@ -7,13 +7,8 @@ import { Config, Post, getConfig, getAllPosts, parsePost } from '../../blog'
 import Meta from '../../components/Meta'
 import style from './[...segment].module.css'
 
-type Params = { segment: string[] }
-type Data = {
-  props: {
-    config: Config
-    post: Post
-    segment: string[]
-  }
+type Params = {
+  segment: string[]
 }
 
 export async function getStaticPaths() {
@@ -31,9 +26,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(
-  context: GetStaticPropsContext<Params, Data>
-) {
+export async function getStaticProps(context: GetStaticPropsContext<Params>) {
   const config = getConfig()
   const { params } = context
   const { segment } = params
