@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   const posts = getAllPosts()
   const paths = posts.map((post) => ({
     params: {
-      segment: post.file.id.split('/')
+      segment: [...post.file.id.split('/'), 'index']
     }
   }))
   return { paths, fallback: false }
@@ -25,7 +25,18 @@ export async function getStaticProps(context: GetStaticPropsContext<Params>) {
   const config = getConfig()
   const { params } = context
   const { segment } = params
-  const contentPath = path.join(process.cwd(), 'posts', ...segment, 'index.md')
+
+  const pathToFile =
+    segment[segment.length - 1] === 'index'
+      ? segment.slice(0, segment.length - 1)
+      : segment
+
+  const contentPath = path.join(
+    process.cwd(),
+    'posts',
+    ...pathToFile,
+    'index.md'
+  )
   const post = parsePost(contentPath, true)
   return {
     props: {
