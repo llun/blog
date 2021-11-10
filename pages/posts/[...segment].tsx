@@ -5,22 +5,29 @@ import path from 'path'
 
 import { Config, Post, getConfig, getAllPosts, parsePost } from '../../blog'
 import Meta from '../../components/Meta'
-import style from './[...id].module.css'
+import style from './[...segment].module.css'
 
-type Params = { id: string[] }
+type Params = { segment: string[] }
 type Data = {
   props: {
     config: Config
     post: Post
-    id: string[]
+    segment: string[]
   }
 }
 
 export async function getStaticPaths() {
   const posts = getAllPosts()
-  const paths = posts.map((post) => ({
-    params: { id: post.file.id.split('/') }
-  }))
+  const paths = posts
+    .map((post) => [
+      {
+        params: { segment: post.file.id.split('/') }
+      },
+      {
+        params: { segment: [...post.file.id.split('/'), 'index.html'] }
+      }
+    ])
+    .reduce((out, item) => [...out, ...item], [])
   return { paths, fallback: false }
 }
 
@@ -29,15 +36,25 @@ export async function getStaticProps(
 ) {
   const config = getConfig()
   const { params } = context
-  const { id } = params
+  const { segment } = params
 
-  const contentPath = path.join(process.cwd(), 'posts', ...id, 'index.md')
+  const pathToFile =
+    segment[segment.length - 1] === 'index.html'
+      ? segment.slice(0, segment.length - 1)
+      : segment
+
+  const contentPath = path.join(
+    process.cwd(),
+    'posts',
+    ...pathToFile,
+    'index.md'
+  )
   const post = parsePost(contentPath, true)
   return {
     props: {
       config,
       post,
-      id
+      segment
     }
   }
 }
@@ -45,10 +62,10 @@ export async function getStaticProps(
 interface Props {
   config: Config
   post: Post
-  id: string[]
+  segment: string[]
 }
 
-const Post = ({ config, post, id }: Props) => {
+const Post = ({ config, post, segment }: Props) => {
   const { title, url } = config
   const { properties, content, file } = post
   return (
@@ -77,7 +94,7 @@ const Post = ({ config, post, id }: Props) => {
 
         <p>
           <a
-            href={`mailto:comment@llun.me?subject=Common on post ${id.join(
+            href={`mailto:comment@llun.me?subject=Common on post ${segment.join(
               '/'
             )}`}
           >
