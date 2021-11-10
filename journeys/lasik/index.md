@@ -28,7 +28,13 @@ I got after and before.
 - [Medications](#medications)
 - [Problems](#problems)
 
-## Timeline {#timeline}
+## Timeline
 
 - **Around beginning of March**, decided to do Lasik. Booked an appointment on 15 March 2021
 - **15 March 2021**, The first consultation, right eye is good no issue, left eye has dry eye issue, and the doctor did not like it. I got prescribed eye drop and booked an appointment for surgery.
+
+## Cost
+
+## Medications
+
+## Problems

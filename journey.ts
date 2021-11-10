@@ -40,7 +40,6 @@ export const parseJourney = (
       content: md.render(raw.substring(end + 3).trim())
     }
   } catch (error) {
-    console.log(error)
     return null
   }
 }
