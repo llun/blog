@@ -13,14 +13,6 @@ export type Page = {
 }
 const defaultPages: Page[] = [
   {
-    url: '/journeys',
-    image: {
-      src: '/img/icons/all.png',
-      alt: `navigation icon for journeys, story that doesn't move with time`
-    },
-    title: 'Journeys'
-  },
-  {
     url: '/tags/ride',
     image: {
       src: '/img/icons/ride.png',
@@ -35,6 +27,14 @@ const defaultPages: Page[] = [
       alt: `navigation icon for dev post`
     },
     title: 'Dev'
+  },
+  {
+    url: '/journeys',
+    image: {
+      src: '/img/icons/all.png',
+      alt: `navigation icon for journeys, story that doesn't move with time`
+    },
+    title: 'Journeys'
   },
   {
     url: 'https://github.com/llun',
