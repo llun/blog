@@ -6,7 +6,7 @@ import path from 'path'
 import { parseJourney, getAllJourneys, Journey } from '../../journey'
 import { getConfig, Config } from '../../blog'
 import Meta from '../../components/Meta'
-import Header from '../../components/Header'
+import style from './[title].module.css'
 
 type Params = {
   title: string
@@ -55,7 +55,10 @@ const Journey = ({ config, journey }: Props) => {
             <a>← Journeys</a>
           </Link>
         </p>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div
+          className={style.content}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
         <p>
           <Link href="/journeys">
             <a>← Journeys</a>

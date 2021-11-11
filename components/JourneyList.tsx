@@ -16,7 +16,7 @@ const JourneyList = ({ journeys }: Props) => {
               <strong className={style.title}>{journey.title}</strong>
             </a>
           </Link>
-          <span>{journey.description}</span>
+          <span>, {journey.description}</span>
         </li>
       ))}
     </ol>

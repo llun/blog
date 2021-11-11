@@ -1,4 +1,7 @@
+.list {
+  font-size: 1.25rem;
+}
+
 .title {
   display: inline;
-  margin-right: 0.325rem;
 }

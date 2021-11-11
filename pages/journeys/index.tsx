@@ -5,6 +5,7 @@ import { Journey, getAllJourneys } from '../../journey'
 import Header from '../../components/Header'
 import Meta from '../../components/Meta'
 import JourneyList from '../../components/JourneyList'
+import style from './index.module.css'
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const config = getConfig()
@@ -29,8 +30,10 @@ const Index = ({ config, journeys }: Props) => {
       <Meta title={title} description={description} url={url} />
       <Header title={title} url={url} />
       <main>
-        <h1>Journeys</h1>
-        <p>A collection of long running topic that I keep updating</p>
+        <h1 className={style.title}>Journeys</h1>
+        <p className={style.description}>
+          A collection of long running topic that I keep updating
+        </p>
         <JourneyList journeys={journeys} />
       </main>
     </>
