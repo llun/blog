@@ -26,17 +26,7 @@ export async function getStaticProps(context: GetStaticPropsContext<Params>) {
   const { params } = context
   const { segment } = params
 
-  const pathToFile =
-    segment[segment.length - 1] === 'index'
-      ? segment.slice(0, segment.length - 1)
-      : segment
-
-  const contentPath = path.join(
-    process.cwd(),
-    'posts',
-    ...pathToFile,
-    'index.md'
-  )
+  const contentPath = path.join(process.cwd(), 'posts', ...segment, 'index.md')
   const post = parsePost(contentPath, true)
   return {
     props: {
