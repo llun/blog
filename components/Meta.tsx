@@ -20,6 +20,9 @@ const Meta = ({ title, description, url, imageUrl }: Props) => (
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
+    {!imageUrl && (
+      <meta property="og:image" content="https://llun.me/img/default.png" />
+    )}
     {imageUrl && <meta property="og:image" content={imageUrl} />}
     <meta name="description" content={description} />
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
