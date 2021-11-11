@@ -3,4 +3,5 @@
 .vercel
 _site
 node_modules
+public/feeds
 out

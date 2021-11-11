@@ -2,16 +2,24 @@ import type { GetStaticPropsContext } from 'next'
 
 import Link from 'next/link'
 
-import { Post, Config, getAllPosts, getConfig } from '../blog'
+import {
+  Post,
+  Config,
+  getAllPosts,
+  getConfig,
+  generateFeeds,
+  postDescendingComparison
+} from '../blog'
 import Header from '../components/Header'
 import Meta from '../components/Meta'
 import PostList from '../components/PostList'
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const posts = getAllPosts()
-    .sort((a, b) => b.timestamp - a.timestamp)
-    .slice(0, 20)
+  const posts = getAllPosts().sort(postDescendingComparison).slice(0, 20)
   const config = getConfig()
+
+  // TODO: Move this to place that run before page building code
+  generateFeeds(config, posts)
   return {
     props: {
       posts,

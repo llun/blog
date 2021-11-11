@@ -3,6 +3,7 @@ import fs from 'fs'
 import yaml from 'yaml'
 import { DateTime } from 'luxon'
 import memoize from 'lodash/memoize'
+import { Feed } from 'feed'
 
 import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
@@ -56,8 +57,7 @@ export function readAllLeafDirectories(root: string) {
 
 export const getMarkdown = memoize(() => {
   const md = markdownIt({
-    html: true,
-    breaks: true
+    html: true
   })
   md.use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.linkInsideHeader({ space: true })
@@ -136,10 +136,63 @@ export const getAllPosts = memoize((): Post[] => {
   return posts
 })
 
+export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
+  const feed = new Feed({
+    title: config.title,
+    description: config.description,
+    id: config.url,
+    language: 'th',
+    copyright: 'All rights reserved 2021, Maythee Anegboonlap',
+    generator: '@llun',
+    image: 'https://www.llun.me/img/apple-touch-icon.png',
+    favicon: 'https://www.llun.me/img/favicon-32x32.png',
+    author: {
+      name: 'Maythee Anegboonlap',
+      email: 'contact@llun.dev',
+      link: 'https://llun.me'
+    },
+    feedLinks: {
+      rss2: `${config.url}/feeds/feed.xml`,
+      json: `${config.url}/feeds/feed.json`,
+      atom: `${config.url}/feeds/atom.xml`
+    }
+  })
+  const md = getMarkdown()
+  const firstFewPosts = sortedPosts.slice(0, 5)
+  for (const post of firstFewPosts) {
+    const contentPath = path.join(
+      process.cwd(),
+      'posts',
+      post.file.id,
+      'index.md'
+    )
+    const postWithContent = parsePost(contentPath, true)
+    const { properties, file, timestamp, content } = postWithContent
+    feed.addItem({
+      title: properties.title,
+      id: `${config.url}/posts/${file.id}`,
+      link: `${config.url}/posts/${file.id}`,
+      description: properties.description,
+      date: DateTime.fromMillis(timestamp).toJSDate(),
+      image:
+        properties.image &&
+        `${config.url}/posts/${file.id}/${properties.image}`,
+      content: md.render(content)
+    })
+  }
+
+  const feedsPath = path.join(process.cwd(), 'public', 'feeds')
+  fs.mkdirSync(feedsPath, { recursive: true })
+  fs.writeFileSync(path.join(feedsPath, 'rss.xml'), feed.rss2())
+  fs.writeFileSync(path.join(feedsPath, 'atom.xml'), feed.atom1())
+  fs.writeFileSync(path.join(feedsPath, 'main'), feed.atom1())
+  fs.writeFileSync(path.join(feedsPath, 'feed.json'), feed.json1())
+})
+
 export const getConfig = memoize(
   (): Config => ({
     title: '@แนท',
-    description: 'My notebook',
+    description: 'Life, Ride and Code',
     url: 'https://www.llun.me'
   })
 )

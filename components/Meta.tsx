@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { config } from 'yargs'
 
 type Props = {
   title: string
@@ -36,6 +37,25 @@ const Meta = ({ title, description, url, imageUrl }: Props) => (
       href="/img/favicon-16x16.png"
     />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="me" href={url} />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="@llun"
+      href={`${url}/feeds/atom.xml`}
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="@llun"
+      href={`${url}/feeds/rss.xml`}
+    />
+    <link
+      rel="alternate"
+      type="application/json"
+      title="@llun"
+      href={`${url}/feeds/feed.json`}
+    />
   </Head>
 )
 export default Meta
