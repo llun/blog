@@ -51,11 +51,15 @@ const Journey = ({ config, journey }: Props) => {
       />
       <main>
         <p>
-          <Link href="/journeys">← Journeys</Link>
+          <Link href="/journeys">
+            <a>← Journeys</a>
+          </Link>
         </p>
         <div dangerouslySetInnerHTML={{ __html: content }} />
         <p>
-          <Link href="/journeys">← Journeys</Link>
+          <Link href="/journeys">
+            <a>← Journeys</a>
+          </Link>
         </p>
       </main>
     </>

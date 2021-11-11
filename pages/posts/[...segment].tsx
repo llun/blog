@@ -68,7 +68,9 @@ const Post = ({ config, post, segment }: Props) => {
       />
       <main>
         <p>
-          <Link href="/">← Home</Link>
+          <Link href="/">
+            <a>← Home</a>
+          </Link>
         </p>
 
         <div className={style.title}>
@@ -91,7 +93,9 @@ const Post = ({ config, post, segment }: Props) => {
         </p>
 
         <p>
-          <Link href="/">← Home</Link>
+          <Link href="/">
+            <a>← Home</a>
+          </Link>
         </p>
       </main>
     </>

@@ -11,7 +11,7 @@ const JourneyList = ({ journeys }: Props) => {
     <ol className={style.list}>
       {journeys.map((journey) => (
         <li key={journey.name}>
-          <Link href={`/journeys/${journey.name}/`}>
+          <Link href={`/journeys/${journey.name}/`} passHref>
             <a>
               <strong className={style.title}>{journey.title}</strong>
             </a>
