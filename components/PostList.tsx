@@ -18,7 +18,7 @@ const PostList = ({ posts }: Props) => (
               DateTime.DATE_MED
             )}
           </time>
-          <Link href={`/posts/${post.file.id}/`}>
+          <Link href={`/posts/${post.file.id}/`} passHref>
             <a className={style.link}>{post.properties.title}</a>
           </Link>
         </li>
