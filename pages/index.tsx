@@ -1,0 +1,51 @@
+import type { GetStaticPropsContext } from 'next'
+
+import Link from 'next/link'
+
+import {
+  Post,
+  Config,
+  getAllPosts,
+  getConfig,
+  generateFeeds,
+  postDescendingComparison
+} from '../blog'
+import Header from '../components/Header'
+import Meta from '../components/Meta'
+import PostList from '../components/PostList'
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const posts = getAllPosts().sort(postDescendingComparison).slice(0, 20)
+  const config = getConfig()
+
+  // TODO: Move this to place that run before page building code
+  generateFeeds(config, posts)
+  return {
+    props: {
+      posts,
+      config
+    }
+  }
+}
+
+interface Props {
+  posts: Post[]
+  config: Config
+}
+
+const Index = ({ posts, config }: Props) => {
+  const { title, description, url } = config
+  return (
+    <>
+      <Meta title={title} description={description} url={url} />
+      <Header title={title} url={url} />
+      <main>
+        <PostList posts={posts} />
+        <p>
+          More posts can be found in <Link href="/posts/">the archive</Link>
+        </p>
+      </main>
+    </>
+  )
+}
+export default Index

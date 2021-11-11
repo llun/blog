@@ -1,0 +1,9 @@
+.title {
+  display: block;
+}
+.title h1 {
+  display: inline;
+}
+.content {
+  font-size: 1.25rem;
+}
