@@ -57,7 +57,8 @@ export function readAllLeafDirectories(root: string) {
 
 export const getMarkdown = memoize(() => {
   const md = markdownIt({
-    html: true
+    html: true,
+    linkify: true
   })
   md.use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.linkInsideHeader({ space: true })
