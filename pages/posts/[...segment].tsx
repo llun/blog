@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   const posts = getAllPosts()
   const paths = posts.map((post) => ({
     params: {
-      segment: [...post.file.id.split('/'), 'index']
+      segment: post.file.id.split('/')
     }
   }))
   return { paths, fallback: false }

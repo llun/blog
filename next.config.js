@@ -1,6 +1,5 @@
-const { redirect } = require('next/dist/server/api-utils')
-
 module.exports = {
+  trailingSlash: true,
   images: {
     domains: ['webring.wonderful.software']
   },
