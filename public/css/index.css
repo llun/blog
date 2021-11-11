@@ -4,7 +4,8 @@
   --link: #00639b;
   --visited-link: #003b64;
   --highlight: #0087ca;
-  --code-background: #dcdcdc;
+  --pre-background: #1f2937;
+  --pre-color: #e5e7eb;
   --border: #e0e0e0;
 }
 * {
@@ -44,11 +45,13 @@ a[href]:visited {
 }
 pre,
 code {
-  font-family: Consolas, Menlo, Monaco, 'Andale Mono WT', 'Andale Mono',
-    'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
-    'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L',
-    'Courier New', Courier, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
   line-height: 1.5;
+}
+code {
+  font-weight: 600;
+  font-size: 0.875rem;
 }
 pre {
   font-size: 0.875rem;
@@ -65,9 +68,10 @@ pre {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  padding: 1em;
-  margin: 0.5em 0;
-  background-color: var(--code-background);
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background-color: var(--pre-background);
+  color: var(--pre-color);
 }
 img {
   max-width: 100%;
@@ -79,7 +83,7 @@ img {
 }
 figcaption {
   color: var(--gray);
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-align: center;
 }
 iframe {
