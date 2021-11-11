@@ -1,5 +1,5 @@
 :root {
-  --content: #001932;
+  --content: #111;
   --background: #fefefe;
   --link: #00639b;
   --visited-link: #003b64;
@@ -17,7 +17,8 @@ body {
   font-family: sans-serif;
   color: var(--content);
   background-color: var(--background);
-  line-height: 2rem;
+  line-height: 1.75rem;
+  font-weight: 200;
 }
 header,
 main {

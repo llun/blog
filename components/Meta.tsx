@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { config } from 'yargs'
 
 type Props = {
   title: string

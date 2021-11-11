@@ -1,9 +1,21 @@
 .title {
   display: block;
 }
-.title h1 {
+.title h1,
+.title h2 {
   display: inline;
+  font-weight: 400;
+  font-family: serif;
 }
 .content {
   font-size: 1.25rem;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-weight: 400;
 }
