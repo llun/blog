@@ -52,6 +52,7 @@ code {
 code {
   font-weight: 600;
   font-size: 0.875rem;
+  word-break: break-word;
 }
 pre {
   font-size: 0.875rem;
