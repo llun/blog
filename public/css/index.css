@@ -27,6 +27,9 @@ main {
   margin: auto;
   padding: 0 1rem;
 }
+a {
+  word-break: break-all;
+}
 header a[href] {
   color: var(--content);
   text-decoration: none;
@@ -52,7 +55,7 @@ code {
 code {
   font-weight: 600;
   font-size: 0.875rem;
-  word-break: break-word;
+  word-break: break-all;
 }
 pre {
   font-size: 0.875rem;
