@@ -10,6 +10,10 @@ import markdownItAnchor from 'markdown-it-anchor'
 import markdownItFigures from 'markdown-it-implicit-figures'
 import mila from 'markdown-it-link-attributes'
 
+import markdownItAbsolutePath, {
+  AbsolutePathConfig
+} from './markdownItAbsolutePath'
+
 interface PostProperties {
   title: string
   lang: string
@@ -55,7 +59,7 @@ export function readAllLeafDirectories(root: string) {
   return paths
 }
 
-export const getMarkdown = memoize(() => {
+export const getMarkdown = (config: AbsolutePathConfig) => {
   const md = markdownIt({
     html: true,
     linkify: true
@@ -73,27 +77,31 @@ export const getMarkdown = memoize(() => {
       rel: 'noopener'
     }
   })
+  md.use(markdownItAbsolutePath, config)
   return md
-})
+}
 
 export const parsePost = (
+  config: Config,
   file: string,
   includeContent: boolean = false
 ): Post => {
   try {
-    fs.statSync(file)
-    const md = getMarkdown()
-    const raw = fs.readFileSync(file).toString('utf-8')
-    const begin = raw.indexOf('---')
-    const end = raw.indexOf('---', begin + 3)
-    const properties: PostProperties = yaml.parse(raw.substring(begin, end))
-    const timestamp = DateTime.fromISO(properties.date).toMillis()
-
     const postPath = path
       .dirname(file)
       .substring(path.join(process.cwd(), 'posts').length)
       .split(path.sep)
       .slice(1)
+
+    fs.statSync(file)
+    const md = getMarkdown({
+      rootURL: `${config.url}/posts/${postPath.join('/')}`
+    })
+    const raw = fs.readFileSync(file).toString('utf-8')
+    const begin = raw.indexOf('---')
+    const end = raw.indexOf('---', begin + 3)
+    const properties: PostProperties = yaml.parse(raw.substring(begin, end))
+    const timestamp = DateTime.fromISO(properties.date).toMillis()
 
     if (!includeContent) {
       return {
@@ -130,9 +138,10 @@ export const postDescendingComparison = (post1: Post, post2: Post) => {
 }
 
 export const getAllPosts = memoize((): Post[] => {
+  const config = getConfig()
   const paths = readAllLeafDirectories(path.join(process.cwd(), 'posts'))
   const posts = paths.map((filePath) =>
-    parsePost(path.join(filePath, 'index.md'), false)
+    parsePost(config, path.join(filePath, 'index.md'), false)
   )
   return posts
 })
@@ -145,12 +154,12 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
     language: 'th',
     copyright: 'All rights reserved 2021, Maythee Anegboonlap',
     generator: '@llun',
-    image: 'https://www.llun.me/img/apple-touch-icon.png',
-    favicon: 'https://www.llun.me/img/favicon-32x32.png',
+    image: `${config.url}/img/apple-touch-icon.png`,
+    favicon: `${config.url}/img/favicon-32x32.png`,
     author: {
       name: 'Maythee Anegboonlap',
       email: 'contact@llun.dev',
-      link: 'https://llun.me'
+      link: config.url
     },
     feedLinks: {
       rss2: `${config.url}/feeds/feed.xml`,
@@ -158,7 +167,7 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       atom: `${config.url}/feeds/atom.xml`
     }
   })
-  const md = getMarkdown()
+
   const firstFewPosts = sortedPosts.slice(0, 5)
   for (const post of firstFewPosts) {
     const contentPath = path.join(
@@ -167,7 +176,7 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       post.file.id,
       'index.md'
     )
-    const postWithContent = parsePost(contentPath, true)
+    const postWithContent = parsePost(config, contentPath, true)
     const { properties, file, timestamp, content } = postWithContent
     feed.addItem({
       title: properties.title,
@@ -178,7 +187,7 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       image:
         properties.image &&
         `${config.url}/posts/${file.id}/${properties.image}`,
-      content: md.render(content)
+      content
     })
   }
 

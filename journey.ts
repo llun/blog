@@ -33,7 +33,7 @@ export const parseJourney = (
       return { ...properties, name }
     }
 
-    const md = getMarkdown()
+    const md = getMarkdown({})
     return {
       ...properties,
       name,

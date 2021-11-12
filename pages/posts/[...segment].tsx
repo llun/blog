@@ -27,7 +27,7 @@ export async function getStaticProps(context: GetStaticPropsContext<Params>) {
   const { segment } = params
 
   const contentPath = path.join(process.cwd(), 'posts', ...segment, 'index.md')
-  const post = parsePost(contentPath, true)
+  const post = parsePost(config, contentPath, true)
   return {
     props: {
       config,
