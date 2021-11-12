@@ -14,9 +14,9 @@ const PostList = ({ posts }: Props) => (
       posts.map((post) => (
         <li key={post.timestamp} className={style.item}>
           <time className={style.date} dateTime={post.properties.date}>
-            {DateTime.fromMillis(post.timestamp).toLocaleString(
-              DateTime.DATE_MED
-            )}
+            {DateTime.fromMillis(post.timestamp)
+              .setLocale('en-US')
+              .toLocaleString(DateTime.DATE_MED)}
           </time>
           <Link href={`/posts/${post.file.id}/`} locale={post.properties.lang}>
             <a className={style.link}>{post.properties.title}</a>
