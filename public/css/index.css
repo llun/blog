@@ -72,6 +72,7 @@ pre {
   margin: 0.5rem 0;
   background-color: var(--pre-background);
   color: var(--pre-color);
+  overflow-x: auto;
 }
 img {
   max-width: 100%;
