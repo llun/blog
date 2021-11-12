@@ -12,7 +12,7 @@ const PostList = ({ posts }: Props) => (
   <ul className={style.list}>
     {posts.length &&
       posts.map((post) => (
-        <li key={post.timestamp} className={style.item}>
+        <li key={post.file.id} className={style.item}>
           <time className={style.date} dateTime={post.properties.date}>
             {DateTime.fromMillis(post.timestamp)
               .setLocale('en-US')
