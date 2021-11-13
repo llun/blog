@@ -17,6 +17,14 @@ function getAllImageTokens(tokens: Token[]): Token[] {
   return images
 }
 
+function isRelativePath(src: string) {
+  return !(
+    src.startsWith('http:') ||
+    src.startsWith('https://') ||
+    src.startsWith('/')
+  )
+}
+
 const MarkdownItAbsolutePath: PluginWithOptions<AbsolutePathConfig> = (
   md,
   opt
@@ -29,7 +37,7 @@ const MarkdownItAbsolutePath: PluginWithOptions<AbsolutePathConfig> = (
     const imageTokens = getAllImageTokens(tokens)
     for (const imageToken of imageTokens) {
       const source = imageToken.attrGet('src')
-      if (source) {
+      if (source && isRelativePath(source)) {
         imageToken.attrSet('src', `${opt.rootURL}/${source}`)
       }
     }
