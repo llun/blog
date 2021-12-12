@@ -102,7 +102,7 @@ class Index {
 - method reference syntax ไว้ใช้กับ Lambda ได้เช่น `Index::count` ด้านบน
 - `var` แทนที่จะต้องประกาศประเภทตัวแปรทุกครั้ง
 - Switch case advance ขึ้น match string ได้แล้วแถม return value ได้ด้วย `switch (variable) { case A -> val; }`
-- Record class ทำให้เขียน class สั้นลงนิดนึง และ generate setter/getter ให้เลย ส่่วนตัวชอบมากกว่า constructor สองระดับใน Kotlin นิดนึง
+- Record class ทำให้เขียน class สั้นลงนิดนึง และ generate setter/getter ให้เลย ส่วนตัวชอบมากกว่า constructor สองระดับใน Kotlin นิดนึง
 - Interface ใส่ static method implementation ได้
 
 จาก features ด้านบน Java มีอะไรมาใหม่เยอะมาก แต่ให้กลับมาใช้เป็นภาษาหลักมั้ยก็คงไม่เพราะชินกับการเขียน
