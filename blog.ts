@@ -167,7 +167,6 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       atom: `${config.url}/feeds/atom.xml`
     }
   })
-
   const firstFewPosts = sortedPosts.slice(0, 5)
   for (const post of firstFewPosts) {
     const contentPath = path.join(
@@ -179,7 +178,7 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
     const postWithContent = parsePost(config, contentPath, true)
     const { properties, file, timestamp, content } = postWithContent
     feed.addItem({
-      title: properties.title,
+      title: `${properties.title}`,
       id: `${config.url}/posts/${file.id}`,
       link: `${config.url}/posts/${file.id}`,
       description: properties.description,
@@ -190,7 +189,6 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       content
     })
   }
-
   const feedsPath = path.join(process.cwd(), 'public', 'feeds')
   fs.mkdirSync(feedsPath, { recursive: true })
   fs.writeFileSync(path.join(feedsPath, 'rss.xml'), feed.rss2())
