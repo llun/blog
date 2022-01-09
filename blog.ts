@@ -150,9 +150,10 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
   const feed = new Feed({
     title: config.title,
     description: config.description,
+    link: config.url,
     id: config.url,
     language: 'th',
-    copyright: 'All rights reserved 2021, Maythee Anegboonlap',
+    copyright: 'All rights reserved 2022, Maythee Anegboonlap',
     generator: '@llun',
     image: `${config.url}/img/apple-touch-icon.png`,
     favicon: `${config.url}/img/favicon-32x32.png`,

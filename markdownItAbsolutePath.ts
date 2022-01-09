@@ -1,4 +1,4 @@
-import MarkdownIt, { PluginWithOptions } from 'markdown-it'
+import { PluginWithOptions } from 'markdown-it'
 import Token from 'markdown-it/lib/token'
 
 export interface AbsolutePathConfig {
