@@ -64,6 +64,7 @@ I got after and before.
 - <strong  id="31052021">31 May 2021</strong>, Two months after Lasik, nothing much different from first month. Dry-eye is getting better, less eye-drops but still need it in the morning and evening.
 - <strong id="26062021" >26 June 2021</strong>, Three months after Lasik, dry-eye is still annoying in the morning. Not so much different from second month.
 - <strong id="27072021">27 July 2021</strong>, Fourth checkup and found out my right eye is a bit over correct cause it a bit long sightedness (75). It can be correct with additional operation before one year, which I can decide in next check up next year. It's not too problematic for me because already used to it but will decide again when it's near the fifth checkup time.
+- <strong id="29012022">29 January 2022</strong>, Fifth checkup and the last routine appointment. Everything is perfect, the right eye is back to normal and don't have the next routine checkup anymore.
 
 ## Cost
 
@@ -112,6 +113,15 @@ Subtotal: _S$88.81_
 - GST, _S$9.66_
 
 Subtotal: _S$147.66_
+
+#### [Fifth check up](#29012022)
+
+- Lasik corneal topography, _S$33.00_
+- IOP 2, _S$18.00_
+- Consultation 2, _S$65.00_
+- GST, _S$8.12_
+
+Subtotal: _S$124.12_
 
 **Total Lasik cost + Consultation:** S$4090.40
 
