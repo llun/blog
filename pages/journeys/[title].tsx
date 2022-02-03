@@ -13,9 +13,11 @@ type Params = {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllJourneys().map((journey) => ({
-    params: { title: journey.name }
-  }))
+  const paths = getAllJourneys()
+    .filter((journey) => journey.name !== 'wordle')
+    .map((journey) => ({
+      params: { title: journey.name }
+    }))
   return { paths, fallback: false }
 }
 
