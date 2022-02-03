@@ -47,5 +47,12 @@ export const parseJourney = (
 export const getAllJourneys = memoize((): Journey[] => {
   const paths = readAllLeafDirectories(path.join(process.cwd(), 'journeys'))
   const journeys = paths.map((item) => parseJourney(item))
-  return journeys
+  return [
+    ...journeys,
+    {
+      name: 'wordle',
+      title: 'Wordle',
+      description: 'my wordle journey each day'
+    }
+  ]
 })
