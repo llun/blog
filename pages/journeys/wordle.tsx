@@ -61,7 +61,7 @@ const Journey = ({ config, results }: Props) => {
         </p>
         <div>
           <h1>Wordle</h1>
-          <p>A record of my wordle I play every day</p>
+          <p>A record of my wordle results</p>
 
           <ul>
             {results.map((item) => (
