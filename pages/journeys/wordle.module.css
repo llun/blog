@@ -1,0 +1,11 @@
+.guess {
+  display: none;
+}
+
+.guess:target {
+  display: block;
+}
+
+.guess .row {
+  line-height: 1.15rem;
+}

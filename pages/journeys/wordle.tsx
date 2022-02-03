@@ -3,26 +3,48 @@ import type { GetStaticPropsContext } from 'next'
 import Link from 'next/link'
 import path from 'path'
 
-import { parseJourney, getAllJourneys, Journey } from '../../journey'
+import { Journey } from '../../journey'
 import { getConfig, Config } from '../../blog'
 import Meta from '../../components/Meta'
+import style from './wordle.module.css'
 
-export async function getStaticProps(context: GetStaticPropsContext<{}>) {
+interface Result {
+  title: string
+  guesses: {
+    result: string
+    word: string
+  }[]
+}
+
+export async function getStaticProps() {
   const config = getConfig()
-  const { params } = context
+  const results: Result[] = [
+    {
+      title: 'Wordle 229 5/6',
+      guesses: [
+        { result: '⬜⬜⬜⬜⬜', word: 'union' },
+        { result: '🟨⬜⬜⬜⬜', word: 'apple' },
+        { result: '⬜🟨⬜⬜⬜', word: 'tally' },
+        { result: '🟩⬜🟩⬜⬜', word: 'smack' },
+        { result: '🟩🟩🟩🟩🟩', word: 'shard' }
+      ]
+    }
+  ]
 
   return {
     props: {
-      config
+      config,
+      results
     }
   }
 }
 
 interface Props {
   config: Config
+  results: Result[]
 }
 
-const Journey = ({ config }: Props) => {
+const Journey = ({ config, results }: Props) => {
   const { title, url } = config
   return (
     <>
@@ -37,7 +59,33 @@ const Journey = ({ config }: Props) => {
             <a>← Journeys</a>
           </Link>
         </p>
-        <div>Test</div>
+        <div>
+          <h1>Wordle</h1>
+          <p>A record of my wordle I play every day</p>
+
+          <ul>
+            {results.map((item) => (
+              <li key={item.title}>
+                <a href={`#guesses-${item.title}`}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+
+          {results.map((item) => (
+            <div
+              id={`guesses-${item.title}`}
+              className={style.guess}
+              key={`guesses-${item.title}`}
+            >
+              <h2>Result</h2>
+              {item.guesses.map((guess, index) => (
+                <div className={style.row} key={`guess-${item.title}-${index}`}>
+                  {guess.result}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
         <p>
           <Link href="/journeys">
             <a>← Journeys</a>
