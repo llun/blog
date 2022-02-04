@@ -57,6 +57,21 @@ interface Props {
 
 const Journey = ({ config, results }: Props) => {
   const { title, url } = config
+
+  const setResultToClipboard = async (result: Result) => {
+    const text = `
+${result.title}
+
+${result.guesses.map((guess) => guess.result).join('\n')}
+
+${window.location}
+`.trim()
+
+    const blob = new Blob([text], { type: 'text/plain' })
+    const data = [new ClipboardItem({ 'text/plain': blob })]
+    await navigator.clipboard.write(data)
+  }
+
   return (
     <>
       <Meta
@@ -77,14 +92,25 @@ const Journey = ({ config, results }: Props) => {
           <ul>
             {results.map((item) => (
               <li key={item.title}>
-                <a href={`#guesses-${item.title}`}>{item.title}</a>
+                <a
+                  href={`#${item.title
+                    .toLocaleLowerCase()
+                    .substring(7)
+                    .replace(/\s+/g, '-')}`}
+                  onClick={(e) => setResultToClipboard(item)}
+                >
+                  {item.title}
+                </a>
               </li>
             ))}
           </ul>
 
           {results.map((item) => (
             <div
-              id={`guesses-${item.title}`}
+              id={`${item.title
+                .toLocaleLowerCase()
+                .substring(7)
+                .replace(/\s+/g, '-')}`}
               className={style.guess}
               key={`guesses-${item.title}`}
             >
