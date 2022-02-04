@@ -85,7 +85,7 @@ ${window.location}
             <a>← Journeys</a>
           </Link>
         </p>
-        <div>
+        <div className={style.content}>
           <h1>Wordle</h1>
           <p>A record of my wordle results</p>
 
