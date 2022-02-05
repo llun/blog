@@ -48,6 +48,14 @@ export async function getStaticProps() {
         { result: '🟩⬜🟩⬜🟩', word: 'about' },
         { result: '🟩🟩🟩🟩🟩', word: 'aloft' }
       ]
+    },
+    {
+      title: 'Wordle 232 3/6',
+      guesses: [
+        { result: '⬜⬜🟩🟨⬜', word: 'raise' },
+        { result: '🟩⬜🟩🟩🟩', word: 'spill' },
+        { result: '🟩🟩🟩🟩🟩', word: 'skill' }
+      ]
     }
   ]
 
