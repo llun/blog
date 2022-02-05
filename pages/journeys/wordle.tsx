@@ -99,7 +99,10 @@ ${window.location}
         </p>
         <div className={style.content}>
           <h1>Wordle</h1>
-          <p>A record of my wordle results</p>
+          <p>
+            A record of my [wordle](https://www.powerlanguage.co.uk/wordle/)
+            results
+          </p>
 
           <ul>
             {results.map((item) => (
