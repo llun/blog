@@ -81,6 +81,9 @@ ${window.location}
     await navigator.clipboard.write(data)
   }
 
+  const idficationTitle = (title: string) =>
+    title.toLocaleLowerCase().substring(7).replace(/\s+/g, '-')
+
   return (
     <>
       <Meta
@@ -102,10 +105,7 @@ ${window.location}
             {results.map((item) => (
               <li key={item.title}>
                 <a
-                  href={`#${item.title
-                    .toLocaleLowerCase()
-                    .substring(7)
-                    .replace(/\s+/g, '-')}`}
+                  href={`#${idficationTitle(item.title)}`}
                   onClick={(e) => setResultToClipboard(item)}
                 >
                   {item.title}
@@ -116,16 +116,13 @@ ${window.location}
 
           {results.map((item) => (
             <div
-              id={`${item.title
-                .toLocaleLowerCase()
-                .substring(7)
-                .replace(/\s+/g, '-')}`}
+              id={`${idficationTitle(item.title)}`}
               className={style.guess}
-              key={`guesses-${item.title}`}
+              key={`guesses-${idficationTitle(item.title)}`}
             >
-              <h2>Result</h2>
+              <h2>{item.title}</h2>
               {item.guesses.map((guess, index) => (
-                <div className={style.row} key={`guess-${item.title}-${index}`}>
+                <div className={style.row} key={`guess-${index}`}>
                   {guess.result}
                 </div>
               ))}
