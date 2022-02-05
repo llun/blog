@@ -100,7 +100,10 @@ ${window.location}
         <div className={style.content}>
           <h1>Wordle</h1>
           <p>
-            A record of my [wordle](https://www.powerlanguage.co.uk/wordle/)
+            A record of my{' '}
+            <Link href="https://www.powerlanguage.co.uk/wordle/">
+              <a target="_blank">Wordle</a>
+            </Link>{' '}
             results
           </p>
 
