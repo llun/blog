@@ -39,6 +39,15 @@ export async function getStaticProps() {
         { result: '🟩🟩🟩🟩⬜', word: 'plead' },
         { result: '🟩🟩🟩🟩🟩', word: 'pleat' }
       ]
+    },
+    {
+      title: 'Wordle 231 4/6',
+      guesses: [
+        { result: '⬜🟨🟨🟨⬜', word: 'roate' },
+        { result: '⬜🟨🟨⬜🟩', word: 'toast' },
+        { result: '🟩⬜🟩⬜🟩', word: 'about' },
+        { result: '🟩🟩🟩🟩🟩', word: 'aloft' }
+      ]
     }
   ]
 
