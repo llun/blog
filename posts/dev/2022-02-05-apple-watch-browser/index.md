@@ -3,6 +3,7 @@ title: Apple Watch Browser
 lang: th
 description: Testing browser in Apple Watch
 date: 2022-02-05
+image: wwdc2018.jpeg
 tags:
   - Apple Watch
   - Browser
