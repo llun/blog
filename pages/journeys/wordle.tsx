@@ -16,7 +16,6 @@ interface Result {
   }[]
 }
 
-/* Test */
 export async function getStaticProps() {
   const config = getConfig()
   const results: Result[] = [
