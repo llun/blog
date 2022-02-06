@@ -49,3 +49,15 @@
 .guessAbsent {
   background-color: #787c7e;
 }
+
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.reviewIcon {
+  cursor: pointer;
+}

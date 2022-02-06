@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import fs from 'fs/promises'
 import path from 'path'
+import { useState } from 'react'
 
 import { Journey } from '../../journey'
 import { getConfig, Config } from '../../blog'
@@ -65,6 +66,7 @@ interface Props {
 
 const Journey = ({ config, results }: Props) => {
   const { title, url } = config
+  const [showWords, setShowWords] = useState<boolean>(false)
 
   const setResultToClipboard = async (result: Result) => {
     const text = `
@@ -122,7 +124,16 @@ ${window.location}
               className={style.guess}
               key={`guesses-${idficationTitle(item.title)}`}
             >
-              <h2>{item.title}</h2>
+              <h2>
+                {item.title}{' '}
+                <span
+                  className={style.reviewIcon}
+                  onClick={() => setShowWords(!showWords)}
+                >
+                  {showWords ? '🙊' : '🙈'}
+                </span>
+              </h2>
+
               {item.guesses.map((guess, index) => (
                 <div key={`tile-${index}`} className={style.tile}>
                   {[...guess.result].map((char, index) => (
@@ -130,7 +141,11 @@ ${window.location}
                       key={`char-${index}`}
                       className={`${style.guessBlock} ${tileClassname(char)}`}
                     >
-                      {guess.word[index]}
+                      <span
+                        className={showWords ? style.visible : style.invisible}
+                      >
+                        {guess.word[index]}
+                      </span>
                     </span>
                   ))}
                 </div>
