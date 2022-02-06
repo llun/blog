@@ -36,6 +36,17 @@ const englishResults = async () => {
 const idficationTitle = (title: string) =>
   title.toLocaleLowerCase().substring(7).replace(/\s+/g, '-')
 
+const tileClassname = (char: string) => {
+  switch (char) {
+    case '🟨':
+      return style.guessPresent
+    case '🟩':
+      return style.guessCorrect
+    default:
+      return style.guessAbsent
+  }
+}
+
 export async function getStaticProps() {
   const config = getConfig()
   const results: Result[] = await englishResults()
@@ -113,8 +124,15 @@ ${window.location}
             >
               <h2>{item.title}</h2>
               {item.guesses.map((guess, index) => (
-                <div className={style.row} key={`guess-${index}`}>
-                  {guess.result}
+                <div key={`tile-${index}`} className={style.tile}>
+                  {[...guess.result].map((char, index) => (
+                    <span
+                      key={`char-${index}`}
+                      className={`${style.guessBlock} ${tileClassname(char)}`}
+                    >
+                      {guess.word[index]}
+                    </span>
+                  ))}
                 </div>
               ))}
             </div>

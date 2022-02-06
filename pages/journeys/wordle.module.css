@@ -14,3 +14,38 @@
   font-size: 1.25rem;
   text-align: justify;
 }
+
+.tile {
+  margin-bottom: 0.5rem;
+}
+
+.tile:last-child {
+  margin-bottom: 0;
+}
+
+.guessBlock {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.guessBlock:last-child {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.guessPresent {
+  background-color: #c9b458;
+}
+
+.guessCorrect {
+  background-color: #6aaa64;
+}
+
+.guessAbsent {
+  background-color: #787c7e;
+}
