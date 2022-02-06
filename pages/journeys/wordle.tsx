@@ -15,7 +15,7 @@ interface Result {
   }[]
 }
 
-async function englishResults(): Promise<Result[]> {
+const englishResults = async () => {
   const resultPath = path.join(
     process.cwd(),
     'pages',
@@ -30,8 +30,11 @@ async function englishResults(): Promise<Result[]> {
         fs.readFile(path.join(resultPath, fileName), { encoding: 'utf-8' })
       )
     )
-  ).map((data) => JSON.parse(data))
+  ).map((data) => JSON.parse(data) as Result)
 }
+
+const idficationTitle = (title: string) =>
+  title.toLocaleLowerCase().substring(7).replace(/\s+/g, '-')
 
 export async function getStaticProps() {
   const config = getConfig()
@@ -65,9 +68,6 @@ ${window.location}
     const data = [new ClipboardItem({ 'text/plain': blob })]
     await navigator.clipboard.write(data)
   }
-
-  const idficationTitle = (title: string) =>
-    title.toLocaleLowerCase().substring(7).replace(/\s+/g, '-')
 
   return (
     <>
