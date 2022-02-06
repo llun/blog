@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 230 6/6",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟨", "word": "shade" },
+    { "result": "🟨🟨⬜🟨🟨", "word": "apple" },
+    { "result": "🟩🟨🟨⬜🟨", "word": "pearl" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "pleas" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "plead" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "pleat" }
+  ]
+}

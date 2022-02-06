@@ -1,6 +1,5 @@
-import type { GetStaticPropsContext } from 'next'
-
 import Link from 'next/link'
+import fs from 'fs/promises'
 import path from 'path'
 
 import { Journey } from '../../journey'
@@ -16,49 +15,27 @@ interface Result {
   }[]
 }
 
+async function englishResults(): Promise<Result[]> {
+  const resultPath = path.join(
+    process.cwd(),
+    'pages',
+    'journeys',
+    'wordle',
+    'en'
+  )
+  const files = await fs.readdir(resultPath)
+  return (
+    await Promise.all(
+      files.map(async (fileName) =>
+        fs.readFile(path.join(resultPath, fileName), { encoding: 'utf-8' })
+      )
+    )
+  ).map((data) => JSON.parse(data))
+}
+
 export async function getStaticProps() {
   const config = getConfig()
-  const results: Result[] = [
-    {
-      title: 'Wordle 229 5/6',
-      guesses: [
-        { result: '⬜⬜⬜⬜⬜', word: 'union' },
-        { result: '🟨⬜⬜⬜⬜', word: 'apple' },
-        { result: '⬜🟨⬜⬜⬜', word: 'tally' },
-        { result: '🟩⬜🟩⬜⬜', word: 'smack' },
-        { result: '🟩🟩🟩🟩🟩', word: 'shard' }
-      ]
-    },
-    {
-      title: 'Wordle 230 6/6',
-      guesses: [
-        { result: '⬜⬜🟨⬜🟨', word: 'shade' },
-        { result: '🟨🟨⬜🟨🟨', word: 'apple' },
-        { result: '🟩🟨🟨⬜🟨', word: 'pearl' },
-        { result: '🟩🟩🟩🟩⬜', word: 'pleas' },
-        { result: '🟩🟩🟩🟩⬜', word: 'plead' },
-        { result: '🟩🟩🟩🟩🟩', word: 'pleat' }
-      ]
-    },
-    {
-      title: 'Wordle 231 4/6',
-      guesses: [
-        { result: '⬜🟨🟨🟨⬜', word: 'roate' },
-        { result: '⬜🟨🟨⬜🟩', word: 'toast' },
-        { result: '🟩⬜🟩⬜🟩', word: 'about' },
-        { result: '🟩🟩🟩🟩🟩', word: 'aloft' }
-      ]
-    },
-    {
-      title: 'Wordle 232 3/6',
-      guesses: [
-        { result: '⬜⬜🟩🟨⬜', word: 'raise' },
-        { result: '🟩⬜🟩🟩🟩', word: 'spill' },
-        { result: '🟩🟩🟩🟩🟩', word: 'skill' }
-      ]
-    }
-  ]
-
+  const results: Result[] = await englishResults()
   return {
     props: {
       config,
