@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 233 3/6",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟩", "word": "lunar" },
+    { "result": "🟩⬜⬜🟩🟩", "word": "ether" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "elder" }
+  ],
+  "word": "elder"
+}
