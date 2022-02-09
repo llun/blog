@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 235 5/6",
+  "word": "humor",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "roast" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "frown" },
+    { "result": "⬜🟨⬜⬜⬜", "word": "bride" },
+    { "result": "🟨⬜⬜🟨🟩", "word": "occur" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "humor" }
+  ]
+}

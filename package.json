@@ -11,7 +11,7 @@
   "author": "Maythee Anegboonlap <null@llun.dev>",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.2",
     "@types/archiver": "^5.3.1",
     "@types/aws-lambda": "^8.10.92",
     "@types/lodash": "^4.14.178",
@@ -22,7 +22,7 @@
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.8",
     "archiver": "^5.3.0",
-    "aws-sdk": "^2.1070.0",
+    "aws-sdk": "^2.1071.0",
     "eslint": "^8",
     "eslint-config-next": "12.0.10",
     "feed": "^4.2.2",
