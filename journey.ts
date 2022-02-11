@@ -15,6 +15,7 @@ export interface Journey {
   title: string
   description: string
   content?: string
+  custom?: boolean
 }
 
 export const parseJourney = (
@@ -52,12 +53,14 @@ export const getAllJourneys = memoize((): Journey[] => {
       name: 'airtag-sg-th',
       title: 'AirTag 🇸🇬 👉 🇹🇭',
       description:
-        'tracking my stuffs send through relocation service from Singapore to Thailand'
+        'tracking my stuffs send through relocation service from Singapore to Thailand',
+      custom: true
     },
     {
       name: 'wordle',
       title: 'Wordle',
-      description: 'my wordle journey each day'
+      description: 'my wordle journey each day',
+      custom: true
     }
   ].sort((a, b) => a.name.localeCompare(b.name))
   return journeys

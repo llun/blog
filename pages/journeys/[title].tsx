@@ -14,7 +14,7 @@ type Params = {
 
 export async function getStaticPaths() {
   const paths = getAllJourneys()
-    .filter((journey) => journey.name !== 'wordle')
+    .filter((journey) => !journey.custom)
     .map((journey) => ({
       params: { title: journey.name }
     }))
