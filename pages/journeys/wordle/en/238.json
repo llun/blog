@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 238 4/6",
+  "word": "ultra",
+  "guesses": [
+    { "result": "🟨🟨🟨⬜⬜", "word": "train" },
+    { "result": "⬜🟨🟨🟨⬜", "word": "salty" },
+    { "result": "🟨🟩⬜🟩🟨", "word": "alert" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ultra" }
+  ]
+}
