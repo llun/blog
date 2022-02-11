@@ -46,13 +46,19 @@ export const parseJourney = (
 
 export const getAllJourneys = memoize((): Journey[] => {
   const paths = readAllLeafDirectories(path.join(process.cwd(), 'journeys'))
-  const journeys = paths.map((item) => parseJourney(item))
-  return [
-    ...journeys,
+  const journeys = [
+    ...paths.map((item) => parseJourney(item)),
+    {
+      name: 'airtag-sg-th',
+      title: 'AirTag 🇸🇬 👉 🇹🇭',
+      description:
+        'tracking my stuffs send through relocation service from Singapore to Thailand'
+    },
     {
       name: 'wordle',
       title: 'Wordle',
       description: 'my wordle journey each day'
     }
-  ]
+  ].sort((a, b) => a.name.localeCompare(b.name))
+  return journeys
 })
