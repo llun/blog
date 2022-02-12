@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 239 3/6",
+  "word": "robin",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "raise" },
+    { "result": "🟩⬜🟨🟨🟨", "word": "rhino" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "robin" }
+  ]
+}
