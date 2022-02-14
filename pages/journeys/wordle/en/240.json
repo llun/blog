@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 240 4/6",
+  "word": "cynic",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "roast" },
+    { "result": "⬜🟨🟩🟨⬜", "word": "mince" },
+    { "result": "⬜🟨🟩🟨⬜", "word": "pinch" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cynic" }
+  ]
+}
