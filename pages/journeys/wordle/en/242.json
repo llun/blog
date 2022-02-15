@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 242 4/6",
+  "word": "caulk",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "crane" },
+    { "result": "🟩⬜⬜🟩⬜", "word": "coble" },
+    { "result": "🟩🟩⬜🟩⬜", "word": "cable" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "caulk" }
+  ]
+}
