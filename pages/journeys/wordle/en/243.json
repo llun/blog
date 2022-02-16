@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 243 4/6",
+  "word": "shake",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟩", "word": "crane" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "place" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "shave" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shake" }
+  ]
+}
