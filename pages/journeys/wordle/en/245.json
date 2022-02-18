@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 245 6/6",
+  "word": "swill",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "roast" },
+    { "result": "🟩🟨🟩⬜⬜", "word": "slice" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "skill" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "spill" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "shill" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "swill" }
+  ]
+}
