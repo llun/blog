@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 244 5/6",
+  "word": "dodge",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟩", "word": "crane" },
+    { "result": "⬜🟨⬜⬜⬜", "word": "lever" },
+    { "result": "🟩⬜⬜⬜🟩", "word": "drive" },
+    { "result": "🟩🟩⬜🟨⬜", "word": "dover" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "dodge" }
+  ]
+}
