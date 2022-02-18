@@ -40,6 +40,10 @@ const Journey = ({ config }: Props) => {
       new mapboxgl.Marker()
         .setLngLat([103.88710677294954, 1.312666851436666])
         .addTo(map)
+      // Warehouse 12 - 17 February 2022
+      new mapboxgl.Marker()
+        .setLngLat([103.69348852496523, 1.3245446927261175])
+        .addTo(map)
       map.addSource('route', {
         type: 'geojson',
         data: {
@@ -52,7 +56,8 @@ const Journey = ({ config }: Props) => {
               [103.83381280084181, 1.3257171435842245],
               [103.7959002560278, 1.311891911778024],
               [103.71032368715997, 1.3407441888059786],
-              [103.69348852496523, 1.3245446927261175]
+              [103.69348852496523, 1.3245446927261175],
+              [103.82772984971787, 1.2696481908815793]
             ]
           }
         }
@@ -91,29 +96,40 @@ const Journey = ({ config }: Props) => {
           <div id="map" className={style.map} />
 
           <h2>Timeline</h2>
+          <h3>11 February 2022</h3>
           <ul>
             <li>
-              <strong>11 Feb 2022, 09.45 SGT</strong> Packing everything to the
-              box
+              <strong>09.45 SGT</strong> Packing everything to the box
             </li>
             <li>
-              <strong>11 Feb 2022, 13.55 SGT</strong> Start moving from my place
+              <strong>13.55 SGT</strong> Start moving from my place
             </li>
             <li>
-              <strong>11 Feb 2022, 14.28 SGT</strong> On PIE near Lornie road
+              <strong>14.28 SGT</strong> On PIE near Lornie road
               (103.83381280084181, 1.3257171435842245)
             </li>
             <li>
-              <strong>11 Feb 2022, 14.59 SGT</strong> Holland Village
-              (103.7959002560278, 1.311891911778024)
+              <strong>14.59 SGT</strong> Holland Village (103.7959002560278,
+              1.311891911778024)
             </li>
             <li>
-              <strong>11 Feb 2022, 15.27 SGT</strong> On Boonlay way
-              (103.71032368715997, 1.3407441888059786)
+              <strong>15.27 SGT</strong> On Boonlay way (103.71032368715997,
+              1.3407441888059786)
             </li>
             <li>
-              <strong>11 Feb 2022, 16.11 SGT</strong> K C Dat Logistics pte
+              <strong>16.11 SGT</strong> K C Dat Logistics pte
               (103.71032368715997, 1.3407441888059786)
+            </li>
+          </ul>
+          <h3>12 - 17 February 2022</h3>
+          <ul>
+            <li>Stay at K C Dat Logistics pte</li>
+          </ul>
+          <h3>18 February 2022</h3>
+          <ul>
+            <li>
+              <strong>15.05 ICT</strong> West Coast Highway near harbourfront
+              (1.2696481908815793, 103.82772984971787)
             </li>
           </ul>
         </div>
