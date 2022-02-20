@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 246 5/6",
+  "word": "tacit",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟩", "word": "roast" },
+    { "result": "⬜⬜⬜🟨🟩", "word": "pleat" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "habit" },
+    { "result": "🟩🟩🟨⬜🟩", "word": "taint" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tacit" }
+  ]
+}
