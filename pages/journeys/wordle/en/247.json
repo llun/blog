@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 247 4/6",
+  "word": "other",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "crane" },
+    { "result": "🟨⬜⬜🟩⬜", "word": "risen" },
+    { "result": "⬜🟨⬜🟩⬜", "word": "women" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "other" }
+  ]
+}
