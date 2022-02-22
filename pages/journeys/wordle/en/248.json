@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 248 4/6",
+  "word": "thorn",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "raise" },
+    { "result": "⬜🟨🟩🟨⬜", "word": "crone" },
+    { "result": "⬜⬜🟩🟨🟨", "word": "booth" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "thorn" }
+  ]
+}
