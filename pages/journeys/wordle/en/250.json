@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 250 4/6",
+  "word": "bloke",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟩", "word": "raise" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "plane" },
+    { "result": "⬜🟩🟩🟨🟩", "word": "globe" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "bloke" }
+  ]
+}
