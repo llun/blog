@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 251 4/6",
+  "word": "vivid",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "crane" },
+    { "result": "⬜⬜⬜⬜⬜", "word": "ghost" },
+    { "result": "🟨⬜⬜⬜⬜", "word": "imply" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "vivid" }
+  ]
+}
