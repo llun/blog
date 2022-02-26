@@ -131,6 +131,17 @@ const Journey = ({ config }: Props) => {
               <strong>15.05 ICT</strong> West Coast Highway near harbourfront
               (1.2696481908815793, 103.82772984971787)
             </li>
+            <li>
+              <strong>10.29 ICT</strong> Load to the ship
+            </li>
+          </ul>
+          <h3>19 - 22 February 2022</h3>
+          <ul>
+            <li>In transit somewhere in the sea</li>
+          </ul>
+          <h3>23 February 2022</h3>
+          <ul>
+            <li>Arrive at port in Thailand</li>
           </ul>
         </div>
         <p>
