@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 252 5/6",
+  "word": "spill",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "raise" },
+    { "result": "🟩🟨🟩⬜⬜", "word": "sling" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "shill" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "still" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "spill" }
+  ]
+}
