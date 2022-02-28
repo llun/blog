@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 254 4/6",
+  "word": "choke",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "roast" },
+    { "result": "⬜⬜⬜🟨🟨", "word": "pluck" },
+    { "result": "🟩🟩🟩⬜🟨", "word": "chock" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "choke" }
+  ]
+}
