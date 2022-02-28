@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import mapboxgl from 'mapbox-gl'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { Journey } from '../../journey'
 import { getConfig, Config } from '../../blog'
@@ -24,16 +24,29 @@ interface Props {
 
 const Journey = ({ config }: Props) => {
   const { title, url } = config
+  const mapEl = useRef(null)
 
   mapboxgl.accessToken =
     'pk.eyJ1IjoibGx1biIsImEiOiJja2FqN2k2djIwNDU5MnlvNjR4YXRrMzFsIn0.Oir7SYHkVKBlgbPHldtRGQ'
 
   useEffect(() => {
+    const zoomLevel = (height: number) => {
+      console.log(height)
+      switch (height) {
+        case 250:
+          return 3.2
+        case 400:
+          return 4
+        default:
+          return 4.8
+      }
+    }
+
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [102.2949, 7.7051],
-      zoom: 4.8
+      zoom: zoomLevel(mapEl.current.offsetHeight)
     })
     map.on('load', () => {
       // Start point
@@ -102,7 +115,7 @@ const Journey = ({ config }: Props) => {
         </p>
         <div>
           <h1>AirTag 🇸🇬 👉 🇹🇭</h1>
-          <div id="map" className={style.map} />
+          <div ref={mapEl} id="map" className={style.map} />
 
           <h2>Timeline</h2>
           <h3>11 February 2022</h3>
