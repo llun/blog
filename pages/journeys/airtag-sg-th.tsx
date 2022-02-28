@@ -32,8 +32,8 @@ const Journey = ({ config }: Props) => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [103.8198, 1.3521],
-      zoom: 10
+      center: [102.2949, 7.7051],
+      zoom: 4.8
     })
     map.on('load', () => {
       // Start point
@@ -43,6 +43,14 @@ const Journey = ({ config }: Props) => {
       // Warehouse 12 - 17 February 2022
       new mapboxgl.Marker()
         .setLngLat([103.69348852496523, 1.3245446927261175])
+        .addTo(map)
+      // Ship loading 18 February 2022
+      new mapboxgl.Marker()
+        .setLngLat([103.82772984971787, 1.2696481908815793])
+        .addTo(map)
+      // Thailand custom control 28 February 2022
+      new mapboxgl.Marker()
+        .setLngLat([100.7621295498533, 13.740690427182491])
         .addTo(map)
       map.addSource('route', {
         type: 'geojson',
@@ -57,7 +65,8 @@ const Journey = ({ config }: Props) => {
               [103.7959002560278, 1.311891911778024],
               [103.71032368715997, 1.3407441888059786],
               [103.69348852496523, 1.3245446927261175],
-              [103.82772984971787, 1.2696481908815793]
+              [103.82772984971787, 1.2696481908815793],
+              [100.7621295498533, 13.740690427182491]
             ]
           }
         }
@@ -139,9 +148,16 @@ const Journey = ({ config }: Props) => {
           <ul>
             <li>In transit somewhere in the sea</li>
           </ul>
-          <h3>23 February 2022</h3>
+          <h3>23 - 28 February 2022</h3>
           <ul>
-            <li>Arrive at port in Thailand</li>
+            <li>In transit somewhere in Thailand, loading to custom</li>
+          </ul>
+          <h3>28 February 2022</h3>
+          <ul>
+            <li>
+              <strong>11.09 ICT</strong> In Thailand Custom at Ladkrabang Cargo
+              Control Customs Office (13.740690427182491, 100.7621295498533)
+            </li>
           </ul>
         </div>
         <p>
