@@ -2,6 +2,7 @@ import Link from 'next/link'
 import fs from 'fs/promises'
 import path from 'path'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import { Journey } from '../../journey'
 import { getConfig, Config } from '../../blog'
@@ -10,6 +11,7 @@ import style from './wordle.module.css'
 
 interface Result {
   title: string
+  word: string
   guesses: {
     result: string
     word: string
@@ -51,6 +53,7 @@ const tileClassname = (char: string) => {
 export async function getStaticProps() {
   const config = getConfig()
   const results: Result[] = await englishResults()
+  results.reverse()
   return {
     props: {
       config,
@@ -66,7 +69,9 @@ interface Props {
 
 const Journey = ({ config, results }: Props) => {
   const { title, url } = config
+  const router = useRouter()
   const [showWords, setShowWords] = useState<boolean>(false)
+  const [currentWord, setCurrentWord] = useState<Result>(null)
 
   const setResultToClipboard = async (result: Result) => {
     const text = `
@@ -89,7 +94,7 @@ ${window.location}
         description="Just my wordle journey each day"
         url={`${url}/journeys/wordle`}
       />
-      <main>
+      <main className={style.wordle}>
         <p>
           <Link href="/journeys">
             <a>← Journeys</a>
@@ -105,27 +110,35 @@ ${window.location}
             results
           </p>
 
-          <ul>
-            {results.map((item) => (
-              <li key={item.title}>
-                <a
-                  href={`#${idficationTitle(item.title)}`}
-                  onClick={(e) => setResultToClipboard(item)}
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <select
+            onChange={(e) => {
+              const value = e.currentTarget.value
+              if (value === '-') {
+                setCurrentWord(null)
+                return
+              }
 
-          {results.map((item) => (
+              const item = results[value]
+              setResultToClipboard(item)
+              setCurrentWord(item)
+            }}
+          >
+            <option>-</option>
+            {results.map((item, index) => (
+              <option key={idficationTitle(item.title)} value={index}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+
+          {currentWord && (
             <div
-              id={`${idficationTitle(item.title)}`}
+              id={`${idficationTitle(currentWord.title)}`}
               className={style.guess}
-              key={`guesses-${idficationTitle(item.title)}`}
+              key={`guesses-${idficationTitle(currentWord.title)}`}
             >
               <h2>
-                {item.title}{' '}
+                {currentWord.title}{' '}
                 <span
                   className={style.reviewIcon}
                   onClick={() => setShowWords(!showWords)}
@@ -134,7 +147,7 @@ ${window.location}
                 </span>
               </h2>
 
-              {item.guesses.map((guess, index) => (
+              {currentWord.guesses.map((guess, index) => (
                 <div key={`tile-${index}`} className={style.tile}>
                   {[...guess.result].map((char, index) => (
                     <span
@@ -151,7 +164,7 @@ ${window.location}
                 </div>
               ))}
             </div>
-          ))}
+          )}
         </div>
         <p>
           <Link href="/journeys">
