@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 256 6/6",
+  "word": "nasty",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜🟩", "word": "gravy" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "fatty" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "party" },
+    { "result": "🟨🟩⬜🟩🟩", "word": "salty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "nasty" }
+  ]
+}
