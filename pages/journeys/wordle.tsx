@@ -2,7 +2,6 @@ import Link from 'next/link'
 import fs from 'fs/promises'
 import path from 'path'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 
 import { Journey } from '../../journey'
 import { getConfig, Config } from '../../blog'
@@ -69,7 +68,6 @@ interface Props {
 
 const Journey = ({ config, results }: Props) => {
   const { title, url } = config
-  const router = useRouter()
   const [showWords, setShowWords] = useState<boolean>(false)
   const [currentWord, setCurrentWord] = useState<Result>(null)
 
