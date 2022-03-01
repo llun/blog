@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 255 4/6",
+  "word": "rupee",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟩", "word": "crane" },
+    { "result": "🟨🟨⬜⬜🟩", "word": "price" },
+    { "result": "⬜🟨🟨🟩🟩", "word": "spree" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "rupee" }
+  ]
+}
