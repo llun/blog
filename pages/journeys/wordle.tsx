@@ -104,7 +104,7 @@ ${window.location}
           <h1>Wordle</h1>
           <p>
             A record of my{' '}
-            <Link href="https://www.powerlanguage.co.uk/wordle/">
+            <Link href="https://www.nytimes.com/games/wordle/index.html">
               <a target="_blank">Wordle</a>
             </Link>{' '}
             results
