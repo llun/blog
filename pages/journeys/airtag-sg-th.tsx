@@ -65,6 +65,10 @@ const Journey = ({ config }: Props) => {
       new mapboxgl.Marker()
         .setLngLat([100.7621295498533, 13.740690427182491])
         .addTo(map)
+      // Thailand warehouse
+      new mapboxgl.Marker()
+        .setLngLat([100.69514337047515, 13.55030367015619])
+        .addTo(map)
       map.addSource('route', {
         type: 'geojson',
         data: {
@@ -81,7 +85,8 @@ const Journey = ({ config }: Props) => {
               [103.82772984971787, 1.2696481908815793],
               [100.7621295498533, 13.740690427182491],
               [100.76725355699101, 13.741084534618823],
-              [100.6992644706041, 13.597544044582564]
+              [100.6992644706041, 13.597544044582564],
+              [100.69514337047515, 13.55030367015619]
             ]
           }
         }
@@ -130,19 +135,21 @@ const Journey = ({ config }: Props) => {
             </li>
             <li>
               <strong>14.28 SGT</strong> On PIE near Lornie road
-              (103.83381280084181, 1.3257171435842245)
+              (1.3257171435842245, 103.83381280084181)
             </li>
             <li>
               <strong>14.59 SGT</strong> Holland Village (103.7959002560278,
               1.311891911778024)
             </li>
             <li>
-              <strong>15.27 SGT</strong> On Boonlay way (103.71032368715997,
-              1.3407441888059786)
+              <strong>15.27 SGT</strong> On Boonlay way (1.3407441888059786,
+              103.71032368715997)
             </li>
             <li>
               <strong>16.11 SGT</strong> K C Dat Logistics pte
-              (103.71032368715997, 1.3407441888059786)
+              <Link href="https://g.page/kcdatlogistics?share">
+                <a target="_blank">(1.3245446927261175, 103.69348852496523)</a>
+              </Link>
             </li>
           </ul>
           <h3>12 - 17 February 2022</h3>
@@ -153,7 +160,9 @@ const Journey = ({ config }: Props) => {
           <ul>
             <li>
               <strong>15.05 ICT</strong> West Coast Highway near harbourfront
-              (1.2696481908815793, 103.82772984971787)
+              <Link href="https://goo.gl/maps/uS8J1vyZrYrDgoDj9">
+                <a target="_blank">(1.2696481908815793, 103.82772984971787)</a>
+              </Link>
             </li>
             <li>
               <strong>10.29 ICT</strong> Load to the ship
@@ -171,7 +180,10 @@ const Journey = ({ config }: Props) => {
           <ul>
             <li>
               <strong>11.09 ICT</strong> In Thailand Custom at Ladkrabang Cargo
-              Control Customs Office (13.740690427182491, 100.7621295498533)
+              Control Customs Office{' '}
+              <Link href="https://goo.gl/maps/kQRkiK2ZodaxNXYy5">
+                <a target="_blank">(13.740690427182491, 100.7621295498533)</a>
+              </Link>
             </li>
           </ul>
           <h3>2 March 2022</h3>
@@ -183,6 +195,13 @@ const Journey = ({ config }: Props) => {
             <li>
               <strong>09.36 ICT</strong> On the way to warehouse?
               (13.597544044582564, 100.6992644706041)
+            </li>
+            <li>
+              <strong>16.25 ICT</strong> Warehouse atAsian Tigers Mobility
+              Training Center{' '}
+              <Link href="https://goo.gl/maps/54obUGcLQjfieyhx7">
+                <a target="_blank">(13.55030367015619, 100.69514337047515)</a>
+              </Link>
             </li>
           </ul>
         </div>
