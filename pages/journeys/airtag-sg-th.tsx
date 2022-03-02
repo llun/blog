@@ -79,7 +79,9 @@ const Journey = ({ config }: Props) => {
               [103.71032368715997, 1.3407441888059786],
               [103.69348852496523, 1.3245446927261175],
               [103.82772984971787, 1.2696481908815793],
-              [100.7621295498533, 13.740690427182491]
+              [100.7621295498533, 13.740690427182491],
+              [100.76725355699101, 13.741084534618823],
+              [100.6992644706041, 13.597544044582564]
             ]
           }
         }
@@ -165,11 +167,22 @@ const Journey = ({ config }: Props) => {
           <ul>
             <li>In transit somewhere in Thailand, loading to custom</li>
           </ul>
-          <h3>28 February 2022</h3>
+          <h3>28 February 2022 - 1 March 2022</h3>
           <ul>
             <li>
               <strong>11.09 ICT</strong> In Thailand Custom at Ladkrabang Cargo
               Control Customs Office (13.740690427182491, 100.7621295498533)
+            </li>
+          </ul>
+          <h3>2 March 2022</h3>
+          <ul>
+            <li>
+              <strong>09.13 ICT</strong> Moving out from custom
+              (13.741084534618823, 100.76725355699101)
+            </li>
+            <li>
+              <strong>09.36 ICT</strong> On the way to warehouse?
+              (13.597544044582564, 100.6992644706041)
             </li>
           </ul>
         </div>
