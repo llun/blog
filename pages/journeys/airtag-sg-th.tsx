@@ -146,7 +146,7 @@ const Journey = ({ config }: Props) => {
               103.71032368715997)
             </li>
             <li>
-              <strong>16.11 SGT</strong> K C Dat Logistics pte
+              <strong>16.11 SGT</strong> K C Dat Logistics pte{' '}
               <Link href="https://g.page/kcdatlogistics?share">
                 <a target="_blank">(1.3245446927261175, 103.69348852496523)</a>
               </Link>
