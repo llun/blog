@@ -228,7 +228,7 @@ const Journey = ({ config }: Props) => {
               100.52682739887531)
             </li>
             <li>
-              <strong>10.40 ICT</strong> On the way (13.885645124594866,
+              <strong>10.50 ICT</strong> On the way (13.885645124594866,
               100.51966269589431)
             </li>
           </ul>
