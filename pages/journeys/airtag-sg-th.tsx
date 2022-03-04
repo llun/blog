@@ -70,6 +70,10 @@ const Journey = ({ config }: Props) => {
       new mapboxgl.Marker()
         .setLngLat([100.69514337047515, 13.55030367015619])
         .addTo(map)
+      // Arrived
+      new mapboxgl.Marker()
+        .setLngLat([100.45907251285254, 13.880069579016235])
+        .addTo(map)
       map.addSource('route', {
         type: 'geojson',
         data: {
@@ -92,7 +96,11 @@ const Journey = ({ config }: Props) => {
               [100.534749849924, 13.8918938337937],
               [100.52682739887531, 13.8919896424992],
               [100.51966269589431, 13.885645124594866],
-              [100.51192060403304, 13.886924461208979]
+              [100.51192060403304, 13.886924461208979],
+              [100.5229428306387, 13.88745630067037],
+              [100.51279570589112, 13.906616783921542],
+              [100.4520266057727, 13.884865023664105],
+              [100.45907251285254, 13.880069579016235]
             ]
           }
         }
@@ -235,6 +243,22 @@ const Journey = ({ config }: Props) => {
             <li>
               <strong>10.52 ICT</strong> At the Samakkhi road intersection
               (13.886924461208979, 100.51192060403304)
+            </li>
+            <li>
+              <strong>11.09 ICT</strong> Somehow going back to Samakkhi road
+              (13.88745630067037, 100.5229428306387)
+            </li>
+            <li>
+              <strong>11.36 ICT</strong> Chaeng Watthana road
+              (13.906616783921542, 100.51279570589112)
+            </li>
+            <li>
+              <strong>11.47 ICT</strong> Ratchaphruek road (13.884865023664105,
+              100.4520266057727)
+            </li>
+            <li>
+              <strong>11.59 ICT</strong> Arrived (13.880069579016235,
+              100.45907251285254)
             </li>
           </ul>
         </div>
