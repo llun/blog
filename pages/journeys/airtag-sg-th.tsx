@@ -47,7 +47,7 @@ const Journey = ({ config }: Props) => {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [102.2949, 7.7051],
       zoom: zoomLevel(mapEl.current.offsetHeight),
-      maxZoom: 5
+      minZoom: 5
     })
     map.on('load', () => {
       // Start point
