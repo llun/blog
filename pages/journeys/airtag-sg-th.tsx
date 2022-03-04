@@ -46,7 +46,8 @@ const Journey = ({ config }: Props) => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [102.2949, 7.7051],
-      zoom: zoomLevel(mapEl.current.offsetHeight)
+      zoom: zoomLevel(mapEl.current.offsetHeight),
+      maxZoom: 5
     })
     map.on('load', () => {
       // Start point
@@ -86,7 +87,8 @@ const Journey = ({ config }: Props) => {
               [100.7621295498533, 13.740690427182491],
               [100.76725355699101, 13.741084534618823],
               [100.6992644706041, 13.597544044582564],
-              [100.69514337047515, 13.55030367015619]
+              [100.69514337047515, 13.55030367015619],
+              [100.52258561534529, 13.886406621322134]
             ]
           }
         }
@@ -202,6 +204,17 @@ const Journey = ({ config }: Props) => {
               <Link href="https://goo.gl/maps/54obUGcLQjfieyhx7">
                 <a target="_blank">(13.55030367015619, 100.69514337047515)</a>
               </Link>
+            </li>
+          </ul>
+          <h3>3 March 2022</h3>
+          <ul>
+            <li>Stay at the warehouse</li>
+          </ul>
+          <h3>4 March 2022</h3>
+          <ul>
+            <li>
+              <strong>07.00 ICT</strong> Leaving warehouse and move to
+              Nonthaburi? (13.886406621322134, 100.52258561534529)
             </li>
           </ul>
         </div>
