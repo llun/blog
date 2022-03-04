@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 259 6/6",
+  "word": "brine",
+  "guesses": [
+    { "result": "🟨⬜🟩⬜🟩", "word": "raise" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "prize" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "write" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "bride" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "bribe" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "brine" }
+  ]
+}
