@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 258 5/6",
+  "word": "ahead",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟨", "word": "crane" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "tease" },
+    { "result": "🟨⬜⬜🟩⬜", "word": "equal" },
+    { "result": "⬜🟨⬜🟩⬜", "word": "kebab" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ahead" }
+  ]
+}
