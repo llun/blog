@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 260 4/6",
+  "word": "cloth",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "raise" },
+    { "result": "⬜⬜⬜⬜⬜", "word": "funny" },
+    { "result": "⬜🟩🟩🟨⬜", "word": "block" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cloth" }
+  ]
+}
