@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 261 4/6",
+  "word": "hoard",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "🟨🟩⬜⬜⬜", "word": "dolly" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "board" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hoard" }
+  ]
+}
