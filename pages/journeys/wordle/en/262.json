@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 262 4/6",
+  "word": "sweet",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "crane" },
+    { "result": "🟩⬜⬜⬜🟨", "word": "slice" },
+    { "result": "🟩⬜🟩🟩⬜", "word": "sheep" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sweet" }
+  ]
+}
