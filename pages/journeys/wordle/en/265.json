@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 265 X/6",
+  "word": "watch",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜⬜", "word": "raise" },
+    { "result": "⬜🟩⬜⬜🟨", "word": "faint" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "latch" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "batch" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "match" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "patch" }
+  ]
+}
