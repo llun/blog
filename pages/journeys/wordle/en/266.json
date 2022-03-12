@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 266 4/6",
+  "word": "today",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "raise" },
+    { "result": "⬜⬜🟨🟩🟨", "word": "bloat" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "sonar" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "today" }
+  ]
+}
