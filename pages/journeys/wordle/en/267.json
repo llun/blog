@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 267 4/6",
+  "word": "focus",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "plumb" },
+    { "result": "🟨⬜🟨⬜⬜", "word": "chunk" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "focus" }
+  ]
+}
