@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 268 4/6",
+  "word": "smelt",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨🟨", "word": "raise" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "sweet" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "spent" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "smelt" }
+  ]
+}
