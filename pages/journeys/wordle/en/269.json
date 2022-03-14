@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 269 4/6",
+  "word": "tease",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟩", "word": "crane" },
+    { "result": "⬜⬜🟩🟨🟩", "word": "plate" },
+    { "result": "🟨🟨🟩⬜🟩", "word": "stake" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tease" }
+  ]
+}
