@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 270 4/6",
+  "word": "cater",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟨", "word": "plane" },
+    { "result": "⬜🟨🟨🟨⬜", "word": "beach" },
+    { "result": "🟩🟨🟨🟨⬜", "word": "cream" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cater" }
+  ]
+}
