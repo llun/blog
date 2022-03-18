@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 273 4/6",
+  "word": "allow",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "raise" },
+    { "result": "⬜⬜🟨🟨⬜", "word": "chalk" },
+    { "result": "🟩🟨⬜⬜🟨", "word": "awful" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "allow" }
+  ]
+}
