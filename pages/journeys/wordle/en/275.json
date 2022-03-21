@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 275 3/6",
+  "word": "their",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "plane" },
+    { "result": "⬜⬜🟨🟨🟨", "word": "quiet" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "their" }
+  ]
+}
