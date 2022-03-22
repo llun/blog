@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 276 2/6",
+  "word": "slosh",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "raise" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "slosh" }
+  ]
+}
