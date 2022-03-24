@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 278 5/6",
+  "word": "chest",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "brain" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "jetty" },
+    { "result": "⬜⬜⬜🟨🟨", "word": "quote" },
+    { "result": "🟨⬜🟩⬜🟩", "word": "smelt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "chest" }
+  ]
+}
