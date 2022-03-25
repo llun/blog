@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 279 4/6",
+  "word": "depot",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "raise" },
+    { "result": "🟨⬜⬜🟩⬜", "word": "enjoy" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "below" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "depot" }
+  ]
+}
