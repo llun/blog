@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 280 3/6",
+  "word": "epoxy",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "raise" },
+    { "result": "🟩⬜⬜🟨🟩", "word": "enjoy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "epoxy" }
+  ]
+}
