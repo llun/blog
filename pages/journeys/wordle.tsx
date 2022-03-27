@@ -3,7 +3,6 @@ import fs from 'fs/promises'
 import path from 'path'
 import { useState } from 'react'
 
-import { Journey } from '../../journey'
 import { getConfig, Config } from '../../blog'
 import Meta from '../../components/Meta'
 import style from './wordle.module.css'
@@ -66,7 +65,7 @@ interface Props {
   results: Result[]
 }
 
-const Journey = ({ config, results }: Props) => {
+const WordlePage = ({ config, results }: Props) => {
   const { title, url } = config
   const [showWords, setShowWords] = useState<boolean>(false)
   const [currentWord, setCurrentWord] = useState<Result>(null)
@@ -173,4 +172,4 @@ ${window.location}
     </>
   )
 }
-export default Journey
+export default WordlePage
