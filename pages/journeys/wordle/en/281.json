@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 281 3/6",
+  "word": "nymph",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜⬜⬜🟨", "word": "rocky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "nymph" }
+  ]
+}
