@@ -22,7 +22,7 @@ interface Props {
   config: Config
 }
 
-const Journey = ({ config }: Props) => {
+const AirTagPage = ({ config }: Props) => {
   const { title, url } = config
   const mapEl = useRef(null)
 
@@ -271,4 +271,4 @@ const Journey = ({ config }: Props) => {
     </>
   )
 }
-export default Journey
+export default AirTagPage
