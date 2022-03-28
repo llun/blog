@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 282 4/6",
+  "word": "found",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "raise" },
+    { "result": "⬜🟨⬜⬜🟨", "word": "jumbo" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "cough" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "found" }
+  ]
+}
