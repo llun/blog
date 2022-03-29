@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 283 4/6",
+  "word": "shall",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨⬜", "word": "raise" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "shady" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "shalt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shall" }
+  ]
+}
