@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 284 4/6",
+  "word": "stove",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨🟩", "word": "raise" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "smoke" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "stone" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "stove" }
+  ]
+}
