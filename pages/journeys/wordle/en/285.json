@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 285 6/6",
+  "word": "lowly",
+  "guesses": [
+    { "result": "🟩⬜⬜⬜⬜", "word": "learn" },
+    { "result": "🟩⬜⬜⬜🟩", "word": "lucky" },
+    { "result": "🟩🟩⬜⬜🟩", "word": "lofty" },
+    { "result": "🟩🟩⬜⬜🟩", "word": "lobby" },
+    { "result": "🟩🟩⬜⬜🟩", "word": "loopy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "lowly" }
+  ]
+}
