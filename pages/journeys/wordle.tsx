@@ -127,6 +127,18 @@ ${window.location}
               </option>
             ))}
           </select>
+          <span
+            className={style.copy}
+            title="Copy"
+            onClick={(e) => {
+              const item = currentWord
+              if (!item) return
+
+              setResultToClipboard(item)
+            }}
+          >
+            📋
+          </span>
 
           {currentWord && (
             <div

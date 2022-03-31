@@ -62,3 +62,9 @@
 .reviewIcon {
   cursor: pointer;
 }
+
+.copy {
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
