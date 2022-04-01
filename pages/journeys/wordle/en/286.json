@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 286 5/6",
+  "word": "snout",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "raise" },
+    { "result": "🟩⬜🟩⬜⬜", "word": "shock" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "snowy" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "snoop" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "snout" }
+  ]
+}
