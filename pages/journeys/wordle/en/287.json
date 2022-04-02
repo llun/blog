@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 287 5/6",
+  "word": "trope",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟩", "word": "raise" },
+    { "result": "⬜🟨🟨⬜🟩", "word": "forge" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "drove" },
+    { "result": "🟨🟩🟩⬜🟩", "word": "probe" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "trope" }
+  ]
+}
