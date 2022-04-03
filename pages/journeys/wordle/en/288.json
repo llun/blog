@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 288 5/6",
+  "word": "fever",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "crane" },
+    { "result": "⬜⬜⬜🟩🟩", "word": "joker" },
+    { "result": "⬜⬜⬜🟩🟩", "word": "diver" },
+    { "result": "⬜⬜⬜🟩🟩", "word": "usher" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "fever" }
+  ]
+}
