@@ -684,10 +684,10 @@ async@^3.2.0:
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.3.tgz#ac53dafd3f4720ee9e8a160628f18ea91df196c9"
   integrity sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==
 
-aws-sdk@^2.1106.0:
-  version "2.1106.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1106.0.tgz#5c536f57b484af56ca2e0b15fcf2e7d5846ffbd8"
-  integrity sha512-3dr0TTR2LI70ST8fa4IgXHpWdH4yv7FLnt9YEndwFQ8ar2EMCMpMU67wwCGBA72GUi0aOg4+lsLjGmCvIq3jug==
+aws-sdk@^2.1107.0:
+  version "2.1107.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1107.0.tgz#90155fd8c78de59ba79a50e392a442286dbcf5a0"
+  integrity sha512-gZaCm+zSSwjUYSa/cVg63uXhq5w9coT9yA8aTDOYzFkyl19b9H2CCixPeyf7KHtZdGwe3QAG2Oe6Rw0xtoCs+Q==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -790,9 +790,9 @@ callsites@^3.0.0:
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
 caniuse-lite@^1.0.30001283, caniuse-lite@^1.0.30001317:
-  version "1.0.30001324"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001324.tgz#e17c3a8b34822b02d5d15639d570057550074884"
-  integrity sha512-/eYp1J6zYh1alySQB4uzYFkLmxxI8tk0kxldbNHXp8+v+rdMKdUBNjRLz7T7fz6Iox+1lIdYpc7rq6ZcXfTukg==
+  version "1.0.30001325"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001325.tgz#2b4ad19b77aa36f61f2eaf72e636d7481d55e606"
+  integrity sha512-sB1bZHjseSjDtijV1Hb7PB2Zd58Kyx+n/9EotvZ4Qcz2K3d0lWB8dB4nb8wN/TsOGFq3UuAm0zQZNQ4SoR7TrQ==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -877,12 +877,9 @@ core-util-is@~1.0.0:
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
 crc-32@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/crc-32/-/crc-32-1.2.1.tgz#436d2bcaad27bcb6bd073a2587139d3024a16460"
-  integrity sha512-Dn/xm/1vFFgs3nfrpEVScHoIslO9NZRITWGz/1E/St6u4xw99vfZzVkW0OSnzx2h9egej9xwMCEut6sqwokM/w==
-  dependencies:
-    exit-on-epipe "~1.0.1"
-    printj "~1.3.1"
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/crc-32/-/crc-32-1.2.2.tgz#3cad35a934b8bf71f25ca524b6da51fb7eace2ff"
+  integrity sha512-ROmzCKrTnOwybPcJApAA6WBWij23HVfGVNKqqrZpuyZOHqK2CwHSvpGuyt/UNNvaIjEd8X5IFGp4Mh+Ie1IHJQ==
 
 crc32-stream@^4.0.2:
   version "4.0.2"
@@ -1268,11 +1265,6 @@ events@1.1.1:
   resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
   integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
 
-exit-on-epipe@~1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/exit-on-epipe/-/exit-on-epipe-1.0.1.tgz#0bdd92e87d5285d267daa8171d0eb06159689692"
-  integrity sha512-h2z5mrROTxce56S+pnvAV890uu7ls7f1kEvVGJbw1OlFH3/mlJ5bkXu0KRyW94v37zzHPiUd55iLn3DA7TjWpw==
-
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
@@ -1472,9 +1464,9 @@ globby@^11.0.4:
     slash "^3.0.0"
 
 graceful-fs@^4.2.0:
-  version "4.2.9"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
-  integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
+  version "4.2.10"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
+  integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
 
 grid-index@^1.1.0:
   version "1.1.0"
@@ -1861,10 +1853,10 @@ mapbox-gl@^2.7.1:
     tinyqueue "^2.0.3"
     vt-pbf "^3.1.3"
 
-markdown-it-anchor@^8.4.1:
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-8.4.1.tgz#29e560593f5edb80b25fdab8b23f93ef8a91b31e"
-  integrity sha512-sLODeRetZ/61KkKLJElaU3NuU2z7MhXf12Ml1WJMSdwpngeofneCRF+JBbat8HiSqhniOMuTemXMrsI7hA6XyA==
+markdown-it-anchor@^8.5.0:
+  version "8.5.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-8.5.0.tgz#ca74e7f62806ca4e46cbbf309cbab015c9837731"
+  integrity sha512-ii8jRFS4Sxny0nevOOQZqZKswcZyXnD00AlPKctM0PkNRVsT1/2fQMQPXAdWmRz9kYrMupElsEwCikR7Fd2JFQ==
 
 markdown-it-implicit-figures@^0.10.0:
   version "0.10.0"
@@ -2146,11 +2138,6 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
-
-printj@~1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/printj/-/printj-1.3.1.tgz#9af6b1d55647a1587ac44f4c1654a4b95b8e12cb"
-  integrity sha512-GA3TdL8szPK4AQ2YnOe/b+Y1jUFwmmGMMK/qbY7VcE3Z7FU8JstbKiKRzO6CIiAKPhTO8m01NoQ0V5f3jc4OGg==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"

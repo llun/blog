@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 290 5/6",
+  "word": "natal",
+  "guesses": [
+    { "result": "⬜🟨🟨🟨⬜", "word": "plane" },
+    { "result": "🟨⬜🟨🟩⬜", "word": "lunar" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "naval" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "nasal" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "natal" }
+  ]
+}
