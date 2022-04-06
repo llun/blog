@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 291 4/6",
+  "word": "comma",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "raise" },
+    { "result": "⬜🟩⬜🟨⬜", "word": "topaz" },
+    { "result": "🟨🟩🟨⬜🟩", "word": "mocha" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "comma" }
+  ]
+}
