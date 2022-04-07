@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 292 5/6",
+  "word": "foray",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "borax" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "coral" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "moral" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "foray" }
+  ]
+}
