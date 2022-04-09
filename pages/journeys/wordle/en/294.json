@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 294 2/6",
+  "word": "stair",
+  "guesses": [
+    { "result": "🟨🟨🟨🟨⬜", "word": "raise" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "stair" }
+  ]
+}
