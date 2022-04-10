@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 295 5/6",
+  "word": "black",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "raise" },
+    { "result": "⬜⬜⬜🟨⬜", "word": "topaz" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "quack" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "whack" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "black" }
+  ]
+}
