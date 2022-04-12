@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 297 3/6",
+  "word": "royal",
+  "guesses": [
+    { "result": "⬜🟨🟨⬜⬜", "word": "crane" },
+    { "result": "⬜🟨⬜🟨🟨", "word": "major" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "royal" }
+  ]
+}
