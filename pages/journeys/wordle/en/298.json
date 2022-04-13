@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 298 3/6",
+  "word": "chunk",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "raise" },
+    { "result": "⬜🟨⬜🟨🟩", "word": "knock" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "chunk" }
+  ]
+}
