@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 300 6/6",
+  "word": "shame",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨🟩", "word": "raise" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "space" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "shade" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "shave" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "shale" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shame" }
+  ]
+}
