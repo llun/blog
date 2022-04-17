@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 302 5/6",
+  "word": "ample",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟩", "word": "raise" },
+    { "result": "🟩⬜⬜⬜🟩", "word": "above" },
+    { "result": "🟩🟨⬜⬜🟩", "word": "algae" },
+    { "result": "🟩⬜⬜🟩🟩", "word": "ankle" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ample" }
+  ]
+}
