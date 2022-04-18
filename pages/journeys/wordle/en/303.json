@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 303 4/6",
+  "word": "flair",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟩⬜", "word": "chain" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "stair" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "flair" }
+  ]
+}
