@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 304 4/6",
+  "word": "foyer",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "plane" },
+    { "result": "🟩⬜⬜🟩🟩", "word": "fixer" },
+    { "result": "🟩⬜⬜🟩🟩", "word": "fever" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "forey" }
+  ]
+}
