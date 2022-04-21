@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 306 4/6",
+  "word": "oxide",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟩", "word": "raise" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "twice" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "guile" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "oxide" }
+  ]
+}
