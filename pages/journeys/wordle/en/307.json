@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 307 4/6",
+  "word": "plant",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "bread" },
+    { "result": "🟨⬜🟨🟨⬜", "word": "topaz" },
+    { "result": "🟩🟨⬜🟨⬜", "word": "pasty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "plant" }
+  ]
+}
