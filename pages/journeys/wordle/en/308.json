@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 308 4/6",
+  "word": "olive",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "bread" },
+    { "result": "🟨⬜⬜🟨⬜", "word": "enjoy" },
+    { "result": "⬜⬜🟨⬜🟩", "word": "choke" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "olive" }
+  ]
+}
