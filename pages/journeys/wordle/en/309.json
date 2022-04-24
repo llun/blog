@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 309 4/6",
+  "word": "inert",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨🟨", "word": "plane" },
+    { "result": "🟨🟩⬜⬜⬜", "word": "enjoy" },
+    { "result": "⬜🟩⬜🟨🟨", "word": "under" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "inert" }
+  ]
+}
