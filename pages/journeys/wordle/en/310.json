@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 310 3/6",
+  "word": "askew",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "bread" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "heavy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "askew" }
+  ]
+}
