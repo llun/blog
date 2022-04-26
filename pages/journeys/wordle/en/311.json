@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 311 3/6",
+  "word": "heist",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "plane" },
+    { "result": "⬜⬜🟩🟨🟩", "word": "quiet" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "heist" }
+  ]
+}
