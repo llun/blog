@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 312 4/6",
+  "word": "shown",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "raise" },
+    { "result": "🟩⬜🟩⬜⬜", "word": "smock" },
+    { "result": "🟩⬜🟩⬜⬜", "word": "spout" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shown" }
+  ]
+}
