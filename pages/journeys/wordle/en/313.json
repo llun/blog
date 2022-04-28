@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 313 6/6",
+  "word": "zesty",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨🟨", "word": "raise" },
+    { "result": "🟨⬜🟨⬜⬜", "word": "shelf" },
+    { "result": "⬜⬜🟩🟨🟩", "word": "nosey" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "pesky" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "testy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "zesty" }
+  ]
+}
