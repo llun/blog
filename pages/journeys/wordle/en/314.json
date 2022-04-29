@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 314 4/6",
+  "word": "trash",
+  "guesses": [
+    { "result": "⬜🟩⬜🟨⬜", "word": "broad" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "frank" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "crash" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "trash" }
+  ]
+}
