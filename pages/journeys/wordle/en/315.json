@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 315 4/6",
+  "word": "larva",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨⬜", "word": "bread" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "march" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "party" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "larva" }
+  ]
+}
