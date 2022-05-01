@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 316 4/6",
+  "word": "forgo",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "plane" },
+    { "result": "⬜⬜⬜⬜⬜", "word": "quick" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "forty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "forgo" }
+  ]
+}
