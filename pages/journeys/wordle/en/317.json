@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 317 3/6",
+  "word": "story",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "raise" },
+    { "result": "🟩🟨🟨⬜⬜", "word": "syrup" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "story" }
+  ]
+}
