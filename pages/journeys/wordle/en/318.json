@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 318 4/6",
+  "word": "hairy",
+  "guesses": [
+    { "result": "🟨🟩🟩⬜⬜", "word": "raise" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "fairy" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "dairy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hairy" }
+  ]
+}
