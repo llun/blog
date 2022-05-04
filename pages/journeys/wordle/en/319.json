@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 319 2/6",
+  "word": "train",
+  "guesses": [
+    { "result": "🟨🟨🟨⬜⬜", "word": "raise" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "train" }
+  ]
+}
