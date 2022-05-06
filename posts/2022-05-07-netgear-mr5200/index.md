@@ -2,6 +2,7 @@
 title: Netgear MR5200
 lang: en
 description: Short Netgear MR5200 review
+image: mr5200.jpg
 date: 2022-05-07
 tags:
   - 5g
