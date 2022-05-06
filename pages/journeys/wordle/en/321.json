@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 321 5/6",
+  "word": "badge",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜🟩", "word": "raise" },
+    { "result": "⬜🟩🟨⬜🟩", "word": "vague" },
+    { "result": "🟨🟩⬜⬜🟩", "word": "gaffe" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "mange" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "badge" }
+  ]
+}
