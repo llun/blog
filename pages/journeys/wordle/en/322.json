@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 322 3/6",
+  "word": "midst",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "bread" },
+    { "result": "🟨⬜⬜⬜⬜", "word": "downy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "midst" }
+  ]
+}
