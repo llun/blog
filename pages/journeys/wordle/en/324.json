@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 324 4/6",
+  "word": "shine",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "broad" },
+    { "result": "🟨⬜⬜🟨⬜", "word": "equip" },
+    { "result": "🟨🟨⬜🟨🟩", "word": "niche" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shine" }
+  ]
+}

@@ -13,7 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@types/archiver": "^5.3.1",
-    "@types/aws-lambda": "^8.10.95",
+    "@types/aws-lambda": "^8.10.96",
     "@types/lodash": "^4.14.182",
     "@types/luxon": "^2.3.2",
     "@types/mapbox-gl": "^2.7.1",
@@ -28,7 +28,7 @@
     "eslint-config-next": "12.1.6",
     "feed": "^4.2.2",
     "lodash": "^4.17.21",
-    "luxon": "^2.3.2",
+    "luxon": "^2.4.0",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.3",
     "markdown-it-implicit-figures": "^0.10.0",
