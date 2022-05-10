@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 325 3/6",
+  "word": "gecko",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "cheat" },
+    { "result": "⬜🟩🟩🟨⬜", "word": "decoy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "gecko" }
+  ]
+}
