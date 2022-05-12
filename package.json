@@ -23,14 +23,14 @@
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.10",
     "archiver": "^5.3.1",
-    "aws-sdk": "^2.1132.0",
+    "aws-sdk": "^2.1133.0",
     "eslint": "^8",
     "eslint-config-next": "12.1.6",
     "feed": "^4.2.2",
     "lodash": "^4.17.21",
     "luxon": "^2.4.0",
     "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.3",
+    "markdown-it-anchor": "^8.6.4",
     "markdown-it-implicit-figures": "^0.10.0",
     "markdown-it-link-attributes": "^4.0.0",
     "next": "^12.1.6",
@@ -39,7 +39,7 @@
     "stream-buffers": "^3.0.2",
     "typescript": "^4.6.4",
     "yaml": "^2.0.1",
-    "yargs": "^17.4.1"
+    "yargs": "^17.5.0"
   },
   "dependencies": {
     "mapbox-gl": "^2.8.2"
