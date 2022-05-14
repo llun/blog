@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 329 4/6",
+  "word": "metal",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "raise" },
+    { "result": "🟨⬜⬜🟩🟩", "word": "equal" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "pedal" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "metal" }
+  ]
+}
