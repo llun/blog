@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 330 5/6",
+  "word": "yield",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟨", "word": "raise" },
+    { "result": "🟨⬜⬜🟨⬜", "word": "equip" },
+    { "result": "🟨⬜🟨🟨⬜", "word": "index" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "field" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "yield" }
+  ]
+}
