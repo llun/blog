@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 331 4/6",
+  "word": "delve",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟩", "word": "vague" },
+    { "result": "⬜⬜🟨⬜🟩", "word": "movie" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "nerve" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "delve" }
+  ]
+}
