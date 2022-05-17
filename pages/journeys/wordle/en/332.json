@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 332 3/6",
+  "word": "being",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "bread" },
+    { "result": "🟩🟩🟨🟨🟨", "word": "begin" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "being" }
+  ]
+}
