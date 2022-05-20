@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 335 3/6",
+  "word": "gamer",
+  "guesses": [
+    { "result": "🟨🟩🟨⬜⬜", "word": "eagle" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "gazer" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "gamer" }
+  ]
+}
