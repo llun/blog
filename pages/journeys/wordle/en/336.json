@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 336 2/6",
+  "word": "scrap",
+  "guesses": [
+    { "result": "🟨⬜⬜🟩🟨", "word": "cigar" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "scrap" }
+  ]
+}
