@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 338 3/6",
+  "word": "hinge",
+  "guesses": [
+    { "result": "⬜🟨🟨⬜🟩", "word": "knife" },
+    { "result": "🟨🟩⬜🟨🟩", "word": "niche" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hinge" }
+  ]
+}
