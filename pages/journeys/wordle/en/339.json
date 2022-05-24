@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 339 4/6",
+  "word": "album",
+  "guesses": [
+    { "result": "⬜🟩🟨⬜⬜", "word": "place" },
+    { "result": "⬜🟩⬜🟨⬜", "word": "float" },
+    { "result": "🟩🟩⬜⬜⬜", "word": "align" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "album" }
+  ]
+}
