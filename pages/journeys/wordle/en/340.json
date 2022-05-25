@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 340 3/6",
+  "word": "vouch",
+  "guesses": [
+    { "result": "🟨🟩🟩⬜🟩", "word": "cough" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "pouch" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "vouch" }
+  ]
+}
