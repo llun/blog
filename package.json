@@ -23,7 +23,7 @@
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.10",
     "archiver": "^5.3.1",
-    "aws-sdk": "^2.1143.0",
+    "aws-sdk": "^2.1144.0",
     "eslint": "^8",
     "eslint-config-next": "12.1.6",
     "feed": "^4.2.2",
