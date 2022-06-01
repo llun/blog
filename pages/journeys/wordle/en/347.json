@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 347 4/6",
+  "word": "creak",
+  "guesses": [
+    { "result": "🟨⬜⬜🟩⬜", "word": "raday" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "wreak" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "freak" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "creak" }
+  ]
+}
