@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 348 4/6",
+  "word": "showy",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "blade" },
+    { "result": "⬜⬜🟩⬜🟨", "word": "quoth" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "phony" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "showy" }
+  ]
+}
