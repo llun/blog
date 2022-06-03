@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 349 4/6",
+  "word": "phase",
+  "guesses": [
+    { "result": "⬜🟨⬜🟩🟩", "word": "raise" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "abase" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "chase" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "phase" }
+  ]
+}
