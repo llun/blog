@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 351 4/6",
+  "word": "depth",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "raise" },
+    { "result": "🟨⬜⬜⬜⬜", "word": "enjoy" },
+    { "result": "⬜🟩🟨⬜🟩", "word": "fetch" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "depth" }
+  ]
+}
