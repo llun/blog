@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 353 2/6",
+  "word": "flood",
+  "guesses": [
+    { "result": "⬜🟩🟩⬜⬜", "word": "close" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "flood" }
+  ]
+}
