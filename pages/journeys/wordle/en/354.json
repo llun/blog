@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 354 2/6",
+  "word": "trait",
+  "guesses": [
+    { "result": "🟩🟩🟩🟩⬜", "word": "train" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "trait" }
+  ]
+}
