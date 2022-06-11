@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 357 5/6",
+  "word": "goose",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "china" },
+    { "result": "⬜🟩⬜🟨⬜", "word": "joker" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "mouse" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "loose" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "goose" }
+  ]
+}
