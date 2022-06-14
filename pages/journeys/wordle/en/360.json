@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 360 3/6",
+  "word": "atone",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟨", "word": "flora" },
+    { "result": "🟩⬜🟩⬜🟨", "word": "adopt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "atone" }
+  ]
+}
