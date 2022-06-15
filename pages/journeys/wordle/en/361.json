@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 361 4/6",
+  "word": "primo",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "solve" },
+    { "result": "🟩🟩🟨⬜⬜", "word": "proxy" },
+    { "result": "🟩🟩🟩🟨⬜", "word": "prior" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "primo" }
+  ]
+}
