@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 363 4/6",
+  "word": "blown",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "shade" },
+    { "result": "⬜⬜⬜🟨🟨", "word": "jumbo" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "block" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "blown" }
+  ]
+}
