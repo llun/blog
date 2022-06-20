@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 366 3/6",
+  "word": "input",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "share" },
+    { "result": "⬜🟨⬜🟨⬜", "word": "jumpy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "input" }
+  ]
+}
