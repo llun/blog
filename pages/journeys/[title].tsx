@@ -1,4 +1,4 @@
-import type { GetStaticPropsContext } from 'next'
+import type { GetStaticPaths, GetStaticProps } from 'next'
 
 import Link from 'next/link'
 import path from 'path'
@@ -8,11 +8,16 @@ import { getConfig, Config } from '../../blog'
 import Meta from '../../components/Meta'
 import style from './[title].module.css'
 
+interface Props {
+  config: Config
+  journey: Journey
+}
+
 type Params = {
   title: string
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllJourneys()
     .filter((journey) => !journey.custom)
     .map((journey) => ({
@@ -21,9 +26,10 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context: GetStaticPropsContext<Params>) {
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params = { title: '' }
+}) => {
   const config = getConfig()
-  const { params } = context
   const { title } = params
 
   const contentPath = path.join(process.cwd(), 'journeys', title)
@@ -34,11 +40,6 @@ export async function getStaticProps(context: GetStaticPropsContext<Params>) {
       journey
     }
   }
-}
-
-interface Props {
-  config: Config
-  journey: Journey
 }
 
 const Journey = ({ config, journey }: Props) => {
@@ -59,7 +60,7 @@ const Journey = ({ config, journey }: Props) => {
         </p>
         <div
           className={style.content}
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: content || '' }}
         />
         <p>
           <Link href="/journeys">
