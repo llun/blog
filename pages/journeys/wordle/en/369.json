@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 369 3/6",
+  "word": "brink",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "slide" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "quick" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "brink" }
+  ]
+}
