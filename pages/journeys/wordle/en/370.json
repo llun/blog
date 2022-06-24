@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 370 3/6",
+  "word": "smite",
+  "guesses": [
+    { "result": "🟩⬜🟩⬜🟩", "word": "spice" },
+    { "result": "🟩⬜⬜⬜⬜", "word": "swung" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "smite" }
+  ]
+}
