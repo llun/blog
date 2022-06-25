@@ -24,14 +24,13 @@ interface Props {
 
 const AirTagPage = ({ config }: Props) => {
   const { title, url } = config
-  const mapEl = useRef(null)
+  const mapEl = useRef<HTMLDivElement>(null)
 
   mapboxgl.accessToken =
     'pk.eyJ1IjoibGx1biIsImEiOiJja2FqN2k2djIwNDU5MnlvNjR4YXRrMzFsIn0.Oir7SYHkVKBlgbPHldtRGQ'
 
   useEffect(() => {
-    const zoomLevel = (height: number) => {
-      console.log(height)
+    const zoomLevel = (height?: number) => {
       switch (height) {
         case 250:
           return 3.2
@@ -46,7 +45,7 @@ const AirTagPage = ({ config }: Props) => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [102.2949, 7.7051],
-      zoom: zoomLevel(mapEl.current.offsetHeight),
+      zoom: zoomLevel(mapEl?.current?.offsetHeight),
       minZoom: 5
     })
     map.on('load', () => {

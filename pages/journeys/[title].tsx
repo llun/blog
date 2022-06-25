@@ -34,6 +34,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
   const contentPath = path.join(process.cwd(), 'journeys', title)
   const journey = parseJourney(contentPath, true)
+
+  if (!journey) {
+    return {
+      notFound: true
+    }
+  }
+
   return {
     props: {
       config,

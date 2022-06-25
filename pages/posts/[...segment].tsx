@@ -1,4 +1,4 @@
-import type { GetStaticPropsContext } from 'next'
+import type { GetStaticProps, GetStaticPropsContext } from 'next'
 
 import Link from 'next/link'
 import path from 'path'
@@ -21,13 +21,26 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context: GetStaticPropsContext<Params>) {
+export const getStaticProps: GetStaticProps<Props, Params> = async (
+  context
+) => {
   const config = getConfig()
   const { params } = context
-  const { segment } = params
+  if (!params) {
+    return {
+      notFound: true
+    }
+  }
 
+  const { segment } = params
   const contentPath = path.join(process.cwd(), 'posts', ...segment, 'index.md')
   const post = parsePost(config, contentPath, true)
+  if (!post) {
+    return {
+      notFound: true
+    }
+  }
+
   return {
     props: {
       config,
@@ -69,7 +82,7 @@ const Post = ({ config, post, segment }: Props) => {
 
         <div
           className={style.content}
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: content || '' }}
         />
 
         <p>
