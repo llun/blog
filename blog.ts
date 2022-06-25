@@ -51,7 +51,7 @@ export function readAllLeafDirectories(root: string) {
     return [root]
   }
 
-  const paths = []
+  const paths: string[] = []
   for (const post of posts) {
     paths.push(...readAllLeafDirectories(path.join(root, post)))
   }
@@ -85,7 +85,7 @@ export const parsePost = (
   config: Config,
   file: string,
   includeContent: boolean = false
-): Post => {
+): Post | null => {
   try {
     const postPath = path
       .dirname(file)
@@ -140,9 +140,11 @@ export const postDescendingComparison = (post1: Post, post2: Post) => {
 export const getAllPosts = memoize((): Post[] => {
   const config = getConfig()
   const paths = readAllLeafDirectories(path.join(process.cwd(), 'posts'))
-  const posts = paths.map((filePath) =>
-    parsePost(config, path.join(filePath, 'index.md'), false)
-  )
+  const posts = paths
+    .map((filePath) =>
+      parsePost(config, path.join(filePath, 'index.md'), false)
+    )
+    .filter((p): p is Post => p !== null)
   return posts
 })
 
@@ -177,6 +179,8 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       'index.md'
     )
     const postWithContent = parsePost(config, contentPath, true)
+    if (!postWithContent) continue
+
     const { properties, file, timestamp, content } = postWithContent
     feed.addItem({
       title: `${properties.title}`,

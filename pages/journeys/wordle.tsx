@@ -68,7 +68,7 @@ interface Props {
 const WordlePage = ({ config, results }: Props) => {
   const { title, url } = config
   const [showWords, setShowWords] = useState<boolean>(false)
-  const [currentWord, setCurrentWord] = useState<Result>(null)
+  const [currentWord, setCurrentWord] = useState<Result | null>(null)
 
   const setResultToClipboard = async (result: Result) => {
     const text = `

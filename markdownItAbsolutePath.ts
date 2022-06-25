@@ -6,7 +6,7 @@ export interface AbsolutePathConfig {
 }
 
 function getAllImageTokens(tokens: Token[]): Token[] {
-  const images = []
+  const images: Token[] = []
   for (const token of tokens) {
     if (token.type === 'image') images.push(token)
     if (token.children) {
@@ -30,6 +30,8 @@ const MarkdownItAbsolutePath: PluginWithOptions<AbsolutePathConfig> = (
   opt
 ) => {
   md.core.ruler.push('absolute_image', (state) => {
+    if (!opt) return
+
     // Skip if rootURL is not set
     if (!opt.rootURL) return
 

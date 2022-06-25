@@ -21,7 +21,7 @@ export interface Journey {
 export const parseJourney = (
   file: string,
   includeContent: boolean = false
-): Journey => {
+): Journey | null => {
   try {
     fs.statSync(file)
     const name = path.basename(file)
@@ -62,6 +62,9 @@ export const getAllJourneys = memoize((): Journey[] => {
       description: 'my wordle journey each day',
       custom: true
     }
-  ].sort((a, b) => a.name.localeCompare(b.name))
+  ]
+    .filter((a): a is Journey => a !== null)
+    .sort((a, b) => a.name.localeCompare(b.name))
+
   return journeys
 })
