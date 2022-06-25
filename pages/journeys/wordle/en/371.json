@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 371 5/6",
+  "word": "beady",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟨", "word": "scare" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "heavy" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "meaty" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "leafy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "beady" }
+  ]
+}
