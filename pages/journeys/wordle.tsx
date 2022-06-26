@@ -17,13 +17,7 @@ interface Result {
 }
 
 const englishResults = async () => {
-  const resultPath = path.join(
-    process.cwd(),
-    'pages',
-    'journeys',
-    'wordle',
-    'en'
-  )
+  const resultPath = path.join(process.cwd(), 'contents', 'wordle', 'en')
   const files = await fs.readdir(resultPath)
   return (
     await Promise.all(
