@@ -25,7 +25,10 @@ export interface Calendar extends CalendarProperty {
   content?: string
 }
 
-export const parseCalendar = async (file: string): Promise<Calendar | null> => {
+export const parseCalendar = async (
+  file: string,
+  loadContent: boolean = false
+): Promise<Calendar | null> => {
   try {
     await fs.stat(file)
     const raw = await fs.readFile(file, 'utf-8')
@@ -35,7 +38,8 @@ export const parseCalendar = async (file: string): Promise<Calendar | null> => {
     const md = getMarkdown({})
     return {
       ...properties,
-      id: path.basename(file, '.md')
+      id: path.basename(file, '.md'),
+      content: md.render(raw.substring(end + 3).trim())
     }
   } catch {
     return null
@@ -54,5 +58,6 @@ export const getAllCalendars = async () => {
 
 export const getCalendar = async (id: string) =>
   parseCalendar(
-    path.join(process.cwd(), 'contents', 'amsterdam', 'calendar', `${id}.md`)
+    path.join(process.cwd(), 'contents', 'amsterdam', 'calendar', `${id}.md`),
+    true
   )
