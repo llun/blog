@@ -3,8 +3,8 @@ import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import path from 'path'
 
-import { parseJourney, getAllJourneys, Journey } from '../../journey'
-import { getConfig, Config } from '../../blog'
+import { parseJourney, getAllJourneys, Journey } from '../../libs/journey'
+import { getConfig, Config } from '../../libs/blog'
 import Meta from '../../components/Meta'
 import style from './[title].module.css'
 
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   const config = getConfig()
   const { title } = params
 
-  const contentPath = path.join(process.cwd(), 'journeys', title)
+  const contentPath = path.join(process.cwd(), 'contents', 'journeys', title)
   const journey = parseJourney(contentPath, true)
 
   if (!journey) {

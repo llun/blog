@@ -1,4 +1,4 @@
-import type { GetStaticPropsContext } from 'next'
+import type { GetStaticPaths, GetStaticProps } from 'next'
 
 import {
   Post,
@@ -6,7 +6,7 @@ import {
   getAllPosts,
   getConfig,
   postDescendingComparison
-} from '../../blog'
+} from '../../libs/blog'
 import Header from '../../components/Header'
 import Meta from '../../components/Meta'
 import PostList from '../../components/PostList'
@@ -15,12 +15,20 @@ type Params = {
   tag: string
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [{ params: { tag: 'ride' } }, { params: { tag: 'dev' } }]
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context: GetStaticPropsContext<Params>) {
+export const getStaticProps: GetStaticProps<Props, Params> = async (
+  context
+) => {
+  if (!context.params) {
+    return {
+      notFound: true
+    }
+  }
+
   const { tag } = context.params
   const posts = getAllPosts()
     .filter((post) => post.file.category === tag)

@@ -2,8 +2,8 @@ import Link from 'next/link'
 import mapboxgl from 'mapbox-gl'
 import { useEffect, useRef } from 'react'
 
-import { Journey } from '../../journey'
-import { getConfig, Config } from '../../blog'
+import { Journey } from '../../libs/journey'
+import { getConfig, Config } from '../../libs/blog'
 import Meta from '../../components/Meta'
 
 import style from './airtag-sg-th.module.css'

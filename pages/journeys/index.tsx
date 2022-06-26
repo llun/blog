@@ -1,7 +1,7 @@
 import type { GetStaticPropsContext } from 'next'
 
-import { Config, getConfig } from '../../blog'
-import { Journey, getAllJourneys } from '../../journey'
+import { Config, getConfig } from '../../libs/blog'
+import { Journey, getAllJourneys } from '../../libs/journey'
 import Header from '../../components/Header'
 import Meta from '../../components/Meta'
 import JourneyList from '../../components/JourneyList'

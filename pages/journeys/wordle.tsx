@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import { useState } from 'react'
 
-import { getConfig, Config } from '../../blog'
+import { getConfig, Config } from '../../libs/blog'
 import Meta from '../../components/Meta'
 import style from './wordle.module.css'
 

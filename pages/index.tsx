@@ -9,7 +9,7 @@ import {
   getConfig,
   generateFeeds,
   postDescendingComparison
-} from '../blog'
+} from '../libs/blog'
 import Header from '../components/Header'
 import Meta from '../components/Meta'
 import PostList from '../components/PostList'

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Journey } from '../journey'
+import { Journey } from '../libs/journey'
 import style from './JourneyList.module.css'
 
 interface Props {

@@ -10,10 +10,8 @@ interface JourneyProperty {
   description: string
 }
 
-export interface Journey {
+export interface Journey extends JourneyProperty {
   name: string
-  title: string
-  description: string
   content?: string
   custom?: boolean
 }
@@ -40,13 +38,15 @@ export const parseJourney = (
       name,
       content: md.render(raw.substring(end + 3).trim())
     }
-  } catch (error) {
+  } catch {
     return null
   }
 }
 
 export const getAllJourneys = memoize((): Journey[] => {
-  const paths = readAllLeafDirectories(path.join(process.cwd(), 'journeys'))
+  const paths = readAllLeafDirectories(
+    path.join(process.cwd(), 'contents', 'journeys')
+  )
   const journeys = [
     ...paths.map((item) => parseJourney(item)),
     {
@@ -54,6 +54,12 @@ export const getAllJourneys = memoize((): Journey[] => {
       title: 'AirTag 🇸🇬 👉 🇹🇭',
       description:
         'tracking my stuffs send through relocation service from Singapore to Thailand',
+      custom: true
+    },
+    {
+      name: 'amsterdam',
+      title: 'Amsterdam 🇳🇱',
+      description: 'new life chapter, Singapore 👉 Amsterdam',
       custom: true
     },
     {

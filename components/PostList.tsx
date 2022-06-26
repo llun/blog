@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import Link from 'next/link'
 
 import style from './PostList.module.css'
-import type { Post } from '../blog'
+import type { Post } from '../libs/blog'
 
 interface Props {
   posts: Post[]

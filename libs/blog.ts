@@ -12,7 +12,7 @@ import mila from 'markdown-it-link-attributes'
 
 import markdownItAbsolutePath, {
   AbsolutePathConfig
-} from './markdownItAbsolutePath'
+} from '../markdownItAbsolutePath'
 
 interface PostProperties {
   title: string
@@ -89,7 +89,7 @@ export const parsePost = (
   try {
     const postPath = path
       .dirname(file)
-      .substring(path.join(process.cwd(), 'posts').length)
+      .substring(path.join(process.cwd(), 'contents', 'posts').length)
       .split(path.sep)
       .slice(1)
 
@@ -139,7 +139,9 @@ export const postDescendingComparison = (post1: Post, post2: Post) => {
 
 export const getAllPosts = memoize((): Post[] => {
   const config = getConfig()
-  const paths = readAllLeafDirectories(path.join(process.cwd(), 'posts'))
+  const paths = readAllLeafDirectories(
+    path.join(process.cwd(), 'contents', 'posts')
+  )
   const posts = paths
     .map((filePath) =>
       parsePost(config, path.join(filePath, 'index.md'), false)

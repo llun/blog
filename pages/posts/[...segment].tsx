@@ -1,9 +1,15 @@
-import type { GetStaticProps, GetStaticPropsContext } from 'next'
+import type { GetStaticProps } from 'next'
 
 import Link from 'next/link'
 import path from 'path'
 
-import { Config, Post, getConfig, getAllPosts, parsePost } from '../../blog'
+import {
+  Config,
+  Post,
+  getConfig,
+  getAllPosts,
+  parsePost
+} from '../../libs/blog'
 import Meta from '../../components/Meta'
 import style from './[...segment].module.css'
 
@@ -33,7 +39,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   }
 
   const { segment } = params
-  const contentPath = path.join(process.cwd(), 'posts', ...segment, 'index.md')
+  const contentPath = path.join(
+    process.cwd(),
+    'contents',
+    'posts',
+    ...segment,
+    'index.md'
+  )
   const post = parsePost(config, contentPath, true)
   if (!post) {
     return {
