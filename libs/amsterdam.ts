@@ -22,7 +22,7 @@ export interface CalendarProperty {
 
 export interface Calendar extends CalendarProperty {
   id: string
-  content: string
+  content?: string
 }
 
 export const parseCalendar = async (file: string): Promise<Calendar | null> => {
@@ -35,8 +35,7 @@ export const parseCalendar = async (file: string): Promise<Calendar | null> => {
     const md = getMarkdown({})
     return {
       ...properties,
-      id: path.basename(file, '.md'),
-      content: md.render(raw.substring(end + 3).trim())
+      id: path.basename(file, '.md')
     }
   } catch {
     return null

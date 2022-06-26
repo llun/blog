@@ -101,7 +101,7 @@ export const AmsterdamPage = ({ config, calendars, current }: Props) => {
         </select>
         {current && (
           <>
-            <div dangerouslySetInnerHTML={{ __html: current.content }} />
+            <div dangerouslySetInnerHTML={{ __html: current.content || '' }} />
           </>
         )}
         <p>
