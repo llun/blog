@@ -35,6 +35,13 @@ export const parseCalendar = async (
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
     const properties: CalendarProperty = yaml.parse(raw.substring(begin, end))
+    if (!loadContent) {
+      return {
+        ...properties,
+        id: path.basename(file, '.md')
+      }
+    }
+
     const md = getMarkdown({})
     return {
       ...properties,
