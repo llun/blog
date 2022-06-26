@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 372 5/6",
+  "word": "rusty",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "solve" },
+    { "result": "⬜🟩⬜🟨⬜", "word": "quash" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "music" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "gusty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "rusty" }
+  ]
+}
