@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import yaml from 'yaml'
 import path from 'path'
+import { getMarkdown } from './blog'
 
 export interface CalendarProperty {
   month:
@@ -20,6 +21,7 @@ export interface CalendarProperty {
 }
 
 export interface Calendar extends CalendarProperty {
+  id: string
   content: string
 }
 
@@ -30,10 +32,11 @@ export const parseCalendar = async (file: string): Promise<Calendar | null> => {
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
     const properties: CalendarProperty = yaml.parse(raw.substring(begin, end))
-
+    const md = getMarkdown({})
     return {
       ...properties,
-      content: ''
+      id: path.basename(file, '.md'),
+      content: md.render(raw.substring(end + 3).trim())
     }
   } catch {
     return null
@@ -43,8 +46,14 @@ export const parseCalendar = async (file: string): Promise<Calendar | null> => {
 export const getAllCalendars = async () => {
   const base = path.join(process.cwd(), 'contents', 'amsterdam', 'calendar')
   const calendars = await fs.readdir(base)
-  for (const journey of calendars) {
-    const calendar = parseCalendar(path.join(base, journey))
-  }
-  console.log(calendars)
+  return (
+    await Promise.all(
+      calendars.map((month) => parseCalendar(path.join(base, month)))
+    )
+  ).filter((p): p is Calendar => p !== null)
 }
+
+export const getCalendar = async (id: string) =>
+  parseCalendar(
+    path.join(process.cwd(), 'contents', 'amsterdam', 'calendar', `${id}.md`)
+  )
