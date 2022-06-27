@@ -12,7 +12,7 @@ import mila from 'markdown-it-link-attributes'
 
 import markdownItAbsolutePath, {
   AbsolutePathConfig
-} from '../markdownItAbsolutePath'
+} from './markdownItAbsolutePath'
 
 interface PostProperties {
   title: string
