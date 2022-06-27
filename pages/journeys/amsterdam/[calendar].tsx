@@ -1,12 +1,13 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { ParsedUrlQuery } from 'querystring'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { getConfig, Config } from '../../../libs/blog'
 import Meta from '../../../components/Meta'
 import { Calendar, getAllCalendars, getCalendar } from '../../../libs/amsterdam'
 import style from './[calendar].module.css'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 
 interface Props {
   config: Config
@@ -14,9 +15,8 @@ interface Props {
   current?: Calendar | null
 }
 
-interface Params {
+interface Params extends ParsedUrlQuery {
   calendar: string
-  [key: string]: string
 }
 
 const getCalendarTitle = (calendar: Calendar) =>
