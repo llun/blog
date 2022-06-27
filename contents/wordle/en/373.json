@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 373 6/6",
+  "word": "retro",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "blast" },
+    { "result": "⬜⬜🟨🟨⬜", "word": "quoth" },
+    { "result": "🟨🟨⬜⬜⬜", "word": "toxic" },
+    { "result": "🟨⬜🟩🟨🟨", "word": "otter" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "metro" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "retro" }
+  ]
+}
