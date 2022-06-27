@@ -6,6 +6,7 @@ import Meta from '../../../components/Meta'
 import { Calendar, getAllCalendars, getCalendar } from '../../../libs/amsterdam'
 import style from './[calendar].module.css'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 interface Props {
   config: Config
@@ -61,6 +62,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 export const AmsterdamPage = ({ config, calendars, current }: Props) => {
   const router = useRouter()
   const { title, url } = config
+
+  useEffect(() => {
+    for (const month of calendars) {
+      router.prefetch(`/journeys/amsterdam/${month.id}`)
+    }
+  })
+
   return (
     <>
       <Meta
