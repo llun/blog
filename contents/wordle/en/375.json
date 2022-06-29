@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 375 3/6",
+  "word": "gawky",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "prawn" },
+    { "result": "🟨🟩⬜🟩🟩", "word": "wacky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "gawky" }
+  ]
+}
