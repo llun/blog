@@ -11,6 +11,7 @@ tags:
 แป๊บเดียวผ่านไปสามเดือนแล้วที่ย้ายมาอยู่ Amsterdam จากช่วงแรกที่หนาวๆ ตอนนี้หน้าร้อนหายหนาวแถมบางวันร้อนเหมือนอยู่ไทยหละ ต่างแค่มันร้อนถึงดึกเพราะกว่าพระอาทิตย์จะตกก็สี่ทุ่ม สามเดือนที่ผ่านมานอกจากทำงานที่ยุ่งกว่าที่คิดเพราะกลายเป็นว่าทำงานอยู่สองทีม ก็เที่ยวเยอะกว่าที่คิด ทั้งจักรยานและรถไฟ เรียกว่า[จดที่ไปเยี่ยมมา](/journeys/amsterdam/)ไม่ทันเลยทีเดียว (ตอนนี้หยุดไว้ที่เดือนพฤษภาคมอยู่)
 
 ![Koningsstraat เช้าวันนี้ ออกมาเจอแบบนี้หลายวันนี่รักเมืองนี้มาก](koningsstraat.jpg)
+
 ![Munttoren ติดกับตึก office](munttoren.jpg)
 
 ## เดินทางไปไหนมาแล้วบ้าง
@@ -18,17 +19,26 @@ tags:
 สามเดือนที่ผ่านมาส่วนใหญ่จะอยู่ในจังหวัด Noord-Holland และรอบๆ แต่ก็มีไปไกลสุดคือ Eindhoven รอบนึงเพราะอยากไป [Crypto Museum](https://www.cryptomuseum.com/) แต่หาไม่เจอเลยไปจบที่ Phillips Museum แต่เมืองที่ไปมาแล้วก็มี
 
 - [Texel](https://en.wikipedia.org/wiki/Texel), ไม่เชิงเมืองเป็นเกาะขนาดประมาณ 2/3 สิงคโปร์อยู่เหนือสุดของจังหวัด Noord-Holland ปั่นจักรยาน + Ferry ไปประมาณ 5 ชั่วโมงอยู่ห่างจาก Amsterdam ประมาณ 90km ไปอีกรอบคิดว่าจะแบกจักรยานขึ้นรถไฟไปแล้วค่อยไปปั่นรอบเกาะ
+
   ![Texel Beach ติดกับท่าเรือข้ามฟาก](texel-beach.jpg)
+
 - [Den Helder](https://en.wikipedia.org/wiki/Den_Helder), ยังคงอยู่ในจังหวัด Noord-Holland แต่เมืองนี้เจ๋งตรงที่เป็น[ฐานทัพเรือของ Benelux](https://english.defensie.nl/organisation/navy/navy-units/admiralty-benelux) และมี[พิพิธภัณฑ์ Navy](https://www.marinemuseum.nl/en/) อยู่ที่นี่ด้วย ถ้าชอบเรือรบทั้งอดีต และปัจจุบันควรมา เรือจำลองทั้งหลาย และเรื่องเล่าเจ๋งมาก
+
   ![Navy Museum ยกเรือดำน้ำขึ้นบกให้เข้าไปดูของจริงได้เลย](navy-museum.jpg)
+
 - [Hoorn](https://en.wikipedia.org/wiki/Hoorn), ไปแวะมาสองรอบ รอบแรกคือแวะตอนไป Texel และรอบสองแวะตอนปั่นข้าม [Houtribdijk](https://en.wikipedia.org/wiki/Houtribdijk) ตอนปั่นขึ้นไป Texel เห็นเมืองริมทะเลแล้วรู้สึกสวยมากต้องมาอีกรอบแน่ๆ พอได้ปั่นเข้าไปในเมืองยิ่งชอบ มีวิหารและอาคารเก่าเยอะ
 - [Kennemerland National Park](https://en.wikipedia.org/wiki/Zuid-Kennemerland_National_Park) เป็น National park ขนาดใหญ่ติดริมทะเลที่มี Dune sand, ป่า และ วัวขน! ไม่ใช่เมืองแต่ประทับใจเลยใส่ไว้ด้วย
+
   ![Koeien อยู่กลางทางไม่ไปไหนเลย](koeien.jpg)
+
 - [Den Haag](https://nl.wikipedia.org/wiki/Den_Haag) ออกจากจังหวัด Noord-Holland แล้วและเป็นเมืองแรกนอก Noord-Holland ที่มา (Den Haag อยู่ Zuid-Holland) เดินในเมืองแล้วต่างจาก Amsterdam หลายอย่างและมีสิ่งก่อสร้างเกี่ยวกับราชวงศ์ที่นี่เยอะพอสมควร
+
   ![Den Haag ตอนเดินในเมืองนี่เหมือนอยู่ Antwerp มี shopping street ที่มีโดม และก็อาคารเก่าอย่างภาพนี้เต็มเมือง](denhaag.jpg)
+
 - [Utrecht](https://en.wikipedia.org/wiki/Utrecht) เมืองที่สองถัดจาก Den Haag นอก Noord-Holland มีจังหวัดตามชื่อเมือง
 - [EindHoven](https://en.wikipedia.org/wiki/Eindhoven) เมืองที่ ASML อยู่และหลายอย่างเกี่ยวกับเทคโยโลยีทั้งหลายเหมือนจะอยู่ที่เมืองนี้หมด กลางเมืองมีโรงงาน Philips เก่าที่แปลงเป็นพิพิธภัณฑ์ แล้วออกจากกลางเมืองหน่อยก็มี Crypto Museum (แต่หาไม่เจอ) อยู่จังหวัด [North Brabant](https://en.wikipedia.org/wiki/North_Brabant) ที่อีกครึ่งนึงของ[จังหวัดอยู่ Belgium](https://en.wikipedia.org/wiki/Province_of_Brabant)
 - และล่าสุดที่ไปมา อยู่ระหว่าง Amersfoort และ Utrecht, [Vliegbasis Soesterberg](https://en.wikipedia.org/wiki/Soesterberg_Air_Base) เป็นสนามบินทหารเก่าที่ตอนนี้เปลี่ยนมาเป็นพิพิธภัณฑ์ทหารแล้ว เทียบกับ Navy Museum จำนวนของเล่นที่เอามาโชว์เยอะกว่า แต่รู้สึกเท่เท่าเรือดำน้ำกับของเล่นกองทัพเรือในอดีตไม่ได้ แต่ก็มีอธิบายประวัติการทหารของ Netherlands ที่น่าสนใจต่างจากประวัติกองทัพเรือหลายอย่าง
+
   ![รถถึงจริง เครื่องบินรบจริง อัดกันอยู่ในอาคารนี้เต็มไปหมด ด้านนอกก็สนามบินทหารจริง!](nmm.jpg)
 
 ยังมีหลายที่ที่ไปอีกแต่ไว้ตามอ่านใน [Journey](/journeys/amsterdam/) ดีกว่าไม่งั้น post นี้ยาวเกิน
