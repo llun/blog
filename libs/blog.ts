@@ -176,6 +176,7 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
   for (const post of firstFewPosts) {
     const contentPath = path.join(
       process.cwd(),
+      'contents',
       'posts',
       post.file.id,
       'index.md'
