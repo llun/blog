@@ -3,7 +3,7 @@ title: M1
 lang: th
 description: M1
 image: Apple_m1-chip-8-core-cpu-chart_11102020.jpg
-date: 2020-12-05
+date: 2020-12-05T10:56:03+08:00
 tags:
   - Apple
   - M1
