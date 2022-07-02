@@ -2,7 +2,7 @@
 title: ดูหนังรอบๆ Southeast Asia
 lang: th
 description: ประสบการณ์ดูหนังในโรงนอกประเทศตามประเทศต่างๆ แถวนี้
-date: 2013-05-05
+date: 2013-05-05T12:00:00+08:00
 tags:
   - southeast-asia
   - movie

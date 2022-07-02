@@ -2,7 +2,7 @@
 title: Test & Go
 lang: th
 description: Flying back to Thailand with Thailand pass and Test & Go
-date: 2022-02-17
+date: 2022-02-17T21:51:20+07:00
 tags:
   - covid-19
   - flying

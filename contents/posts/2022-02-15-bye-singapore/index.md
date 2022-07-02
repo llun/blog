@@ -2,7 +2,7 @@
 title: 👋 Singapore
 lang: th
 description: Singapore notes
-date: 2022-02-15
+date: 2022-02-15T23:07:37+08:00
 tags:
   - Singapore
 ---

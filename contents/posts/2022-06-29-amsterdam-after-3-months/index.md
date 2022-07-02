@@ -3,7 +3,7 @@ title: Amsterdam after 3 months
 lang: th
 description: อยู่ Amsterdam มาสามเดือนแล้ว
 image: central-station.jpg
-date: 2022-06-29
+date: 2022-06-29T22:52:59+02:00
 tags:
   - netherlands
 ---
