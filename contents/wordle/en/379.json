@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 379 5/6",
+  "word": "lilac",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "quack" },
+    { "result": "🟨🟨⬜⬜⬜", "word": "cabby" },
+    { "result": "🟨⬜⬜🟨🟩", "word": "attic" },
+    { "result": "🟨🟨⬜🟩🟩", "word": "iliac" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "lilac" }
+  ]
+}
