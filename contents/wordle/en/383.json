@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 383 5/6",
+  "word": "agape",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "fling" },
+    { "result": "🟨🟨⬜⬜⬜", "word": "gawky" },
+    { "result": "⬜⬜🟨⬜🟨", "word": "dogma" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "agate" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "agape" }
+  ]
+}
