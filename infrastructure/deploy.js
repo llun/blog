@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 // @ts-check
-const AWS = require('aws-sdk')
+const {
+  CloudFormationClient,
+  DescribeStacksCommand,
+  CreateStackCommand,
+  UpdateStackCommand
+} = require('@aws-sdk/client-cloudformation')
 const StackName = 'Website'
 const Bucket = 'ContentBucket'
 
@@ -166,27 +171,30 @@ const template = {
   }
 }
 
-const cloudformation = new AWS.CloudFormation({ region: 'ap-southeast-1' })
+const cloudformation = new CloudFormationClient({ region: 'ap-southeast-1' })
 
 async function run() {
   try {
-    await cloudformation.describeStacks({ StackName }).promise()
+    await cloudformation.send(new DescribeStacksCommand({ StackName }))
     console.log('Updating stack')
-    await cloudformation
-      .updateStack({ StackName, TemplateBody: JSON.stringify(template) })
-      .promise()
+    await cloudformation.send(
+      new UpdateStackCommand({
+        StackName,
+        TemplateBody: JSON.stringify(template)
+      })
+    )
   } catch (error) {
     if (!error.message.endsWith('does not exist')) {
       throw error
     }
 
     console.log('Creating new stack')
-    await cloudformation
-      .createStack({
+    await cloudformation.send(
+      new CreateStackCommand({
         StackName,
         TemplateBody: JSON.stringify(template)
       })
-      .promise()
+    )
   }
 }
 

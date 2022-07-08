@@ -5,7 +5,22 @@
  * @typedef {{ name: string, description: string, memory: number, timeout: number, role: string, handler: string, runtime: string, environment: Object | null | undefined }} ProjectConfig
  */
 const fs = require('fs')
-const AWS = require('aws-sdk')
+const {
+  LambdaClient,
+  GetFunctionConfigurationCommand,
+  UpdateFunctionConfigurationCommand,
+  UpdateFunctionCodeCommand,
+  PublishVersionCommand,
+  UpdateAliasCommand,
+  CreateFunctionCommand,
+  CreateAliasCommand
+} = require('@aws-sdk/client-lambda')
+const {
+  CloudFrontClient,
+  GetDistributionConfigCommand,
+  UpdateDistributionCommand,
+  CreateInvalidationCommand
+} = require('@aws-sdk/client-cloudfront')
 const archiver = require('archiver')
 const streamBuffers = require('stream-buffers')
 const crypto = require('crypto')
@@ -76,7 +91,7 @@ async function archivingFunction(functionName) {
  */
 async function deploy(functionName) {
   const name = `${projectConfig.name}_${functionName}`
-  const lambda = new AWS.Lambda({ region: N_VIRGINIA })
+  const lambda = new LambdaClient({ region: N_VIRGINIA })
 
   let shouldPublishVersion = false
   /** @type {string | undefined} */
@@ -84,12 +99,12 @@ async function deploy(functionName) {
 
   console.log(`> Loading ${name} configuration`)
   try {
-    const configuration = await lambda
-      .getFunctionConfiguration({
+    const configuration = await lambda.send(
+      new GetFunctionConfigurationCommand({
         FunctionName: name,
         Qualifier: 'current'
       })
-      .promise()
+    )
 
     const current = {
       memory: configuration.MemorySize,
@@ -123,7 +138,7 @@ async function deploy(functionName) {
           Variables: local.environment
         }
       }
-      await lambda.updateFunctionConfiguration(params).promise()
+      await lambda.send(new UpdateFunctionConfigurationCommand(params))
       shouldPublishVersion = true
     }
 
@@ -133,12 +148,12 @@ async function deploy(functionName) {
     }
     if (configuration.CodeSha256 !== digest) {
       console.log('> Updating function code')
-      await lambda
-        .updateFunctionCode({
+      await lambda.send(
+        new UpdateFunctionCodeCommand({
           FunctionName: name,
           ZipFile: content
         })
-        .promise()
+      )
       shouldPublishVersion = true
     }
 
@@ -148,16 +163,16 @@ async function deploy(functionName) {
         CodeSha256: digest,
         FunctionName: name
       }
-      const latestVersion = await lambda.publishVersion(params).promise()
+      const latestVersion = await lambda.send(new PublishVersionCommand(params))
 
       console.log(`> Move current alias to version ${latestVersion.Version}`)
-      await lambda
-        .updateAlias({
+      await lambda.send(
+        new UpdateAliasCommand({
           FunctionName: name,
           FunctionVersion: latestVersion.Version,
           Name: 'current'
         })
-        .promise()
+      )
       version = latestVersion.Version
     }
   } catch (error) {
@@ -171,8 +186,8 @@ async function deploy(functionName) {
     }
 
     console.log(`> Create new function ${name}`)
-    const createdResult = await lambda
-      .createFunction({
+    const createdResult = await lambda.send(
+      new CreateFunctionCommand({
         FunctionName: name,
         Runtime: projectConfig.runtime,
         Handler: projectConfig.handler,
@@ -184,24 +199,24 @@ async function deploy(functionName) {
         },
         MemorySize: projectConfig.memory
       })
-      .promise()
+    )
 
     console.log('> Publishing new version')
-    const latestVersion = await lambda
-      .publishVersion({
+    const latestVersion = await lambda.send(
+      new PublishVersionCommand({
         CodeSha256: digest,
         FunctionName: name
       })
-      .promise()
+    )
 
     console.log(`> Create current alias for version ${latestVersion.Version}`)
-    await lambda
-      .createAlias({
+    await lambda.send(
+      new CreateAliasCommand({
         FunctionName: name,
         FunctionVersion: latestVersion.Version || '$LATEST',
         Name: 'current'
       })
-      .promise()
+    )
     version = latestVersion.Version
   }
 
@@ -221,15 +236,20 @@ async function updateCloudfront(eventType, version, functionName) {
   }
 
   console.log(`> Updating cloudfront`)
-  const cloudfront = new AWS.CloudFront()
-  const config = await cloudfront
-    .getDistributionConfig({ Id: distributionId })
-    .promise()
+  const cloudfront = new CloudFrontClient({})
+  const config = await cloudfront.send(
+    new GetDistributionConfigCommand({ Id: distributionId })
+  )
   if (!config.DistributionConfig) {
     throw new Error('Fail to load distribution configuration')
   }
 
   const name = `${projectConfig.name}_${functionName}`
+  if (!config.DistributionConfig.DefaultCacheBehavior) {
+    console.log(`Fail to load default cache behavior for ${distributionId}`)
+    return
+  }
+
   const lambdas = config.DistributionConfig.DefaultCacheBehavior
     .LambdaFunctionAssociations || {
     Items: [],
@@ -248,17 +268,17 @@ async function updateCloudfront(eventType, version, functionName) {
   config.DistributionConfig.DefaultCacheBehavior.LambdaFunctionAssociations =
     lambdas
 
-  await cloudfront
-    .updateDistribution({
+  await cloudfront.send(
+    new UpdateDistributionCommand({
       DistributionConfig: {
         ...config.DistributionConfig
       },
       Id: distributionId,
       IfMatch: config.ETag
     })
-    .promise()
-  await cloudfront
-    .createInvalidation({
+  )
+  await cloudfront.send(
+    new CreateInvalidationCommand({
       DistributionId: distributionId,
       InvalidationBatch: {
         CallerReference: `${Date.now()}-invalidation`,
@@ -268,7 +288,7 @@ async function updateCloudfront(eventType, version, functionName) {
         }
       }
     })
-    .promise()
+  )
 }
 
 async function run() {
