@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 384 4/6",
+  "word": "voice",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "cloud" },
+    { "result": "⬜🟨🟨⬜🟨", "word": "gecko" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "force" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "voice" }
+  ]
+}
