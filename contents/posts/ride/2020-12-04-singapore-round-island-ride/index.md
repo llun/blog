@@ -2,7 +2,7 @@
 title: Singapore round island ride
 lang: th
 description: Ride a bicycle around singapore
-date: 2020-12-04
+date: 2020-12-04T20:18:48+08:00
 tags:
   - Singapore
   - round island

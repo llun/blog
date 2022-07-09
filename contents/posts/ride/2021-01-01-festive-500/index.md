@@ -3,7 +3,7 @@ title: Festive500
 lang: th
 image: banner.png
 description: ปั่น 500km กับ Rapha Festive500 สิ้นปี 2020
-date: 2021-01-01
+date: 2021-01-01T11:54:04+08:00
 tags:
   - rapha
   - festive500

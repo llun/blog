@@ -3,7 +3,7 @@ title: Freestyle Libre 2
 lang: th
 image: freestyle-libre.jpg
 description: Continuous glucose monitor try out
-date: 2021-07-24
+date: 2021-07-24T21:16:04+08:00
 tags:
   - continuous glucose monitor
   - freestyle libre 2
