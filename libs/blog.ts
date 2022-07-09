@@ -209,6 +209,6 @@ export const getConfig = memoize(
   (): Config => ({
     title: '@แนท',
     description: 'Life, Ride and Code',
-    url: 'https://www.llun.me'
+    url: process.env.NEXT_PUBLIC_DOMAIN || 'https://www.llun.me'
   })
 )
