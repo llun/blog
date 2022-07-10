@@ -2,7 +2,7 @@ import Link from 'next/link'
 import mapboxgl from 'mapbox-gl'
 import { useEffect, useRef } from 'react'
 
-import { Journey } from '../../libs/journey'
+import { MAPBOX_PUBLIC_KEY } from '../../libs/config'
 import { getConfig, Config } from '../../libs/blog'
 import Meta from '../../components/Meta'
 
@@ -26,8 +26,7 @@ const AirTagPage = ({ config }: Props) => {
   const { title, url } = config
   const mapEl = useRef<HTMLDivElement>(null)
 
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoibGx1biIsImEiOiJja2FqN2k2djIwNDU5MnlvNjR4YXRrMzFsIn0.Oir7SYHkVKBlgbPHldtRGQ'
+  mapboxgl.accessToken = MAPBOX_PUBLIC_KEY
 
   useEffect(() => {
     const zoomLevel = (height?: number) => {

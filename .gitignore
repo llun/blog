@@ -6,5 +6,6 @@ _site
 node_modules
 public/feeds
 out
+scripts/simplify
 scripts/streams
 scripts/activities.json

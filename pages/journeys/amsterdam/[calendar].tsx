@@ -19,7 +19,7 @@ interface Params extends ParsedUrlQuery {
   calendar: string
 }
 
-const getCalendarTitle = (calendar: Calendar) =>
+export const getCalendarTitle = (calendar: Calendar) =>
   `${[calendar.month[0].toLocaleUpperCase(), calendar.month.slice(1)].join(
     ''
   )} ${calendar.year}`
@@ -88,25 +88,30 @@ export const AmsterdamPage = ({ config, calendars, current }: Props) => {
           เลยได้โอกาสจดเป็น Journey ยาวเก็บไว้ตั้งแต่ต้น title
           อาจจะเปลี่ยนถ้าอยู่มากกว่า Amsterdam แต่เริ่มต้นไว้แบบนี้ก่อน
         </p>
-        <select
-          value={current?.id ?? '-'}
-          onChange={(event) => {
-            const { value } = event.currentTarget
-            if (value === '-') {
-              return router.push(`/journeys/amsterdam`)
-            }
-            router.push(`/journeys/amsterdam/${value}`)
-          }}
-        >
-          <option>-</option>
-          {calendars.map((calendar) => {
-            return (
-              <option key={calendar.id} value={calendar.id}>
-                {getCalendarTitle(calendar)}
-              </option>
-            )
-          })}
-        </select>
+
+        <div className={style.navigation}>
+          <select
+            value={current?.id ?? '-'}
+            onChange={(event) => {
+              const { value } = event.currentTarget
+              if (value === '-') {
+                return router.push(`/journeys/amsterdam`)
+              }
+              router.push(`/journeys/amsterdam/${value}`)
+            }}
+          >
+            <option>-</option>
+            {calendars.map((calendar) => {
+              return (
+                <option key={calendar.id} value={calendar.id}>
+                  {getCalendarTitle(calendar)}
+                </option>
+              )
+            })}
+          </select>
+          <Link href={'/journeys/amsterdam/cycling'}>Cycling</Link>
+        </div>
+
         {current && (
           <>
             <div dangerouslySetInnerHTML={{ __html: current.content || '' }} />
