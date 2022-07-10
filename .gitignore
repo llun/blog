@@ -6,3 +6,5 @@ _site
 node_modules
 public/feeds
 out
+scripts/streams
+scripts/activities.json
