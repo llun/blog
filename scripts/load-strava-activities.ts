@@ -2,80 +2,12 @@ import 'dotenv-flow/config'
 import axios from 'axios'
 import fs from 'fs/promises'
 
-type LatLng = [number, number]
-
-interface Activity {
-  athlete: { id: number }
-  name: string
-  distance: number
-  moving_time: number
-  elapsed_time: number
-  total_elevation_gain: number
-  type: string
-  sport_type: string
-  workout_type: number
-  id: number
-  start_date: string
-  start_date_local: string
-  timezone: string
-  utc_offset: number
-  location_city: string | null
-  location_state: string | null
-  location_country: string
-  achievement_count: number
-  kudos_count: number
-  comment_count: number
-  athlete_count: number
-  photo_count: number
-  map: {
-    id: string
-    summary_polyline: string
-  }
-  trainer: boolean
-  commute: boolean
-  manual: boolean
-  private: boolean
-  visibility: string
-  flagged: boolean
-  gear_id: string
-  start_latlng: LatLng
-  end_latlng: LatLng
-  average_speed: number
-  max_speed: number
-  average_temp: number
-  average_watts: number
-  kilojoules: number
-  device_watts: boolean
-  has_heartrate: boolean
-  heartrate_opt_out: boolean
-  display_hide_heartrate_option: boolean
-  elev_high: number
-  elev_low: number
-  upload_id: number
-  upload_id_str: string
-  external_id: string
-  from_accepted_tag: boolean
-  pr_count: number
-  total_photo_count: number
-  has_kudoed: boolean
-}
-
-interface LatLngStream {
-  data: LatLng[]
-  series_type: 'distance'
-  original_size: number
-  resolution: 'low' | 'medium' | 'high'
-}
-
-interface DistanceNumberStream {
-  data: number
-  series_type: 'distance'
-  original_size: number
-  resolution: 'low' | 'medium' | 'high'
-}
-
-const ACTIVITIES_CACHE_PATH = `${__dirname}/activities.json`
-const STREAM_CACHE_PATH = `${__dirname}/streams`
+import {
+  ACTIVITIES_CACHE_PATH,
+  Activity,
+  Streams,
+  STREAM_CACHE_PATH
+} from './constTypes'
 
 async function getActivities() {
   const { data } = await axios.get(
@@ -125,11 +57,7 @@ async function getLatLngs(activity: Activity) {
   try {
     await fs.stat(streamFile)
     const raw = await fs.readFile(streamFile, 'utf8')
-    return JSON.parse(raw) as {
-      latlng: LatLngStream
-      distance: DistanceNumberStream
-      altitude: DistanceNumberStream
-    }
+    return JSON.parse(raw) as Streams
   } catch {
     const { data } = await axios.get(
       `https://www.strava.com/api/v3/activities/${activity.id}/streams?keys=latlng,distance,altitude&key_by_type=true`,
@@ -140,11 +68,7 @@ async function getLatLngs(activity: Activity) {
       }
     )
     await fs.writeFile(streamFile, JSON.stringify(data), { encoding: 'utf8' })
-    return data as {
-      latlng: LatLngStream
-      distance: DistanceNumberStream
-      altitude: DistanceNumberStream
-    }
+    return data as Streams
   }
 }
 
