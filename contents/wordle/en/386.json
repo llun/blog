@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 386 3/6",
+  "word": "berth",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "polar" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "jerky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "berth" }
+  ]
+}
