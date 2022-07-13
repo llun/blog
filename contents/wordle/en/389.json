@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 389 4/6",
+  "word": "bland",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨🟨", "word": "scrab" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "blaze" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "blank" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "bland" }
+  ]
+}
