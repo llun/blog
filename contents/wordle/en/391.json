@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 391 5/6",
+  "word": "wedge",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "polar" },
+    { "result": "⬜⬜⬜⬜⬜", "word": "quick" },
+    { "result": "⬜🟩⬜⬜⬜", "word": "zesty" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "hedge" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "wedge" }
+  ]
+}
