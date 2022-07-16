@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 392 4/6",
+  "word": "roomy",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "place" },
+    { "result": "⬜⬜🟩🟨⬜", "word": "fjord" },
+    { "result": "⬜🟨🟩⬜🟩", "word": "irony" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "roomy" }
+  ]
+}
