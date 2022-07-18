@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 394 4/6",
+  "word": "flock",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩🟩", "word": "quick" },
+    { "result": "⬜⬜⬜🟩🟩", "word": "whack" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "knock" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "flock" }
+  ]
+}
