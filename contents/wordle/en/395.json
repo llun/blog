@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 395 4/6",
+  "word": "angry",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "piler" },
+    { "result": "⬜🟨🟨⬜🟩", "word": "crazy" },
+    { "result": "⬜🟨🟨⬜🟩", "word": "hardy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "angry" }
+  ]
+}
