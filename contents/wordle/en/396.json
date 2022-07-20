@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 396 4/6",
+  "word": "trite",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟩", "word": "place" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "froze" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "drive" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "trite" }
+  ]
+}
