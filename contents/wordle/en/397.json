@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 397 2/6",
+  "word": "aphid",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟩", "word": "fried" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "aphid" }
+  ]
+}
