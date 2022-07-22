@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 398 4/6",
+  "word": "tryst",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "minor" },
+    { "result": "⬜🟩⬜⬜🟨", "word": "crazy" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "dryer" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tryst" }
+  ]
+}
