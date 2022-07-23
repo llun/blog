@@ -2,7 +2,13 @@ import fs from 'fs/promises'
 import path from 'path'
 import simplifyjs from 'simplify-js'
 
-import { LatLng, SIMPLIFY_PATH, Streams, STREAM_CACHE_PATH } from './constTypes'
+import {
+  GEOJSON_PATH,
+  LatLng,
+  SIMPLIFY_PATH,
+  Streams,
+  STREAM_CACHE_PATH
+} from './constTypes'
 
 interface LineStringGeometry {
   type: 'LineString'
@@ -50,7 +56,7 @@ async function run() {
     JSON.stringify(files.map((item) => path.basename(item, '.json')))
   )
   await fs.writeFile(
-    path.join(SIMPLIFY_PATH, 'geojson.json'),
+    path.join(GEOJSON_PATH, 'geojson.json'),
     JSON.stringify(geoJson)
   )
 }
