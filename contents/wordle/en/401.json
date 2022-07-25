@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 401 3/6",
+  "word": "elope",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩⬜", "word": "glyph" },
+    { "result": "⬜🟩🟨🟩⬜", "word": "slept" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "elope" }
+  ]
+}
