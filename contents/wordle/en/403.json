@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 403 4/6",
+  "word": "motto",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜⬜", "word": "hover" },
+    { "result": "⬜🟩⬜🟨⬜", "word": "cocoa" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "folio" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "motto" }
+  ]
+}

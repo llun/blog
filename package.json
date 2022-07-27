@@ -11,9 +11,9 @@
   "author": "Maythee Anegboonlap <null@llun.dev>",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@aws-sdk/client-cloudformation": "^3.131.0",
-    "@aws-sdk/client-cloudfront": "^3.131.0",
-    "@aws-sdk/client-lambda": "^3.131.0",
+    "@aws-sdk/client-cloudformation": "^3.137.0",
+    "@aws-sdk/client-cloudfront": "^3.137.0",
+    "@aws-sdk/client-lambda": "^3.137.0",
     "@babel/core": "^7.18.9",
     "@swc/wasm": "^1.2.218",
     "@types/archiver": "^5.3.1",
