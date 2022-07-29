@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 405 2/6",
+  "word": "upset",
+  "guesses": [
+    { "result": "⬜🟨🟨🟨🟩", "word": "guest" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "upset" }
+  ]
+}
