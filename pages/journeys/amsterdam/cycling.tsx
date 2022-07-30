@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import mapboxgl from 'mapbox-gl'
-import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
+import React, { useEffect, useRef } from 'react'
 
 import { MAPBOX_PUBLIC_KEY } from '../../../libs/config'
 import { getConfig, Config } from '../../../libs/blog'
@@ -8,9 +9,9 @@ import Meta from '../../../components/Meta'
 import { Calendar, getAllCalendars } from '../../../libs/amsterdam'
 
 import style from './cycling.module.css'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import { useRouter } from 'next/router'
+
 import { getCalendarTitle } from './[calendar]'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 export async function getStaticProps() {
   const config = getConfig()
