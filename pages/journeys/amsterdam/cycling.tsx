@@ -87,7 +87,7 @@ const AmsterdamCycling = ({ config, calendars }: Props) => {
         title={`${title}, Cycling map in Netherlands`}
         description="Cycling area in Netherlands"
         url={`${url}/journeys/amsterdam/cycling`}
-        imageUrl={`${url}/journeys/amsterdam/cycling/map.png`}
+        imageUrl={`${url}/journeys/amsterdam/cycling/map.png?${Date.now()}`}
       />
       <main className={style.cycling}>
         <p>
