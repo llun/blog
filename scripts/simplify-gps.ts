@@ -32,7 +32,7 @@ async function run() {
       y: latlng[0]
     }))
     const simplifyPoints = simplifyjs(points, 0.00001, true)
-    console.log(points.length, simplifyPoints.length)
+    console.log(file, points.length, simplifyPoints.length)
     await fs.writeFile(
       path.join(SIMPLIFY_PATH, file),
       JSON.stringify(simplifyPoints.map((point) => [point.x, point.y]))

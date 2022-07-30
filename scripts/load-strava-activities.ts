@@ -2,7 +2,12 @@ import 'dotenv-flow/config'
 import axios from 'axios'
 import fs from 'fs/promises'
 
-import { Activity, Streams, STREAM_CACHE_PATH } from './constTypes'
+import {
+  ACTIVITIES_RESULT_PATH,
+  Activity,
+  Streams,
+  STREAM_CACHE_PATH
+} from './constTypes'
 
 async function getActivities() {
   const { data } = await axios.get(
@@ -23,6 +28,9 @@ async function getNetherlandsRides() {
       activity.sport_type === 'Ride' &&
       [3600, 7200].includes(activity.utc_offset)
   )
+  await fs.writeFile(ACTIVITIES_RESULT_PATH, JSON.stringify(netherlandsRides), {
+    encoding: 'utf8'
+  })
   console.log(netherlandsRides.length)
   return netherlandsRides
 }
