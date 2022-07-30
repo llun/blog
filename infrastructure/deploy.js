@@ -17,7 +17,18 @@ const s3Resources = {
       BucketName: 'www.llun.me',
       WebsiteConfiguration: {
         IndexDocument: 'index.html',
-        ErrorDocument: '404.html'
+        ErrorDocument: '404.html',
+        RoutingRules: [
+          {
+            RoutingRuleCondition: {
+              KeyPrefixEquals: 'journeys/amsterdam/cycling/'
+            },
+            RedirectRule: {
+              HttpRedirectCode: '302',
+              ReplaceKeyPrefixWith: 'tags/ride/'
+            }
+          }
+        ]
       }
     }
   },
