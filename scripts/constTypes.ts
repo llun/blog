@@ -78,7 +78,6 @@ export interface Streams {
   altitude: DistanceNumberStream
 }
 
-export const ACTIVITIES_CACHE_PATH = `${__dirname}/activities.json`
 export const STREAM_CACHE_PATH = `${__dirname}/streams`
 export const SIMPLIFY_PATH = `${__dirname}/simplify`
 export const GEOJSON_PATH = path.join(
