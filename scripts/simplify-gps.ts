@@ -4,6 +4,7 @@ import simplifyjs from 'simplify-js'
 
 import {
   GEOJSON_PATH,
+  GEOJSON_TAG_RIDE_PATH,
   LatLng,
   SIMPLIFY_PATH,
   Streams,
@@ -51,14 +52,20 @@ async function run() {
     type: 'FeatureCollection',
     features
   }
-  await fs.writeFile(
-    path.join(SIMPLIFY_PATH, 'activities.json'),
-    JSON.stringify(files.map((item) => path.basename(item, '.json')))
-  )
-  await fs.writeFile(
-    path.join(GEOJSON_PATH, 'geojson.json'),
-    JSON.stringify(geoJson)
-  )
+  await Promise.all([
+    fs.writeFile(
+      path.join(SIMPLIFY_PATH, 'activities.json'),
+      JSON.stringify(files.map((item) => path.basename(item, '.json')))
+    ),
+    fs.writeFile(
+      path.join(GEOJSON_PATH, 'geojson.json'),
+      JSON.stringify(geoJson)
+    ),
+    fs.writeFile(
+      path.join(GEOJSON_TAG_RIDE_PATH, 'geojson.json'),
+      JSON.stringify(geoJson)
+    )
+  ])
 }
 
 run()

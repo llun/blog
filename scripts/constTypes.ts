@@ -89,3 +89,10 @@ export const GEOJSON_PATH = path.join(
   'amsterdam',
   'cycling'
 )
+export const GEOJSON_TAG_RIDE_PATH = path.join(
+  __dirname,
+  '..',
+  'public',
+  'tags',
+  'ride'
+)
