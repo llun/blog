@@ -2,7 +2,7 @@
 title: DSM7 vhost
 lang: th
 description: DSM7 new vhost location
-date: 2021-08-08
+date: 2021-08-08T17:32:20+08:00
 image: vhost.png
 tags:
   - synology

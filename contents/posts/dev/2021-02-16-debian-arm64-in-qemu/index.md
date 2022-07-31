@@ -3,7 +3,7 @@ title: Debian 10 arm64 with qemu
 lang: th
 image: qemu.png
 description: How to run debian 10 arm64 with qemu
-date: 2021-02-16
+date: 2021-02-16T21:27:31+08:00
 tags:
   - qemu
   - arm64

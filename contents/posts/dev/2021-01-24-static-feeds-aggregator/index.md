@@ -3,7 +3,7 @@ title: Static feeds aggregator
 lang: th
 image: desktop.png
 description: Github Action for building static feeds aggregator site in your repository
-date: 2021-01-24
+date: 2021-01-24T21:09:35+08:00
 tags:
   - tailwind
   - feeds

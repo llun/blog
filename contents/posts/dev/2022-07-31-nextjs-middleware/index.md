@@ -2,7 +2,7 @@
 title: NextJS middleware 12.1 vs 12.2
 lang: th
 description: NextJS middleware difference between 12.1 and 12.2
-date: 2022-07-31
+date: 2022-07-31T14:46:58+02:00
 tags:
   - NextJS
 ---

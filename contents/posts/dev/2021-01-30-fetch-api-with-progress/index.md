@@ -2,7 +2,7 @@
 title: Fetch API with progress
 lang: th
 description: Showing progress bar from fetch ReadableStream body
-date: 2021-01-30
+date: 2021-01-30T19:25:47+08:00
 tags:
   - fetch
   - javascript

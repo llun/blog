@@ -2,7 +2,7 @@
 title: Javascript unicode text splitting
 lang: th
 description: How to split emoji text in javascript
-date: 2022-02-08
+date: 2022-02-08T21:20:29+08:00
 tags:
   - Javascript
   - unicode

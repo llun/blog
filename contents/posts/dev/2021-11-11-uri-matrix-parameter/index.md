@@ -2,7 +2,7 @@
 title: URI matrix parameter
 lang: th
 description: Wrong assumption about URI path in Spring framework and hidden feature in URI, URI matrix parameter
-date: 2021-11-11
+date: 2021-11-11T20:56:28+08:00
 image: title.png
 tags:
   - spring framework

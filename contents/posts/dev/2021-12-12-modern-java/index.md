@@ -2,7 +2,7 @@
 title: Modern Java
 lang: th
 description: Java17 and new Java features after Java6
-date: 2021-12-12
+date: 2021-12-12T22:13:08+08:00
 tags:
   - java
 ---
