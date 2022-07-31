@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // @ts-check
+require('dotenv-flow/config')
 const {
   CloudFormationClient,
   DescribeStacksCommand,
