@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import React from 'react'
 
 type Props = {
   title: string
@@ -15,6 +16,13 @@ const Meta = ({ title, description, url, imageUrl }: Props) => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@llun" />
+    {!imageUrl && (
+      <meta
+        property="twitter:image"
+        content="https://llun.me/img/default.png"
+      />
+    )}
+    {imageUrl && <meta property="twitter:image" content={imageUrl} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />

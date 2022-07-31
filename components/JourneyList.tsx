@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import React from 'react'
 import { Journey } from '../libs/journey'
 import style from './JourneyList.module.css'
 
