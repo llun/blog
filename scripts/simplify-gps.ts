@@ -1,3 +1,4 @@
+#!/usr/bin/env ts-node
 import fs from 'fs/promises'
 import path from 'path'
 import simplifyjs from 'simplify-js'

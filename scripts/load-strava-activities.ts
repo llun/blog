@@ -1,3 +1,4 @@
+#!/usr/bin/env ts-node
 import 'dotenv-flow/config'
 import axios from 'axios'
 import fs from 'fs/promises'
