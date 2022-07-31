@@ -26,7 +26,16 @@ const s3Resources = {
             },
             RedirectRule: {
               HttpRedirectCode: '302',
-              ReplaceKeyPrefixWith: 'tags/ride/'
+              ReplaceKeyPrefixWith: 'tags/ride/posts/'
+            }
+          },
+          {
+            RoutingRuleCondition: {
+              KeyPrefixEquals: 'tags/ride/index.html'
+            },
+            RedirectRule: {
+              HttpRedirectCode: '302',
+              ReplaceKeyPrefixWith: 'tags/ride/posts/'
             }
           }
         ]

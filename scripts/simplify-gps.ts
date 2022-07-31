@@ -5,7 +5,6 @@ import simplifyjs from 'simplify-js'
 
 import {
   GEOJSON_PATH,
-  GEOJSON_TAG_RIDE_PATH,
   LatLng,
   SIMPLIFY_PATH,
   Streams,
@@ -59,11 +58,7 @@ async function run() {
       JSON.stringify(files.map((item) => path.basename(item, '.json')))
     ),
     fs.writeFile(
-      path.join(GEOJSON_PATH, 'geojson.json'),
-      JSON.stringify(geoJson)
-    ),
-    fs.writeFile(
-      path.join(GEOJSON_TAG_RIDE_PATH, 'geojson.json'),
+      path.join(GEOJSON_PATH, 'netherlands.json'),
       JSON.stringify(geoJson)
     )
   ])

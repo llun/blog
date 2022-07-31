@@ -1,3 +1,11 @@
+.navigation .item {
+  margin-right: 0.25rem;
+}
+
+.navigation .item:last-child {
+  margin-right: 0;
+}
+
 .map {
   height: 600px;
 }
