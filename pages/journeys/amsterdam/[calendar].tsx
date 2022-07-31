@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { ParsedUrlQuery } from 'querystring'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
@@ -109,7 +109,6 @@ export const AmsterdamPage = ({ config, calendars, current }: Props) => {
               )
             })}
           </select>
-          <Link href={'/journeys/amsterdam/cycling'}>Cycling</Link>
         </div>
 
         {current && (
