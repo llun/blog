@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import mapboxgl from 'mapbox-gl'
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { MAPBOX_PUBLIC_KEY } from '../../libs/config'
 import { getConfig, Config } from '../../libs/blog'

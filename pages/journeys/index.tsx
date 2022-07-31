@@ -1,4 +1,5 @@
 import type { GetStaticPropsContext } from 'next'
+import React from 'react'
 
 import { Config, getConfig } from '../../libs/blog'
 import { Journey, getAllJourneys } from '../../libs/journey'
@@ -28,7 +29,7 @@ const Index = ({ config, journeys }: Props) => {
   return (
     <>
       <Meta title={title} description={description} url={url} />
-      <Header title={title} url={url} />
+      <Header title={title} url={`${url}/journeys`} />
       <main>
         <h1>Journeys</h1>
         <p className={style.description}>

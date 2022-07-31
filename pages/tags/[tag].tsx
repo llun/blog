@@ -65,7 +65,7 @@ const Index: NextPage<Props> = ({ posts, config, category }) => {
       <Meta
         title={`${title}, ${category}`}
         description={description}
-        url={url}
+        url={`${url}/tags/${category}/`}
       />
       <Header title={title} url={url} />
       <main>
