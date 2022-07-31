@@ -4,10 +4,12 @@ import axios from 'axios'
 import fs from 'fs/promises'
 
 import {
-  ACTIVITIES_RESULT_PATH,
   Activity,
-  Streams,
-  STREAM_CACHE_PATH
+  Country,
+  COUNTRY_NETHERLANDS,
+  getCountryActivities,
+  getCountryStreamPath,
+  Streams
 } from './constTypes'
 
 async function getActivities() {
@@ -29,16 +31,20 @@ async function getNetherlandsRides() {
       activity.sport_type === 'Ride' &&
       [3600, 7200].includes(activity.utc_offset)
   )
-  await fs.writeFile(ACTIVITIES_RESULT_PATH, JSON.stringify(netherlandsRides), {
-    encoding: 'utf8'
-  })
+  await fs.writeFile(
+    `${getCountryActivities(COUNTRY_NETHERLANDS)}`,
+    JSON.stringify(netherlandsRides),
+    {
+      encoding: 'utf8'
+    }
+  )
   console.log(netherlandsRides.length)
   return netherlandsRides
 }
 
-async function getLatLngs(activity: Activity) {
-  await fs.mkdir(STREAM_CACHE_PATH, { recursive: true })
-  const streamFile = `${STREAM_CACHE_PATH}/${activity.id}.json`
+async function getLatLngs(country: Country, activity: Activity) {
+  await fs.mkdir(getCountryStreamPath(country), { recursive: true })
+  const streamFile = `${getCountryStreamPath(country)}/${activity.id}.json`
   try {
     await fs.stat(streamFile)
     const raw = await fs.readFile(streamFile, 'utf8')
@@ -61,7 +67,7 @@ async function run() {
   const activities = await getNetherlandsRides()
   for (const activity of activities) {
     console.log('Load activity', activity.id)
-    await getLatLngs(activity)
+    await getLatLngs(COUNTRY_NETHERLANDS, activity)
   }
 }
 

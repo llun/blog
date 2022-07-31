@@ -7,7 +7,7 @@
     "build": "next build",
     "lint": "next lint",
     "export": "next build && next export",
-    "load-geojson": "scripts/load-strava-activities.ts && scripts/simplify-gps.ts"
+    "load-geojson": "scripts/load-netherlands-activities.ts && scripts/simplify-gps.ts"
   },
   "author": "Maythee Anegboonlap <null@llun.dev>",
   "license": "UNLICENSED",

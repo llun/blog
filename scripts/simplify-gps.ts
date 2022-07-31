@@ -4,11 +4,13 @@ import path from 'path'
 import simplifyjs from 'simplify-js'
 
 import {
+  Country,
+  COUNTRY_NETHERLANDS,
   GEOJSON_PATH,
+  getCountrySimplifyPath,
+  getCountryStreamPath,
   LatLng,
-  SIMPLIFY_PATH,
-  Streams,
-  STREAM_CACHE_PATH
+  Streams
 } from './constTypes'
 
 interface LineStringGeometry {
@@ -21,12 +23,17 @@ interface Feature {
   geometry: LineStringGeometry
 }
 
-async function run() {
-  await fs.mkdir(SIMPLIFY_PATH, { recursive: true })
-  const files = await fs.readdir(STREAM_CACHE_PATH)
+async function simplifyCountry(country: Country) {
+  const simplifyPath = getCountrySimplifyPath(country)
+  await fs.mkdir(simplifyPath, { recursive: true })
+  const files = await fs.readdir(getCountryStreamPath(country))
   const features: Feature[] = []
   for (const file of files) {
-    const raw = await fs.readFile(`${STREAM_CACHE_PATH}/${file}`, 'utf8')
+    if (!file.endsWith('.json')) continue
+    const raw = await fs.readFile(
+      `${getCountryStreamPath(country)}/${file}`,
+      'utf8'
+    )
     const streams = JSON.parse(raw) as Streams
     const points = streams.latlng.data.map((latlng) => ({
       x: latlng[1],
@@ -35,7 +42,7 @@ async function run() {
     const simplifyPoints = simplifyjs(points, 0.00001, true)
     console.log(file, points.length, simplifyPoints.length)
     await fs.writeFile(
-      path.join(SIMPLIFY_PATH, file),
+      path.join(simplifyPath, file),
       JSON.stringify(simplifyPoints.map((point) => [point.x, point.y]))
     )
     const feature: Feature = {
@@ -52,18 +59,26 @@ async function run() {
     type: 'FeatureCollection',
     features
   }
+
   await Promise.all([
     fs.writeFile(
-      path.join(SIMPLIFY_PATH, 'activities.json'),
+      path.join(simplifyPath, `${country}.json`),
       JSON.stringify(files.map((item) => path.basename(item, '.json')))
     ),
     fs.writeFile(
-      path.join(GEOJSON_PATH, 'netherlands.json'),
+      path.join(GEOJSON_PATH, `${country}.json`),
       JSON.stringify(geoJson)
     )
   ])
 }
 
+async function run() {
+  await simplifyCountry(COUNTRY_NETHERLANDS)
+}
+
 run()
   .then(() => console.log('done'))
-  .catch((e) => console.error(e.message))
+  .catch((e) => {
+    console.error(e.message)
+    console.error(e.stack)
+  })
