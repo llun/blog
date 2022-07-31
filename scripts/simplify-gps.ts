@@ -6,6 +6,7 @@ import simplifyjs from 'simplify-js'
 import {
   Country,
   COUNTRY_NETHERLANDS,
+  COUNTRY_SINGAPORE,
   GEOJSON_PATH,
   getCountrySimplifyPath,
   getCountryStreamPath,
@@ -35,6 +36,9 @@ async function simplifyCountry(country: Country) {
       'utf8'
     )
     const streams = JSON.parse(raw) as Streams
+    // Ignore indoor training
+    if (!streams.latlng) continue
+
     const points = streams.latlng.data.map((latlng) => ({
       x: latlng[1],
       y: latlng[0]
@@ -74,6 +78,7 @@ async function simplifyCountry(country: Country) {
 
 async function run() {
   await simplifyCountry(COUNTRY_NETHERLANDS)
+  // await simplifyCountry(COUNTRY_SINGAPORE)
 }
 
 run()

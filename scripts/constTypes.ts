@@ -81,6 +81,7 @@ export interface Streams {
 export type Country = 'netherlands' | 'singapore'
 
 export const COUNTRY_NETHERLANDS = 'netherlands'
+export const COUNTRY_SINGAPORE = 'singapore'
 export const GEOJSON_PATH = path.join(__dirname, '..', 'public', 'tags', 'ride')
 
 export const getCountryStreamPath = (country: Country) =>

@@ -38,14 +38,19 @@ interface Props {
 
 export const Navigation: FC = () => (
   <section className={style.navigation}>
-    <Link href={'/tags/ride/'}>
+    <Link href="/tags/ride/">
       <a className={style.item} aria-label="Link to post list">
         Posts
       </a>
     </Link>
-    <Link href={'/tags/ride/netherlands'}>
-      <a className={style.item} aria-label="Link to Netherlands cycling map">
+    <Link href="/tags/ride/netherlands">
+      <a className={style.item} aria-label="Link to my Netherlands cycling map">
         Netherlands
+      </a>
+    </Link>
+    <Link href="/tags/ride/singapore">
+      <a className={style.item} aria-label="Link to my Singapore cycling map">
+        Singapore
       </a>
     </Link>
   </section>
@@ -63,7 +68,7 @@ const Index: NextPage<Props> = ({ config, category, posts }) => {
         title={`${title}, ${category}`}
         description={description}
         url={url}
-        imageUrl={`${url}/tags/ride/map.png?${Date.now()}`}
+        imageUrl={`${url}/tags/ride/netherlands.png?${Date.now()}`}
       />
       <Header title={title} url={url} />
       <main>
