@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 409 4/6",
+  "word": "coyly",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "blast" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "helix" },
+    { "result": "🟨⬜🟨⬜🟩", "word": "lucky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "coyly" }
+  ]
+}
