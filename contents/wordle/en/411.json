@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 411 3/6",
+  "word": "rhyme",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟩", "word": "prise" },
+    { "result": "⬜⬜⬜🟨🟩", "word": "azure" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "rhyme" }
+  ]
+}

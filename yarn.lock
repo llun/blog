@@ -1188,10 +1188,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@swc/wasm@^1.2.222":
-  version "1.2.222"
-  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.2.222.tgz#dda4c2c17cb5766889ddacc543178ee3a8dd8329"
-  integrity sha512-UrAJ2mHOQpYVkbvB4WNfMouGNXYJo8Oa4eNpj3y4PNOEz2tCCIZgeNDz9yDrLP1oAIPeADY66EgjFks6aPJUhg==
+"@swc/wasm@^1.2.223":
+  version "1.2.223"
+  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.2.223.tgz#861a14a52f141dedb459623a21c5c0f79273cd41"
+  integrity sha512-NrK6rOXUzCTmXtz8q2uLjr58i7rPRH7yYpDlHnldtmv0jLFF0berFeLQj8gaslh4zIoYVFe826xbO1Swqhi0bw==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
@@ -1259,9 +1259,9 @@
   integrity sha512-Lx+EZoJxUKw4dp8uei9XiUVNlgkYmax5+ovqt6Xf3LzJOnWhlfJw/jLBmqfGVwOP/pDr4HT8bI1WtxK0IChMLw==
 
 "@types/mapbox-gl@^2.7.4":
-  version "2.7.4"
-  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-2.7.4.tgz#fbbb72a3fc0a1e0c2fbd7952d23418e51cdea77d"
-  integrity sha512-usTVCWYhmLt+teQ5U3HhSBZIIHFLp6fQXH/1QOnd4xnDtvNTUWo8n6UyRA4kUj84CGpHSBFeF/MNcBdGB1pwog==
+  version "2.7.5"
+  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-2.7.5.tgz#9e31fc592adb2762e4e5c7727dca5ec367dfc780"
+  integrity sha512-T8gACm3oGKMlBo2l/9vnKEAxgCc0g2mr8g6dI1d3ZO6EzRe7JALBONlWRmc7SOHV79kiarkcdLdDVEnfd+jilA==
   dependencies:
     "@types/geojson" "*"
 
@@ -1836,9 +1836,9 @@ earcut@^2.2.3:
   integrity sha512-/pjZsA1b4RPHbeWZQn66SWS8nZZWLQQ23oE3Eam7aroEFGEvwKAsJfZ9ytiEMycfzXWpca4FA9QIOehf7PocBQ==
 
 electron-to-chromium@^1.4.202:
-  version "1.4.210"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.210.tgz#12611fe874b833a3bf3671438b5893aba7858980"
-  integrity sha512-kSiX4tuyZijV7Cz0MWVmGT8K2siqaOA4Z66K5dCttPPRh0HicOcOAEj1KlC8O8J1aOS/1M8rGofOzksLKaHWcQ==
+  version "1.4.211"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.211.tgz#afaa8b58313807501312d598d99b953568d60f91"
+  integrity sha512-BZSbMpyFQU0KBJ1JG26XGeFI3i4op+qOYGxftmZXFZoHkhLgsSv4DHDJfl8ogII3hIuzGt51PaZ195OVu0yJ9A==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -3698,9 +3698,9 @@ yaml@^2.1.1:
   integrity sha512-o96x3OPo8GjWeSLF+wOAbrPfhFOGY0W00GNaxCDv+9hkcDJEnev1yh8S7pgHF0ik6zc8sQLuL8hjHjJULZp8bw==
 
 yargs-parser@^21.0.0:
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.0.1.tgz#0267f286c877a4f0f728fceb6f8a3e4cb95c6e35"
-  integrity sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==
+  version "21.1.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.0.tgz#a11d06a3bf57f064e951aa3ef55fcf3a5705f876"
+  integrity sha512-xzm2t63xTV/f7+bGMSRzLhUNk1ajv/tDoaD5OeGyC3cFo2fl7My9Z4hS3q2VdQ7JaLvTxErO8Jp5pRIFGMD/zg==
 
 yargs@^17.5.1:
   version "17.5.1"
