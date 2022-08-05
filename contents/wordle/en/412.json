@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 412 4/6",
+  "word": "buggy",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜🟩", "word": "juicy" },
+    { "result": "🟩🟩⬜⬜🟩", "word": "bulky" },
+    { "result": "🟩🟩⬜⬜🟩", "word": "bunny" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "buggy" }
+  ]
+}
