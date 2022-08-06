@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 413 2/6",
+  "word": "alien",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "power" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "alien" }
+  ]
+}
