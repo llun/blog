@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 415 3/6",
+  "word": "unfit",
+  "guesses": [
+    { "result": "⬜🟨🟨⬜⬜", "word": "after" },
+    { "result": "⬜🟨🟩🟨⬜", "word": "fifth" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "unfit" }
+  ]
+}
