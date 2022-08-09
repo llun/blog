@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 416 3/6",
+  "word": "patty",
+  "guesses": [
+    { "result": "🟩🟩⬜🟩🟩", "word": "party" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "pasty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "patty" }
+  ]
+}
