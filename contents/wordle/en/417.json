@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 417 3/6",
+  "word": "cling",
+  "guesses": [
+    { "result": "🟩⬜🟩🟨⬜", "word": "child" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "climb" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cling" }
+  ]
+}
