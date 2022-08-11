@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 418 3/6",
+  "word": "glean",
+  "guesses": [
+    { "result": "🟨⬜🟨🟩⬜", "word": "lunar" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "clean" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "glean" }
+  ]
+}
