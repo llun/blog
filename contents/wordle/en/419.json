@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 419 5/6",
+  "word": "label",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩🟩", "word": "camel" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "navel" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "gavel" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "hazel" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "label" }
+  ]
+}
