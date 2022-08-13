@@ -1188,10 +1188,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@swc/wasm@^1.2.225":
-  version "1.2.225"
-  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.2.225.tgz#9df7038003751416a6529e13a9e3bacbb05cb0fb"
-  integrity sha512-4h9azQ4cItyuJb1cFGc/QKe7KNh99zveMKuOe4xpJ7/sB1sgUPJUZHWhjitAMiJuB6Flnjl/eUwfiMu3+qhGLA==
+"@swc/wasm@^1.2.227":
+  version "1.2.227"
+  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.2.227.tgz#f5b4d575edb4bd0c9e5f0f35eb1207e80684223a"
+  integrity sha512-fvXPE4I3EXQY8FzJcoFI26LTNsdd0xs/pxt7DNEE+MrVz2azqexQfBSsGqP1yHlHe6d+u4PBmuMSE1DOliJKyA==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
@@ -1836,9 +1836,9 @@ earcut@^2.2.3:
   integrity sha512-/pjZsA1b4RPHbeWZQn66SWS8nZZWLQQ23oE3Eam7aroEFGEvwKAsJfZ9ytiEMycfzXWpca4FA9QIOehf7PocBQ==
 
 electron-to-chromium@^1.4.202:
-  version "1.4.217"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.217.tgz#f1f51b319435f4c1587a850806a0dfebe9774598"
-  integrity sha512-iX8GbAMij7cOtJPZo02CClpaPMWjvN5meqXiJXkBgwvraNWTNH0Z7F9tkznI34JRPtWASoPM/xWamq3oNb49GA==
+  version "1.4.218"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.218.tgz#d6b817b5454499a92c85888b42dc2ad075e4493a"
+  integrity sha512-INDylKH//YIf2w67D+IjkfVnGVrZ/D94DAU/FPPm6T4jEPbEDQvo9r2wTj0ncFdtJH8+V8BggZTaN8Rzk5wkgw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -2787,10 +2787,10 @@ markdown-it-implicit-figures@^0.10.0:
   resolved "https://registry.yarnpkg.com/markdown-it-implicit-figures/-/markdown-it-implicit-figures-0.10.0.tgz#0e75e80b846da1e3117a3fc6d6b013d0cc3f2a8c"
   integrity sha512-1TWr6+apyoJvRa4Z7eIolZdeajZCRBcc1ckVXon7XwdL8MfydIWsHnZOS5zRrpUNX5b0/O9giWcmuItSkleK5A==
 
-markdown-it-link-attributes@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-link-attributes/-/markdown-it-link-attributes-4.0.0.tgz#188fdba1cae0d11dc80cc841ae9a7919ad8a9be3"
-  integrity sha512-ssjxSLlLfQBkX6BvAx1rCPrx7ZoK91llQQvS3P7KXvlbnVD34OUkfXwWecN7su/7mrI/HOW0RI5szdJOIqYC3w==
+markdown-it-link-attributes@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/markdown-it-link-attributes/-/markdown-it-link-attributes-4.0.1.tgz#25751f2cf74fd91f0a35ba7b3247fa45f2056d88"
+  integrity sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==
 
 markdown-it@^13.0.1:
   version "13.0.1"

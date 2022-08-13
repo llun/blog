@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 420 4/6",
+  "word": "hunky",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "novel" },
+    { "result": "🟨🟨⬜⬜⬜", "word": "unzip" },
+    { "result": "⬜🟨🟨🟨🟨", "word": "chunk" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hunky" }
+  ]
+}
