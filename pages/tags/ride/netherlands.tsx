@@ -49,7 +49,7 @@ const RideMap: FC = () => {
         case 400:
           return 7
         default:
-          return 7.3
+          return 7.25
       }
     }
 

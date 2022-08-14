@@ -1188,10 +1188,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@swc/wasm@^1.2.230":
-  version "1.2.230"
-  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.2.230.tgz#98377e37a19a8685b87c67e89656442770f3936b"
-  integrity sha512-DiSOlUTtCt1E74QvQrz7pV3IieY9eib93gG5W4zbR9hbIV9aHgqmJb5Yd0GJYL03B3zvZDXAUh94zVjrrTHMvw==
+"@swc/wasm@^1.2.231":
+  version "1.2.231"
+  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.2.231.tgz#0e1cd3e02321cb62e5e2ca4573477a5670f0a87e"
+  integrity sha512-Uja0VOwxSn1SxBj5K4AYtft5wU4mS7Zk59tMpKXjYG2wu0TbpQyKuddRrWDZrkCYDLRRU/LsVzI3Q99owZ8GEQ==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
