@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 421 4/6",
+  "word": "khaki",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "towel" },
+    { "result": "⬜⬜🟨⬜🟨", "word": "quick" },
+    { "result": "⬜🟨⬜🟩⬜", "word": "pinky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "khaki" }
+  ]
+}
