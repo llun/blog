@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 423 4/6",
+  "word": "gruel",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "today" },
+    { "result": "⬜🟨⬜⬜⬜", "word": "quick" },
+    { "result": "⬜🟨🟩⬜⬜", "word": "flush" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "gruel" }
+  ]
+}
