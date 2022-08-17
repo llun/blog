@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 424 4/6",
+  "word": "twice",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "night" },
+    { "result": "⬜⬜🟩🟨⬜", "word": "fritz" },
+    { "result": "⬜🟨🟩🟩⬜", "word": "stick" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "twice" }
+  ]
+}
