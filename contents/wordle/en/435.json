@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 425 4/6",
+  "word": "twang",
+  "guesses": [
+    { "result": "⬜🟨⬜🟩⬜", "word": "sauna" },
+    { "result": "⬜⬜🟩🟩⬜", "word": "frank" },
+    { "result": "⬜⬜🟩🟩🟨", "word": "chant" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "twang" }
+  ]
+}
