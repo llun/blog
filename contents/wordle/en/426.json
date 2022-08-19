@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 426 3/6",
+  "word": "shrug",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩🟨", "word": "flour" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "shrub" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shrug" }
+  ]
+}
