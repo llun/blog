@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 427 2/6",
+  "word": "treat",
+  "guesses": [
+    { "result": "⬜🟩🟩🟩🟩", "word": "great" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "treat" }
+  ]
+}
