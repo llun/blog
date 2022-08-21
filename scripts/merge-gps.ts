@@ -31,7 +31,28 @@ function averageDistance(activity: Streams) {
     const prv = array[index - 1]
     return distance(cur, prv).add(sum)
   }, new Decimal(0))
-  return totalDistance.div(new Decimal(data.length - 1).toNumber())
+  return totalDistance
+    .div(new Decimal(data.length - 1))
+    .toNumber()
+    .toFixed(6)
+}
+
+function medianDistance(activity: Streams) {
+  const data = activity.latlng.data.filter((position, index, array) => {
+    if (index < 1) return true
+    return distance(position, array[index - 1]).toNumber() > 0
+  })
+
+  const distances = data
+    .reduce((distances, coordinate, index, array) => {
+      if (index < 1) return distances
+      const cur = coordinate
+      const prv = array[index - 1]
+      distances.push(distance(cur, prv))
+      return distances
+    }, [] as Decimal[])
+    .sort((a, b) => a.comparedTo(b))
+  return distances[Math.ceil(distances.length / 2)].toNumber().toFixed(6)
 }
 
 async function run() {
@@ -44,7 +65,7 @@ async function run() {
     (content) => JSON.parse(content) as Streams
   )
   for (const activity of activities) {
-    console.log(averageDistance(activity))
+    console.log(averageDistance(activity), medianDistance(activity))
   }
 }
 
