@@ -1,4 +1,5 @@
 #!/usr/bin/env ts-node
+import { kdTree } from 'kd-tree-javascript'
 import fs from 'fs/promises'
 import path from 'path'
 import { Decimal } from 'decimal.js'
@@ -9,50 +10,40 @@ import {
   LatLng
 } from './constTypes'
 
-function distance(p1: LatLng, p2: LatLng) {
-  const [x1, y1] = p1.map((v) => new Decimal(v))
-  const [x2, y2] = p2.map((v) => new Decimal(v))
+interface Coordinate {
+  x: Decimal
+  y: Decimal
+}
+
+function distance(c1: Coordinate, c2: Coordinate) {
   return Decimal.sqrt(
-    Decimal.pow(x2.minus(x1), new Decimal(2)).plus(
-      Decimal.pow(y2.minus(y1), new Decimal(2))
+    Decimal.pow(c2.x.minus(c1.x), new Decimal(2)).plus(
+      Decimal.pow(c2.y.minus(c1.y), new Decimal(2))
     )
-  )
+  ).toNumber()
 }
 
-function averageDistance(activity: Streams) {
-  const data = activity.latlng.data.filter((position, index, array) => {
-    if (index < 1) return true
-    return distance(position, array[index - 1]).toNumber() > 0
-  })
-
-  const totalDistance = data.reduce((sum, coordinate, index, array) => {
-    if (index < 1) return sum
-    const cur = coordinate
-    const prv = array[index - 1]
-    return distance(cur, prv).add(sum)
-  }, new Decimal(0))
-  return totalDistance
-    .div(new Decimal(data.length - 1))
-    .toNumber()
-    .toFixed(6)
+function getLineWithoutDuplicate(activity: Streams) {
+  return activity.latlng.data
+    .map(([x, y]) => ({ x: new Decimal(y), y: new Decimal(x) } as Coordinate))
+    .filter((position, index, array) => {
+      if (index < 1) return true
+      return distance(position, array[index - 1]) > 0
+    })
 }
 
-function medianDistance(activity: Streams) {
-  const data = activity.latlng.data.filter((position, index, array) => {
-    if (index < 1) return true
-    return distance(position, array[index - 1]).toNumber() > 0
-  })
-
-  const distances = data
-    .reduce((distances, coordinate, index, array) => {
-      if (index < 1) return distances
-      const cur = coordinate
-      const prv = array[index - 1]
-      distances.push(distance(cur, prv))
-      return distances
-    }, [] as Decimal[])
-    .sort((a, b) => a.comparedTo(b))
-  return distances[Math.ceil(distances.length / 2)].toNumber().toFixed(6)
+async function writeGeoJson(name: string, points) {
+  const feature = {
+    type: 'Feature',
+    geometry: {
+      type: 'LineString',
+      coordinates: points.map(([x, y]) => [y, x])
+    },
+    properties: {
+      name
+    }
+  }
+  await fs.writeFile(path.join(__dirname, name), JSON.stringify(feature))
 }
 
 async function run() {
@@ -64,8 +55,24 @@ async function run() {
   const activities = (await Promise.all(streams)).map(
     (content) => JSON.parse(content) as Streams
   )
-  for (const activity of activities) {
-    console.log(averageDistance(activity), medianDistance(activity))
+
+  const [a1, a2, ...rest] = activities
+  writeGeoJson('a1.json', a1.latlng.data)
+  writeGeoJson('a2.json', a2.latlng.data)
+
+  const line = getLineWithoutDuplicate(a1)
+  for (const p of line) {
+    console.log(p)
+  }
+  const tree = new kdTree(line, distance, ['x', 'y'])
+
+  const l2 = getLineWithoutDuplicate(a2)
+  console.log('line2')
+  console.log(l2[0])
+
+  console.log('Nearest')
+  for (const c of l2) {
+    console.log(tree.nearest(c, 1))
   }
 }
 

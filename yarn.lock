@@ -1243,6 +1243,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
+"@types/kd-tree-javascript@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/kd-tree-javascript/-/kd-tree-javascript-1.0.1.tgz#9351b0118efe1d5c74f7a952b16d4bec71729cca"
+  integrity sha512-GE4nu1+pPERjXrnmwtKufcOI2NazvBtT3tmqxQ8C0AgFKGH9mdelLMkbhD3E2UR6/lZGeDc+QUNyvph74gCaww==
+
 "@types/linkify-it@*":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-3.0.2.tgz#fd2cd2edbaa7eaac7e7f3c1748b52a19143846c9"
@@ -2648,6 +2653,11 @@ json5@^2.2.1:
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
+
+kd-tree-javascript@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/kd-tree-javascript/-/kd-tree-javascript-1.0.3.tgz#ab5239ed44e347e10065590fd479e947bedff96c"
+  integrity sha512-7oSugmaxTCJFqey11rlTSEQD3hGDnRgROMj9MEREvDGV8SlIFwN7x3jJRyFoi+mjO0+4wuSuaDLS1reNQHP7uA==
 
 kdbush@^3.0.0:
   version "3.0.0"
