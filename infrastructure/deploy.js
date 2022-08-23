@@ -129,7 +129,7 @@ const cdnResources = {
           }
         ],
         Enabled: true,
-        HttpVersion: 'http2',
+        HttpVersion: 'http2and3',
         Comment: 'Blog Content',
         DefaultRootObject: 'index.html',
         PriceClass: 'PriceClass_All',
@@ -156,7 +156,7 @@ const cdnResources = {
           AcmCertificateArn:
             'arn:aws:acm:us-east-1:107563078874:certificate/95decd54-eaa2-4433-b0ad-dd6dffe0ca08',
           SslSupportMethod: 'sni-only',
-          MinimumProtocolVersion: 'TLSv1.2_2019'
+          MinimumProtocolVersion: 'TLSv1.2_2021'
         },
         Logging: {
           Bucket: 'llun.logs.s3.amazonaws.com',
