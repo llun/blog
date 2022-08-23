@@ -154,7 +154,7 @@ const cdnResources = {
         },
         ViewerCertificate: {
           AcmCertificateArn:
-            'arn:aws:acm:us-east-1:107563078874:certificate/95decd54-eaa2-4433-b0ad-dd6dffe0ca08',
+            'arn:aws:acm:us-east-1:107563078874:certificate/21fc0bc7-2820-462b-bfa6-e5c0241233dc',
           SslSupportMethod: 'sni-only',
           MinimumProtocolVersion: 'TLSv1.2_2021'
         },
