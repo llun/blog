@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 431 3/6",
+  "word": "needy",
+  "guesses": [
+    { "result": "⬜⬜🟨🟩🟩", "word": "handy" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "nerdy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "needy" }
+  ]
+}
