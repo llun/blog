@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 432 4/6",
+  "word": "clown",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "while" },
+    { "result": "⬜🟨⬜⬜🟨", "word": "awful" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "blown" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "clown" }
+  ]
+}

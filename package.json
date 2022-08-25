@@ -13,7 +13,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@aws-sdk/client-cloudformation": "^3.154.0",
-    "@aws-sdk/client-cloudfront": "^3.154.0",
+    "@aws-sdk/client-cloudfront": "^3.157.0",
     "@aws-sdk/client-lambda": "^3.154.0",
     "@babel/core": "^7.18.13",
     "@swc/wasm": "^1.2.242",
@@ -24,7 +24,7 @@
     "@types/luxon": "^3.0.0",
     "@types/mapbox-gl": "^2.7.5",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.7.12",
+    "@types/node": "^18.7.13",
     "@types/react": "18.0.17",
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.11",
