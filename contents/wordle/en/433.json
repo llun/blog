@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 433 4/6",
+  "word": "irony",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "raise" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "birch" },
+    { "result": "🟩⬜🟩🟨🟩", "word": "ivory" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "irony" }
+  ]
+}
