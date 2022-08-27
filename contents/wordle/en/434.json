@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 434 4/6",
+  "word": "ruder",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜🟩", "word": "lunar" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "buyer" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "super" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ruder" }
+  ]
+}
