@@ -58,7 +58,8 @@ const RideMap: FC = () => {
       style: 'mapbox://styles/mapbox/light-v10',
       center: [103.81561802376315, 1.3498842996482667],
       zoom: zoomLevel(mapEl?.current?.offsetHeight),
-      minZoom: 8
+      minZoom: 8,
+      maxZoom: 12
     })
     map.on('load', async () => {
       map.addSource('route', {
