@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 437 3/6",
+  "word": "onset",
+  "guesses": [
+    { "result": "⬜🟨🟩🟨⬜", "word": "zesty" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "upset" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "onset" }
+  ]
+}
