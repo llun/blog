@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 439 4/6",
+  "word": "fungi",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟨", "word": "adieu" },
+    { "result": "⬜⬜🟨🟨⬜", "word": "squib" },
+    { "result": "🟨🟨⬜🟨⬜", "word": "unzip" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "fungi" }
+  ]
+}
