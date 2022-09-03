@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 441 4/6",
+  "word": "gully",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "curvy" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "bully" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "gully" }
+  ]
+}
