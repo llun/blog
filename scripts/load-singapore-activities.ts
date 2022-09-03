@@ -3,7 +3,7 @@ import 'dotenv-flow/config'
 import fs from 'fs/promises'
 import path from 'path'
 
-import { COUNTRY_SINGAPORE, getCountryActivities } from './constTypes'
+import { COUNTRY_SINGAPORE, getCountryActivities, Streams } from './constTypes'
 import { getActivities, getLatLngs } from './strava'
 
 async function getSingaporeRides() {
@@ -40,7 +40,13 @@ async function run() {
   let [notFound, found] = [0, 0]
   for (const activity of activities) {
     try {
-      await fs.stat(path.join(__dirname, 'singapore', `${activity.id}.json`))
+      const filePath = path.join(__dirname, 'singapore', `${activity.id}.json`)
+      await fs.stat(filePath)
+      const data = await fs.readFile(filePath, 'utf8')
+      const json = JSON.parse(data) as Streams
+      json.id = activity.id
+      json.start_time_utc = activity.start_date
+      await fs.writeFile(filePath, JSON.stringify(json))
       found++
     } catch {
       notFound++

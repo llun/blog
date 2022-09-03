@@ -65,7 +65,7 @@ export interface LatLngStream {
   resolution: 'low' | 'medium' | 'high'
 }
 
-export interface DistanceNumberStream {
+export interface NumberStream {
   data: number
   series_type: 'distance'
   original_size: number
@@ -73,9 +73,13 @@ export interface DistanceNumberStream {
 }
 
 export interface Streams {
+  id: number
+  start_time_utc: string
   latlng: LatLngStream
-  distance: DistanceNumberStream
-  altitude: DistanceNumberStream
+  distance: NumberStream
+  altitude: NumberStream
+  heartrate: NumberStream
+  time: NumberStream
 }
 
 export type Country = 'netherlands' | 'singapore'

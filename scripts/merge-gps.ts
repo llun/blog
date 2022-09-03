@@ -6,8 +6,7 @@ import { Decimal } from 'decimal.js'
 import {
   COUNTRY_NETHERLANDS,
   getCountryStreamPath,
-  Streams,
-  LatLng
+  Streams
 } from './constTypes'
 
 interface Coordinate {
