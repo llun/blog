@@ -40,7 +40,7 @@ export async function getLatLngs(country: Country, activity: Activity) {
     return JSON.parse(raw) as Streams
   } catch {
     const { data } = await axios.get(
-      `https://www.strava.com/api/v3/activities/${activity.id}/streams?keys=latlng,distance,altitude&key_by_type=true`,
+      `https://www.strava.com/api/v3/activities/${activity.id}/streams?keys=latlng,altitude,time,heartrate&key_by_type=true`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAVA_TOKEN}`

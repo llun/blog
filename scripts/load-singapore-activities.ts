@@ -1,33 +1,54 @@
 #!/usr/bin/env ts-node
 import 'dotenv-flow/config'
 import fs from 'fs/promises'
+import path from 'path'
 
 import { COUNTRY_SINGAPORE, getCountryActivities } from './constTypes'
 import { getActivities, getLatLngs } from './strava'
 
 async function getSingaporeRides() {
-  const activities = await getActivities(1646814555, true)
-  const singaporeRides = activities.filter(
-    (activity) =>
-      activity.sport_type === 'Ride' && [28800].includes(activity.utc_offset)
-  )
-  await fs.writeFile(
-    `${getCountryActivities(COUNTRY_SINGAPORE)}`,
-    JSON.stringify(singaporeRides),
-    {
-      encoding: 'utf8'
-    }
-  )
-  console.log(singaporeRides.length)
-  return singaporeRides
+  try {
+    console.log('Cache found')
+    const data = await fs.readFile(
+      path.join(__dirname, 'singapore.json'),
+      'utf8'
+    )
+    const rides = JSON.parse(data)
+    console.log(rides.length)
+    return rides
+  } catch {
+    console.log('Reload activities')
+    const activities = await getActivities(1646814555, true)
+    const singaporeRides = activities.filter(
+      (activity) =>
+        activity.sport_type === 'Ride' && [28800].includes(activity.utc_offset)
+    )
+    await fs.writeFile(
+      `${getCountryActivities(COUNTRY_SINGAPORE)}`,
+      JSON.stringify(singaporeRides),
+      {
+        encoding: 'utf8'
+      }
+    )
+    console.log(singaporeRides.length)
+    return singaporeRides
+  }
 }
 
 async function run() {
   const activities = await getSingaporeRides()
+  let [notFound, found] = [0, 0]
   for (const activity of activities) {
-    console.log('Load activity', activity.id)
-    await getLatLngs(COUNTRY_SINGAPORE, activity)
+    try {
+      await fs.stat(path.join(__dirname, 'singapore', `${activity.id}.json`))
+      found++
+    } catch {
+      notFound++
+      console.log('Load activity', activity.id)
+      await getLatLngs(COUNTRY_SINGAPORE, activity)
+    }
   }
+  console.log(found, notFound)
 }
 
 run()
