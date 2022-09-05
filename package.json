@@ -16,7 +16,7 @@
     "@aws-sdk/client-cloudfront": "^3.163.0",
     "@aws-sdk/client-lambda": "^3.163.0",
     "@babel/core": "^7.18.13",
-    "@swc/wasm": "^1.2.246",
+    "@swc/wasm": "^1.2.247",
     "@types/archiver": "^5.3.1",
     "@types/aws-lambda": "^8.10.102",
     "@types/kd-tree-javascript": "^1.0.1",
