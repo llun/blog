@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 444 6/6",
+  "word": "taunt",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "quack" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "haunt" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "vaunt" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "gaunt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "taunt" }
+  ]
+}
