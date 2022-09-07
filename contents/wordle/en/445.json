@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 445 5/6",
+  "word": "leery",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩🟩", "word": "weary" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "retry" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "ferry" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "decry" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "leery" }
+  ]
+}
