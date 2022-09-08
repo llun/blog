@@ -24,7 +24,7 @@
     "@types/luxon": "^3.0.1",
     "@types/mapbox-gl": "^2.7.5",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.7.15",
+    "@types/node": "^18.7.16",
     "@types/react": "18.0.18",
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.12",

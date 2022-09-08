@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 446 4/6",
+  "word": "class",
+  "guesses": [
+    { "result": "🟩⬜🟩⬜⬜", "word": "crazy" },
+    { "result": "🟩⬜🟩🟨⬜", "word": "chalk" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "clamp" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "class" }
+  ]
+}
