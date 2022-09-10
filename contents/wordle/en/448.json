@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 448 3/6",
+  "word": "lofty",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟩", "word": "proxy" },
+    { "result": "⬜🟩⬜🟨🟩", "word": "comfy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "lofty" }
+  ]
+}
