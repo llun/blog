@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 449 5/6",
+  "word": "tibia",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜🟩", "word": "sigma" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "viola" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "ninja" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "pizza" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tibia" }
+  ]
+}
