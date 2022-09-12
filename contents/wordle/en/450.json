@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 450 5/6",
+  "word": "booze",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜⬜⬜", "word": "jerky" },
+    { "result": "🟨⬜⬜🟨⬜", "word": "extol" },
+    { "result": "🟨🟨🟩⬜🟩", "word": "ozone" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "booze" }
+  ]
+}

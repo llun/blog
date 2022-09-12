@@ -20,7 +20,7 @@
     "@types/archiver": "^5.3.1",
     "@types/aws-lambda": "^8.10.103",
     "@types/kd-tree-javascript": "^1.0.1",
-    "@types/lodash": "^4.14.184",
+    "@types/lodash": "^4.14.185",
     "@types/luxon": "^3.0.1",
     "@types/mapbox-gl": "^2.7.5",
     "@types/markdown-it": "^12.2.3",
