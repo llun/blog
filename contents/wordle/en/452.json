@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 452 4/6",
+  "word": "thyme",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜🟨⬜", "word": "cyber" },
+    { "result": "⬜🟨🟩⬜🟩", "word": "style" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "thyme" }
+  ]
+}
