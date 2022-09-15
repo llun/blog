@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 453 4/6",
+  "word": "doubt",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "adieu" },
+    { "result": "🟩🟨⬜⬜⬜", "word": "duchy" },
+    { "result": "🟩⬜🟩⬜⬜", "word": "drunk" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "doubt" }
+  ]
+}
