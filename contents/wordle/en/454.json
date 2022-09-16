@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 454 4/6",
+  "word": "perer",
+  "guesses": [
+    { "result": "🟨⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "baker" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "payer" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "parer" }
+  ]
+}
