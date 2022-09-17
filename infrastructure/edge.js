@@ -4,6 +4,7 @@
  * @typedef {{ awsid: string, cloudfront: string }} Arguments
  * @typedef {{ name: string, description: string, memory: number, timeout: number, role: string, handler: string, runtime: string, environment: Object | null | undefined }} ProjectConfig
  */
+require('dotenv-flow/config')
 const fs = require('fs')
 const {
   LambdaClient,
@@ -13,7 +14,9 @@ const {
   PublishVersionCommand,
   UpdateAliasCommand,
   CreateFunctionCommand,
-  CreateAliasCommand
+  CreateAliasCommand,
+  waitUntilFunctionUpdated,
+  waitUntilFunctionActive
 } = require('@aws-sdk/client-lambda')
 const {
   CloudFrontClient,
@@ -25,6 +28,7 @@ const archiver = require('archiver')
 const streamBuffers = require('stream-buffers')
 const crypto = require('crypto')
 const _ = require('lodash')
+const path = require('path')
 
 const N_VIRGINIA = 'us-east-1'
 
@@ -46,7 +50,11 @@ const argv = /** @type {Arguments} */ (
 const distributionId = argv.cloudfront
 const awsId = argv.awsid
 const projectConfig = /** @type {ProjectConfig} */ (
-  JSON.parse(fs.readFileSync('project.json', { encoding: 'utf-8' }).toString())
+  JSON.parse(
+    fs
+      .readFileSync(path.join(__dirname, 'project.json'), { encoding: 'utf-8' })
+      .toString()
+  )
 )
 
 /**
@@ -82,6 +90,34 @@ async function archivingFunction(functionName) {
     archive.directory(`${__dirname}/functions/${functionName}`, false)
     archive.finalize()
   })
+}
+
+/**
+ *
+ * @param {LambdaClient} lambda
+ * @param {string} functionName
+ */
+async function waitUpdate(lambda, functionName) {
+  await waitUntilFunctionUpdated(
+    { client: lambda, maxWaitTime: 10 },
+    {
+      FunctionName: functionName
+    }
+  )
+}
+
+/**
+ *
+ * @param {LambdaClient} lambda
+ * @param {string} functionName
+ */
+async function waitActive(lambda, functionName) {
+  await waitUntilFunctionActive(
+    { client: lambda, maxWaitTime: 30 },
+    {
+      FunctionName: functionName
+    }
+  )
 }
 
 /**
@@ -139,6 +175,7 @@ async function deploy(functionName) {
         }
       }
       await lambda.send(new UpdateFunctionConfigurationCommand(params))
+      await waitUpdate(lambda, name)
       shouldPublishVersion = true
     }
 
@@ -154,6 +191,7 @@ async function deploy(functionName) {
           ZipFile: content
         })
       )
+      await waitUpdate(lambda, name)
       shouldPublishVersion = true
     }
 
@@ -164,6 +202,7 @@ async function deploy(functionName) {
         FunctionName: name
       }
       const latestVersion = await lambda.send(new PublishVersionCommand(params))
+      await waitUpdate(lambda, name)
 
       console.log(`> Move current alias to version ${latestVersion.Version}`)
       await lambda.send(
@@ -173,20 +212,19 @@ async function deploy(functionName) {
           Name: 'current'
         })
       )
+      await waitUpdate(lambda, name)
       version = latestVersion.Version
     }
   } catch (error) {
     if (error.code !== 'ResourceNotFoundException') {
       throw error
     }
-
     const [digest, content] = await archivingFunction(functionName)
     if (!content) {
       throw new Error(`Fail to create ${functionName} archive`)
     }
-
     console.log(`> Create new function ${name}`)
-    const createdResult = await lambda.send(
+    await lambda.send(
       new CreateFunctionCommand({
         FunctionName: name,
         Runtime: projectConfig.runtime,
@@ -200,7 +238,7 @@ async function deploy(functionName) {
         MemorySize: projectConfig.memory
       })
     )
-
+    await waitActive(lambda, name)
     console.log('> Publishing new version')
     const latestVersion = await lambda.send(
       new PublishVersionCommand({
@@ -208,7 +246,7 @@ async function deploy(functionName) {
         FunctionName: name
       })
     )
-
+    await waitUpdate(lambda, name)
     console.log(`> Create current alias for version ${latestVersion.Version}`)
     await lambda.send(
       new CreateAliasCommand({
@@ -217,6 +255,7 @@ async function deploy(functionName) {
         Name: 'current'
       })
     )
+    await waitUpdate(lambda, name)
     version = latestVersion.Version
   }
 
@@ -236,7 +275,7 @@ async function updateCloudfront(eventType, version, functionName) {
   }
 
   console.log(`> Updating cloudfront`)
-  const cloudfront = new CloudFrontClient({})
+  const cloudfront = new CloudFrontClient({ region: 'us-east-1' })
   const config = await cloudfront.send(
     new GetDistributionConfigCommand({ Id: distributionId })
   )
