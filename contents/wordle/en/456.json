@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 456 4/6",
+  "word": "stick",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "brick" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "click" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "stick" }
+  ]
+}
