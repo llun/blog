@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 457 5/6",
+  "word": "trice",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨🟩⬜⬜", "word": "being" },
+    { "result": "🟨⬜🟩⬜🟩", "word": "chime" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "price" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "trice" }
+  ]
+}
