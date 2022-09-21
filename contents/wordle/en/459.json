@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 459 3/6",
+  "word": "recap",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "fecal" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "recap" }
+  ]
+}
