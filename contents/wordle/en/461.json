@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 461 4/6",
+  "word": "glory",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "block" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "flown" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "glory" }
+  ]
+}
