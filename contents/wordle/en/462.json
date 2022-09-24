@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 462 5/6",
+  "word": "grate",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨🟨🟨🟩", "word": "barge" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "grape" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "crate" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "grate" }
+  ]
+}
