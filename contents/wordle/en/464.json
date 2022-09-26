@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 464 4/6",
+  "word": "brisk",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "adieu" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "brick" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "brink" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "brisk" }
+  ]
+}
