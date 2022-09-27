@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 465 4/6",
+  "word": "soggy",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "block" },
+    { "result": "⬜🟩⬜⬜⬜", "word": "forth" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "soggy" }
+  ]
+}
