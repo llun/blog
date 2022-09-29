@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 467 4/6",
+  "word": "scald",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜⬜🟨🟩", "word": "broad" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "stand" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "scald" }
+  ]
+}
