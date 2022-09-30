@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 468 4/6",
+  "word": "scorn",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟨⬜", "word": "block" },
+    { "result": "🟨🟨🟩⬜🟩", "word": "crown" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "scorn" }
+  ]
+}
