@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 470 4/6",
+  "word": "twine",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨🟩⬜🟨", "word": "feign" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "shine" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "twine" }
+  ]
+}
