@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 471 4/6",
+  "word": "sting",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "cling" },
+    { "result": "🟨⬜🟩🟩🟩", "word": "thing" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sting" }
+  ]
+}
