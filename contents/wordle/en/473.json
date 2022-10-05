@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 473 6/6",
+  "word": "marsh",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜⬜🟨⬜", "word": "cloak" },
+    { "result": "🟨🟩🟩⬜⬜", "word": "harpy" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "party" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "harsh" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "marsh" }
+  ]
+}
