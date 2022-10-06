@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 474 4/6",
+  "word": "sloth",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "glory" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "clown" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sloth" }
+  ]
+}
