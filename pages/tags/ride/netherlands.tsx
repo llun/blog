@@ -45,20 +45,21 @@ const RideMap: FC = () => {
     const zoomLevel = (height?: number) => {
       switch (height) {
         case 250:
-          return 6.8
+          return 5.7
         case 400:
-          return 7
+          return 6.2
         default:
-          return 7.25
+          return 7
       }
     }
+    console.log(mapEl?.current?.offsetHeight)
 
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/light-v10',
       center: [4.902218907700037, 52.37208643243944],
       zoom: zoomLevel(mapEl?.current?.offsetHeight),
-      minZoom: 6.8
+      minZoom: 5
     })
     map.on('load', async () => {
       map.addSource('route', {

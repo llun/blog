@@ -1,6 +1,5 @@
 import axios from 'axios'
 import fs from 'fs/promises'
-import { URLSearchParams } from 'url'
 
 import { Activity, Country, getCountryStreamPath, Streams } from './constTypes'
 
@@ -10,15 +9,15 @@ export async function getActivities(before?: number, loadAll: boolean = false) {
   const all = [] as Activity[]
 
   while (page < totalPage) {
-    const params = new URLSearchParams()
-    params.set('page', page.toString())
-    if (before) params.set('before', before.toString())
-
     const { data } = await axios.get(
-      `https://www.strava.com/api/v3/athlete/activities?${params.toString()}`,
+      `https://www.strava.com/api/v3/athlete/activities`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAVA_TOKEN}`
+        },
+        params: {
+          page,
+          ...(before ? { before } : null)
         }
       }
     )
@@ -40,10 +39,14 @@ export async function getLatLngs(country: Country, activity: Activity) {
     return JSON.parse(raw) as Streams
   } catch {
     const { data } = await axios.get(
-      `https://www.strava.com/api/v3/activities/${activity.id}/streams?keys=latlng,altitude,time,heartrate&key_by_type=true`,
+      `https://www.strava.com/api/v3/activities/${activity.id}/streams`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAVA_TOKEN}`
+        },
+        params: {
+          keys: 'latlng,altitude,time,heartrate',
+          key_by_type: 'true'
         }
       }
     )
