@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 477 4/6",
+  "word": "howdy",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩🟨⬜🟩", "word": "godly" },
+    { "result": "🟨🟩🟩⬜🟩", "word": "downy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "howdy" }
+  ]
+}
