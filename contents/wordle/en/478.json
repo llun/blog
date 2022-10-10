@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 478 2/6",
+  "word": "enjoy",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "enjoy" }
+  ]
+}
