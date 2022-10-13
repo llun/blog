@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 481 2/6",
+  "word": "equal",
+  "guesses": [
+    { "result": "⬜🟨🟩⬜🟨", "word": "saute" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "equal" }
+  ]
+}
