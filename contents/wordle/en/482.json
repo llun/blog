@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 482 4/6",
+  "word": "floor",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "ghost" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "flock" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "floor" }
+  ]
+}
