@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 483 4/6",
+  "word": "catch",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜🟨⬜", "word": "coral" },
+    { "result": "🟩🟨🟨⬜⬜", "word": "chasm" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "catch" }
+  ]
+}
