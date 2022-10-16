@@ -16,6 +16,12 @@ import style from './index.module.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import PostList from '../../../components/PostList'
 
+interface Props {
+  posts: Post[]
+  config: Config
+  category: string
+}
+
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const config = getConfig()
   const posts = getAllPosts()
@@ -28,12 +34,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
       category: 'ride'
     }
   }
-}
-
-interface Props {
-  posts: Post[]
-  config: Config
-  category: string
 }
 
 export const Navigation: FC = () => (

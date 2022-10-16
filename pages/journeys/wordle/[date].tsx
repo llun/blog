@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { FC, SetStateAction, useEffect, useState } from 'react'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import React, { FC, SetStateAction, useEffect, useState } from 'react'
 import { ParsedUrlQuery } from 'querystring'
 
 import { getConfig, Config } from '../../../libs/blog'
@@ -85,7 +85,7 @@ ${window.location}
 `.trim()
 
   const blob = new Blob([text], { type: 'text/plain' })
-  const data = [new ClipboardItem({ 'text/plain': blob })]
+  const data = [new window.ClipboardItem({ 'text/plain': blob })]
   await navigator.clipboard.write(data)
 }
 
@@ -130,7 +130,7 @@ const ResultBlock: FC<{
   )
 }
 
-export const WordlePage: FC<Props> = ({ config, list, result }) => {
+export const WordlePage: NextPage<Props> = ({ config, list, result }) => {
   const { title, url } = config
   const router = useRouter()
   const [showWords, setShowWords] = useState<boolean>(false)

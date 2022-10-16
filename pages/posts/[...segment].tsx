@@ -1,7 +1,7 @@
-import type { GetStaticProps } from 'next'
-
+import type { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
 import path from 'path'
+import React from 'react'
 
 import {
   Config,
@@ -12,6 +12,12 @@ import {
 } from '../../libs/blog'
 import Meta from '../../components/Meta'
 import style from './[...segment].module.css'
+
+interface Props {
+  config: Config
+  post: Post
+  segment: string[]
+}
 
 type Params = {
   segment: string[]
@@ -62,13 +68,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   }
 }
 
-interface Props {
-  config: Config
-  post: Post
-  segment: string[]
-}
-
-const Post = ({ config, post, segment }: Props) => {
+const Page: NextPage<Props> = ({ config, post, segment }) => {
   const { title, url } = config
   const { properties, content, file } = post
   return (
@@ -116,4 +116,4 @@ const Post = ({ config, post, segment }: Props) => {
     </>
   )
 }
-export default Post
+export default Page

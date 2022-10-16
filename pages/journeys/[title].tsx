@@ -1,4 +1,4 @@
-import type { GetStaticPaths, GetStaticProps } from 'next'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import Link from 'next/link'
 import path from 'path'
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   }
 }
 
-const Journey = ({ config, journey }: Props) => {
+const Page: NextPage<Props> = ({ config, journey }) => {
   const { title, url } = config
   const { content, title: journeyTitle, description, name } = journey
   return (
@@ -78,4 +78,4 @@ const Journey = ({ config, journey }: Props) => {
     </>
   )
 }
-export default Journey
+export default Page

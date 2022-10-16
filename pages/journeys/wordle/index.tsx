@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import { getConfig } from '../../../libs/blog'
-import { englishResults, Result, ResultKey } from '../../../libs/wordle'
+import { englishResults, Result } from '../../../libs/wordle'
 import { Props, WordlePage } from './[date]'
 
 export const getStaticProps: GetStaticProps<Props> = async () => {

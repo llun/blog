@@ -17,6 +17,12 @@ import { Navigation } from '.'
 import style from './index.module.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
+interface Props {
+  posts: Post[]
+  config: Config
+  category: string
+}
+
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const posts = getAllPosts()
     .filter((post) => post.file.category === 'ride')
@@ -29,12 +35,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
       category: 'ride'
     }
   }
-}
-
-interface Props {
-  posts: Post[]
-  config: Config
-  category: string
 }
 
 const RideMap: FC = () => {
@@ -83,7 +83,7 @@ const RideMap: FC = () => {
   return <div ref={mapEl} id="map" className={style.map} />
 }
 
-const Index: NextPage<Props> = ({ posts, config, category }) => {
+const Netherlands: NextPage<Props> = ({ posts, config, category }) => {
   const { title, description, url } = config
   const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
     ''
@@ -106,4 +106,4 @@ const Index: NextPage<Props> = ({ posts, config, category }) => {
     </>
   )
 }
-export default Index
+export default Netherlands

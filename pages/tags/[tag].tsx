@@ -1,6 +1,5 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import mapboxgl from 'mapbox-gl'
 
 import {
   Post,
@@ -9,13 +8,17 @@ import {
   getConfig,
   postDescendingComparison
 } from '../../libs/blog'
-import { MAPBOX_PUBLIC_KEY } from '../../libs/config'
 import Header from '../../components/Header'
 import Meta from '../../components/Meta'
 import PostList from '../../components/PostList'
 
-import style from './[tag].module.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
+
+interface Props {
+  posts: Post[]
+  config: Config
+  category: string
+}
 
 type Params = {
   tag: string
@@ -47,12 +50,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
       category: tag
     }
   }
-}
-
-interface Props {
-  posts: Post[]
-  config: Config
-  category: string
 }
 
 const Index: NextPage<Props> = ({ posts, config, category }) => {
