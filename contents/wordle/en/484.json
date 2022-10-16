@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 484 5/6",
+  "word": "spade",
+  "guesses": [
+    { "result": "🟨🟨⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜🟩", "word": "dance" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "trade" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "glade" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "spade" }
+  ]
+}
