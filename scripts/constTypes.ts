@@ -66,7 +66,7 @@ export interface LatLngStream {
 }
 
 export interface NumberStream {
-  data: number
+  data: number[]
   series_type: 'distance'
   original_size: number
   resolution: 'low' | 'medium' | 'high'
@@ -87,6 +87,14 @@ export type Country = 'netherlands' | 'singapore'
 export const COUNTRY_NETHERLANDS = 'netherlands'
 export const COUNTRY_SINGAPORE = 'singapore'
 export const GEOJSON_PATH = path.join(__dirname, '..', 'public', 'tags', 'ride')
+export const STATS_PATH = path.join(
+  __dirname,
+  '..',
+  'public',
+  'tags',
+  'ride',
+  'stats.json'
+)
 
 export const getCountryStreamPath = (country: Country) =>
   `${__dirname}/${country}`
