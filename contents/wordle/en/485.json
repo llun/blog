@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 485 3/6",
+  "word": "stein",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜🟨", "word": "eight" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "stein" }
+  ]
+}
