@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 486 3/6",
+  "word": "exist",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "adieu" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "exile" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "exist" }
+  ]
+}
