@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 487 5/6",
+  "word": "quirk",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟨", "word": "adieu" },
+    { "result": "🟨⬜🟩⬜⬜", "word": "unify" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "guilt" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "quick" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "quirk" }
+  ]
+}
