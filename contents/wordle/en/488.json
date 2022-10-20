@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 488 4/6",
+  "word": "denim",
+  "guesses": [
+    { "result": "⬜🟨🟨🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨🟨⬜🟨", "word": "ridge" },
+    { "result": "🟩🟩⬜🟩⬜", "word": "debit" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "denim" }
+  ]
+}
