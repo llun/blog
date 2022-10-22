@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 490 3/6",
+  "word": "spiel",
+  "guesses": [
+    { "result": "⬜⬜🟩🟩⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟩⬜", "word": "thief" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "spiel" }
+  ]
+}
