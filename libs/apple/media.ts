@@ -65,7 +65,8 @@ export async function proxyAssetsUrl(
   }
   const response = await fetch(url, {
     body: JSON.stringify(body),
-    method: 'POST'
+    method: 'POST',
+    redirect: 'follow'
   })
   if (response.status !== 200) return null
   return response.json()
