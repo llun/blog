@@ -26,7 +26,7 @@ export namespace WebStream {
     height: number
   }
 
-  export type VideoPosterDerivative = 'PosterFrame'
+  export const VideoPosterDerivative = 'PosterFrame'
 
   interface Video extends Media {
     mediaAssetType: 'video'
@@ -45,12 +45,11 @@ export namespace WebStream {
 }
 
 export interface Media {
-  created: Date
+  createdAt: Date
   type: 'video' | 'photo'
   width: number
   height: number
   caption: string
-  derivatives: {
-    [key: string]: string
-  }
+  derivatives: string[]
+  guid: string
 }
