@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 491 4/6",
+  "word": "mummy",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "jumbo" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "humus" },
+    { "result": "🟩🟩🟩🟩🟩 ", "word": "mummy" }
+  ]
+}
