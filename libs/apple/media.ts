@@ -1,5 +1,5 @@
 import { AssetsRequest } from '../../pages/api/apple'
-import { Stream, VideoPosterDerivative } from './webstream'
+import { Assets, Stream, VideoPosterDerivative } from './webstream'
 
 export interface Media {
   createdAt: number
@@ -51,7 +51,10 @@ export function getMediaList(stream: Stream): Media[] {
     .sort((first, second) => second.createdAt - first.createdAt)
 }
 
-export async function proxyAssetsUrl(streamId: string, medias: Media[]) {
+export async function proxyAssetsUrl(
+  streamId: string,
+  medias: Media[]
+): Promise<Assets | null> {
   const url =
     process.env.NODE_ENV === 'production'
       ? 'https://next.llun.dev/api/apple'
@@ -68,4 +71,16 @@ export async function proxyAssetsUrl(streamId: string, medias: Media[]) {
   return response.json()
 }
 
-export function mergeMediaAssets(medias: Media[]) {}
+export function mergeMediaAssets(medias: Media[], assets: Assets) {
+  for (const media of medias) {
+    const values = Object.values(media.derivatives)
+    for (const value of values) {
+      const item = assets.items[value.checksum]
+      const scheme = assets.locations[item.url_location].scheme
+      const host = assets.locations[item.url_location].hosts[0]
+      const prefix = `${scheme}://${host}`
+      const url = `${prefix}${item.url_path}`
+      value.url = url
+    }
+  }
+}
