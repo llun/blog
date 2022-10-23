@@ -57,8 +57,8 @@ export async function proxyAssetsUrl(
 ): Promise<Assets | null> {
   const url =
     process.env.NODE_ENV === 'production'
-      ? 'https://next.llun.dev/api/apple'
-      : 'http://localhost:3000/api/apple'
+      ? 'https://next.llun.dev/api/apple/'
+      : 'http://localhost:3000/api/apple/'
   const body: AssetsRequest = {
     streamId,
     photoGuids: medias.map((media) => media.guid)
