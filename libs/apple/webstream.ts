@@ -1,5 +1,7 @@
 import { Media, WebStream } from './types'
 
+let cache = null
+
 /**
  * Fetch all media information from public iCloud Shared Album
  *
@@ -9,6 +11,7 @@ import { Media, WebStream } from './types'
 export async function fetchStream(
   streamId: string
 ): Promise<WebStream.Stream | null> {
+  if (cache) return cache
   const response = await fetch(
     `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webstream`,
     {
@@ -21,32 +24,35 @@ export async function fetchStream(
     }
   )
   if (response.status !== 200) return null
-  return response.json()
+  cache = await response.json()
+  return cache
 }
 
 export function getMediaList(stream: WebStream.Stream): Media[] {
-  return stream.photos.map((photo) => {
-    if ('mediaAssetType' in photo) {
-      const poster = photo.derivatives[WebStream.VideoPosterDerivative]
+  return stream.photos
+    .map((photo) => {
+      if ('mediaAssetType' in photo) {
+        const poster = photo.derivatives[WebStream.VideoPosterDerivative]
+        return {
+          createdAt: new Date(photo.dateCreated).getTime(),
+          type: 'video',
+          width: poster.width,
+          height: poster.height,
+          caption: photo.caption,
+          derivatives: Object.keys(photo.derivatives),
+          guid: photo.photoGuid
+        } as Media
+      }
+
       return {
-        createdAt: new Date(photo.dateCreated),
-        type: 'video',
-        width: poster.width,
-        height: poster.height,
+        createdAt: new Date(photo.dateCreated).getTime(),
+        type: 'photo',
+        width: photo.width,
+        height: photo.height,
         caption: photo.caption,
         derivatives: Object.keys(photo.derivatives),
         guid: photo.photoGuid
-      }
-    }
-
-    return {
-      createdAt: new Date(photo.dateCreated),
-      type: 'photo',
-      width: photo.width,
-      height: photo.height,
-      caption: photo.caption,
-      derivatives: Object.keys(photo.derivatives),
-      guid: photo.photoGuid
-    }
-  })
+      } as Media
+    })
+    .sort((first, second) => second.createdAt - first.createdAt)
 }

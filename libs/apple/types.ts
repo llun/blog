@@ -45,7 +45,7 @@ export namespace WebStream {
 }
 
 export interface Media {
-  createdAt: Date
+  createdAt: number
   type: 'video' | 'photo'
   width: number
   height: number
