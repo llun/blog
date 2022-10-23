@@ -1,3 +1,4 @@
+import { AssetsRequest } from '../../pages/api/apple'
 import { Media, WebStream } from './types'
 
 let cache = null
@@ -57,7 +58,7 @@ export function getMediaList(stream: WebStream.Stream): Media[] {
     .sort((first, second) => second.createdAt - first.createdAt)
 }
 
-export async function fetchAssetsUrl(streamId: string, medias: Media[]) {
+export async function fetchAssetsUrl(streamId: string, photoGuids: string[]) {
   const response = await fetch(
     `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webasseturls`,
     {
@@ -66,11 +67,27 @@ export async function fetchAssetsUrl(streamId: string, medias: Media[]) {
         'content-type': 'text/plain',
         pragma: 'no-cache'
       },
-      body: JSON.stringify({ photoGuids: medias.map((media) => media.guid) }),
+      body: JSON.stringify({ photoGuids }),
       method: 'POST'
     }
   )
   if (response.status !== 200) return
-  const json = await response.json()
-  console.log(json)
+  return response.json()
+}
+
+export async function proxyAssetsUrl(streamId: string, medias: Media[]) {
+  const url =
+    process.env.NODE_ENV === 'production'
+      ? 'https://next.llun.dev/api/apple'
+      : 'http://localhost:3000/api/apple'
+  const body: AssetsRequest = {
+    streamId,
+    photoGuids: medias.map((media) => media.guid)
+  }
+  const response = await fetch(url, {
+    body: JSON.stringify(body),
+    method: 'POST'
+  })
+  if (response.status !== 200) return
+  return response.json()
 }
