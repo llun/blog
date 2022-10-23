@@ -124,11 +124,24 @@ const RideStats: FC = () => (
 )
 
 const RideMedias: FC<{ medias: Media[] }> = ({ medias }) => {
-  if (!medias.length) return null
+  const [photos, setPhotos] = useState<Media[]>([])
+
+  useEffect(() => {
+    ;(async () => {
+      const first = medias.slice(0, 18)
+      const assets = await proxyAssetsUrl(NETHERLANDS_STREAM_ID, first)
+      if (!assets) return
+
+      mergeMediaAssets(first, assets)
+      setPhotos(first)
+    })()
+  })
+
+  if (!photos.length) return null
 
   return (
     <div className={rideStyle.images}>
-      {medias.map((media) => {
+      {photos.map((media) => {
         if (media.type === 'video') {
           return (
             <div key={media.guid}>
@@ -162,18 +175,6 @@ const Netherlands: NextPage<Props> = ({ config, category, medias }) => {
   const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
     ''
   )
-  const [photos, setPhotos] = useState<Media[]>([])
-
-  useEffect(() => {
-    ;(async () => {
-      const first = medias.slice(0, 18)
-      const assets = await proxyAssetsUrl(NETHERLANDS_STREAM_ID, first)
-      if (!assets) return
-
-      mergeMediaAssets(first, assets)
-      setPhotos(first)
-    })()
-  })
 
   return (
     <>
@@ -189,7 +190,7 @@ const Netherlands: NextPage<Props> = ({ config, category, medias }) => {
         <Navigation />
         <RideMap />
         <RideStats />
-        <RideMedias medias={photos} />
+        <RideMedias medias={medias} />
       </main>
     </>
   )
