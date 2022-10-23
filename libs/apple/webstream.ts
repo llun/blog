@@ -56,3 +56,21 @@ export function getMediaList(stream: WebStream.Stream): Media[] {
     })
     .sort((first, second) => second.createdAt - first.createdAt)
 }
+
+export async function fetchAssetsUrl(streamId: string, medias: Media[]) {
+  const response = await fetch(
+    `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webasseturls`,
+    {
+      headers: {
+        'cache-control': 'no-cache',
+        'content-type': 'text/plain',
+        pragma: 'no-cache'
+      },
+      body: JSON.stringify({ photoGuids: medias.map((media) => media.guid) }),
+      method: 'POST'
+    }
+  )
+  if (response.status !== 200) return
+  const json = await response.json()
+  console.log(json)
+}
