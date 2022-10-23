@@ -57,7 +57,6 @@ export interface Assets {
 }
 
 export const VideoPosterDerivative = 'PosterFrame'
-let cache = null
 
 /**
  * Fetch all media information from public iCloud Shared Album
@@ -66,7 +65,6 @@ let cache = null
  *  https://www.icloud.com/sharedalbum/#B125ON9t3mbLNC id is B125ON9t3mbLNC
  */
 export async function fetchStream(streamId: string): Promise<Stream | null> {
-  if (cache) return cache
   const response = await fetch(
     `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webstream`,
     {
@@ -79,8 +77,7 @@ export async function fetchStream(streamId: string): Promise<Stream | null> {
     }
   )
   if (response.status !== 200) return null
-  cache = await response.json()
-  return cache
+  return response.json()
 }
 
 export async function fetchAssetsUrl(
