@@ -1,6 +1,62 @@
-import { AssetsRequest } from '../../pages/api/apple'
-import { Media, WebStream } from './types'
+interface Derivative {
+  fileSize: number
+  checksum: string
+  width: number
+  height: number
+  state?: string
+}
 
+interface Media {
+  batchGuid: string
+  derivatives: {
+    [key: string]: Derivative
+  }
+  contributorLastName: string
+  batchDateCreated: string
+  dateCreated: string
+  contributorFirstName: string
+  photoGuid: string
+  contributorFullName: string
+  caption: string
+}
+
+interface Image extends Media {
+  width: number
+  height: number
+}
+
+interface Video extends Media {
+  mediaAssetType: 'video'
+}
+
+type Photo = Video | Image
+
+export interface Stream {
+  userLastName: string
+  streamCtag: string
+  itemsReturned: number
+  userFirstName: string
+  streamName: string
+  photos: Photo[]
+}
+
+export interface Assets {
+  items: {
+    [checksum: string]: {
+      url_expiry: string
+      url_location: string
+      url_path: string
+    }
+  }
+  locations: {
+    [host: string]: {
+      hosts: string[]
+      scheme: string
+    }
+  }
+}
+
+export const VideoPosterDerivative = 'PosterFrame'
 let cache = null
 
 /**
@@ -9,9 +65,7 @@ let cache = null
  * @param streamId shared album id, this is the string after hash e.g.
  *  https://www.icloud.com/sharedalbum/#B125ON9t3mbLNC id is B125ON9t3mbLNC
  */
-export async function fetchStream(
-  streamId: string
-): Promise<WebStream.Stream | null> {
+export async function fetchStream(streamId: string): Promise<Stream | null> {
   if (cache) return cache
   const response = await fetch(
     `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webstream`,
@@ -29,36 +83,10 @@ export async function fetchStream(
   return cache
 }
 
-export function getMediaList(stream: WebStream.Stream): Media[] {
-  return stream.photos
-    .map((photo) => {
-      if ('mediaAssetType' in photo) {
-        const poster = photo.derivatives[WebStream.VideoPosterDerivative]
-        return {
-          createdAt: new Date(photo.dateCreated).getTime(),
-          type: 'video',
-          width: poster.width,
-          height: poster.height,
-          caption: photo.caption,
-          derivatives: Object.keys(photo.derivatives),
-          guid: photo.photoGuid
-        } as Media
-      }
-
-      return {
-        createdAt: new Date(photo.dateCreated).getTime(),
-        type: 'photo',
-        width: photo.width,
-        height: photo.height,
-        caption: photo.caption,
-        derivatives: Object.keys(photo.derivatives),
-        guid: photo.photoGuid
-      } as Media
-    })
-    .sort((first, second) => second.createdAt - first.createdAt)
-}
-
-export async function fetchAssetsUrl(streamId: string, photoGuids: string[]) {
+export async function fetchAssetsUrl(
+  streamId: string,
+  photoGuids: string[]
+): Promise<Assets | null> {
   const response = await fetch(
     `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webasseturls`,
     {
@@ -71,23 +99,6 @@ export async function fetchAssetsUrl(streamId: string, photoGuids: string[]) {
       method: 'POST'
     }
   )
-  if (response.status !== 200) return
-  return response.json()
-}
-
-export async function proxyAssetsUrl(streamId: string, medias: Media[]) {
-  const url =
-    process.env.NODE_ENV === 'production'
-      ? 'https://next.llun.dev/api/apple'
-      : 'http://localhost:3000/api/apple'
-  const body: AssetsRequest = {
-    streamId,
-    photoGuids: medias.map((media) => media.guid)
-  }
-  const response = await fetch(url, {
-    body: JSON.stringify(body),
-    method: 'POST'
-  })
-  if (response.status !== 200) return
+  if (response.status !== 200) return null
   return response.json()
 }
