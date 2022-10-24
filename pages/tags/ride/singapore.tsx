@@ -63,6 +63,7 @@ const RideMap: FC = () => {
       minZoom: 8,
       maxZoom: 12
     })
+    map.scrollZoom.disable()
     map.on('load', async () => {
       map.addSource('route', {
         type: 'geojson',

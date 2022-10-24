@@ -81,6 +81,7 @@ const RideMap: FC = () => {
       zoom: zoomLevel(mapEl?.current?.offsetHeight),
       minZoom: 5
     })
+    map.scrollZoom.disable()
     map.on('load', async () => {
       map.addSource('route', {
         type: 'geojson',
@@ -150,7 +151,6 @@ const RideMedias: FC<{ medias: Media[] }> = ({ medias }) => {
             ? rideStyle.tall
             : ''
         const shouldExpand = index % 4 === 0
-        console.log('shouldExpand', shouldExpand)
 
         if (media.type === 'video') {
           return (
