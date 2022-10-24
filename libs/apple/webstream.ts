@@ -58,6 +58,29 @@ export interface Assets {
 
 export const VideoPosterDerivative = 'PosterFrame'
 
+const Base62Charset =
+  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+
+const base62ToInt = (input: string) =>
+  Array.from(input).reduce(
+    (result, char) => result * 62 + Base62Charset.indexOf(char),
+    0
+  )
+
+function getPartitionFromStreamId(streamId: string) {
+  const serverPartition =
+    streamId[0] === 'A'
+      ? base62ToInt(streamId[1])
+      : base62ToInt(streamId.substring(1, 3))
+  if (serverPartition < 10) return `0${serverPartition}`
+  return serverPartition
+}
+
+function getStreamBaseUrl(streamId: string) {
+  const partition = getPartitionFromStreamId(streamId)
+  return `https://p${partition}-sharedstreams.icloud.com`
+}
+
 /**
  * Fetch all media information from public iCloud Shared Album
  *
@@ -66,7 +89,7 @@ export const VideoPosterDerivative = 'PosterFrame'
  */
 export async function fetchStream(streamId: string): Promise<Stream | null> {
   const response = await fetch(
-    `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webstream`,
+    `${getStreamBaseUrl(streamId)}/${streamId}/sharedstreams/webstream`,
     {
       method: 'POST',
       headers: {
@@ -85,7 +108,7 @@ export async function fetchAssetsUrl(
   photoGuids: string[]
 ): Promise<Assets | null> {
   const response = await fetch(
-    `https://p64-sharedstreams.icloud.com/${streamId}/sharedstreams/webasseturls`,
+    `${getStreamBaseUrl(streamId)}/${streamId}/sharedstreams/webasseturls`,
     {
       headers: {
         'cache-control': 'no-cache',
