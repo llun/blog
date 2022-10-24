@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import cn from 'classnames'
 import { Media, mergeMediaAssets, proxyAssetsUrl } from '../libs/apple/media'
 import { VideoPosterDerivative } from '../libs/apple/webstream'
@@ -12,6 +12,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
   medias
 }) => {
   const [photos, setPhotos] = useState<Media[]>([])
+  const photoDom = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     ;(async () => {
@@ -24,11 +25,21 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
     })()
   }, [token, medias])
 
+  useEffect(() => {
+    if (!photoDom.current) return
+
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      console.log(entries)
+    })
+    intersectionObserver.observe(photoDom.current)
+    return () => intersectionObserver.disconnect()
+  }, [photos])
+
   if (!photos.length) return null
 
   return (
     <div className={style.images}>
-      {photos.map((media) => {
+      {photos.map((media, index) => {
         const directionClass =
           media.width > media.height
             ? style.wide
@@ -41,24 +52,13 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
         const shouldBeBig = random % 11 === 0
         const shouldExpand = random % 7 === 0 && !shouldBeBig
 
-        if (media.type === 'video') {
-          return (
-            <div
-              key={media.guid}
-              className={cn(style.image, {
-                [directionClass]: shouldExpand,
-                [style['super-square']]: shouldBeBig
-              })}
-              style={{
-                backgroundImage: `url(${media.derivatives[VideoPosterDerivative].url})`
-              }}
-            />
-          )
-        }
-
-        const keys = Object.keys(media.derivatives).sort(
-          (second, first) => parseInt(first, 10) - parseInt(second, 10)
-        )
+        const key =
+          media.type === 'video'
+            ? VideoPosterDerivative
+            : Object.keys(media.derivatives).sort(
+                (second, first) => parseInt(first, 10) - parseInt(second, 10)
+              )[0]
+        const backgroundImage = `url(${media.derivatives[key].url})`
 
         return (
           <div
@@ -67,9 +67,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
               [directionClass]: shouldExpand,
               [style['super-square']]: shouldBeBig
             })}
-            style={{
-              backgroundImage: `url(${media.derivatives[keys[0]].url})`
-            }}
+            style={{ backgroundImage }}
           />
         )
       })}
