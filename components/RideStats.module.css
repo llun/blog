@@ -1,0 +1,16 @@
+.stats {
+  display: grid;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.stats .card {
+  border: 1px solid lightgray;
+  padding: 0.25rem 1rem;
+}
+
+@media (min-width: 641px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

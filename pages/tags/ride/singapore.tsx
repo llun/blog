@@ -15,12 +15,12 @@ import Meta from '../../../components/Meta'
 import { fetchStream } from '../../../libs/apple/webstream'
 import { getMediaList, Media } from '../../../libs/apple/media'
 import RideMedias from '../../../libs/components/RideMedias'
+import RideStats from '../../../components/RideStats'
 import { Navigation } from '.'
 
 import rideStats from '../../../public/tags/ride/stats.json'
 
 import style from './index.module.css'
-import rideStyle from './ride.module.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 interface Props {
@@ -100,25 +100,6 @@ const RideMap: FC = () => {
   return <div ref={mapEl} id="map" className={style.map} />
 }
 
-const RideStats: FC = () => (
-  <section className={rideStyle.stats}>
-    <div className={rideStyle.card}>
-      <h2>Total Rides</h2>
-      <p>
-        {new Intl.NumberFormat('en').format(rideStats.singapore.activities)}{' '}
-        Rides
-      </p>
-    </div>
-    <div className={rideStyle.card}>
-      <h2>Total Distance</h2>
-      <p>
-        {new Intl.NumberFormat('en').format(rideStats.singapore.distance)}{' '}
-        Kilometers
-      </p>
-    </div>
-  </section>
-)
-
 const Singapore: NextPage<Props> = ({ config, category, medias }) => {
   const { title, description, url } = config
   const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
@@ -138,7 +119,7 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => {
         <h1>{pageTitle}</h1>
         <Navigation />
         <RideMap />
-        <RideStats />
+        <RideStats stats={rideStats.singapore} />
         <RideMedias token={SINGAPORE_STREAM_ID} medias={medias} />
       </main>
     </>
