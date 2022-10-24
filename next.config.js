@@ -1,6 +1,7 @@
 module.exports = {
   trailingSlash: true,
   images: {
+    unoptimized: true,
     domains: ['webring.wonderful.software']
   },
   async headers() {

@@ -34,9 +34,20 @@
   }
 }
 
+.images .tall {
+  grid-row: span 2 / span 1;
+}
+
+.images .wide {
+  grid-row: span 1 / span 2;
+}
+
 .image {
   padding: 0;
   border: 0;
   margin: 0;
   width: 100%;
+  padding-bottom: 100%;
+  background-position: center;
+  background-size: cover;
 }

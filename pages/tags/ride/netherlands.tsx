@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
 import type { GetStaticProps, NextPage } from 'next'
+import React, { FC, useEffect, useRef, useState } from 'react'
+import cn from 'classnames'
 import mapboxgl from 'mapbox-gl'
 
 import {
@@ -135,35 +136,50 @@ const RideMedias: FC<{ medias: Media[] }> = ({ medias }) => {
       mergeMediaAssets(first, assets)
       setPhotos(first)
     })()
-  })
+  }, [medias])
 
   if (!photos.length) return null
 
   return (
     <div className={rideStyle.images}>
-      {photos.map((media) => {
+      {photos.map((media, index) => {
+        const directionClass =
+          media.width > media.height
+            ? rideStyle.wide
+            : media.width < media.height
+            ? rideStyle.tall
+            : ''
+        const shouldExpand = index % 4 === 0
+        console.log('shouldExpand', shouldExpand)
+
         if (media.type === 'video') {
           return (
-            <div key={media.guid}>
-              <img
-                className={rideStyle.image}
-                src={media.derivatives[VideoPosterDerivative].url}
-              />
-            </div>
+            <div
+              key={media.guid}
+              className={cn(rideStyle.image, {
+                [directionClass]: shouldExpand
+              })}
+              style={{
+                backgroundImage: `url(${media.derivatives[VideoPosterDerivative].url})`
+              }}
+            />
           )
         }
 
         const keys = Object.keys(media.derivatives).sort(
-          (first, second) => parseInt(first, 10) - parseInt(second, 10)
+          (second, first) => parseInt(first, 10) - parseInt(second, 10)
         )
 
         return (
-          <div key={media.guid}>
-            <img
-              className={rideStyle.image}
-              src={media.derivatives[keys[0]].url}
-            />
-          </div>
+          <div
+            key={media.guid}
+            className={cn(rideStyle.image, {
+              [directionClass]: shouldExpand
+            })}
+            style={{
+              backgroundImage: `url(${media.derivatives[keys[0]].url})`
+            }}
+          />
         )
       })}
     </div>
