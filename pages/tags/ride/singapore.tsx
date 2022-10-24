@@ -12,10 +12,10 @@ import {
 import { MAPBOX_PUBLIC_KEY } from '../../../libs/config'
 import Header from '../../../components/Header'
 import Meta from '../../../components/Meta'
+import RideMedias from '../../../components/RideMedias'
+import RideStats from '../../../components/RideStats'
 import { fetchStream } from '../../../libs/apple/webstream'
 import { getMediaList, Media } from '../../../libs/apple/media'
-import RideMedias from '../../../libs/components/RideMedias'
-import RideStats from '../../../components/RideStats'
 import { Navigation } from '.'
 
 import rideStats from '../../../public/tags/ride/stats.json'

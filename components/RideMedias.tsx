@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import cn from 'classnames'
-import { Media, mergeMediaAssets, proxyAssetsUrl } from '../apple/media'
-import { VideoPosterDerivative } from '../apple/webstream'
+import { Media, mergeMediaAssets, proxyAssetsUrl } from '../libs/apple/media'
+import { VideoPosterDerivative } from '../libs/apple/webstream'
 
 import style from './RideMedias.module.css'
 
