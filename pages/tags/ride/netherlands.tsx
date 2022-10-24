@@ -130,12 +130,11 @@ const RideMedias: FC<{ medias: Media[] }> = ({ medias }) => {
 
   useEffect(() => {
     ;(async () => {
-      const first = medias.slice(0, 18)
-      const assets = await proxyAssetsUrl(NETHERLANDS_STREAM_ID, first)
+      const assets = await proxyAssetsUrl(NETHERLANDS_STREAM_ID, medias)
       if (!assets) return
 
-      mergeMediaAssets(first, assets)
-      setPhotos(first)
+      mergeMediaAssets(medias, assets)
+      setPhotos(medias)
     })()
   }, [medias])
 
@@ -150,14 +149,19 @@ const RideMedias: FC<{ medias: Media[] }> = ({ medias }) => {
             : media.width < media.height
             ? rideStyle.tall
             : ''
-        const shouldExpand = index % 4 === 0
+
+        const random = Math.ceil(Math.random() * 1000)
+
+        const shouldBeBig = random % 11 === 0
+        const shouldExpand = random % 7 === 0 && !shouldBeBig
 
         if (media.type === 'video') {
           return (
             <div
               key={media.guid}
               className={cn(rideStyle.image, {
-                [directionClass]: shouldExpand
+                [directionClass]: shouldExpand,
+                [rideStyle['super-square']]: shouldBeBig
               })}
               style={{
                 backgroundImage: `url(${media.derivatives[VideoPosterDerivative].url})`
@@ -174,7 +178,8 @@ const RideMedias: FC<{ medias: Media[] }> = ({ medias }) => {
           <div
             key={media.guid}
             className={cn(rideStyle.image, {
-              [directionClass]: shouldExpand
+              [directionClass]: shouldExpand,
+              [rideStyle['super-square']]: shouldBeBig
             })}
             style={{
               backgroundImage: `url(${media.derivatives[keys[0]].url})`

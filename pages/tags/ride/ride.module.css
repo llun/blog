@@ -19,6 +19,7 @@
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row dense;
   grid-gap: 1rem;
 }
 
@@ -40,6 +41,10 @@
 
 .images .wide {
   grid-row: span 1 / span 2;
+}
+
+.images .super-square {
+  grid-column: span 2 / span 1;
 }
 
 .image {
