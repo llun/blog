@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import style from 'RideStats.module.css'
+import style from './RideStats.module.css'
 
 interface Stats {
   distance: number
