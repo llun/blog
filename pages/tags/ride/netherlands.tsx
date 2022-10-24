@@ -1,6 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
-import React, { FC, useEffect, useRef, useState } from 'react'
-import cn from 'classnames'
+import React, { FC, useEffect, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 
 import {
@@ -10,13 +9,12 @@ import {
   getConfig,
   postDescendingComparison
 } from '../../../libs/blog'
-import {
-  fetchStream,
-  VideoPosterDerivative
-} from '../../../libs/apple/webstream'
+import { fetchStream } from '../../../libs/apple/webstream'
 import { MAPBOX_PUBLIC_KEY } from '../../../libs/config'
 import Header from '../../../components/Header'
 import Meta from '../../../components/Meta'
+import { getMediaList, Media } from '../../../libs/apple/media'
+import RideMedias from '../../../libs/components/RideMedias'
 import { Navigation } from '.'
 
 import rideStats from '../../../public/tags/ride/stats.json'
@@ -24,12 +22,6 @@ import rideStats from '../../../public/tags/ride/stats.json'
 import style from './index.module.css'
 import rideStyle from './ride.module.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import {
-  getMediaList,
-  Media,
-  mergeMediaAssets,
-  proxyAssetsUrl
-} from '../../../libs/apple/media'
 
 interface Props {
   posts: Post[]
@@ -125,72 +117,6 @@ const RideStats: FC = () => (
   </section>
 )
 
-const RideMedias: FC<{ medias: Media[] }> = ({ medias }) => {
-  const [photos, setPhotos] = useState<Media[]>([])
-
-  useEffect(() => {
-    ;(async () => {
-      const assets = await proxyAssetsUrl(NETHERLANDS_STREAM_ID, medias)
-      if (!assets) return
-
-      mergeMediaAssets(medias, assets)
-      setPhotos(medias)
-    })()
-  }, [medias])
-
-  if (!photos.length) return null
-
-  return (
-    <div className={rideStyle.images}>
-      {photos.map((media, index) => {
-        const directionClass =
-          media.width > media.height
-            ? rideStyle.wide
-            : media.width < media.height
-            ? rideStyle.tall
-            : ''
-
-        const random = Math.ceil(Math.random() * 1000)
-
-        const shouldBeBig = random % 11 === 0
-        const shouldExpand = random % 7 === 0 && !shouldBeBig
-
-        if (media.type === 'video') {
-          return (
-            <div
-              key={media.guid}
-              className={cn(rideStyle.image, {
-                [directionClass]: shouldExpand,
-                [rideStyle['super-square']]: shouldBeBig
-              })}
-              style={{
-                backgroundImage: `url(${media.derivatives[VideoPosterDerivative].url})`
-              }}
-            />
-          )
-        }
-
-        const keys = Object.keys(media.derivatives).sort(
-          (second, first) => parseInt(first, 10) - parseInt(second, 10)
-        )
-
-        return (
-          <div
-            key={media.guid}
-            className={cn(rideStyle.image, {
-              [directionClass]: shouldExpand,
-              [rideStyle['super-square']]: shouldBeBig
-            })}
-            style={{
-              backgroundImage: `url(${media.derivatives[keys[0]].url})`
-            }}
-          />
-        )
-      })}
-    </div>
-  )
-}
-
 const Netherlands: NextPage<Props> = ({ config, category, medias }) => {
   const { title, description, url } = config
   const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
@@ -211,7 +137,7 @@ const Netherlands: NextPage<Props> = ({ config, category, medias }) => {
         <Navigation />
         <RideMap />
         <RideStats />
-        <RideMedias medias={medias} />
+        <RideMedias streamId={NETHERLANDS_STREAM_ID} medias={medias} />
       </main>
     </>
   )

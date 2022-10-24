@@ -12,7 +12,11 @@ import {
 import { MAPBOX_PUBLIC_KEY } from '../../../libs/config'
 import Header from '../../../components/Header'
 import Meta from '../../../components/Meta'
+import { fetchStream } from '../../../libs/apple/webstream'
+import { getMediaList, Media } from '../../../libs/apple/media'
+import RideMedias from '../../../libs/components/RideMedias'
 import { Navigation } from '.'
+
 import rideStats from '../../../public/tags/ride/stats.json'
 
 import style from './index.module.css'
@@ -23,18 +27,26 @@ interface Props {
   posts: Post[]
   config: Config
   category: string
+  medias: Media[]
 }
+
+export const SINGAPORE_STREAM_ID = 'B12GqkRUiGojvkQ'
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const posts = getAllPosts()
     .filter((post) => post.file.category === 'ride')
     .sort(postDescendingComparison)
   const config = getConfig()
+
+  const stream = await fetchStream(SINGAPORE_STREAM_ID)
+  const medias = stream ? getMediaList(stream) : []
+
   return {
     props: {
       posts,
       config,
-      category: 'ride'
+      category: 'ride',
+      medias
     }
   }
 }
@@ -107,7 +119,7 @@ const RideStats: FC = () => (
   </section>
 )
 
-const Singapore: NextPage<Props> = ({ posts, config, category }) => {
+const Singapore: NextPage<Props> = ({ config, category, medias }) => {
   const { title, description, url } = config
   const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
     ''
@@ -127,6 +139,7 @@ const Singapore: NextPage<Props> = ({ posts, config, category }) => {
         <Navigation />
         <RideMap />
         <RideStats />
+        <RideMedias streamId={SINGAPORE_STREAM_ID} medias={medias} />
       </main>
     </>
   )
