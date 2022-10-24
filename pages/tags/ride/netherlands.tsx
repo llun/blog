@@ -30,7 +30,7 @@ interface Props {
   medias: Media[]
 }
 
-const NETHERLANDS_STREAM_ID = 'B125ON9t3mbLNC'
+export const NETHERLANDS_STREAM_ID = 'B125ON9t3mbLNC'
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const posts = getAllPosts()
