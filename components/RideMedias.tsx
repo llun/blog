@@ -5,6 +5,8 @@ import { VideoPosterDerivative } from '../libs/apple/webstream'
 
 import style from './RideMedias.module.css'
 
+const BatchSize = 24
+
 const RideMedias: FC<{ token: string; medias: Media[] }> = ({
   token,
   medias
@@ -13,11 +15,12 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
 
   useEffect(() => {
     ;(async () => {
-      const assets = await proxyAssetsUrl(token, medias)
+      const first = medias.slice(0, BatchSize)
+      const assets = await proxyAssetsUrl(token, first)
       if (!assets) return
 
-      mergeMediaAssets(medias, assets)
-      setPhotos(medias)
+      mergeMediaAssets(first, assets)
+      setPhotos(first)
     })()
   }, [token, medias])
 
@@ -25,7 +28,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
 
   return (
     <div className={style.images}>
-      {photos.map((media, index) => {
+      {photos.map((media) => {
         const directionClass =
           media.width > media.height
             ? style.wide
