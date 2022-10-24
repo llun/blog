@@ -52,7 +52,7 @@ export function getMediaList(stream: Stream): Media[] {
 }
 
 export async function proxyAssetsUrl(
-  streamId: string,
+  token: string,
   medias: Media[]
 ): Promise<Assets | null> {
   const url =
@@ -60,7 +60,7 @@ export async function proxyAssetsUrl(
       ? 'https://next.llun.dev/api/apple/'
       : 'http://localhost:3000/api/apple/'
   const body: AssetsRequest = {
-    streamId,
+    token,
     photoGuids: medias.map((media) => media.guid)
   }
   const response = await fetch(url, {

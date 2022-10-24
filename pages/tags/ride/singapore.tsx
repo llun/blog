@@ -139,7 +139,7 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => {
         <Navigation />
         <RideMap />
         <RideStats />
-        <RideMedias streamId={SINGAPORE_STREAM_ID} medias={medias} />
+        <RideMedias token={SINGAPORE_STREAM_ID} medias={medias} />
       </main>
     </>
   )

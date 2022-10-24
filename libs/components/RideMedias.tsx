@@ -5,21 +5,21 @@ import { VideoPosterDerivative } from '../apple/webstream'
 
 import style from './RideMedias.module.css'
 
-const RideMedias: FC<{ streamId: string; medias: Media[] }> = ({
-  streamId,
+const RideMedias: FC<{ token: string; medias: Media[] }> = ({
+  token,
   medias
 }) => {
   const [photos, setPhotos] = useState<Media[]>([])
 
   useEffect(() => {
     ;(async () => {
-      const assets = await proxyAssetsUrl(streamId, medias)
+      const assets = await proxyAssetsUrl(token, medias)
       if (!assets) return
 
       mergeMediaAssets(medias, assets)
       setPhotos(medias)
     })()
-  }, [streamId, medias])
+  }, [token, medias])
 
   if (!photos.length) return null
 

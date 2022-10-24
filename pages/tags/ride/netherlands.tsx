@@ -137,7 +137,7 @@ const Netherlands: NextPage<Props> = ({ config, category, medias }) => {
         <Navigation />
         <RideMap />
         <RideStats />
-        <RideMedias streamId={NETHERLANDS_STREAM_ID} medias={medias} />
+        <RideMedias token={NETHERLANDS_STREAM_ID} medias={medias} />
       </main>
     </>
   )

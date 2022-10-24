@@ -67,29 +67,29 @@ const base62ToInt = (input: string) =>
     0
   )
 
-function getPartitionFromStreamId(streamId: string) {
+function getPartitionFromToken(token: string) {
   const serverPartition =
-    streamId[0] === 'A'
-      ? base62ToInt(streamId[1])
-      : base62ToInt(streamId.substring(1, 3))
+    token[0] === 'A'
+      ? base62ToInt(token[1])
+      : base62ToInt(token.substring(1, 3))
   if (serverPartition < 10) return `0${serverPartition}`
   return serverPartition
 }
 
-function getStreamBaseUrl(streamId: string) {
-  const partition = getPartitionFromStreamId(streamId)
+function getStreamBaseUrl(token: string) {
+  const partition = getPartitionFromToken(token)
   return `https://p${partition}-sharedstreams.icloud.com`
 }
 
 /**
  * Fetch all media information from public iCloud Shared Album
  *
- * @param streamId shared album id, this is the string after hash e.g.
+ * @param token shared album id, this is the string after hash e.g.
  *  https://www.icloud.com/sharedalbum/#B125ON9t3mbLNC id is B125ON9t3mbLNC
  */
-export async function fetchStream(streamId: string): Promise<Stream | null> {
+export async function fetchStream(token: string): Promise<Stream | null> {
   const response = await fetch(
-    `${getStreamBaseUrl(streamId)}/${streamId}/sharedstreams/webstream`,
+    `${getStreamBaseUrl(token)}/${token}/sharedstreams/webstream`,
     {
       method: 'POST',
       headers: {
@@ -104,11 +104,11 @@ export async function fetchStream(streamId: string): Promise<Stream | null> {
 }
 
 export async function fetchAssetsUrl(
-  streamId: string,
+  token: string,
   photoGuids: string[]
 ): Promise<Assets | null> {
   const response = await fetch(
-    `${getStreamBaseUrl(streamId)}/${streamId}/sharedstreams/webasseturls`,
+    `${getStreamBaseUrl(token)}/${token}/sharedstreams/webasseturls`,
     {
       headers: {
         'cache-control': 'no-cache',
