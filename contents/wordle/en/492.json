@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 492 3/6",
+  "word": "fault",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "guava" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "fault" }
+  ]
+}
