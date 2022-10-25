@@ -66,7 +66,7 @@ type Props = {
 const Header = ({ title, url, pages = defaultPages }: Props) => (
   <header>
     <h1>
-      <Link href={url}>{title}</Link>
+      <Link href={url} legacyBehavior>{title}</Link>
     </h1>
     <nav className={style.nav}>
       <ul>
@@ -79,12 +79,12 @@ const Header = ({ title, url, pages = defaultPages }: Props) => (
               </a>
             )}
             {!page.target && (
-              <Link href={page.url}>
-                <a>
-                  <img className={style.icon} {...page.image} />
-                  <span className={style.text}>{page.title}</span>
-                </a>
-              </Link>
+              (<Link href={page.url}>
+
+                <img className={style.icon} {...page.image} />
+                <span className={style.text}>{page.title}</span>
+
+              </Link>)
             )}
           </li>
         ))}

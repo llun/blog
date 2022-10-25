@@ -13,14 +13,14 @@ const JourneyList = ({ journeys }: Props) => {
       {journeys.map((journey) => (
         <li key={journey.name}>
           <Link href={`/journeys/${journey.name}/`} passHref>
-            <a>
-              <strong className={style.title}>{journey.title}</strong>
-            </a>
+
+            <strong className={style.title}>{journey.title}</strong>
+
           </Link>
           <span>, {journey.description}</span>
         </li>
       ))}
     </ol>
-  )
+  );
 }
 export default JourneyList

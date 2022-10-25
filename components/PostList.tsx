@@ -19,8 +19,11 @@ const PostList = ({ posts }: Props) => (
               .setLocale('en-US')
               .toLocaleString(DateTime.DATE_MED)}
           </time>
-          <Link href={`/posts/${post.file.id}/`} locale={post.properties.lang}>
-            <a className={style.link}>{post.properties.title}</a>
+          <Link
+            href={`/posts/${post.file.id}/`}
+            locale={post.properties.lang}
+            className={style.link}>
+            {post.properties.title}
           </Link>
         </li>
       ))}

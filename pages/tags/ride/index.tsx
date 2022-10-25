@@ -38,20 +38,26 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 export const Navigation: FC = () => (
   <section className={style.navigation}>
-    <Link href="/tags/ride/">
-      <a className={style.item} aria-label="Link to post list">
+    <Link href="/tags/ride/" className={style.item} aria-label="Link to post list">
+      
         Posts
-      </a>
+      
     </Link>
-    <Link href="/tags/ride/netherlands">
-      <a className={style.item} aria-label="Link to my Netherlands cycling map">
+    <Link
+      href="/tags/ride/netherlands"
+      className={style.item}
+      aria-label="Link to my Netherlands cycling map">
+      
         Netherlands
-      </a>
+      
     </Link>
-    <Link href="/tags/ride/singapore">
-      <a className={style.item} aria-label="Link to my Singapore cycling map">
+    <Link
+      href="/tags/ride/singapore"
+      className={style.item}
+      aria-label="Link to my Singapore cycling map">
+      
         Singapore
-      </a>
+      
     </Link>
   </section>
 )
