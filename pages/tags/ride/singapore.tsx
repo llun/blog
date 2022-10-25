@@ -1,6 +1,5 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React from 'react'
 import type { GetStaticProps, NextPage } from 'next'
-import mapboxgl from 'mapbox-gl'
 
 import {
   Post,
@@ -9,7 +8,6 @@ import {
   getConfig,
   postDescendingComparison
 } from '../../../libs/blog'
-import { MAPBOX_PUBLIC_KEY } from '../../../libs/config'
 import Header from '../../../components/Header'
 import Meta from '../../../components/Meta'
 import RideMedias from '../../../components/RideMedias'
@@ -20,8 +18,8 @@ import { Navigation } from '.'
 
 import rideStats from '../../../public/tags/ride/stats.json'
 
-import style from './index.module.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import RideMap from '../../../components/RideMap'
 
 interface Props {
   posts: Post[]
@@ -51,55 +49,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   }
 }
 
-const RideMap: FC = () => {
-  const mapEl = useRef<HTMLDivElement>(null)
-  mapboxgl.accessToken = MAPBOX_PUBLIC_KEY
-
-  useEffect(() => {
-    const zoomLevel = (height?: number) => {
-      switch (height) {
-        case 250:
-          return 8
-        case 400:
-          return 9
-        default:
-          return 10.4
-      }
-    }
-
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/light-v10',
-      center: [103.81561802376315, 1.3498842996482667],
-      zoom: zoomLevel(mapEl?.current?.offsetHeight),
-      minZoom: 8,
-      maxZoom: 12
-    })
-    map.scrollZoom.disable()
-    map.on('load', async () => {
-      map.addSource('route', {
-        type: 'geojson',
-        data: `/tags/ride/singapore.json`
-      })
-      map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: 'route',
-        layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        paint: {
-          'line-color': 'red',
-          'line-width': 2
-        }
-      })
-    })
-  })
-
-  return <div ref={mapEl} id="map" className={style.map} />
-}
-
 const Singapore: NextPage<Props> = ({ config, category, medias }) => {
   const { title, description, url } = config
   const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
@@ -118,7 +67,13 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => {
       <main>
         <h1>{pageTitle}</h1>
         <Navigation />
-        <RideMap />
+        <RideMap
+          zoomLevels={[8, 9, 10.4]}
+          minZoom={8}
+          maxZoom={12}
+          center={[103.81561802376315, 1.3498842996482667]}
+          dataPath="/tags/ride/singapore.json"
+        />
         <RideStats stats={rideStats.singapore} />
         <RideMedias token={SINGAPORE_STREAM_ID} medias={medias} />
       </main>
