@@ -69,18 +69,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
   return (
     <div className={style.images}>
       {photos.map((media, index) => {
-        const directionClass =
-          media.width > media.height
-            ? style.wide
-            : media.width < media.height
-            ? style.tall
-            : ''
-
-        const random = Math.ceil(Math.random() * 1000)
-
-        const shouldBeBig = random % 11 === 0
-        const shouldExpand = random % 7 === 0 && !shouldBeBig
-
+        const shouldBeBig = index % 7 === 2
         const key =
           media.type === 'video'
             ? VideoPosterDerivative
@@ -93,7 +82,6 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
           <div
             key={media.guid}
             className={cn(style.image, {
-              [directionClass]: shouldExpand,
               [style['super-square']]: shouldBeBig
             })}
             style={{ backgroundImage }}
