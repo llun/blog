@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 493 4/6",
+  "word": "foggy",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "cloth" },
+    { "result": "🟩🟩⬜🟩⬜", "word": "forgo" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "foggy" }
+  ]
+}
