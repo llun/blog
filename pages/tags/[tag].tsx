@@ -66,7 +66,7 @@ const Index: NextPage<Props> = ({ posts, config, category }) => {
       />
       <Header title={title} url={url} />
       <main>
-        <h1>{pageTitle}</h1>
+        <h2>{pageTitle}</h2>
         <PostList posts={posts} />
       </main>
     </>
