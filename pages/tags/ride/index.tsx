@@ -1,6 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
 import type { GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 
 import {
   Config,
@@ -11,10 +10,10 @@ import {
 } from '../../../libs/blog'
 import Header from '../../../components/Header'
 import Meta from '../../../components/Meta'
-
-import style from './index.module.css'
-import 'mapbox-gl/dist/mapbox-gl.css'
 import PostList from '../../../components/PostList'
+import RideTitle from '../../../components/RideTitle'
+
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 interface Props {
   posts: Post[]
@@ -36,32 +35,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   }
 }
 
-export const Navigation: FC = () => (
-  <section className={style.navigation}>
-    <Link href="/tags/ride/" className={style.item} aria-label="Link to post list">
-      
-        Posts
-      
-    </Link>
-    <Link
-      href="/tags/ride/netherlands"
-      className={style.item}
-      aria-label="Link to my Netherlands cycling map">
-      
-        Netherlands
-      
-    </Link>
-    <Link
-      href="/tags/ride/singapore"
-      className={style.item}
-      aria-label="Link to my Singapore cycling map">
-      
-        Singapore
-      
-    </Link>
-  </section>
-)
-
 const Index: NextPage<Props> = ({ config, category, posts }) => {
   const { title, description, url } = config
   const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
@@ -78,8 +51,7 @@ const Index: NextPage<Props> = ({ config, category, posts }) => {
       />
       <Header title={title} url={url} />
       <main>
-        <h1>{pageTitle}</h1>
-        <Navigation />
+        <RideTitle title={pageTitle} />
         <PostList posts={posts} />
       </main>
     </>

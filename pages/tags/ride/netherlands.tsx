@@ -15,7 +15,7 @@ import RideMedias from '../../../components/RideMedias'
 import RideStats from '../../../components/RideStats'
 import RideMap from '../../../components/RideMap'
 import { getMediaList, Media } from '../../../libs/apple/media'
-import { Navigation } from '.'
+import RideTitle from '../../../components/RideTitle'
 
 import rideStats from '../../../public/tags/ride/stats.json'
 
@@ -65,15 +65,14 @@ const Netherlands: NextPage<Props> = ({ config, category, medias }) => {
       />
       <Header title={title} url={url} />
       <main>
-        <h1>{pageTitle}</h1>
-        <Navigation />
+        <RideTitle title={pageTitle} />
+        <RideStats stats={rideStats.netherlands} />
         <RideMap
           zoomLevels={[5.7, 6.0, 6.6]}
           minZoom={5}
           center={[5.12548838940261, 51.98430524939225]}
           dataPath="/tags/ride/netherlands.json"
         />
-        <RideStats stats={rideStats.netherlands} />
         <RideMedias token={NETHERLANDS_STREAM_ID} medias={medias} />
       </main>
     </>

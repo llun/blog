@@ -14,12 +14,12 @@ import RideMedias from '../../../components/RideMedias'
 import RideStats from '../../../components/RideStats'
 import { fetchStream } from '../../../libs/apple/webstream'
 import { getMediaList, Media } from '../../../libs/apple/media'
-import { Navigation } from '.'
+import RideTitle from '../../../components/RideTitle'
+import RideMap from '../../../components/RideMap'
 
 import rideStats from '../../../public/tags/ride/stats.json'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
-import RideMap from '../../../components/RideMap'
 
 interface Props {
   posts: Post[]
@@ -65,8 +65,7 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => {
       />
       <Header title={title} url={url} />
       <main>
-        <h1>{pageTitle}</h1>
-        <Navigation />
+        <RideTitle title={pageTitle} />
         <RideMap
           zoomLevels={[8, 9, 10.4]}
           minZoom={8}
