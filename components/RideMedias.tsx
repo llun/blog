@@ -4,6 +4,7 @@ import { Media, mergeMediaAssets, proxyAssetsUrl } from '../libs/apple/media'
 import { VideoPosterDerivative } from '../libs/apple/webstream'
 
 import style from './RideMedias.module.css'
+import MediaModal from './MediaModal'
 
 type PhotoState = 'loading' | 'idle'
 
@@ -25,6 +26,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
 }) => {
   const [photoState, setPhotoState] = useState<PhotoState>('idle')
   const [photos, setPhotos] = useState<Media[]>([])
+  const [selectedMedia, setSelectedMedia] = useState<Media>()
   const photoDom = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -68,6 +70,11 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
 
   return (
     <div className={style.images}>
+      <MediaModal
+        isOpen={!!selectedMedia}
+        media={selectedMedia}
+        close={() => setSelectedMedia(undefined)}
+      />
       {photos.map((media, index) => {
         const shouldBeBig = index % 7 === 2
         const key =
@@ -85,6 +92,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
               [style['super-square']]: shouldBeBig
             })}
             style={{ backgroundImage }}
+            onClick={() => setSelectedMedia(media)}
             ref={index === photos.length - 10 ? photoDom : undefined}
           />
         )
