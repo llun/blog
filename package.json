@@ -26,6 +26,8 @@
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.11.5",
     "@types/react": "18.0.23",
+    "@types/react-dom": "^18.0.7",
+    "@types/react-modal": "^3.13.1",
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.13",
     "archiver": "^5.3.1",
