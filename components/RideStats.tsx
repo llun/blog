@@ -14,11 +14,11 @@ interface Props {
 const RideStats: FC<Props> = ({ stats }) => (
   <section className={style.stats}>
     <div className={style.card}>
-      <h2>Total Rides</h2>
+      <h3>Total Rides</h3>
       <p>{new Intl.NumberFormat('en').format(stats.activities)} Rides</p>
     </div>
     <div className={style.card}>
-      <h2>Total Distance</h2>
+      <h3>Total Distance</h3>
       <p>{new Intl.NumberFormat('en').format(stats.distance)} Kilometers</p>
     </div>
   </section>

@@ -1,3 +1,7 @@
+.navigation {
+  font-family: sans-serif;
+}
+
 .navigation .item {
   margin-right: 0.25rem;
 }
@@ -5,4 +9,3 @@
 .navigation .item:last-child {
   margin-right: 0;
 }
-
