@@ -49,34 +49,27 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   }
 }
 
-const Netherlands: NextPage<Props> = ({ config, category, medias }) => {
-  const { title, description, url } = config
-  const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
-    ''
-  )
-
-  return (
-    <>
-      <Meta
-        title={`${title}, ${category}`}
-        description={description}
-        url={`${url}/tags/ride/netherlands`}
-        imageUrl={`${url}/tags/ride/netherlands.png`}
+const Netherlands: NextPage<Props> = ({ config, category, medias }) => (
+  <>
+    <Meta
+      title={`${config.title}, ${category}`}
+      description={config.description}
+      url={`${config.url}/tags/ride/netherlands`}
+      imageUrl={`${config.url}/tags/ride/netherlands.png`}
+    />
+    <Header title={config.title} url={config.url} />
+    <main>
+      <RideTitle title={'🇳🇱'} />
+      <RideStats stats={rideStats.netherlands} />
+      <RideMap
+        zoomLevels={[5.7, 6.0, 6.6]}
+        minZoom={5}
+        center={[5.12548838940261, 51.98430524939225]}
+        dataPath="/tags/ride/netherlands.json"
       />
-      <Header title={title} url={url} />
-      <main>
-        <RideTitle title={pageTitle} />
-        <RideStats stats={rideStats.netherlands} />
-        <RideMap
-          zoomLevels={[5.7, 6.0, 6.6]}
-          minZoom={5}
-          center={[5.12548838940261, 51.98430524939225]}
-          dataPath="/tags/ride/netherlands.json"
-        />
-        <RideMedias token={NETHERLANDS_STREAM_ID} medias={medias} />
-      </main>
-    </>
-  )
-}
+      <RideMedias token={NETHERLANDS_STREAM_ID} medias={medias} />
+    </main>
+  </>
+)
 
 export default Netherlands

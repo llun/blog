@@ -35,26 +35,19 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   }
 }
 
-const Index: NextPage<Props> = ({ config, category, posts }) => {
-  const { title, description, url } = config
-  const pageTitle = [category[0].toLocaleUpperCase(), category.slice(1)].join(
-    ''
-  )
-
-  return (
-    <>
-      <Meta
-        title={`${title}, ${category}`}
-        description={description}
-        url={`${url}/tags/ride/`}
-        imageUrl={`${url}/tags/ride/netherlands.png`}
-      />
-      <Header title={title} url={url} />
-      <main>
-        <RideTitle title={pageTitle} />
-        <PostList posts={posts} />
-      </main>
-    </>
-  )
-}
+const Index: NextPage<Props> = ({ config, category, posts }) => (
+  <>
+    <Meta
+      title={`${config.title}, ${category}`}
+      description={config.description}
+      url={`${config.url}/tags/ride/`}
+      imageUrl={`${config.url}/tags/ride/netherlands.png`}
+    />
+    <Header title={config.title} url={config.url} />
+    <main>
+      <RideTitle title={'🚴‍♂️'} />
+      <PostList posts={posts} />
+    </main>
+  </>
+)
 export default Index
