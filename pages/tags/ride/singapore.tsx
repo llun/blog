@@ -60,6 +60,7 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => (
     <Header title={config.title} url={config.url} />
     <main>
       <RideTitle title={'🇸🇬'} />
+      <RideStats stats={rideStats.singapore} />
       <RideMap
         zoomLevels={[8, 9, 10.4]}
         minZoom={8}
@@ -67,7 +68,6 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => (
         center={[103.81561802376315, 1.3498842996482667]}
         dataPath="/tags/ride/singapore.json"
       />
-      <RideStats stats={rideStats.singapore} />
       <RideMedias token={SINGAPORE_STREAM_ID} medias={medias} />
     </main>
   </>
