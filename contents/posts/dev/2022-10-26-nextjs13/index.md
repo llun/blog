@@ -8,7 +8,7 @@ tags:
   - Next.JS
 ---
 
-Next.JS Conference วันอังคารที่ผ่านมาสิ่งที่ออกมาด้วยคือ Next.JS 13 มีสองอย่างที่ออกมาน่าสนใจคือ Layout RFC ที่มาเป็น beta ให้สร้าง app directory ได้แล้ว และ bundle ตัวใหม่ที่ชื่อว่า [Turbopack](https://vercel.com/blog/turbopack)
+Next.JS Conference วันอังคารที่ผ่านมาสิ่งที่ออกมาด้วยคือ [Next.JS 13](https://nextjs.org/blog/next-13) มีสองอย่างที่ออกมาน่าสนใจคือ [Layout RFC](https://nextjs.org/blog/layouts-rfc) ที่มาเป็น beta ให้สร้าง app directory ได้แล้ว และ bundle ตัวใหม่ที่ชื่อว่า [Turbopack](https://vercel.com/blog/turbopack)
 
 ## Layout RFC
 
