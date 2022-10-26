@@ -31,7 +31,7 @@ const Index = ({ config, journeys }: Props) => {
       <Meta title={title} description={description} url={url} />
       <Header title={title} url={`${url}/journeys`} />
       <main>
-        <h1>Journeys</h1>
+        <h2>Journeys</h2>
         <p className={style.description}>
           A collection of long running topic that I keep updating
         </p>
