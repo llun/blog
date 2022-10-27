@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import ReactModal from 'react-modal'
-import EXIF from 'exif-js'
 import { Media } from '../libs/apple/media'
 
 import style from './MediaModal.module.css'
@@ -30,10 +29,17 @@ const Photo: FC<{ media?: Media }> = ({ media }) => {
   )
 }
 
+type closeFn = () => void
+
 interface Props {
   isOpen: boolean
-  close: () => void
+  close: closeFn
   media?: Media
+}
+
+const closeModal = (close: closeFn) => {
+  document.body.className = ''
+  close()
 }
 
 const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
@@ -48,20 +54,15 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
       className={style.modal}
       isOpen={isOpen}
     >
-      <div className={style.media}>
+      <div className={style.content} onClick={() => closeModal(close)}>
         <Photo media={media} />
-      </div>
-      <div className={style.control}>
         <Image
           className={style.closeButton}
           src={'/img/close-button.svg'}
           width={30}
           height={30}
           alt="Close selected image"
-          onClick={() => {
-            document.body.className = ''
-            close()
-          }}
+          onClick={() => closeModal(close)}
         />
       </div>
     </ReactModal>

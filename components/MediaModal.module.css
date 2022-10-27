@@ -10,18 +10,17 @@
   position: absolute;
   inset: 0;
   background: var(--background);
-  display: grid;
-  grid-template-columns: auto 300px;
+  object-fit: contain;
+  height: 100vh;
 }
 
 .open {
   overflow: hidden;
 }
 
-.control {
-  padding: 0.25rem;
-  display: flex;
-  flex-direction: row-reverse;
+.content {
+  position: absolute;
+  inset: 0;
 }
 
 .closeButton {
@@ -31,11 +30,9 @@
   cursor: pointer;
   width: 2rem;
   height: 2rem;
-}
-
-.media {
-  object-fit: contain;
-  height: 100vh;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .image {
