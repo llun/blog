@@ -45,7 +45,9 @@ const Index: NextPage<Props> = ({ config, category, posts }) => (
     />
     <Header title={config.title} url={config.url} />
     <main>
-      <RideTitle title={'🚴‍♂️'} />
+      <RideTitle
+        icon={{ src: '/img/icons/ride.png', alt: 'Ride posts page icon' }}
+      />
       <PostList posts={posts} />
     </main>
   </>

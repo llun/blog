@@ -4,13 +4,14 @@ import React, { FC } from 'react'
 import style from './RideTitle.module.css'
 
 interface Props {
-  title: string
+  icon: { src: string; alt: string }
+  ridePage?: string
 }
 
-const RideTitle: FC<Props> = ({ title }) => (
-  <section>
+const RideTitle: FC<Props> = ({ icon, ridePage }) => (
+  <section className={style.title}>
     <h3 className={style.navigation}>
-      <span className={style.title}>{title}</span>
+      <img className={style.icon} {...icon} />
       <Link
         href="/tags/ride/"
         className={style.item}
@@ -33,6 +34,17 @@ const RideTitle: FC<Props> = ({ title }) => (
         Singapore
       </Link>
     </h3>
+
+    {ridePage && (
+      <h3>
+        <Link href={`/tags/ride/${ridePage}`}>
+          <img className={style.icon} src="/img/icons/map.png" />
+        </Link>
+        <Link href={`/tags/ride/${ridePage}/gallery`}>
+          <img className={style.icon} src="/img/icons/camera.png" />
+        </Link>
+      </h3>
+    )}
   </section>
 )
 

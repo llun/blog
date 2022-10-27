@@ -7,17 +7,16 @@ import {
   getAllPosts,
   getConfig,
   postDescendingComparison
-} from '../../../libs/blog'
-import Header from '../../../components/Header'
-import Meta from '../../../components/Meta'
-import RideMedias from '../../../components/RideMedias'
-import RideStats from '../../../components/RideStats'
-import { fetchStream } from '../../../libs/apple/webstream'
-import { getMediaList, Media } from '../../../libs/apple/media'
-import RideTitle from '../../../components/RideTitle'
-import RideMap from '../../../components/RideMap'
+} from '../../../../libs/blog'
+import Header from '../../../../components/Header'
+import Meta from '../../../../components/Meta'
+import RideMedias from '../../../../components/RideMedias'
+import RideStats from '../../../../components/RideStats'
+import { fetchStream } from '../../../../libs/apple/webstream'
+import { getMediaList, Media } from '../../../../libs/apple/media'
+import RideTitle from '../../../../components/RideTitle'
 
-import rideStats from '../../../public/tags/ride/stats.json'
+import rideStats from '../../../../public/tags/ride/stats.json'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 
@@ -59,15 +58,14 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => (
     />
     <Header title={config.title} url={config.url} />
     <main>
-      <RideTitle title={'🇸🇬'} />
-      <RideStats stats={rideStats.singapore} />
-      <RideMap
-        zoomLevels={[8, 9, 10.4]}
-        minZoom={8}
-        maxZoom={12}
-        center={[103.81561802376315, 1.3498842996482667]}
-        dataPath="/tags/ride/singapore.json"
+      <RideTitle
+        icon={{
+          src: '/img/icons/singapore.png',
+          alt: 'Singapore flag for ride in Singapore page'
+        }}
+        ridePage="singapore"
       />
+      <RideStats stats={rideStats.singapore} />
       <RideMedias token={SINGAPORE_STREAM_ID} medias={medias} />
     </main>
   </>
