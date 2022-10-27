@@ -57,6 +57,8 @@ export interface Assets {
 }
 
 export const VideoPosterDerivative = 'PosterFrame'
+export const Video720p = '720p'
+export const Video360p = '360p'
 
 const Base62Charset =
   '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'

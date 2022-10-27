@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { FC, useEffect, useRef } from 'react'
 import ReactModal from 'react-modal'
 import { Media } from '../libs/apple/media'
+import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
 
 import style from './MediaModal.module.css'
 
@@ -11,21 +12,38 @@ const Photo: FC<{ media?: Media }> = ({ media }) => {
 
   if (media?.type !== 'photo') return null
   const qualities = Object.keys(media.derivatives)
-  const best = qualities.pop()
-  if (!best) return null
+  const [small, best] = qualities
 
   const source = media.derivatives[best].url
   if (!source) return null
 
+  const background = media.derivatives[small].url
+  if (!background) return null
+
   return (
     <img
+      style={{ backgroundImage: `url(${background})` }}
       className={style.image}
       ref={imageRef}
       src={source}
-      alt="Hidden image"
+      alt="Detail image"
       width={media.width}
       height={media.height}
     />
+  )
+}
+
+const Video: FC<{ media?: Media }> = ({ media }) => {
+  if (media?.type !== 'video') return null
+  const poster = media.derivatives[VideoPosterDerivative].url
+  const source = media.derivatives[Video720p].url
+
+  return (
+    <div className={style.video}>
+      <video poster={poster} controls>
+        <source src={source} type="video/mp4" />
+      </video>
+    </div>
   )
 }
 
@@ -56,6 +74,7 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
     >
       <div className={style.content} onClick={() => closeModal(close)}>
         <Photo media={media} />
+        <Video media={media} />
         <Image
           className={style.closeButton}
           src={'/img/close-button.svg'}
