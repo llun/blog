@@ -10,18 +10,12 @@
   position: absolute;
   inset: 0;
   background: var(--background);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 300px;
 }
 
 .open {
   overflow: hidden;
-}
-
-.content {
-  display: grid;
-  grid-template-columns: auto 300px;
-  flex: 1;
 }
 
 .control {
@@ -35,23 +29,20 @@
   padding: 0;
   margin: 0;
   cursor: pointer;
+  width: 2rem;
+  height: 2rem;
 }
 
 .media {
-  display: flex;
-  position: relative;
+  object-fit: contain;
+  height: 100vh;
 }
 
 .image {
   padding: 0;
-  margin: 0;
+  margin: auto;
   border: unset;
-  flex: 1;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.hidden {
-  display: none;
+  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
 }
