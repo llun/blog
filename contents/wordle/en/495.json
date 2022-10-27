@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 495 4/6",
+  "word": "carry",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜🟨⬜⬜", "word": "chalk" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "cargo" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "carry" }
+  ]
+}
