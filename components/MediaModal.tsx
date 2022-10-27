@@ -40,7 +40,13 @@ const Video: FC<{ media?: Media }> = ({ media }) => {
 
   return (
     <div className={style.video}>
-      <video poster={poster} controls>
+      <video
+        poster={poster}
+        controls
+        onClick={(e) => {
+          e.stopPropagation()
+        }}
+      >
         <source src={source} type="video/mp4" />
       </video>
     </div>
