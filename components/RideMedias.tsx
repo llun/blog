@@ -32,7 +32,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
   useEffect(() => {
     ;(async () => {
       setPhotoState('loading')
-      const first = medias.slice(0, BatchSize)
+      const first = medias.slice(0, BatchSize * 2)
       const assets = await proxyAssetsUrl(token, first)
       if (!assets) return
 
@@ -64,7 +64,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
     })
     intersectionObserver.observe(photoDom.current)
     return () => intersectionObserver.disconnect()
-  }, [token, medias])
+  }, [token, medias, photos, photoState])
 
   if (!photos.length) return null
 
@@ -75,28 +75,29 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
         media={selectedMedia}
         close={() => setSelectedMedia(undefined)}
       />
-      {photoState === 'loading' && <h3>Loading medias</h3>}
-      {photoState === 'idle' &&
-        photos.map((media, index) => {
-          const shouldBeBig = index % 13 === 0
-          const key =
-            media.type === 'video'
-              ? VideoPosterDerivative
-              : Object.keys(media.derivatives)[0]
-          const backgroundImage = `url(${media.derivatives[key].url})`
+      {photos.length === 0 && photoState === 'loading' && (
+        <h3>Loading medias</h3>
+      )}
+      {photos.map((media, index) => {
+        const shouldBeBig = index % 13 === 0
+        const key =
+          media.type === 'video'
+            ? VideoPosterDerivative
+            : Object.keys(media.derivatives)[0]
+        const backgroundImage = `url(${media.derivatives[key].url})`
 
-          return (
-            <div
-              key={media.guid}
-              className={cn(style.image, {
-                [style['super-square']]: shouldBeBig
-              })}
-              style={{ backgroundImage }}
-              onClick={() => setSelectedMedia(media)}
-              ref={index === photos.length - 10 ? photoDom : undefined}
-            />
-          )
-        })}
+        return (
+          <div
+            key={media.guid}
+            className={cn(style.image, {
+              [style['super-square']]: shouldBeBig
+            })}
+            style={{ backgroundImage }}
+            onClick={() => setSelectedMedia(media)}
+            ref={index === photos.length - 10 ? photoDom : undefined}
+          />
+        )
+      })}
     </div>
   )
 }
