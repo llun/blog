@@ -80,9 +80,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
         const key =
           media.type === 'video'
             ? VideoPosterDerivative
-            : Object.keys(media.derivatives).sort(
-                (second, first) => parseInt(first, 10) - parseInt(second, 10)
-              )[0]
+            : Object.keys(media.derivatives)[0]
         const backgroundImage = `url(${media.derivatives[key].url})`
 
         return (

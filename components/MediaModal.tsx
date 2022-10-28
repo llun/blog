@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useEffect } from 'react'
 import ReactModal from 'react-modal'
 import { Media } from '../libs/apple/media'
 import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
@@ -8,8 +8,6 @@ import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
 import style from './MediaModal.module.css'
 
 const Photo: FC<{ media?: Media }> = ({ media }) => {
-  const imageRef = useRef<HTMLImageElement>(null)
-
   if (media?.type !== 'photo') return null
   const qualities = Object.keys(media.derivatives)
   const [small, best] = qualities
@@ -24,7 +22,6 @@ const Photo: FC<{ media?: Media }> = ({ media }) => {
     <img
       style={{ backgroundImage: `url(${background})` }}
       className={style.image}
-      ref={imageRef}
       src={source}
       alt="Detail image"
       width={media.width}
