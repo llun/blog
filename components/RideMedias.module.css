@@ -2,7 +2,7 @@
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-auto-flow: row dense;
+  grid-auto-flow: dense;
   grid-gap: 1rem;
 }
 
@@ -20,8 +20,7 @@
 
 
 .images .super-square {
-  grid-column: span 2 / span 1;
-
+  grid-area: span 2 / span 2;
 }
 
 @media (max-width: 641px) {

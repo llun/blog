@@ -76,7 +76,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
         close={() => setSelectedMedia(undefined)}
       />
       {photos.map((media, index) => {
-        const shouldBeBig = index % 7 === 2
+        const shouldBeBig = index % 13 === 0
         const key =
           media.type === 'video'
             ? VideoPosterDerivative
