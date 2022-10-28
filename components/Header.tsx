@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text */
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import style from './Header.module.css'
@@ -66,7 +66,9 @@ type Props = {
 const Header = ({ title, url, pages = defaultPages }: Props) => (
   <header>
     <h1>
-      <Link href={url} legacyBehavior>{title}</Link>
+      <Link href={url} legacyBehavior>
+        {title}
+      </Link>
     </h1>
     <nav className={style.nav}>
       <ul>
@@ -74,17 +76,27 @@ const Header = ({ title, url, pages = defaultPages }: Props) => (
           <li key={page.url}>
             {page.target && (
               <a href={page.url} target={page.target}>
-                <img className={style.icon} {...page.image} />
+                <Image
+                  className={style.icon}
+                  {...page.image}
+                  width={26}
+                  height={26}
+                  alt={page.image.alt}
+                />
                 <span className={style.text}>{page.title}</span>
               </a>
             )}
             {!page.target && (
-              (<Link href={page.url}>
-
-                <img className={style.icon} {...page.image} />
+              <Link href={page.url}>
+                <Image
+                  className={style.icon}
+                  {...page.image}
+                  width={26}
+                  height={26}
+                  alt={page.image.alt}
+                />
                 <span className={style.text}>{page.title}</span>
-
-              </Link>)
+              </Link>
             )}
           </li>
         ))}
