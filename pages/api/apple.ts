@@ -26,9 +26,8 @@ const handle = async (req: any) => {
       headers: Headers
     })
   }
-  // const body = (await req.json()) as AssetsRequest
-  console.log(req.body)
-  const body = JSON.parse(req.body) as AssetsRequest
+  const body = (await req.json()) as AssetsRequest
+  // const body = JSON.parse(req.body) as AssetsRequest
   if (!ALLOW_STREAM_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
@@ -51,6 +50,6 @@ const handle = async (req: any) => {
 
 export default handle
 
-// export const config = {
-//   runtime: 'experimental-edge'
-// }
+export const config = {
+  runtime: 'experimental-edge'
+}
