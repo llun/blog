@@ -36,7 +36,7 @@ const Video: FC<{ media?: Media }> = ({ media }) => {
   const source = media.derivatives[Video720p].url
 
   return (
-    <div className={style.video}>
+    <div className={style.video} style={{ backgroundImage: `url(${poster})` }}>
       <video
         poster={poster}
         controls
