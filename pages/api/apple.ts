@@ -27,7 +27,6 @@ const handle = async (req: any) => {
     })
   }
   const body = (await req.json()) as AssetsRequest
-  // const body = JSON.parse(req.body) as AssetsRequest
   if (!ALLOW_STREAM_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
