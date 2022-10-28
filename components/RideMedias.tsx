@@ -64,7 +64,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
     })
     intersectionObserver.observe(photoDom.current)
     return () => intersectionObserver.disconnect()
-  }, [token, photos, medias, photoState])
+  }, [token, medias])
 
   if (!photos.length) return null
 
