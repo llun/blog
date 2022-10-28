@@ -1,4 +1,3 @@
-import { NextApiHandler } from 'next'
 import { fetchAssetsUrl } from '../../libs/apple/webstream'
 import { NETHERLANDS_STREAM_ID, SINGAPORE_STREAM_ID } from '../../libs/config'
 
@@ -9,25 +8,49 @@ export interface AssetsRequest {
   photoGuids: string[]
 }
 
-const handle: NextApiHandler = async (req, res) => {
+const Headers =
+  process.env.NODE_ENV === 'production'
+    ? {
+        'Access-Control-Allow-Origin': 'https://www.llun.me',
+        'content-type': 'application/json'
+      }
+    : {
+        'Access-Control-Allow-Origin': '*',
+        'content-type': 'application/json'
+      }
+
+const handle = async (req: any) => {
   if (req.method !== 'POST') {
-    return res.status(400).json({ error: 'Invalid' })
+    return new Response(JSON.stringify({ error: 'Invalid' }), {
+      status: 404,
+      headers: Headers
+    })
   }
-
-  if (process.env.NODE_ENV === 'production') {
-    res.setHeader('Access-Control-Allow-Origin', 'https://www.llun.me')
-  }
-
+  // const body = (await req.json()) as AssetsRequest
+  console.log(req.body)
   const body = JSON.parse(req.body) as AssetsRequest
   if (!ALLOW_STREAM_IDS.includes(body.token)) {
-    return res.status(404).json({ error: 'Not Found' })
+    return new Response(JSON.stringify({ error: 'Not Found' }), {
+      status: 404,
+      headers: Headers
+    })
   }
 
   const response = await fetchAssetsUrl(body.token, body.photoGuids)
   if (!response) {
-    return res.status(404).json({ error: 'Not Found' })
+    return new Response(JSON.stringify({ error: 'Not Found' }), {
+      status: 404,
+      headers: Headers
+    })
   }
-  return res.status(200).json(response)
+  return new Response(JSON.stringify(response), {
+    status: 200,
+    headers: Headers
+  })
 }
 
 export default handle
+
+// export const config = {
+//   runtime: 'experimental-edge'
+// }
