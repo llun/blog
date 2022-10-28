@@ -6,10 +6,9 @@ import style from './RideTitle.module.css'
 
 interface Props {
   icon: { src: string; alt: string }
-  ridePage?: string
 }
 
-const RideTitle: FC<Props> = ({ icon, ridePage }) => (
+const RideTitle: FC<Props> = ({ icon }) => (
   <section className={style.title}>
     <h3 className={style.navigation}>
       <Image
@@ -33,6 +32,15 @@ const RideTitle: FC<Props> = ({ icon, ridePage }) => (
       >
         Netherlands
       </Link>
+      <Link href={`/tags/ride/netherlands/gallery`}>
+        <Image
+          className={style.icon}
+          src="/img/icons/camera.png"
+          alt="Ride medias gallery link"
+          width={24}
+          height={24}
+        />
+      </Link>
       <Link
         href="/tags/ride/singapore"
         className={style.item}
@@ -40,30 +48,16 @@ const RideTitle: FC<Props> = ({ icon, ridePage }) => (
       >
         Singapore
       </Link>
+      <Link href={`/tags/ride/singapore/gallery`}>
+        <Image
+          className={style.icon}
+          src="/img/icons/camera.png"
+          alt="Ride medias gallery link"
+          width={24}
+          height={24}
+        />
+      </Link>
     </h3>
-
-    {ridePage && (
-      <h3>
-        <Link href={`/tags/ride/${ridePage}`}>
-          <Image
-            className={style.icon}
-            src="/img/icons/map.png"
-            width={24}
-            height={24}
-            alt="Map link"
-          />
-        </Link>
-        <Link href={`/tags/ride/${ridePage}/gallery`}>
-          <Image
-            className={style.icon}
-            src="/img/icons/camera.png"
-            alt="Ride medias gallery link"
-            width={24}
-            height={24}
-          />
-        </Link>
-      </h3>
-    )}
   </section>
 )
 

@@ -63,7 +63,6 @@ const Netherlands: NextPage<Props> = ({ config, category, medias }) => (
           src: '/img/icons/netherlands.png',
           alt: 'The Netherlands flag for ride in the Netherlands page'
         }}
-        ridePage="netherlands"
       />
       <RideStats stats={rideStats.netherlands} />
       <RideMap
