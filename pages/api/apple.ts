@@ -1,7 +1,6 @@
 import { NextApiHandler } from 'next'
 import { fetchAssetsUrl } from '../../libs/apple/webstream'
-import { NETHERLANDS_STREAM_ID } from '../tags/ride/netherlands'
-import { SINGAPORE_STREAM_ID } from '../tags/ride/singapore'
+import { NETHERLANDS_STREAM_ID, SINGAPORE_STREAM_ID } from '../../libs/config'
 
 const ALLOW_STREAM_IDS = [NETHERLANDS_STREAM_ID, SINGAPORE_STREAM_ID]
 

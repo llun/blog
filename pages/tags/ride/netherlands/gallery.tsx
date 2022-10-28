@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 
+import { NETHERLANDS_STREAM_ID } from '../../../../libs/config'
 import {
   Post,
   Config,
@@ -26,8 +27,6 @@ interface Props {
   category: string
   medias: Media[]
 }
-
-export const NETHERLANDS_STREAM_ID = 'B125ON9t3mbLNC'
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const posts = getAllPosts()
