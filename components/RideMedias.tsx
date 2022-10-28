@@ -75,26 +75,28 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
         media={selectedMedia}
         close={() => setSelectedMedia(undefined)}
       />
-      {photos.map((media, index) => {
-        const shouldBeBig = index % 13 === 0
-        const key =
-          media.type === 'video'
-            ? VideoPosterDerivative
-            : Object.keys(media.derivatives)[0]
-        const backgroundImage = `url(${media.derivatives[key].url})`
+      {photoState === 'loading' && <h3>Loading medias</h3>}
+      {photoState === 'idle' &&
+        photos.map((media, index) => {
+          const shouldBeBig = index % 13 === 0
+          const key =
+            media.type === 'video'
+              ? VideoPosterDerivative
+              : Object.keys(media.derivatives)[0]
+          const backgroundImage = `url(${media.derivatives[key].url})`
 
-        return (
-          <div
-            key={media.guid}
-            className={cn(style.image, {
-              [style['super-square']]: shouldBeBig
-            })}
-            style={{ backgroundImage }}
-            onClick={() => setSelectedMedia(media)}
-            ref={index === photos.length - 10 ? photoDom : undefined}
-          />
-        )
-      })}
+          return (
+            <div
+              key={media.guid}
+              className={cn(style.image, {
+                [style['super-square']]: shouldBeBig
+              })}
+              style={{ backgroundImage }}
+              onClick={() => setSelectedMedia(media)}
+              ref={index === photos.length - 10 ? photoDom : undefined}
+            />
+          )
+        })}
     </div>
   )
 }
