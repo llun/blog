@@ -1,4 +1,3 @@
-import { NextApiHandler } from 'next'
 import { fetchAssetsUrl } from '../../libs/apple/webstream'
 import { NETHERLANDS_STREAM_ID, SINGAPORE_STREAM_ID } from '../../libs/config'
 
@@ -20,14 +19,14 @@ const Headers =
         'content-type': 'application/json'
       }
 
-const handle: NextApiHandler = async (req, res) => {
+const handle = async (req: any) => {
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Invalid' }), {
       status: 404,
       headers: Headers
     })
   }
-  const body = JSON.parse(req.body) as AssetsRequest
+  const body = (await req.json()) as AssetsRequest
   if (!ALLOW_STREAM_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
