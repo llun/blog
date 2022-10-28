@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
 
@@ -11,7 +12,13 @@ interface Props {
 const RideTitle: FC<Props> = ({ icon, ridePage }) => (
   <section className={style.title}>
     <h3 className={style.navigation}>
-      <img className={style.icon} {...icon} />
+      <Image
+        className={style.icon}
+        {...icon}
+        alt="Page icon"
+        width={24}
+        height={24}
+      />
       <Link
         href="/tags/ride/"
         className={style.item}
@@ -38,10 +45,22 @@ const RideTitle: FC<Props> = ({ icon, ridePage }) => (
     {ridePage && (
       <h3>
         <Link href={`/tags/ride/${ridePage}`}>
-          <img className={style.icon} src="/img/icons/map.png" />
+          <Image
+            className={style.icon}
+            src="/img/icons/map.png"
+            width={24}
+            height={24}
+            alt="Map link"
+          />
         </Link>
         <Link href={`/tags/ride/${ridePage}/gallery`}>
-          <img className={style.icon} src="/img/icons/camera.png" />
+          <Image
+            className={style.icon}
+            src="/img/icons/camera.png"
+            alt="Ride medias gallery link"
+            width={24}
+            height={24}
+          />
         </Link>
       </h3>
     )}
