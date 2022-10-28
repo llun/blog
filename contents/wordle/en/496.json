@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 496 4/6",
+  "word": "sneak",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨🟨⬜🟨", "word": "canoe" },
+    { "result": "⬜🟨🟨🟨⬜", "word": "meant" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sneak" }
+  ]
+}
