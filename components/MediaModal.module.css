@@ -38,6 +38,11 @@
   display: flex;
 }
 
+.control .title {
+  font-weight: bold;
+  text-align: center;
+}
+
 .control .expand {
   flex: 1;
 }

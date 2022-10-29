@@ -50,14 +50,20 @@ const Video: FC<MediaProps> = ({ media }) => {
   )
 }
 
-interface ControlProps {
+interface TitleProps extends MediaProps {
   className?: string
   onClose: MouseEventHandler<SVGElement>
 }
 
-const Control: FC<ControlProps> = ({ className, onClose }) => (
+const Title: FC<TitleProps> = ({ className, media, onClose }) => (
   <div className={cn(style.control, className)}>
-    <div className={style.expand} />
+    <div className={cn(style.title, style.expand)}>
+      {media &&
+        new Intl.DateTimeFormat('en-GB', {
+          dateStyle: 'full',
+          timeStyle: 'short'
+        }).format(new Date(media?.createdAt))}
+    </div>
     <CloseButton
       viewBox="0 0 16 16"
       className={style.close}
@@ -91,7 +97,8 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
       >
         <Photo media={media} />
         <Video media={media} />
-        <Control
+        <Title
+          media={media}
           className={cn({ [style.hide]: !shouldShowControl })}
           onClose={(e) => {
             e.stopPropagation()
