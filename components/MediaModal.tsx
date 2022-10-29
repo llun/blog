@@ -78,14 +78,16 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
       <div className={style.content} onClick={() => closeModal(close)}>
         <Photo media={media} />
         <Video media={media} />
-        <Image
-          className={style.closeButton}
-          src={'/img/close-button.svg'}
-          width={30}
-          height={30}
-          alt="Close selected image"
-          onClick={() => closeModal(close)}
-        />
+        <div className={style.control}>
+          <Image
+            className={style.closeButton}
+            src={'/img/close-button.svg'}
+            width={30}
+            height={30}
+            alt="Close selected image"
+            onClick={() => closeModal(close)}
+          />
+        </div>
       </div>
     </ReactModal>
   )

@@ -1,6 +1,6 @@
 .overlay {
   position: fixed;
-  background-color: var(--background);
+  background-color: rgb(var(--background));
   inset: 0;
   z-index: 10;
   overflow: hidden;
@@ -9,7 +9,7 @@
 .modal {
   position: absolute;
   inset: 0;
-  background: var(--background);
+  background: rgb(var(--background));
   object-fit: contain;
   height: 100vh;
 }
@@ -27,6 +27,15 @@
   inset: 0;
 }
 
+.control {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0.5rem;
+  background-color: rgba(var(--background), 0.75);
+}
+
 .closeButton {
   border: 0;
   padding: 0;
@@ -34,9 +43,6 @@
   cursor: pointer;
   width: 2rem;
   height: 2rem;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
 }
 
 .image {
