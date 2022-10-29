@@ -1,11 +1,19 @@
 :root {
+  --content-hex: #171717;
   --content: 17, 17, 17;
+  --background-hex: #fefefe;
   --background: 254, 254, 254;
+  --link-hex: #00639b;
   --link: 0, 99, 155;
+  --visited-link-hex: #003b64;
   --visited-link: 0, 59, 100;
+  --highlight-hex: #0087ca;
   --highlight: 0, 135, 202;
+  --pre-background-hex: #1f2937;
   --pre-background: 31, 41, 55;
+  --pre-color-hex: #e5e7eb;
   --pre-color: 229, 231, 235;
+  --border-hex: #e0e0e0;
   --border: 224, 224, 224;
 }
 

@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image'
 import React, { FC, useEffect } from 'react'
 import ReactModal from 'react-modal'
 import { Media } from '../libs/apple/media'
 import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
+
+import CloseButton from '../public/img/close-button.svg'
 
 import style from './MediaModal.module.css'
 
@@ -50,17 +51,21 @@ const Video: FC<{ media?: Media }> = ({ media }) => {
   )
 }
 
-type closeFn = () => void
+const Control: FC<{ onClose: () => void }> = ({ onClose }) => (
+  <div className={style.control}>
+    <div className={style.expand} />
+    <CloseButton
+      viewBox="0 0 16 16"
+      className={style.close}
+      onClick={onClose}
+    />
+  </div>
+)
 
 interface Props {
   isOpen: boolean
-  close: closeFn
+  close: () => void
   media?: Media
-}
-
-const closeModal = (close: closeFn) => {
-  document.body.className = ''
-  close()
 }
 
 const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
@@ -78,16 +83,12 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
       <div className={style.content}>
         <Photo media={media} />
         <Video media={media} />
-        <div className={style.control}>
-          <Image
-            className={style.closeButton}
-            src={'/img/close-button.svg'}
-            width={30}
-            height={30}
-            alt="Close selected image"
-            onClick={() => closeModal(close)}
-          />
-        </div>
+        <Control
+          onClose={() => {
+            document.body.className = ''
+            close()
+          }}
+        />
       </div>
     </ReactModal>
   )

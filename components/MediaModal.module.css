@@ -35,15 +35,28 @@
   top: 0;
   padding: 0.5rem;
   background-color: rgba(var(--background), 0.75);
+  display: flex;
 }
 
-.closeButton {
-  border: 0;
-  padding: 0;
-  margin: 0;
+.control .expand {
+  flex: 1;
+}
+
+.control .close {
   cursor: pointer;
   width: 2rem;
   height: 2rem;
+}
+
+.control .close path {
+  fill: none;
+  stroke: rgb(var(--content));
+  stroke-width: 2;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 4;
+  stroke-opacity: 1;
+  stroke-dasharray: none;
 }
 
 .image {
