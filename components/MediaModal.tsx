@@ -75,7 +75,7 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
       className={style.modal}
       isOpen={isOpen}
     >
-      <div className={style.content} onClick={() => closeModal(close)}>
+      <div className={style.content}>
         <Photo media={media} />
         <Video media={media} />
         <div className={style.control}>
