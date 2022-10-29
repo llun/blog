@@ -35,13 +35,33 @@ const handle = async (req: any) => {
   }
 
   const response = await fetchAssetsUrl(body.token, body.photoGuids)
-  if (!response) {
+  if (!response || !response.body) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
       headers: Headers
     })
   }
-  return new Response(JSON.stringify(response), {
+
+  const reader = response.body.getReader()
+  const readable = new ReadableStream({
+    start(controller) {
+      return pump()
+      function pump() {
+        return reader.read().then(({ done, value }) => {
+          // When no more data needs to be consumed, close the stream
+          if (done) {
+            controller.close()
+            return
+          }
+          // Enqueue the next data chunk into our target stream
+          controller.enqueue(value)
+          return pump()
+        })
+      }
+    }
+  })
+
+  return new Response(readable, {
     status: 200,
     headers: Headers
   })

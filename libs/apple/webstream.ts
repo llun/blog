@@ -108,7 +108,7 @@ export async function fetchStream(token: string): Promise<Stream | null> {
 export async function fetchAssetsUrl(
   token: string,
   photoGuids: string[]
-): Promise<Assets | null> {
+): Promise<Response | null> {
   const response = await fetch(
     `${getStreamBaseUrl(token)}/${token}/sharedstreams/webasseturls`,
     {
@@ -122,5 +122,5 @@ export async function fetchAssetsUrl(
     }
   )
   if (response.status !== 200) return null
-  return response.json()
+  return response
 }
