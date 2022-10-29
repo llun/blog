@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 497 4/6",
+  "word": "libel",
+  "guesses": [
+    { "result": "⬜⬜🟨🟩⬜", "word": "adieu" },
+    { "result": "🟨⬜⬜🟩⬜", "word": "infer" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "pixel" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "libel" }
+  ]
+}
