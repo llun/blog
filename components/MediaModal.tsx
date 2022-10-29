@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { FC, useEffect } from 'react'
+import React, { FC, MouseEventHandler, useEffect, useState } from 'react'
 import ReactModal from 'react-modal'
+import cn from 'classnames'
 import { Media } from '../libs/apple/media'
 import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
 
@@ -8,7 +9,11 @@ import CloseButton from '../public/img/close-button.svg'
 
 import style from './MediaModal.module.css'
 
-const Photo: FC<{ media?: Media }> = ({ media }) => {
+interface MediaProps {
+  media?: Media
+}
+
+const Photo: FC<MediaProps> = ({ media }) => {
   if (media?.type !== 'photo') return null
   const qualities = Object.keys(media.derivatives)
   const [small, best] = qualities
@@ -31,28 +36,27 @@ const Photo: FC<{ media?: Media }> = ({ media }) => {
   )
 }
 
-const Video: FC<{ media?: Media }> = ({ media }) => {
+const Video: FC<MediaProps> = ({ media }) => {
   if (media?.type !== 'video') return null
   const poster = media.derivatives[VideoPosterDerivative].url
   const source = media.derivatives[Video720p].url
 
   return (
     <div className={style.video} style={{ backgroundImage: `url(${poster})` }}>
-      <video
-        poster={poster}
-        controls
-        onClick={(e) => {
-          e.stopPropagation()
-        }}
-      >
+      <video poster={poster} controls>
         <source src={source} type="video/mp4" />
       </video>
     </div>
   )
 }
 
-const Control: FC<{ onClose: () => void }> = ({ onClose }) => (
-  <div className={style.control}>
+interface ControlProps {
+  className?: string
+  onClose: MouseEventHandler<SVGElement>
+}
+
+const Control: FC<ControlProps> = ({ className, onClose }) => (
+  <div className={cn(style.control, className)}>
     <div className={style.expand} />
     <CloseButton
       viewBox="0 0 16 16"
@@ -62,13 +66,14 @@ const Control: FC<{ onClose: () => void }> = ({ onClose }) => (
   </div>
 )
 
-interface Props {
+interface Props extends MediaProps {
   isOpen: boolean
   close: () => void
-  media?: Media
 }
 
 const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
+  const [shouldShowControl, setShouldShowControl] = useState(true)
+
   useEffect(() => {
     if (!isOpen) return
     document.body.className = style.open
@@ -80,11 +85,16 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
       className={style.modal}
       isOpen={isOpen}
     >
-      <div className={style.content}>
+      <div
+        className={style.content}
+        onClick={() => setShouldShowControl(!shouldShowControl)}
+      >
         <Photo media={media} />
         <Video media={media} />
         <Control
-          onClose={() => {
+          className={cn({ [style.hide]: !shouldShowControl })}
+          onClose={(e) => {
+            e.stopPropagation()
             document.body.className = ''
             close()
           }}
