@@ -58,11 +58,14 @@ interface TitleProps extends MediaProps {
 const Title: FC<TitleProps> = ({ className, media, onClose }) => (
   <div className={cn(style.control, className)}>
     <div className={cn(style.title, style.expand)}>
-      {media &&
-        new Intl.DateTimeFormat('en-GB', {
-          dateStyle: 'full',
-          timeStyle: 'short'
-        }).format(new Date(media?.createdAt))}
+      {media && (
+        <span>
+          {new Intl.DateTimeFormat('en-GB', {
+            dateStyle: 'full',
+            timeStyle: 'short'
+          }).format(new Date(media?.createdAt))}
+        </span>
+      )}
     </div>
     <CloseButton
       viewBox="0 0 16 16"

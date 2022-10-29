@@ -39,12 +39,22 @@
 }
 
 .control .title {
+  display: flex;
   font-weight: bold;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .control .expand {
   flex: 1;
+}
+
+.control .info {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.5rem;
 }
 
 .control .close {
