@@ -12,11 +12,13 @@ const Headers =
   process.env.NODE_ENV === 'production'
     ? {
         'Access-Control-Allow-Origin': 'https://www.llun.me',
-        'content-type': 'application/json'
+        'Content-Type': 'application/json',
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate=3600'
       }
     : {
         'Access-Control-Allow-Origin': '*',
-        'content-type': 'application/json'
+        'Content-Type': 'application/json',
+        'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
       }
 
 const handle = async (req: any) => {
