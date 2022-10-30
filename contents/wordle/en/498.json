@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 498 4/6",
+  "word": "waltz",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜⬜⬜", "word": "favor" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "nasty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "waltz" }
+  ]
+}
