@@ -1,10 +1,5 @@
 import { fetchAssetsUrl } from '../../libs/apple/webstream'
-import {
-  NETHERLANDS_ALBUM_TOKEN,
-  SINGAPORE_ALBUM_TOKEN
-} from '../../libs/config'
-
-const ALLOW_STREAM_IDS = [NETHERLANDS_ALBUM_TOKEN, SINGAPORE_ALBUM_TOKEN]
+import { ALLOW_TOKEN_IDS } from '../../libs/config'
 
 export interface AssetsRequest {
   token: string
@@ -32,7 +27,7 @@ const handle = async (req: any) => {
     })
   }
   const body = (await req.json()) as AssetsRequest
-  if (!ALLOW_STREAM_IDS.includes(body.token)) {
+  if (!ALLOW_TOKEN_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
       headers: Headers
