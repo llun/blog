@@ -1,7 +1,10 @@
 import { fetchAssetsUrl } from '../../libs/apple/webstream'
-import { NETHERLANDS_STREAM_ID, SINGAPORE_STREAM_ID } from '../../libs/config'
+import {
+  NETHERLANDS_ALBUM_TOKEN,
+  SINGAPORE_ALBUM_TOKEN
+} from '../../libs/config'
 
-const ALLOW_STREAM_IDS = [NETHERLANDS_STREAM_ID, SINGAPORE_STREAM_ID]
+const ALLOW_STREAM_IDS = [NETHERLANDS_ALBUM_TOKEN, SINGAPORE_ALBUM_TOKEN]
 
 export interface AssetsRequest {
   token: string

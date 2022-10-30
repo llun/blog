@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 
-import { NETHERLANDS_STREAM_ID } from '../../../../libs/config'
+import { NETHERLANDS_ALBUM_TOKEN } from '../../../../libs/config'
 import {
   Post,
   Config,
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     .sort(postDescendingComparison)
   const config = getConfig()
 
-  const stream = await fetchStream(NETHERLANDS_STREAM_ID)
+  const stream = await fetchStream(NETHERLANDS_ALBUM_TOKEN)
   const medias = stream ? getMediaList(stream) : []
 
   return {
@@ -64,7 +64,7 @@ const Netherlands: NextPage<Props> = ({ config, category, medias }) => (
         }}
       />
       <RideStats stats={rideStats.netherlands} />
-      <RideMedias token={NETHERLANDS_STREAM_ID} medias={medias} />
+      <RideMedias token={NETHERLANDS_ALBUM_TOKEN} medias={medias} />
     </main>
   </>
 )

@@ -1,7 +1,6 @@
 import React from 'react'
 import type { GetStaticProps, NextPage } from 'next'
 
-import { SINGAPORE_STREAM_ID } from '../../../../libs/config'
 import {
   Post,
   Config,
@@ -12,8 +11,6 @@ import {
 import Header from '../../../../components/Header'
 import Meta from '../../../../components/Meta'
 import RideStats from '../../../../components/RideStats'
-import { fetchStream } from '../../../../libs/apple/webstream'
-import { getMediaList, Media } from '../../../../libs/apple/media'
 import RideTitle from '../../../../components/RideTitle'
 import RideMap from '../../../../components/RideMap'
 
@@ -25,7 +22,6 @@ interface Props {
   posts: Post[]
   config: Config
   category: string
-  medias: Media[]
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
@@ -34,20 +30,16 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     .sort(postDescendingComparison)
   const config = getConfig()
 
-  const stream = await fetchStream(SINGAPORE_STREAM_ID)
-  const medias = stream ? getMediaList(stream) : []
-
   return {
     props: {
       posts,
       config,
-      category: 'ride',
-      medias
+      category: 'ride'
     }
   }
 }
 
-const Singapore: NextPage<Props> = ({ config, category, medias }) => (
+const Singapore: NextPage<Props> = ({ config, category }) => (
   <>
     <Meta
       title={`${config.title}, ${category}`}
