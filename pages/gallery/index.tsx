@@ -44,6 +44,15 @@ const Netherlands: NextPage<Props> = ({ config }) => (
           />
           <h3>Apenheul</h3>
         </Link>
+        <Link href={'/gallery/keukenhof/'}>
+          <Image
+            src="/gallery/Keukenhof.jpg"
+            width={512}
+            height={512}
+            alt="Keukenhof gallery image"
+          />
+          <h3>Keukenhof</h3>
+        </Link>
       </div>
     </main>
   </>
