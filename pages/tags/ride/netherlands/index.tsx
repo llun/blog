@@ -1,13 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 
-import {
-  Post,
-  Config,
-  getAllPosts,
-  getConfig,
-  postDescendingComparison
-} from '../../../../libs/blog'
+import { Config, getConfig } from '../../../../libs/blog'
 import Header from '../../../../components/Header'
 import Meta from '../../../../components/Meta'
 import RideStats from '../../../../components/RideStats'
@@ -19,20 +13,15 @@ import rideStats from '../../../../public/tags/ride/stats.json'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 interface Props {
-  posts: Post[]
   config: Config
   category: string
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const posts = getAllPosts()
-    .filter((post) => post.file.category === 'ride')
-    .sort(postDescendingComparison)
   const config = getConfig()
 
   return {
     props: {
-      posts,
       config,
       category: 'ride'
     }

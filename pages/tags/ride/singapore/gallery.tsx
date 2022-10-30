@@ -2,16 +2,10 @@ import React from 'react'
 import type { GetStaticProps, NextPage } from 'next'
 
 import { SINGAPORE_ALBUM_TOKEN } from '../../../../libs/config'
-import {
-  Post,
-  Config,
-  getAllPosts,
-  getConfig,
-  postDescendingComparison
-} from '../../../../libs/blog'
+import { Config, getConfig } from '../../../../libs/blog'
 import Header from '../../../../components/Header'
 import Meta from '../../../../components/Meta'
-import RideMedias from '../../../../components/RideMedias'
+import Medias from '../../../../components/Medias'
 import RideStats from '../../../../components/RideStats'
 import { fetchStream } from '../../../../libs/apple/webstream'
 import { getMediaList, Media } from '../../../../libs/apple/media'
@@ -22,16 +16,12 @@ import rideStats from '../../../../public/tags/ride/stats.json'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 interface Props {
-  posts: Post[]
   config: Config
   category: string
   medias: Media[]
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const posts = getAllPosts()
-    .filter((post) => post.file.category === 'ride')
-    .sort(postDescendingComparison)
   const config = getConfig()
 
   const stream = await fetchStream(SINGAPORE_ALBUM_TOKEN)
@@ -39,7 +29,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
   return {
     props: {
-      posts,
       config,
       category: 'ride',
       medias
@@ -64,7 +53,7 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => (
         }}
       />
       <RideStats stats={rideStats.singapore} />
-      <RideMedias token={SINGAPORE_ALBUM_TOKEN} medias={medias} />
+      <Medias token={SINGAPORE_ALBUM_TOKEN} medias={medias} />
     </main>
   </>
 )
