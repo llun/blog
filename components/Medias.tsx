@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Media, mergeMediaAssets, proxyAssetsUrl } from '../libs/apple/media'
 import { VideoPosterDerivative } from '../libs/apple/webstream'
 
-import style from './RideMedias.module.css'
+import style from './Medias.module.css'
 import MediaModal from './MediaModal'
 
 type PhotoState = 'loading' | 'idle'

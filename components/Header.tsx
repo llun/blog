@@ -30,6 +30,14 @@ const defaultPages: Page[] = [
     title: 'Dev'
   },
   {
+    url: '/gallery',
+    image: {
+      src: '/img/icons/camera.png',
+      alt: `navigation icon for my photos gallery`
+    },
+    title: 'Gallery'
+  },
+  {
     url: '/journeys',
     image: {
       src: '/img/icons/all.png',

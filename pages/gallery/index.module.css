@@ -1,0 +1,22 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.list img {
+  object-fit: contain;
+  height: fit-content;
+}
+
+@media (max-width: 1025px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 641px) {
+  .list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
