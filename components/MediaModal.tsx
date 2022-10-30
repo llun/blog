@@ -5,7 +5,9 @@ import cn from 'classnames'
 import { Media } from '../libs/apple/media'
 import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
 
-import CloseButton from '../public/img/close-button.svg'
+import CloseButton from '../public/img/fa/times-circle.svg'
+import PreviousButton from '../public/img/fa/caret-left.svg'
+import NextButton from '../public/img/fa/caret-right.svg'
 
 import style from './MediaModal.module.css'
 
@@ -52,35 +54,45 @@ const Video: FC<MediaProps> = ({ media }) => {
 
 interface TitleProps extends MediaProps {
   className?: string
+  onNext: MouseEventHandler<SVGElement>
+  onPrevious: MouseEventHandler<SVGElement>
   onClose: MouseEventHandler<SVGElement>
 }
 
-const Title: FC<TitleProps> = ({ className, media, onClose }) => (
+const Title: FC<TitleProps> = ({
+  className,
+  media,
+  onNext,
+  onPrevious,
+  onClose
+}) => (
   <div className={cn(style.control, className)}>
     <div className={cn(style.title, style.expand)}>
       {media && (
-        <span>
-          {new Intl.DateTimeFormat('en-GB', {
-            dateStyle: 'full',
-            timeStyle: 'short'
-          }).format(new Date(media?.createdAt))}
-        </span>
+        <>
+          <PreviousButton className={style.icon} onClick={onPrevious} />
+          <span>
+            {new Intl.DateTimeFormat('en-GB', {
+              dateStyle: 'full',
+              timeStyle: 'short'
+            }).format(new Date(media?.createdAt))}
+          </span>
+          <NextButton className={style.icon} onClick={onNext} />
+        </>
       )}
     </div>
-    <CloseButton
-      viewBox="0 0 16 16"
-      className={style.close}
-      onClick={onClose}
-    />
+    <CloseButton className={cn(style.icon, style.close)} onClick={onClose} />
   </div>
 )
 
 interface Props extends MediaProps {
   isOpen: boolean
+  next: () => void
+  previous: () => void
   close: () => void
 }
 
-const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
+const MediaModal: FC<Props> = ({ isOpen, media, next, previous, close }) => {
   const [shouldShowControl, setShouldShowControl] = useState(true)
 
   useEffect(() => {
@@ -103,6 +115,14 @@ const MediaModal: FC<Props> = ({ isOpen, media, close }) => {
         <Title
           media={media}
           className={cn({ [style.hide]: !shouldShowControl })}
+          onNext={(e) => {
+            e.stopPropagation()
+            next()
+          }}
+          onPrevious={(e) => {
+            e.stopPropagation()
+            previous()
+          }}
           onClose={(e) => {
             e.stopPropagation()
             document.body.className = ''

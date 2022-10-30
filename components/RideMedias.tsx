@@ -26,7 +26,10 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
 }) => {
   const [photoState, setPhotoState] = useState<PhotoState>('idle')
   const [photos, setPhotos] = useState<Media[]>([])
-  const [selectedMedia, setSelectedMedia] = useState<Media>()
+  const [selectedMedia, setSelectedMedia] = useState<{
+    media: Media
+    index: number
+  }>()
   const photoDom = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -72,7 +75,21 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
     <div className={style.images}>
       <MediaModal
         isOpen={!!selectedMedia}
-        media={selectedMedia}
+        media={selectedMedia?.media}
+        next={() => {
+          if (!selectedMedia) return
+          const nextMediaIndex = selectedMedia.index + 1
+          if (nextMediaIndex > medias.length - 1) return
+          const nextMedia = medias[nextMediaIndex]
+          setSelectedMedia({ media: nextMedia, index: nextMediaIndex })
+        }}
+        previous={() => {
+          if (!selectedMedia) return
+          const previousMediaIndex = selectedMedia.index - 1
+          if (previousMediaIndex > -1) return
+          const previousMedia = medias[previousMediaIndex]
+          setSelectedMedia({ media: previousMedia, index: previousMediaIndex })
+        }}
         close={() => setSelectedMedia(undefined)}
       />
       {photos.length === 0 && photoState === 'loading' && (
@@ -93,7 +110,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
               [style['super-square']]: shouldBeBig
             })}
             style={{ backgroundImage }}
-            onClick={() => setSelectedMedia(media)}
+            onClick={() => setSelectedMedia({ media, index })}
             ref={index === photos.length - 10 ? photoDom : undefined}
           />
         )
