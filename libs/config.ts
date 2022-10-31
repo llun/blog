@@ -3,7 +3,7 @@ export const MAPBOX_PUBLIC_KEY =
 export const NETHERLANDS_ALBUM_TOKEN = 'B125ON9t3mbLNC'
 export const SINGAPORE_ALBUM_TOKEN = 'B12GqkRUiGojvkQ'
 
-export const APENHEUL_ALBUM_TOKEN = 'B125VaUrzGGV0QT'
+export const APENHEUL_ALBUM_TOKEN = 'B12Gf693ZB46qE'
 export const KEUKENHOF_ALBUM_TOKEN = 'B12JEsNWnGLyCMW'
 
 export const ALLOW_TOKEN_IDS = [
