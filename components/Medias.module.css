@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-flow: dense;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 @media (max-width: 1025px) {
@@ -35,6 +35,7 @@
   margin: 0;
   width: 100%;
   padding-bottom: 100%;
+  background-color: rgb(var(--border));
   background-position: center;
   background-size: cover;
   cursor: pointer;
