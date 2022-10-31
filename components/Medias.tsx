@@ -86,7 +86,7 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
         previous={() => {
           if (!selectedMedia) return
           const previousMediaIndex = selectedMedia.index - 1
-          if (previousMediaIndex > -1) return
+          if (previousMediaIndex < 0) return
           const previousMedia = medias[previousMediaIndex]
           setSelectedMedia({ media: previousMedia, index: previousMediaIndex })
         }}
