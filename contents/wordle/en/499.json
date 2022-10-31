@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 499 4/6",
+  "word": "aptly",
+  "guesses": [
+    { "result": "🟩⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜⬜⬜", "word": "arson" },
+    { "result": "🟩⬜🟨🟩🟩", "word": "amply" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "aptly" }
+  ]
+}
