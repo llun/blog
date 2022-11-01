@@ -9,7 +9,11 @@ import Header from '../../components/Header'
 import Meta from '../../components/Meta'
 
 import style from './index.module.css'
-import { APENHEUL_ALBUM_TOKEN, KEUKENHOF_ALBUM_TOKEN } from '../../libs/config'
+import {
+  APENHEUL_ALBUM_TOKEN,
+  AVIODROME_ALBUM_TOKEN,
+  KEUKENHOF_ALBUM_TOKEN
+} from '../../libs/config'
 
 interface Props {
   config: Config
@@ -32,6 +36,14 @@ export const Galleries: Gallery[] = [
     title: 'Apenheul',
     description: 'Apenheul zoo visited on October 2022',
     token: APENHEUL_ALBUM_TOKEN
+  },
+  {
+    name: 'aviodrome',
+    image: 'Aviodrome.jpg',
+    card: 'Aviodrome.card.jpg',
+    title: 'Aviodrome',
+    description: 'Aviation museum near Lelystad',
+    token: AVIODROME_ALBUM_TOKEN
   },
   {
     name: 'keukenhof',
