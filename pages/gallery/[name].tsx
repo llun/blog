@@ -39,7 +39,11 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 
   const token = gallery.token
   const stream = await fetchStream(token)
-  const medias = stream ? getMediaList(stream) : []
+  const medias = stream
+    ? getMediaList(stream).sort(
+        (first, second) => first.createdAt - second.createdAt
+      )
+    : []
 
   return {
     props: {
