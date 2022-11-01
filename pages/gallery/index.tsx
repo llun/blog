@@ -9,17 +9,19 @@ import Header from '../../components/Header'
 import Meta from '../../components/Meta'
 
 import style from './index.module.css'
+import { APENHEUL_ALBUM_TOKEN, KEUKENHOF_ALBUM_TOKEN } from '../../libs/config'
 
 interface Props {
   config: Config
 }
 
-interface Gallery {
+export interface Gallery {
   name: string
   image: string
   card: string
   title: string
   description: string
+  token: string
 }
 
 export const Galleries: Gallery[] = [
@@ -28,14 +30,16 @@ export const Galleries: Gallery[] = [
     image: 'Apenheul.jpg',
     card: 'Apenheul.card.jpg',
     title: 'Apenheul',
-    description: 'Apenheul zoo visited on October 2022'
+    description: 'Apenheul zoo visited on October 2022',
+    token: APENHEUL_ALBUM_TOKEN
   },
   {
     name: 'keukenhof',
     image: 'Keukenhof.jpg',
     card: 'Keukenhof.card.jpg',
     title: 'Keukenhof',
-    description: 'Keukenhof visited on 2022'
+    description: 'Keukenhof visited on 2022',
+    token: KEUKENHOF_ALBUM_TOKEN
   }
 ]
 
