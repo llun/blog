@@ -19,6 +19,7 @@ const Headers =
         'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
       }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const handle = async (req: any) => {
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Invalid' }), {

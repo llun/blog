@@ -1,4 +1,4 @@
-import type { GetStaticPropsContext } from 'next'
+import type { GetStaticProps } from 'next'
 import Link from 'next/link'
 import React from 'react'
 
@@ -14,7 +14,7 @@ import Header from '../components/Header'
 import Meta from '../components/Meta'
 import PostList from '../components/PostList'
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts().sort(postDescendingComparison).slice(0, 20)
   const config = getConfig()
 

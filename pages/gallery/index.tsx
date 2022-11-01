@@ -14,7 +14,32 @@ interface Props {
   config: Config
 }
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
+interface Gallery {
+  name: string
+  image: string
+  card: string
+  title: string
+  description: string
+}
+
+export const Galleries: Gallery[] = [
+  {
+    name: 'apenheul',
+    image: 'Apenheul.jpg',
+    card: 'Apenheul.card.jpg',
+    title: 'Apenheul',
+    description: 'Apenheul zoo visited on October 2022'
+  },
+  {
+    name: 'keukenhof',
+    image: 'Keukenhof.jpg',
+    card: 'Keukenhof.card.jpg',
+    title: 'Keukenhof',
+    description: 'Keukenhof visited on 2022'
+  }
+]
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const config = getConfig()
 
   return {
@@ -35,24 +60,17 @@ const Netherlands: NextPage<Props> = ({ config }) => (
     <main>
       <h2>Image Gallery</h2>
       <div className={style.list}>
-        <Link href={'/gallery/apenheul/'}>
-          <Image
-            src="/gallery/Apenheul.jpg"
-            width={512}
-            height={512}
-            alt="Apenheul gallery image"
-          />
-          <h3>Apenheul</h3>
-        </Link>
-        <Link href={'/gallery/keukenhof/'}>
-          <Image
-            src="/gallery/Keukenhof.jpg"
-            width={512}
-            height={512}
-            alt="Keukenhof gallery image"
-          />
-          <h3>Keukenhof</h3>
-        </Link>
+        {Galleries.map(({ name, title, image, description }) => (
+          <Link key={name} href={`/gallery/${name}`}>
+            <Image
+              src={`/gallery/${image}`}
+              width={512}
+              height={512}
+              alt={description}
+            />
+            <h3>{title}</h3>
+          </Link>
+        ))}
       </div>
     </main>
   </>

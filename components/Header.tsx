@@ -6,7 +6,7 @@ import style from './Header.module.css'
 export type Page = {
   url: string
   image: {
-    src: any
+    src: string
     alt: string
   }
   title: string

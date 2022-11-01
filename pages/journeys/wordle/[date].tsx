@@ -62,6 +62,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 export const idficationTitle = (title: string) =>
   title.toLocaleLowerCase().substring(7).replace(/\s+/g, '-')
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const tileClassname = (style: any, char: string) => {
   switch (char) {
     case '🟨':
@@ -139,66 +140,67 @@ export const WordlePage: NextPage<Props> = ({ config, list, result }) => {
     setResultToClipboard(result)
   })
 
-  return <>
-    <Meta
-      title={`${title}, Wordle`}
-      description="Just my wordle journey each day"
-      url={`${url}/journeys/wordle`}
-    />
-    <main className={style.wordle}>
-      <p>
-        <Link href="/journeys">
-          ← Journeys
-        </Link>
-      </p>
-      <div className={style.content}>
-        <h1>Wordle</h1>
+  return (
+    <>
+      <Meta
+        title={`${title}, Wordle`}
+        description="Just my wordle journey each day"
+        url={`${url}/journeys/wordle`}
+      />
+      <main className={style.wordle}>
         <p>
-          A record of my{' '}
-          <Link href="https://www.nytimes.com/games/wordle/index.html" target="_blank">
-            Wordle
-          </Link>{' '}
-          results
+          <Link href="/journeys">← Journeys</Link>
         </p>
+        <div className={style.content}>
+          <h1>Wordle</h1>
+          <p>
+            A record of my{' '}
+            <Link
+              href="https://www.nytimes.com/games/wordle/index.html"
+              target="_blank"
+            >
+              Wordle
+            </Link>{' '}
+            results
+          </p>
 
-        <select
-          value={result ? result.id : '-'}
-          onChange={(event) => {
-            const { value } = event.currentTarget
-            if (value === '-') {
-              return router.push(`/journeys/wordle`)
-            }
+          <select
+            value={result ? result.id : '-'}
+            onChange={(event) => {
+              const { value } = event.currentTarget
+              if (value === '-') {
+                return router.push(`/journeys/wordle`)
+              }
 
-            router.push(`/journeys/wordle/${value}`)
-          }}
-        >
-          <option>-</option>
-          {list.map((item) => (
-            <option key={idficationTitle(item.title)} value={item.id}>
-              {item.title}
-            </option>
-          ))}
-        </select>
-        <span
-          className={style.copy}
-          title="Copy"
-          onClick={() => setResultToClipboard(result)}
-        >
-          📋
-        </span>
+              router.push(`/journeys/wordle/${value}`)
+            }}
+          >
+            <option>-</option>
+            {list.map((item) => (
+              <option key={idficationTitle(item.title)} value={item.id}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+          <span
+            className={style.copy}
+            title="Copy"
+            onClick={() => setResultToClipboard(result)}
+          >
+            📋
+          </span>
 
-        <ResultBlock
-          showWords={showWords}
-          setShowWords={setShowWords}
-          result={result}
-        />
-      </div>
-      <p>
-        <Link href="/journeys">
-          ← Journeys
-        </Link>
-      </p>
-    </main>
-  </>;
+          <ResultBlock
+            showWords={showWords}
+            setShowWords={setShowWords}
+            result={result}
+          />
+        </div>
+        <p>
+          <Link href="/journeys">← Journeys</Link>
+        </p>
+      </main>
+    </>
+  )
 }
 export default WordlePage

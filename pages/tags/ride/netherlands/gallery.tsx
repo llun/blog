@@ -21,7 +21,7 @@ interface Props {
   medias: Media[]
 }
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const config = getConfig()
 
   const stream = await fetchStream(NETHERLANDS_ALBUM_TOKEN)

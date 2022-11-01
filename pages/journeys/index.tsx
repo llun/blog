@@ -1,4 +1,4 @@
-import type { GetStaticPropsContext } from 'next'
+import type { GetStaticProps } from 'next'
 import React from 'react'
 
 import { Config, getConfig } from '../../libs/blog'
@@ -8,7 +8,7 @@ import Meta from '../../components/Meta'
 import JourneyList from '../../components/JourneyList'
 import style from './index.module.css'
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export const getStaticProps: GetStaticProps = async () => {
   const config = getConfig()
   const journeys = getAllJourneys()
   return {

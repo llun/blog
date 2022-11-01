@@ -21,7 +21,7 @@ interface Props {
   category: string
 }
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const config = getConfig()
   const posts = getAllPosts()
     .filter((post) => post.file.category === 'ride')
