@@ -6,7 +6,10 @@ import { VideoPosterDerivative } from '../libs/apple/webstream'
 import style from './Medias.module.css'
 import MediaModal from './MediaModal'
 
-type PhotoState = 'loading' | 'idle'
+export enum PhotoState {
+  LOADING,
+  IDLE
+}
 
 const BatchSize = 24
 
@@ -16,16 +19,13 @@ function canLoadPhoto(
   state: PhotoState
 ) {
   if (currentMedias.length === allMedias.length) return false
-  if (state === 'loading') return false
+  if (state === PhotoState.LOADING) return false
   return true
 }
 
-const RideMedias: FC<{ token: string; medias: Media[] }> = ({
-  token,
-  medias
-}) => {
-  const [photoState, setPhotoState] = useState<PhotoState>('idle')
-  const [photos, setPhotos] = useState<Media[]>([])
+const Medias: FC<{ token: string; medias: Media[] }> = ({ token, medias }) => {
+  const [photoState, setPhotoState] = useState<PhotoState>(PhotoState.IDLE)
+  const [photos, setPhotos] = useState<Media[]>(medias.slice(0, BatchSize * 2))
   const [selectedMedia, setSelectedMedia] = useState<{
     media: Media
     index: number
@@ -33,16 +33,15 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
   const photoDom = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    ;(async () => {
-      setPhotoState('loading')
-      const first = medias.slice(0, BatchSize * 2)
-      const assets = await proxyAssetsUrl(token, first)
+    setPhotoState(PhotoState.LOADING)
+    const firstBatch = medias.slice(0, BatchSize * 2)
+    proxyAssetsUrl(token, firstBatch).then((assets) => {
       if (!assets) return
 
-      setPhotoState('idle')
-      mergeMediaAssets(first, assets)
-      setPhotos(first)
-    })()
+      setPhotoState(PhotoState.IDLE)
+      mergeMediaAssets(firstBatch, assets)
+      setPhotos(firstBatch)
+    })
   }, [token, medias])
 
   useEffect(() => {
@@ -52,15 +51,15 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
       const entry = entries[0]
       if (entry.isIntersecting && canLoadPhoto(medias, photos, photoState)) {
         // Load next batch
-        setPhotoState('loading')
+        setPhotoState(PhotoState.LOADING)
         const next = medias.slice(photos.length, photos.length + BatchSize)
         const assets = await proxyAssetsUrl(token, next)
         if (!assets) {
-          setPhotoState('idle')
+          setPhotoState(PhotoState.IDLE)
           return
         }
 
-        setPhotoState('idle')
+        setPhotoState(PhotoState.IDLE)
         mergeMediaAssets(next, assets)
         setPhotos([...photos, ...next])
       }
@@ -92,9 +91,6 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
         }}
         close={() => setSelectedMedia(undefined)}
       />
-      {photos.length === 0 && photoState === 'loading' && (
-        <h3>Loading medias</h3>
-      )}
       {photos.map((media, index) => {
         const shouldBeBig = index % 13 === 0
         const key =
@@ -119,4 +115,4 @@ const RideMedias: FC<{ token: string; medias: Media[] }> = ({
   )
 }
 
-export default RideMedias
+export default Medias
