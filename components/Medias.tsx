@@ -23,7 +23,12 @@ function canLoadPhoto(
   return true
 }
 
-const Medias: FC<{ token: string; medias: Media[] }> = ({ token, medias }) => {
+interface Props {
+  token: string
+  medias: Media[]
+}
+
+const Medias: FC<Props> = ({ token, medias }) => {
   const [photoState, setPhotoState] = useState<PhotoState>(PhotoState.IDLE)
   const [photos, setPhotos] = useState<Media[]>(medias.slice(0, BatchSize * 2))
   const [selectedMedia, setSelectedMedia] = useState<{
