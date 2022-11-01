@@ -17,29 +17,14 @@ export interface Media {
 }
 
 export function getMediaList(stream: Stream): Media[] {
-  return stream.photos
-    .map((photo) => {
-      if ('mediaAssetType' in photo) {
-        const poster = photo.derivatives[VideoPosterDerivative]
-        return {
-          createdAt: new Date(photo.dateCreated).getTime(),
-          type: 'video',
-          width: poster.width,
-          height: poster.height,
-          caption: photo.caption,
-          derivatives: Object.keys(photo.derivatives).reduce((out, item) => {
-            out[item] = { checksum: photo.derivatives[item].checksum }
-            return out
-          }, {}),
-          guid: photo.photoGuid
-        } as Media
-      }
-
+  return stream.photos.map((photo) => {
+    if ('mediaAssetType' in photo) {
+      const poster = photo.derivatives[VideoPosterDerivative]
       return {
         createdAt: new Date(photo.dateCreated).getTime(),
-        type: 'photo',
-        width: photo.width,
-        height: photo.height,
+        type: 'video',
+        width: poster.width,
+        height: poster.height,
         caption: photo.caption,
         derivatives: Object.keys(photo.derivatives).reduce((out, item) => {
           out[item] = { checksum: photo.derivatives[item].checksum }
@@ -47,8 +32,21 @@ export function getMediaList(stream: Stream): Media[] {
         }, {}),
         guid: photo.photoGuid
       } as Media
-    })
-    .sort((first, second) => second.createdAt - first.createdAt)
+    }
+
+    return {
+      createdAt: new Date(photo.dateCreated).getTime(),
+      type: 'photo',
+      width: photo.width,
+      height: photo.height,
+      caption: photo.caption,
+      derivatives: Object.keys(photo.derivatives).reduce((out, item) => {
+        out[item] = { checksum: photo.derivatives[item].checksum }
+        return out
+      }, {}),
+      guid: photo.photoGuid
+    } as Media
+  })
 }
 
 export async function proxyAssetsUrl(

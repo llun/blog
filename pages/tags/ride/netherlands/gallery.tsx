@@ -25,7 +25,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const config = getConfig()
 
   const stream = await fetchStream(NETHERLANDS_ALBUM_TOKEN)
-  const medias = stream ? getMediaList(stream) : []
+  const medias = stream
+    ? getMediaList(stream).sort(
+        (first, second) => second.createdAt - first.createdAt
+      )
+    : []
 
   return {
     props: {
