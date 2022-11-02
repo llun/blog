@@ -71,47 +71,45 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 const Page: NextPage<Props> = ({ config, post, segment }) => {
   const { title, url } = config
   const { properties, content, file } = post
-  return <>
-    <Meta
-      title={`${title} | ${properties.title}`}
-      description={properties.description}
-      url={`${url}/posts/${file.id}`}
-      imageUrl={
-        properties.image && `${url}/posts/${file.id}/${properties.image}`
-      }
-    />
-    <main>
-      <p>
-        <Link href="/">
-          ← Home
-        </Link>
-      </p>
-
-      <div className={style.title}>
-        <h1>{properties.title}</h1>
-      </div>
-
-      <div
-        className={style.content}
-        dangerouslySetInnerHTML={{ __html: content || '' }}
+  return (
+    <>
+      <Meta
+        title={`${title} | ${properties.title}`}
+        description={properties.description}
+        url={`${url}/posts/${file.id}`}
+        imageUrl={
+          properties.image && `${url}/posts/${file.id}/${properties.image}`
+        }
       />
+      <main>
+        <p>
+          <Link href="/">← Home</Link>
+        </p>
 
-      <p>
-        <a
-          href={`mailto:comment@llun.me?subject=Common on post ${segment.join(
-            '/'
-          )}`}
-        >
-          Send a comment
-        </a>
-      </p>
+        <div className={style.title}>
+          <h1>{properties.title}</h1>
+        </div>
 
-      <p>
-        <Link href="/">
-          ← Home
-        </Link>
-      </p>
-    </main>
-  </>;
+        <div
+          className={style.content}
+          dangerouslySetInnerHTML={{ __html: content || '' }}
+        />
+
+        <p>
+          <a
+            href={`mailto:comment@llun.me?subject=Common on post ${segment.join(
+              '/'
+            )}`}
+          >
+            Send a comment
+          </a>
+        </p>
+
+        <p>
+          <Link href="/">← Home</Link>
+        </p>
+      </main>
+    </>
+  )
 }
 export default Page

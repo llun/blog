@@ -13,6 +13,7 @@ import {
   APENHEUL_ALBUM_TOKEN,
   AVIODROME_ALBUM_TOKEN,
   BELGIË_ALBUM_TOKEN,
+  FLORIADE_2022_ALBUM_TOKEN,
   KEUKENHOF_ALBUM_TOKEN,
   TEXEL_DENHELDER_2022_ALBUM_TOKEN
 } from '../../libs/config'
@@ -56,12 +57,21 @@ export const Galleries: Gallery[] = [
     token: BELGIË_ALBUM_TOKEN
   },
   {
+    name: 'floriade2022',
+    image: 'Floriade2022.jpg',
+    card: 'Floriade2022.card.jpg',
+    title: 'Floriade 2022',
+    description:
+      '[Garden festival](https://en.wikipedia.org/wiki/Floriade_(Netherlands)) that heppen every 10 years',
+    token: FLORIADE_2022_ALBUM_TOKEN
+  },
+  {
     name: 'texel-denheler2022',
     image: 'TexelDenHelder2022.jpg',
     card: 'TexelDenHelder2022.card.jpg',
     title: 'Texel and Den Helder 2022',
     description:
-      'Trips to the north of Netherlands, Texel and Den Helder. By bike & train.',
+      'Trips to the north of Netherlands, Texel and Den Helder. By bike & train',
     token: TEXEL_DENHELDER_2022_ALBUM_TOKEN
   },
   {

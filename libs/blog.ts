@@ -84,7 +84,7 @@ export const getMarkdown = (config: AbsolutePathConfig) => {
 export const parsePost = (
   config: Config,
   file: string,
-  includeContent: boolean = false
+  includeContent = false
 ): Post | null => {
   try {
     const postPath = path
