@@ -56,6 +56,14 @@
   height: 2rem;
 }
 
+.control .next {
+  margin-left: 1.6rem;
+}
+
+.control .previous {
+  margin-right: 1.6rem;
+}
+
 .control .close path {
   fill: rgb(var(--content));
 }

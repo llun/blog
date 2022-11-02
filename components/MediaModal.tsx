@@ -5,9 +5,9 @@ import cn from 'classnames'
 import { Media } from '../libs/apple/media'
 import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
 
-import CloseButton from '../public/img/fa/times-circle.svg'
-import PreviousButton from '../public/img/fa/caret-left.svg'
-import NextButton from '../public/img/fa/caret-right.svg'
+import CloseButton from '../public/img/fa/times.svg'
+import PreviousButton from '../public/img/fa/chevron-left.svg'
+import NextButton from '../public/img/fa/chevron-right.svg'
 
 import style from './MediaModal.module.css'
 
@@ -70,14 +70,17 @@ const Title: FC<TitleProps> = ({
     <div className={cn(style.title, style.expand)}>
       {media && (
         <>
-          <PreviousButton className={style.icon} onClick={onPrevious} />
+          <PreviousButton
+            className={cn(style.icon, style.previous)}
+            onClick={onPrevious}
+          />
           <span>
             {new Intl.DateTimeFormat('en-GB', {
               dateStyle: 'full',
               timeStyle: 'short'
             }).format(new Date(media?.createdAt))}
           </span>
-          <NextButton className={style.icon} onClick={onNext} />
+          <NextButton className={cn(style.icon, style.next)} onClick={onNext} />
         </>
       )}
     </div>
