@@ -3,15 +3,16 @@
   list-style: none;
   padding-left: 0;
 }
+
 .item {
   margin-bottom: 0.4rem;
   font-size: 0.95rem;
-  font-weight: lighter;
 }
+
 .link {
   font-size: 1.25rem;
-  font-weight: normal;
 }
+
 .date {
   display: inline-block;
   min-width: 5.5rem;
