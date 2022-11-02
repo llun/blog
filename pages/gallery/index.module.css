@@ -1,17 +1,20 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
 .list img {
   object-fit: contain;
   height: fit-content;
+  padding: 0;
+  border: none;
+  margin: 0;
 }
 
 @media (max-width: 1025px) {
   .list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

@@ -13,7 +13,8 @@ import {
   APENHEUL_ALBUM_TOKEN,
   AVIODROME_ALBUM_TOKEN,
   BELGIË_ALBUM_TOKEN,
-  KEUKENHOF_ALBUM_TOKEN
+  KEUKENHOF_ALBUM_TOKEN,
+  TEXEL_DENHELDER_2022_ALBUM_TOKEN
 } from '../../libs/config'
 
 interface Props {
@@ -53,6 +54,15 @@ export const Galleries: Gallery[] = [
     title: 'België 2022',
     description: 'Belgium visited in 2022 both by bike and by tour',
     token: BELGIË_ALBUM_TOKEN
+  },
+  {
+    name: 'texel-denheler2022',
+    image: 'TexelDenHelder2022.jpg',
+    card: 'TexelDenHelder2022.card.jpg',
+    title: 'Texel and Den Helder 2022',
+    description:
+      'Trips to the north of Netherlands, Texel and Den Helder. By bike & train.',
+    token: TEXEL_DENHELDER_2022_ALBUM_TOKEN
   },
   {
     name: 'keukenhof',
