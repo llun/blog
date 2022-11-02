@@ -1,12 +1,27 @@
 .title {
   display: block;
+  margin-top: 2rem;
 }
+
 .title h1,
 .title h2 {
   display: inline;
   font-weight: 400;
   font-family: serif;
 }
+
+.title h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+}
+
+@media (max-width: 641px) {
+  .title h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
 .content {
   font-size: 1.25rem;
 }

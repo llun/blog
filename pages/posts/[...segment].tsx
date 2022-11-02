@@ -81,7 +81,7 @@ const Page: NextPage<Props> = ({ config, post, segment }) => {
           properties.image && `${url}/posts/${file.id}/${properties.image}`
         }
       />
-      <main>
+      <main className={style.post}>
         <p>
           <Link href="/">← Home</Link>
         </p>
