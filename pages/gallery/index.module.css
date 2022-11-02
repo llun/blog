@@ -1,3 +1,12 @@
+h2.title {
+  font-size: 4rem;
+  line-height: 4rem;
+}
+
+.description {
+  font-size: 1.5rem;
+}
+
 .list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -19,6 +28,11 @@
 }
 
 @media (max-width: 641px) {
+  h2.title {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
   .list {
     grid-template-columns: repeat(1, 1fr);
   }

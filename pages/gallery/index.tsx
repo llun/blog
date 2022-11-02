@@ -103,7 +103,7 @@ const Netherlands: NextPage<Props> = ({ config }) => (
     />
     <Header title={config.title} url={config.url} />
     <main>
-      <h2>Image Gallery</h2>
+      <h2 className={style.title}>Image Gallery</h2>
       <div className={style.list}>
         {Galleries.map(({ name, title, image, description }) => (
           <Link key={name} href={`/gallery/${name}`}>

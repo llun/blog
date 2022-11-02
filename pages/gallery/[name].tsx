@@ -12,6 +12,8 @@ import { fetchStream } from '../../libs/apple/webstream'
 import { getMediaList, Media } from '../../libs/apple/media'
 import { Galleries, Gallery } from '.'
 
+import style from './index.module.css'
+
 interface Props {
   gallery: Gallery
   token: string
@@ -77,8 +79,13 @@ const Gallery: NextPage<Props> = ({
     />
     <Header title={config.title} url={config.url} />
     <main>
-      <h2>{gallery.title}</h2>
-      {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
+      <h2 className={style.title}>{gallery.title}</h2>
+      {content && (
+        <div
+          className={style.description}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      )}
       <Medias token={token} medias={medias} />
     </main>
   </>
