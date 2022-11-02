@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 501 5/6",
+  "word": "inept",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜⬜🟨", "word": "biome" },
+    { "result": "🟨🟨⬜🟨⬜", "word": "ethic" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "inert" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "inept" }
+  ]
+}
