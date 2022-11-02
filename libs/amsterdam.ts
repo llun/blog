@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import yaml from 'yaml'
 import path from 'path'
-import { getMarkdown } from './blog'
+import { getMarkdown } from './markdown'
 
 export interface CalendarProperty {
   month:
@@ -27,7 +27,7 @@ export interface Calendar extends CalendarProperty {
 
 export const parseCalendar = async (
   file: string,
-  loadContent: boolean = false
+  loadContent = false
 ): Promise<Calendar | null> => {
   try {
     await fs.stat(file)

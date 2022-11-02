@@ -1,8 +1,8 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
-import MarkdownIt from 'markdown-it'
 
 import { Config, getConfig } from '../../libs/blog'
+import { getMarkdown } from '../../libs/markdown'
 
 import Header from '../../components/Header'
 import Meta from '../../components/Meta'
@@ -11,11 +11,6 @@ import Medias from '../../components/Medias'
 import { fetchStream } from '../../libs/apple/webstream'
 import { getMediaList, Media } from '../../libs/apple/media'
 import { Galleries, Gallery } from '.'
-
-const md = MarkdownIt({
-  html: true,
-  linkify: true
-})
 
 interface Props {
   gallery: Gallery
@@ -52,6 +47,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
       )
     : []
 
+  const md = getMarkdown({})
   const content = md.render(gallery.description)
 
   return {
@@ -82,10 +78,9 @@ const Gallery: NextPage<Props> = ({
     <Header title={config.title} url={config.url} />
     <main>
       <h2>{gallery.title}</h2>
-      <p dangerouslySetInnerHTML={{ __html: content }} />
+      {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
       <Medias token={token} medias={medias} />
     </main>
   </>
 )
-
 export default Gallery

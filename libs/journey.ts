@@ -3,7 +3,8 @@ import memoize from 'lodash/memoize'
 import yaml from 'yaml'
 import fs from 'fs'
 
-import { getMarkdown, readAllLeafDirectories } from './blog'
+import { readAllLeafDirectories } from './blog'
+import { getMarkdown } from './markdown'
 
 interface JourneyProperty {
   title: string
@@ -18,7 +19,7 @@ export interface Journey extends JourneyProperty {
 
 export const parseJourney = (
   file: string,
-  includeContent: boolean = false
+  includeContent = false
 ): Journey | null => {
   try {
     fs.statSync(file)
