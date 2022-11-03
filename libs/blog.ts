@@ -65,9 +65,7 @@ export const parsePost = (
       .slice(1)
 
     fs.statSync(file)
-    const md = getMarkdown({
-      rootURL: `${config.url}/posts/${postPath.join('/')}`
-    })
+
     const raw = fs.readFileSync(file).toString('utf-8')
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
@@ -86,6 +84,9 @@ export const parsePost = (
       }
     }
 
+    const md = getMarkdown({
+      rootURL: `${config.url}/posts/${postPath.join('/')}`
+    })
     const content = md.render(raw.substring(end + 3).trim())
     return {
       properties,
@@ -97,7 +98,7 @@ export const parsePost = (
       content,
       timestamp
     }
-  } catch (error) {
+  } catch {
     return null
   }
 }
