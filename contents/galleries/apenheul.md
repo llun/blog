@@ -1,6 +1,6 @@
 ---
-title: Apenheul zoo in 2022
-description: Apenheul zoo visited on October 2022
+title: Apenheul Zoo 2022
+description: Apenheul Zoo visited on October 2022
 image: Apenheul
 date: 2022-10-30T11:41:09+01:00
 token: B12Gf693ZB46qE
