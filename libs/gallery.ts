@@ -85,5 +85,6 @@ export const getAllAlbums = memoize(() => {
   const albums = paths
     .map((filePath) => parseAlbum(config, filePath, false))
     .filter((p): p is Album => p !== null)
+    .sort(albumDescendingComparison)
   return albums
 })
