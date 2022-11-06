@@ -144,7 +144,7 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       atom: `${config.url}/feeds/atom.xml`
     }
   })
-  const firstFewPosts = sortedPosts.slice(0, 5)
+  const firstFewPosts = sortedPosts.slice(0, 10)
   for (const post of firstFewPosts) {
     const contentPath = path.join(
       process.cwd(),
