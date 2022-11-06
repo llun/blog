@@ -102,7 +102,8 @@ const Medias: FC<Props> = ({ token, medias }) => {
           media.type === 'video'
             ? VideoPosterDerivative
             : Object.keys(media.derivatives)[0]
-        const backgroundImage = `url(${media.derivatives[key].url})`
+        const backgroundImage =
+          media.derivatives[key].url && `url(${media.derivatives[key].url})`
 
         return (
           <div
