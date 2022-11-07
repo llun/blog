@@ -57,7 +57,7 @@ const defaultPages: Page[] = [
   {
     url: 'https://webring.wonderful.software#llun.me',
     image: {
-      src: 'https://webring.wonderful.software/webring.black.svg',
+      src: '/img/icons/webring.black.svg',
       alt: 'วงแหวนเว็บ'
     },
     title: 'Webring',
