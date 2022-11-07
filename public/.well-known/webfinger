@@ -1,0 +1,20 @@
+{
+    subject: "acct:llun@mas.to",
+    aliases: ["https://mas.to/@llun", "https://mas.to/users/llun"],
+    links: [
+      {
+        rel: "http://webfinger.net/rel/profile-page",
+        type: "text/html",
+        href: "https://mas.to/@llun",
+      },
+      {
+        rel: "self",
+        type: "application/activity+json",
+        href: "https://mas.to/users/llun",
+      },
+      {
+        rel: "http://ostatus.org/schema/1.0/subscribe",
+        template: "https://mas.to/authorize_interaction?uri={uri}",
+      },
+    ],
+  }
