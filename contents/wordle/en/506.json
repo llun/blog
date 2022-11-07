@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 506 4/6",
+  "word": "begin",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜⬜🟩⬜", "word": "ethic" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "serif" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "begin" }
+  ]
+}
