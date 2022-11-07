@@ -34,6 +34,12 @@ exports.entry = async function (event) {
   const request = record.request
   // Ignore webfinger redirect for @llun.dev or @llun.me in mastodon
   if (request.uri.startsWith('/.well-known/webfinger')) {
+    request.headers.host = [
+      {
+        key: 'Host',
+        value: 'www.llun.me'
+      }
+    ]
     return request
   }
   if (request.headers.host && request.headers.host.length > 0) {
