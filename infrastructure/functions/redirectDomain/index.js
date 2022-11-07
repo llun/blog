@@ -32,6 +32,10 @@ function found(url) {
 exports.entry = async function (event) {
   const record = event.Records[0].cf
   const request = record.request
+  // Ignore webfinger redirect for @llun.dev or @llun.me in mastodon
+  if (request.uri.startsWith('/.well-known/webfinger')) {
+    return request
+  }
   if (request.headers.host && request.headers.host.length > 0) {
     const domain = request.headers.host[0].value
     if (domain !== 'www.llun.me') {
