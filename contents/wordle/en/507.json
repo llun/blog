@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 507 4/6",
+  "word": "spell",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜⬜⬜🟨", "word": "broke" },
+    { "result": "🟨⬜🟨⬜⬜", "word": "empty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "spell" }
+  ]
+}
