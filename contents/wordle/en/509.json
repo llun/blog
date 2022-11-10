@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 509 3/6",
+  "word": "unite",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨🟨", "word": "adieu" },
+    { "result": "⬜🟨🟩⬜🟩", "word": "juice" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "unite" }
+  ]
+}
