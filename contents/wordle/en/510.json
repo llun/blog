@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 510 5/6",
+  "word": "medal",
+  "guesses": [
+    { "result": "🟨🟨⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟩🟨⬜⬜", "word": "death" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "sedan" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "cedar" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "medal" }
+  ]
+}
