@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 512 3/6",
+  "word": "inane",
+  "guesses": [
+    { "result": "🟨⬜🟨🟨⬜", "word": "adieu" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "image" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "inane" }
+  ]
+}
