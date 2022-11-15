@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 514 5/6",
+  "word": "snarl",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟨🟩⬜⬜", "word": "flaky" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "shawl" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "small" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "snarl" }
+  ]
+}
