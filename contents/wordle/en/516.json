@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 516 4/6",
+  "word": "there",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "choose" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "where" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "there" }
+  ]
+}
