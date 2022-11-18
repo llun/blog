@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 517 3/6",
+  "word": "glyph",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜⬜⬜🟩", "word": "month" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "glyph" }
+  ]
+}
