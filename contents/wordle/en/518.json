@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 518 4/6",
+  "word": "avert",
+  "guesses": [
+    { "result": "🟩⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜⬜🟨", "word": "amaze" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "alert" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "avert" }
+  ]
+}
