@@ -235,7 +235,11 @@ const cdnResources = {
           activityPubBehaviour('/users/*'),
           activityPubBehaviour('/inbox'),
           activityPubBehaviour('/@*'),
-          activityPubBehaviour('/_next/*', `${Bucket}CachePolicy`)
+          activityPubBehaviour('/activities/_next/static*'),
+          activityPubBehaviour(
+            '/_next/data/activities*',
+            `${Bucket}CachePolicy`
+          )
         ],
         ViewerCertificate: {
           AcmCertificateArn:
