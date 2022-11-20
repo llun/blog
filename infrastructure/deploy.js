@@ -130,7 +130,10 @@ const cdnResources = {
           },
           {
             Id: ActivityPub,
-            DomainName: 'https://m.llun.dev'
+            DomainName: 'm.llun.dev',
+            CustomOriginConfig: {
+              OriginProtocolPolicy: 'https-only'
+            }
           }
         ],
         Enabled: true,
