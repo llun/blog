@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 /**
  * @typedef {{ awsid: string, cloudfront: string }} Arguments
@@ -6,6 +7,7 @@
  */
 require('dotenv-flow/config')
 const fs = require('fs')
+const path = require('path')
 const {
   LambdaClient,
   GetFunctionConfigurationCommand,
@@ -28,7 +30,6 @@ const archiver = require('archiver')
 const streamBuffers = require('stream-buffers')
 const crypto = require('crypto')
 const _ = require('lodash')
-const path = require('path')
 
 const N_VIRGINIA = 'us-east-1'
 
@@ -87,7 +88,7 @@ async function archivingFunction(functionName) {
       resolve([digest, content])
     })
 
-    archive.directory(`${__dirname}/functions/${functionName}`, false)
+    archive.directory(path.join(__dirname, 'functions', functionName), false)
     archive.finalize()
   })
 }
@@ -330,13 +331,26 @@ async function updateCloudfront(eventType, version, functionName) {
   )
 }
 
-async function run() {
+async function deployRedirectDomain() {
   const targetFunction = 'redirectDomain'
   const version = await deploy(targetFunction)
   if (!version) {
     throw new Error('Fail to deploy function')
   }
   await updateCloudfront('origin-request', version, targetFunction)
+}
+
+async function deployUpdateHost() {
+  const targetFunction = 'updateHost'
+  const version = await deploy(targetFunction)
+  if (!version) {
+    throw new Error('Fail to deploy function')
+  }
+}
+
+async function run() {
+  await deployRedirectDomain()
+  await deployUpdateHost()
 }
 
 run()

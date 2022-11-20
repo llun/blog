@@ -12,6 +12,27 @@ const StackName = 'Website'
 const Bucket = 'ContentBucket'
 const ActivityPub = 'ActivityPubSource'
 
+const activityPubBehaviour = (pathPattern) => ({
+  AllowedMethods: ['GET', 'HEAD', 'OPTIONS', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  PathPattern: pathPattern,
+  TargetOriginId: ActivityPub,
+  CachePolicyId: {
+    Ref: `${ActivityPub}CachePolicy`
+  },
+  OriginRequestPolicyId: {
+    Ref: `${ActivityPub}OriginRequestPolicy`
+  },
+  Compress: true,
+  ViewerProtocolPolicy: 'redirect-to-https',
+  LambdaFunctionAssociations: [
+    {
+      EventType: 'origin-request',
+      LambdaFunctionARN:
+        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:2'
+    }
+  ]
+})
+
 const s3Resources = {
   [Bucket]: {
     Type: 'AWS::S3::Bucket',
@@ -100,14 +121,7 @@ const cdnResources = {
           EnableAcceptEncodingGzip: true,
           HeadersConfig: {
             HeaderBehavior: 'whitelist',
-            Headers: [
-              'Host',
-              'Origin',
-              'Date',
-              'Digest',
-              'Content-Type',
-              'Signature'
-            ]
+            Headers: ['Origin', 'Date', 'Digest', 'Content-Type', 'Signature']
           },
           QueryStringsConfig: {
             QueryStringBehavior: 'all'
@@ -213,27 +227,11 @@ const cdnResources = {
           ]
         },
         CacheBehaviors: [
-          {
-            AllowedMethods: [
-              'GET',
-              'HEAD',
-              'OPTIONS',
-              'PUT',
-              'PATCH',
-              'POST',
-              'DELETE'
-            ],
-            PathPattern: '/.well-known/*',
-            TargetOriginId: ActivityPub,
-            CachePolicyId: {
-              Ref: `${ActivityPub}CachePolicy`
-            },
-            OriginRequestPolicyId: {
-              Ref: `${ActivityPub}OriginRequestPolicy`
-            },
-            Compress: true,
-            ViewerProtocolPolicy: 'redirect-to-https'
-          }
+          activityPubBehaviour('/.well-known/*'),
+          activityPubBehaviour('/api/*'),
+          activityPubBehaviour('/users/*'),
+          activityPubBehaviour('/inbox'),
+          activityPubBehaviour('/@*')
         ],
         ViewerCertificate: {
           AcmCertificateArn:
