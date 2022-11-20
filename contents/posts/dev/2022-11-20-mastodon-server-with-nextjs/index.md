@@ -13,7 +13,7 @@ In the last few weeks, I tried to get my Mastodon accounts for various servers, 
 
 Another issue with all these Mastodon servers is I don’t have control over my followers or any messages that I put in and with these unreliable issues I don’t feel my account on these small federate servers is safe also, moving account informations (followers, followings, messages etc) without needing to ask everyone is to control the domain and no federate server is supporting using your own domain now. (also no migration option if the server is going down, your mastodon account is gone)
 
-One option to solve this is setting up my Mastodon server, but with [all these requirements](https://github.com/mastodon/mastodon#requirements) it’s not going to be cheap, another option is [Pleroma](https://docs-develop.pleroma.social/backend/installation/debian_based_en/) which is not going to be cheap either (cheap here is basically $0 for single person which for both options, it needs 1 database and another container to run the server itself)
+One option to solve this is setting up my Mastodon server, but with [all these requirements](https://github.com/mastodon/mastodon#requirements) it’s not going to be easy, another option is [Pleroma](https://docs-develop.pleroma.social/backend/installation/debian_based_en/) which is easier but still a lot of things to do.
 
 The good thing about Mastodon is, it’s using [ActivityPub](https://www.w3.org/TR/activitypub/), so I can just build something that is compatible with it and use something that is cheaper than those sql servers and that was what I did with this [activities.next project](https://github.com/llun/activities.next).
 
