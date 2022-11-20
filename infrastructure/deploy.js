@@ -20,10 +20,10 @@ const activityPubBehaviour = (
   PathPattern: pathPattern,
   TargetOriginId: ActivityPub,
   CachePolicyId: {
-    Ref: `${ActivityPub}CachePolicy`
+    Ref: cachePolicy
   },
   OriginRequestPolicyId: {
-    Ref: cachePolicy
+    Ref: `${ActivityPub}OriginRequestPolicy`
   },
   Compress: true,
   ViewerProtocolPolicy: 'redirect-to-https',
