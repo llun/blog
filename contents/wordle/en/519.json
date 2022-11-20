@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 519 5/6",
+  "word": "brave",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜🟩⬜⬜", "word": "exalt" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "snake" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "craze" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "brave" }
+  ]
+}
