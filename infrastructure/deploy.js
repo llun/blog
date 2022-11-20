@@ -9,6 +9,7 @@ const {
 } = require('@aws-sdk/client-cloudformation')
 const StackName = 'Website'
 const Bucket = 'ContentBucket'
+const ActivityPub = 'ActivityPubSource'
 
 const s3Resources = {
   [Bucket]: {
@@ -126,6 +127,10 @@ const cdnResources = {
             CustomOriginConfig: {
               OriginProtocolPolicy: 'http-only'
             }
+          },
+          {
+            Id: ActivityPub,
+            DomainName: 'https://m.llun.dev'
           }
         ],
         Enabled: true,
