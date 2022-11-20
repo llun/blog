@@ -9,8 +9,6 @@ tags:
   - NextJS
 ---
 
-# Mastodon server with NextJS
-
 In the last few weeks, I tried to get my Mastodon accounts for various servers, first with mas.to which is very unreliable lately, then glasgow.social which is also very unreliable in the first few days and the last few days end up in mastodon.in.th. Only issue with mastodon.in.th for me is, I live in the Netherlands, using the server in Thailand is a bit slower.
 
 Another issue with all these Mastodon servers is I don’t have control over my followers or any messages that I put in and with these unreliable issues I don’t feel my account on these small federate servers is safe also, moving account informations (followers, followings, messages etc) without needing to ask everyone is to control the domain and no federate server is supporting using your own domain now. (also no migration option if the server is going down, your mastodon account is gone)
