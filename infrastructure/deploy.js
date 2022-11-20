@@ -231,7 +231,8 @@ const cdnResources = {
           activityPubBehaviour('/api/*'),
           activityPubBehaviour('/users/*'),
           activityPubBehaviour('/inbox'),
-          activityPubBehaviour('/@*')
+          activityPubBehaviour('/@*'),
+          activityPubBehaviour('/_next')
         ],
         ViewerCertificate: {
           AcmCertificateArn:
