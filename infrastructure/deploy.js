@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 require('dotenv-flow/config')
 const {
@@ -82,6 +83,57 @@ const cdnResources = {
       }
     }
   },
+  [`${ActivityPub}CachePolicy`]: {
+    Type: 'AWS::CloudFront::CachePolicy',
+    Properties: {
+      CachePolicyConfig: {
+        Comment: `Cache policy for ${ActivityPub} API`,
+        DefaultTTL: 0,
+        MaxTTL: 60,
+        MinTTL: 0,
+        Name: `${ActivityPub}CachePolicy`,
+        ParametersInCacheKeyAndForwardedToOrigin: {
+          CookiesConfig: {
+            CookieBehavior: 'none'
+          },
+          EnableAcceptEncodingBrotli: true,
+          EnableAcceptEncodingGzip: true,
+          HeadersConfig: {
+            HeaderBehavior: 'whitelist',
+            Headers: [
+              'Host',
+              'Origin',
+              'Date',
+              'Digest',
+              'Content-Type',
+              'Signature'
+            ]
+          },
+          QueryStringsConfig: {
+            QueryStringBehavior: 'all'
+          }
+        }
+      }
+    }
+  },
+  [`${ActivityPub}OriginRequestPolicy`]: {
+    Type: 'AWS::CloudFront::OriginRequestPolicy',
+    Properties: {
+      OriginRequestPolicyConfig: {
+        Comment: `Origin request policy for ${ActivityPub}`,
+        CookiesConfig: {
+          CookieBehavior: 'all'
+        },
+        HeadersConfig: {
+          HeaderBehavior: 'allViewer'
+        },
+        Name: `${ActivityPub}OriginRequestPolicy`,
+        QueryStringsConfig: {
+          QueryStringBehavior: 'all'
+        }
+      }
+    }
+  },
   [`${Bucket}OriginRequestPolicy`]: {
     Type: 'AWS::CloudFront::OriginRequestPolicy',
     Properties: {
@@ -160,6 +212,29 @@ const cdnResources = {
             }
           ]
         },
+        CacheBehaviors: [
+          {
+            AllowedMethods: [
+              'GET',
+              'HEAD',
+              'OPTIONS',
+              'PUT',
+              'PATCH',
+              'POST',
+              'DELETE'
+            ],
+            PathPattern: '/.well-known/*',
+            TargetOriginId: ActivityPub,
+            CachePolicyId: {
+              Ref: `${ActivityPub}CachePolicy`
+            },
+            OriginRequestPolicyId: {
+              Ref: `${ActivityPub}OriginRequestPolicy`
+            },
+            Compress: true,
+            ViewerProtocolPolicy: 'redirect-to-https'
+          }
+        ],
         ViewerCertificate: {
           AcmCertificateArn:
             'arn:aws:acm:us-east-1:107563078874:certificate/21fc0bc7-2820-462b-bfa6-e5c0241233dc',
