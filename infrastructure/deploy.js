@@ -12,7 +12,10 @@ const StackName = 'Website'
 const Bucket = 'ContentBucket'
 const ActivityPub = 'ActivityPubSource'
 
-const activityPubBehaviour = (pathPattern) => ({
+const activityPubBehaviour = (
+  pathPattern,
+  cachePolicy = `${ActivityPub}CachePolicy`
+) => ({
   AllowedMethods: ['GET', 'HEAD', 'OPTIONS', 'PUT', 'PATCH', 'POST', 'DELETE'],
   PathPattern: pathPattern,
   TargetOriginId: ActivityPub,
@@ -20,7 +23,7 @@ const activityPubBehaviour = (pathPattern) => ({
     Ref: `${ActivityPub}CachePolicy`
   },
   OriginRequestPolicyId: {
-    Ref: `${ActivityPub}OriginRequestPolicy`
+    Ref: cachePolicy
   },
   Compress: true,
   ViewerProtocolPolicy: 'redirect-to-https',
@@ -232,7 +235,7 @@ const cdnResources = {
           activityPubBehaviour('/users/*'),
           activityPubBehaviour('/inbox'),
           activityPubBehaviour('/@*'),
-          activityPubBehaviour('/_next')
+          activityPubBehaviour('/_next/*', `${Bucket}CachePolicy`)
         ],
         ViewerCertificate: {
           AcmCertificateArn:
