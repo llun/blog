@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 521 3/6",
+  "word": "prime",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜🟩⬜⬜", "word": "evict" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "prime" }
+  ]
+}
