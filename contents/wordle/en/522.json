@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 522 2/6",
+  "word": "drive",
+  "guesses": [
+    { "result": "⬜🟨🟩🟨⬜", "word": "adieu" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "drive" }
+  ]
+}
