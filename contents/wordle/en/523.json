@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 523 4/6",
+  "word": "feast",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜🟩⬜🟩", "word": "exact" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "yeast" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "feast" }
+  ]
+}
