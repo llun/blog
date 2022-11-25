@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 524 4/6",
+  "word": "itchy",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜🟩🟨", "word": "fight" },
+    { "result": "⬜🟨🟨🟩🟩", "word": "pithy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "itchy" }
+  ]
+}
