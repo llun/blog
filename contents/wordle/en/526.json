@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 526 3/6",
+  "word": "happy",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟨🟨⬜🟨", "word": "champ" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "happy" }
+  ]
+}

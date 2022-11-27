@@ -2158,10 +2158,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@swc/wasm@^1.3.19":
-  version "1.3.19"
-  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.3.19.tgz#444377364a9c8b39fd9fd3fbfbb331d7ab482656"
-  integrity sha512-rd2yZK0rgzIi+POVXWH7rgu4/nx0zjyOXgGRsDHZj8M/7yal5zEmroub/R2igfM0fNrq0iHcO6pA8JXjbuDcdg==
+"@swc/wasm@^1.3.20":
+  version "1.3.20"
+  resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.3.20.tgz#bf084d8e98b6dab0f079bdf9e40ac482bc6cae32"
+  integrity sha512-weeXfSFpbEojGlgK9C0MS7jBGV4kwFLkDf9dzDxQ2xipeUn3XIYWOy7YFUJ9MEkT1ZolRsKds/xcxmzdCB6kkg==
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
