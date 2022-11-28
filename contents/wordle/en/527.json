@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 527 5/6",
+  "word": "tepid",
+  "guesses": [
+    { "result": "⬜🟨🟨🟨⬜", "word": "adieu" },
+    { "result": "🟨🟩⬜🟩⬜", "word": "devil" },
+    { "result": "⬜🟩🟨🟩⬜", "word": "medic" },
+    { "result": "⬜🟩🟨🟩🟩", "word": "fetid" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tepid" }
+  ]
+}
