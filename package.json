@@ -65,7 +65,6 @@
   "dependencies": {
     "classnames": "^2.3.2",
     "exif-js": "^2.3.0",
-    "jsonld": "^8.1.0",
     "mapbox-gl": "^2.11.0",
     "react-modal": "^3.16.1"
   }
