@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 529 3/6",
+  "word": "study",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜🟩", "word": "duchy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "study" }
+  ]
+}
