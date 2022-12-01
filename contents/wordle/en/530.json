@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 530 4/6",
+  "word": "eject",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜⬜⬜", "word": "berks" },
+    { "result": "🟩⬜⬜🟨⬜", "word": "empty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "eject" }
+  ]
+}
