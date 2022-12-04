@@ -5,10 +5,11 @@ type Props = {
   title: string
   description: string
   url: string
+  canonical: string
   imageUrl?: string
 }
 
-const Meta = ({ title, description, url, imageUrl }: Props) => (
+const Meta = ({ title, description, url, canonical, imageUrl }: Props) => (
   <Head>
     <title>{title}</title>
     <meta charSet="utf-8" />
@@ -32,6 +33,7 @@ const Meta = ({ title, description, url, imageUrl }: Props) => (
     )}
     {imageUrl && <meta property="og:image" content={imageUrl} />}
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <link

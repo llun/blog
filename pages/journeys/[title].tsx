@@ -52,28 +52,27 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 const Page: NextPage<Props> = ({ config, journey }) => {
   const { title, url } = config
   const { content, title: journeyTitle, description, name } = journey
-  return <>
-    <Meta
-      title={`${title}, ${journeyTitle}`}
-      description={description}
-      url={`${url}/journeys/${name}`}
-    />
-    <main>
-      <p>
-        <Link href="/journeys">
-          ← Journeys
-        </Link>
-      </p>
-      <div
-        className={style.content}
-        dangerouslySetInnerHTML={{ __html: content || '' }}
+  return (
+    <>
+      <Meta
+        title={`${title}, ${journeyTitle}`}
+        description={description}
+        url={`${url}/journeys/${name}`}
+        canonical={`${url}/journeys/${name}`}
       />
-      <p>
-        <Link href="/journeys">
-          ← Journeys
-        </Link>
-      </p>
-    </main>
-  </>;
+      <main>
+        <p>
+          <Link href="/journeys">← Journeys</Link>
+        </p>
+        <div
+          className={style.content}
+          dangerouslySetInnerHTML={{ __html: content || '' }}
+        />
+        <p>
+          <Link href="/journeys">← Journeys</Link>
+        </p>
+      </main>
+    </>
+  )
 }
 export default Page

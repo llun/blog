@@ -66,6 +66,7 @@ const Gallery: NextPage<Props> = ({ album, config, medias }) => (
       title={`${config.title}, ${album.title}`}
       description={album.description}
       url={`${config.url}/gallery/${album.name}`}
+      canonical={`${config.url}/gallery/${album.name}`}
       imageUrl={`${config.url}/gallery/${album.card}`}
     />
     <Header title={config.title} url={config.url} />

@@ -32,7 +32,12 @@ const Index = ({ posts, config }: Props) => {
   const { title, description, url } = config
   return (
     <>
-      <Meta title={`${title}, all posts`} description={description} url={url} />
+      <Meta
+        title={`${title}, all posts`}
+        description={description}
+        url={url}
+        canonical={`${url}/posts`}
+      />
       <Header title={title} url={url} />
       <main>
         <h1>All Posts</h1>

@@ -69,58 +69,57 @@ export const AmsterdamPage = ({ config, calendars, current }: Props) => {
     }
   })
 
-  return <>
-    <Meta
-      title={`${title}, Amsterdam`}
-      description="New life chapter, Singapore 👉 Amsterdam"
-      url={`${url}/journeys/amsterdam`}
-    />
-    <main className={style.amsterdam}>
-      <p>
-        <Link href="/journeys">
-          ← Journeys
-        </Link>
-      </p>
-      <h1>Amsterdam</h1>
-      <p>
-        ตอนย้ายมาอยู่สิงคโปร์ไม่ได้จดเก็บไว้ รอบนี้กำลังจะไปอยู่ Amsterdam
-        เลยได้โอกาสจดเป็น Journey ยาวเก็บไว้ตั้งแต่ต้น title
-        อาจจะเปลี่ยนถ้าอยู่มากกว่า Amsterdam แต่เริ่มต้นไว้แบบนี้ก่อน
-      </p>
+  return (
+    <>
+      <Meta
+        title={`${title}, Amsterdam`}
+        description="New life chapter, Singapore 👉 Amsterdam"
+        url={`${url}/journeys/amsterdam`}
+        canonical={`${url}/journeys/amsterdam`}
+      />
+      <main className={style.amsterdam}>
+        <p>
+          <Link href="/journeys">← Journeys</Link>
+        </p>
+        <h1>Amsterdam</h1>
+        <p>
+          ตอนย้ายมาอยู่สิงคโปร์ไม่ได้จดเก็บไว้ รอบนี้กำลังจะไปอยู่ Amsterdam
+          เลยได้โอกาสจดเป็น Journey ยาวเก็บไว้ตั้งแต่ต้น title
+          อาจจะเปลี่ยนถ้าอยู่มากกว่า Amsterdam แต่เริ่มต้นไว้แบบนี้ก่อน
+        </p>
 
-      <div className={style.navigation}>
-        <select
-          value={current?.id ?? '-'}
-          onChange={(event) => {
-            const { value } = event.currentTarget
-            if (value === '-') {
-              return router.push(`/journeys/amsterdam`)
-            }
-            router.push(`/journeys/amsterdam/${value}`)
-          }}
-        >
-          <option>-</option>
-          {calendars.map((calendar) => {
-            return (
-              <option key={calendar.id} value={calendar.id}>
-                {getCalendarTitle(calendar)}
-              </option>
-            )
-          })}
-        </select>
-      </div>
+        <div className={style.navigation}>
+          <select
+            value={current?.id ?? '-'}
+            onChange={(event) => {
+              const { value } = event.currentTarget
+              if (value === '-') {
+                return router.push(`/journeys/amsterdam`)
+              }
+              router.push(`/journeys/amsterdam/${value}`)
+            }}
+          >
+            <option>-</option>
+            {calendars.map((calendar) => {
+              return (
+                <option key={calendar.id} value={calendar.id}>
+                  {getCalendarTitle(calendar)}
+                </option>
+              )
+            })}
+          </select>
+        </div>
 
-      {current && (
-        <>
-          <div dangerouslySetInnerHTML={{ __html: current.content || '' }} />
-        </>
-      )}
-      <p>
-        <Link href="/journeys">
-          ← Journeys
-        </Link>
-      </p>
-    </main>
-  </>;
+        {current && (
+          <>
+            <div dangerouslySetInnerHTML={{ __html: current.content || '' }} />
+          </>
+        )}
+        <p>
+          <Link href="/journeys">← Journeys</Link>
+        </p>
+      </main>
+    </>
+  )
 }
 export default AmsterdamPage

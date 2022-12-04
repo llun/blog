@@ -28,7 +28,12 @@ const Index = ({ config, journeys }: Props) => {
   const { title, description, url } = config
   return (
     <>
-      <Meta title={title} description={description} url={url} />
+      <Meta
+        title={title}
+        description={description}
+        url={`${url}/journeys`}
+        canonical={`${url}/journeys`}
+      />
       <Header title={title} url={`${url}/journeys`} />
       <main>
         <h2>Journeys</h2>

@@ -41,6 +41,7 @@ const Index: NextPage<Props> = ({ config, category, posts }) => (
       title={`${config.title}, ${category}`}
       description={config.description}
       url={`${config.url}/tags/ride/`}
+      canonical={`${config.url}/tags/ride/`}
       imageUrl={`${config.url}/tags/ride/netherlands.png`}
     />
     <Header title={config.title} url={config.url} />

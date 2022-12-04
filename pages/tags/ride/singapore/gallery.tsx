@@ -45,7 +45,8 @@ const Singapore: NextPage<Props> = ({ config, category, medias }) => (
     <Meta
       title={`${config.title}, ${category}`}
       description={config.description}
-      url={`${config.url}/tags/ride/singapore`}
+      url={`${config.url}/tags/ride/singapore/gallery`}
+      canonical={`${config.url}/tags/ride/singapore`}
       imageUrl={`${config.url}/tags/ride/singapore.png`}
     />
     <Header title={config.title} url={config.url} />
