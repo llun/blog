@@ -2243,10 +2243,10 @@
   resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-3.1.0.tgz#b9842d233a06b267fe4117f1c224f20b8a149825"
   integrity sha512-gCd/HcCgjqSxfMrgtqxCgYk/22NBQfypwFUG7ZAyG/4pqs51WLTcUzVp1hqTbieDYeHS3WoVEh2Yv/2l+7B0Vg==
 
-"@types/mapbox-gl@^2.7.9":
-  version "2.7.9"
-  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-2.7.9.tgz#a88aae5a5c83ac27bd4680ca478efa242a5f584f"
-  integrity sha512-JvqqhvqriNPqOX8AncNIq+ZhacaKuVUX8c4IvWfM4aCJoe/9MRiBerRy2ixjgzlDZ1YxLG+5SOsn44DfOaLtEw==
+"@types/mapbox-gl@^2.7.10":
+  version "2.7.10"
+  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-2.7.10.tgz#a3a32a366bad8966c0a40b78209ed430ba018ce1"
+  integrity sha512-nMVEcu9bAcenvx6oPWubQSPevsekByjOfKjlkr+8P91vawtkxTnopDoXXq1Qn/f4cg3zt0Z2W9DVsVsKRNXJTw==
   dependencies:
     "@types/geojson" "*"
 
@@ -2714,9 +2714,9 @@ camelcase@^6.2.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001406:
-  version "1.0.30001435"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001435.tgz#502c93dbd2f493bee73a408fe98e98fb1dad10b2"
-  integrity sha512-kdCkUTjR+v4YAJelyiDTqiu82BDr4W4CP5sgTA0ZBmqn30XfS2ZghPLMowik9TPhS+psWJiUNxsqLyurDbmutA==
+  version "1.0.30001436"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001436.tgz#22d7cbdbbbb60cdc4ca1030ccd6dea9f5de4848b"
+  integrity sha512-ZmWkKsnC2ifEPoWUvSAIGyOYwT+keAaaWPHiQ9DfMqS1t6tfuyFYoWR78TeZtznkEQ64+vGXH9cZrElwR2Mrxg==
 
 chalk@^2.0.0:
   version "2.4.2"

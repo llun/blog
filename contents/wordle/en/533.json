@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 533 3/6",
+  "word": "adore",
+  "guesses": [
+    { "result": "🟩🟩⬜🟨⬜", "word": "adieu" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "adobe" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "adore" }
+  ]
+}

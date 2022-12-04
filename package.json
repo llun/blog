@@ -23,7 +23,7 @@
     "@types/kd-tree-javascript": "^1.0.1",
     "@types/lodash": "^4.14.191",
     "@types/luxon": "^3.1.0",
-    "@types/mapbox-gl": "^2.7.9",
+    "@types/mapbox-gl": "^2.7.10",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.11.10",
     "@types/react": "18.0.26",
