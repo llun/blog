@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 534 5/6",
+  "word": "token",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "cover" },
+    { "result": "⬜🟩🟨🟩⬜", "word": "honey" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "token" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "woken" }
+  ]
+}
