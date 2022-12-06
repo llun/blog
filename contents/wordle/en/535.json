@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 535 4/6",
+  "word": "amber",
+  "guesses": [
+    { "result": "🟩⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜🟩🟩", "word": "after" },
+    { "result": "🟩⬜⬜🟩🟩", "word": "anger" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "amber" }
+  ]
+}
