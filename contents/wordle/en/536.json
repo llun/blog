@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 536 5/6",
+  "word": "joust",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨⬜⬜⬜", "word": "bulky" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "pouch" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "mourn" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "joust" }
+  ]
+}
