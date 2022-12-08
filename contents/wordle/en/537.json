@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 537 3/6",
+  "word": "infer",
+  "guesses": [
+    { "result": "⬜⬜🟨🟩⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜🟩🟩", "word": "fixer" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "infer" }
+  ]
+}
