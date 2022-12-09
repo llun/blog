@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 538 4/6",
+  "word": "braid",
+  "guesses": [
+    { "result": "🟨🟨🟨⬜⬜", "word": "adieu" },
+    { "result": "🟨🟨🟨🟩⬜", "word": "radio" },
+    { "result": "🟨🟩🟩🟩⬜", "word": "drain" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "braid" }
+  ]
+}
