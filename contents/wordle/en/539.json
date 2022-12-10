@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 539 4/6",
+  "word": "knock",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "flowy" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "knots" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "knock" }
+  ]
+}
