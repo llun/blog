@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 540 4/6",
+  "word": "naive",
+  "guesses": [
+    { "result": "🟨⬜🟩🟨⬜", "word": "adieu" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "maize" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "waive" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "naive" }
+  ]
+}
