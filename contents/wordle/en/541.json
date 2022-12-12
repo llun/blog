@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 541 5/6",
+  "word": "apply",
+  "guesses": [
+    { "result": "🟩⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜⬜🟩", "word": "angry" },
+    { "result": "🟩⬜⬜⬜🟩", "word": "atomy" },
+    { "result": "🟩🟨⬜⬜🟩", "word": "alway" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "apply" }
+  ]
+}
