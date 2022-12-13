@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 542 4/6",
+  "word": "spoke",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "choke" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "smoke" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "spoke" }
+  ]
+}
