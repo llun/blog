@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 543 5/6",
+  "word": "usual",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨⬜🟨⬜", "word": "gamut" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "quake" },
+    { "result": "🟨⬜🟩⬜🟨", "word": "scuba" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "usual" }
+  ]
+}
