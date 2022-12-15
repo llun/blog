@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 544 5/6",
+  "word": "rival",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜🟨⬜", "word": "cabin" },
+    { "result": "⬜🟩🟨🟩🟨", "word": "pilar" },
+    { "result": "🟨🟩🟨🟩🟩", "word": "viral" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "rival" }
+  ]
+}
