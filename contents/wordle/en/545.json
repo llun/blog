@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 545 3/6",
+  "word": "probe",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜🟨⬜", "word": "below" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "probe" }
+  ]
+}
