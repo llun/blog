@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 546 3/6",
+  "word": "chord",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜🟨⬜", "word": "howdy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "chord" }
+  ]
+}
