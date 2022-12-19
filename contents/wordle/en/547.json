@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 547 4/6",
+  "word": "taper",
+  "guesses": [
+    { "result": "🟨⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "gamer" },
+    { "result": "⬜🟩🟨🟩🟩", "word": "water" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "taper" }
+  ]
+}
