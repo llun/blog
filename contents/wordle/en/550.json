@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 550 4/6",
+  "word": "lunar",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨⬜🟨🟨", "word": "cajun" },
+    { "result": "⬜🟩🟨🟨⬜", "word": "yuans" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "lunar" }
+  ]
+}
