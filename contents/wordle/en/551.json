@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 551 3/6",
+  "word": "excel",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨🟩⬜", "word": "golem" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "excel" }
+  ]
+}
