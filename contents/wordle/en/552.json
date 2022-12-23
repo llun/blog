@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 552 4/6",
+  "word": "aorta",
+  "guesses": [
+    { "result": "🟩⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜🟨🟨🟨", "word": "abort" },
+    { "result": "🟩⬜🟨🟨🟨", "word": "actor" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "aorta" }
+  ]
+}
