@@ -125,7 +125,7 @@ const AirTagPage = ({ config }: Props) => {
         title={`${title}, AirTag 🇸🇬 👉 🇹🇭`}
         description="Tracking my stuffs send through relocation service from Singapore to Thailand"
         url={`${url}/journeys/airtag-sg-th`}
-        canonical={`${url}/journeys/airtag-sg-th`}
+        canonical={`${url}/journeys/airtag-sg-th/`}
       />
       <main>
         <p>

@@ -33,7 +33,7 @@ const Netherlands: NextPage<Props> = ({ config, albums }) => (
       title={`${config.title}, Gallery`}
       description={config.description}
       url={`${config.url}/gallery`}
-      canonical={`${config.url}/gallery`}
+      canonical={`${config.url}/gallery/`}
     />
     <Header title={config.title} url={config.url} />
     <main>

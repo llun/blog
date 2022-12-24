@@ -34,7 +34,7 @@ const Netherlands: NextPage<Props> = ({ config, category }) => (
       title={`${config.title}, ${category}`}
       description={config.description}
       url={`${config.url}/tags/ride/netherlands`}
-      canonical={`${config.url}/tags/ride/netherlands`}
+      canonical={`${config.url}/tags/ride/netherlands/`}
       imageUrl={`${config.url}/tags/ride/netherlands.png`}
     />
     <Header title={config.title} url={config.url} />

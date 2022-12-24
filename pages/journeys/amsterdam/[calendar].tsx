@@ -75,7 +75,7 @@ export const AmsterdamPage = ({ config, calendars, current }: Props) => {
         title={`${title}, Amsterdam`}
         description="New life chapter, Singapore 👉 Amsterdam"
         url={`${url}/journeys/amsterdam`}
-        canonical={`${url}/journeys/amsterdam`}
+        canonical={`${url}/journeys/amsterdam/`}
       />
       <main className={style.amsterdam}>
         <p>

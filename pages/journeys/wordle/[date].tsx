@@ -146,7 +146,7 @@ export const WordlePage: NextPage<Props> = ({ config, list, result }) => {
         title={`${title}, Wordle`}
         description="Just my wordle journey each day"
         url={`${url}/journeys/wordle`}
-        canonical={`${url}/journeys/wordle`}
+        canonical={`${url}/journeys/wordle/`}
       />
       <main className={style.wordle}>
         <p>

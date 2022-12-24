@@ -36,7 +36,7 @@ const Index = ({ posts, config }: Props) => {
         title={`${title}, all posts`}
         description={description}
         url={url}
-        canonical={`${url}/posts`}
+        canonical={`${url}/posts/`}
       />
       <Header title={title} url={url} />
       <main>

@@ -58,7 +58,7 @@ const Page: NextPage<Props> = ({ config, journey }) => {
         title={`${title}, ${journeyTitle}`}
         description={description}
         url={`${url}/journeys/${name}`}
-        canonical={`${url}/journeys/${name}`}
+        canonical={`${url}/journeys/${name}/`}
       />
       <main>
         <p>
