@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 556 4/6",
+  "word": "condo",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "howdy" },
+    { "result": "⬜🟩🟨🟩⬜", "word": "moods" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "condo" }
+  ]
+}
