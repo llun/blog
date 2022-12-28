@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 557 4/6",
+  "word": "impel",
+  "guesses": [
+    { "result": "⬜⬜🟨🟩⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜🟩⬜", "word": "hiker" },
+    { "result": "🟩⬜⬜🟩⬜", "word": "inset" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "impel" }
+  ]
+}
