@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 558 5/6",
+  "word": "havoc",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟨⬜", "word": "fancy" },
+    { "result": "🟨🟩⬜⬜🟨", "word": "cargo" },
+    { "result": "⬜🟩🟨⬜⬜", "word": "pacts" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "havoc" }
+  ]
+}
