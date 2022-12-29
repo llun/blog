@@ -11,6 +11,12 @@
   },
   "author": "Maythee Anegboonlap <null@llun.dev>",
   "license": "UNLICENSED",
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "exif-js": "^2.3.0",
+    "mapbox-gl": "^2.11.1",
+    "react-modal": "^3.16.1"
+  },
   "devDependencies": {
     "@aws-sdk/client-cloudformation": "^3.238.0",
     "@aws-sdk/client-cloudfront": "^3.238.0",
@@ -62,10 +68,7 @@
     "yaml": "^2.2.0",
     "yargs": "^17.6.2"
   },
-  "dependencies": {
-    "classnames": "^2.3.2",
-    "exif-js": "^2.3.0",
-    "mapbox-gl": "^2.11.1",
-    "react-modal": "^3.16.1"
+  "resolutions": {
+    "json5": "^2.2.2"
   }
 }
