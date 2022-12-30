@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 559 5/6",
+  "word": "molar",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨🟨⬜", "word": "chart" },
+    { "result": "🟨🟨⬜🟨🟩", "word": "labor" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "polar" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "molar" }
+  ]
+}
