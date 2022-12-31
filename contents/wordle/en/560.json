@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 560 4/6",
+  "word": "manly",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜🟨🟨", "word": "moral" },
+    { "result": "🟩🟩🟨⬜⬜", "word": "malts" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "manly" }
+  ]
+}
