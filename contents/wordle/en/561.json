@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 561 5/6",
+  "word": "while",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜🟩⬜⬜", "word": "exist" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "price" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "while" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "whine" }
+  ]
+}
