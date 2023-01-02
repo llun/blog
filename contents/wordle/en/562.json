@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 562 6/6",
+  "word": "skirt",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "climb" },
+    { "result": "⬜⬜🟩🟨⬜", "word": "noisy" },
+    { "result": "🟩⬜🟩🟨⬜", "word": "spike" },
+    { "result": "🟩🟩🟩🟨⬜", "word": "skits" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "skirt" }
+  ]
+}
