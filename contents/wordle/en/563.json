@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 563 3/6",
+  "word": "antic",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜🟩🟨", "word": "await" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "antic" }
+  ]
+}
