@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 564 5/6",
+  "word": "layer",
+  "guesses": [
+    { "result": "🟨⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "eager" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "baker" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "payer" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "layer" }
+  ]
+}
