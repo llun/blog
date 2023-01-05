@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 565 4/6",
+  "word": "sleek",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "⬜⬜⬜🟩⬜", "word": "comet" },
+    { "result": "🟨🟩⬜🟩🟨", "word": "elves" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sleek" }
+  ]
+}
