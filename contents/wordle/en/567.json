@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 567 3/6",
+  "word": "lemon",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "crews" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "lemon" }
+  ]
+}
