@@ -2,7 +2,7 @@
 title: Nijmegen 2023
 description: First trip of the year to the oldest city of the Netherlands
 image: Nijmegen2023
-date: 2023-01-08T18:39:03+01:00
+date: 2023-01-08T18:46:56+01:00
 token: B125NI45M01Ht3
 ---
 
