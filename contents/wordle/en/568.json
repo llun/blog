@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 568 5/6",
+  "word": "opera",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜🟨", "word": "eager" },
+    { "result": "🟨🟨🟨⬜⬜", "word": "react" },
+    { "result": "⬜🟨🟩🟨⬜", "word": "wreak" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "opera" }
+  ]
+}
