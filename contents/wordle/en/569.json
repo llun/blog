@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 569 4/6",
+  "word": "pixie",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜🟩⬜", "word": "begin" },
+    { "result": "⬜⬜⬜🟩🟩", "word": "movie" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "pixie" }
+  ]
+}
