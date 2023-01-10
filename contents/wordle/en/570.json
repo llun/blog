@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 570 5/6",
+  "word": "grimy",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "flick" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "joins" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "whipt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "grimy" }
+  ]
+}
