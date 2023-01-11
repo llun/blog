@@ -38,12 +38,14 @@ const argv = /** @type {Arguments} */ (
     .option('awsid', {
       describe: 'AWS Account ID',
       required: true,
-      type: 'string'
+      type: 'string',
+      default: process.env.AWS_ACCOUNT_ID
     })
     .option('cloudfront', {
       describe: 'Cloudfront distribution id',
       required: true,
-      type: 'string'
+      type: 'string',
+      default: process.env.AWS_CLOUDFRONT_DISTRIBUTION
     })
     .help().argv
 )
