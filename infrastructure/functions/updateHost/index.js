@@ -9,7 +9,7 @@ exports.entry = async function (event) {
   request.headers.host = [
     {
       key: 'Host',
-      value: 'm.llun.dev'
+      value: 'activities.llun.dev'
     }
   ]
   return request
