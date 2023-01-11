@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 571 3/6",
+  "word": "sedan",
+  "guesses": [
+    { "result": "🟨🟨⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨🟨⬜🟨", "word": "dance" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sedan" }
+  ]
+}
