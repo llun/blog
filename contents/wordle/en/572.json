@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 572 5/6",
+  "word": "leapt",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜🟨", "word": "break" },
+    { "result": "🟨⬜🟩⬜🟩", "word": "exact" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "leant" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "leapt" }
+  ]
+}
