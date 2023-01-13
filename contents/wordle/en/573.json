@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 573 4/6",
+  "word": "human",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨🟨🟨⬜", "word": "fauna" },
+    { "result": "⬜🟩🟨🟩⬜", "word": "lunar" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "human" }
+  ]
+}
