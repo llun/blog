@@ -10,6 +10,10 @@ exports.entry = async function (event) {
     {
       key: 'Host',
       value: 'activities.llun.dev'
+    },
+    {
+      key: 'X-Forwarded-Host',
+      value: 'llun.dev'
     }
   ]
   return request
