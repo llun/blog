@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 574 5/6",
+  "word": "koala",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "swarm" },
+    { "result": "⬜⬜🟩⬜🟨", "word": "thank" },
+    { "result": "⬜🟨🟩⬜🟨", "word": "black" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "koala" }
+  ]
+}
