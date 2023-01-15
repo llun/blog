@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 575 4/6",
+  "word": "spire",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "chime" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "spike" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "spire" }
+  ]
+}
