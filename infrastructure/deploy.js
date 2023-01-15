@@ -31,7 +31,7 @@ const activityPubBehaviour = (
     {
       EventType: 'origin-request',
       LambdaFunctionARN:
-        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:5'
+        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:6'
     }
   ]
 })
