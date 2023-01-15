@@ -12,6 +12,12 @@ exports.entry = async function (event) {
       value: 'activities.llun.dev'
     }
   ]
+  request.headers['x-activity-next-host'] = [
+    {
+      key: 'X-Activity-Next-Host',
+      value: 'llun.dev'
+    }
+  ]
   request.headers['x-forwarded-host'] = [
     {
       key: 'X-Forwarded-Host',

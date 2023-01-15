@@ -31,7 +31,7 @@ const activityPubBehaviour = (
     {
       EventType: 'origin-request',
       LambdaFunctionARN:
-        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:6'
+        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:10'
     }
   ]
 })
@@ -142,7 +142,15 @@ const cdnResources = {
           CookieBehavior: 'all'
         },
         HeadersConfig: {
-          HeaderBehavior: 'allViewer'
+          HeaderBehavior: 'whitelist',
+          Headers: [
+            'Host',
+            'X-Forwarded-Host',
+            'X-Activity-Next-Host',
+            'Referer',
+            'Accept',
+            'Origin'
+          ]
         },
         Name: `${ActivityPub}OriginRequestPolicy`,
         QueryStringsConfig: {
