@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 577 3/6",
+  "word": "adopt",
+  "guesses": [
+    { "result": "🟩🟩⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "adapt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "adopt" }
+  ]
+}
