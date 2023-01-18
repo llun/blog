@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 
 import { Activity, Country, getCountryStreamPath, Streams } from './constTypes'
 
-export async function getActivities(before?: number, loadAll: boolean = false) {
+export async function getActivities(before?: number, loadAll = false) {
   let page = 1
   const totalPage = loadAll ? 60 : 2
   const all = [] as Activity[]

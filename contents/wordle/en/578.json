@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 578 2/6",
+  "word": "chard",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "chard" }
+  ]
+}
