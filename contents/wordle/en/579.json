@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 579 5/6",
+  "word": "mucky",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "brush" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "funky" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "lucky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "mucky" }
+  ]
+}
