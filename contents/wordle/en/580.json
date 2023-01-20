@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 580 4/6",
+  "word": "alter",
+  "guesses": [
+    { "result": "🟩⬜⬜🟩⬜", "word": "adieu" },
+    { "result": "🟩⬜⬜🟩⬜", "word": "acmes" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "after" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "alter" }
+  ]
+}
