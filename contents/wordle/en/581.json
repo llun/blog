@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 581 6/6",
+  "word": "blurb",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "🟩🟨🟨⬜⬜", "word": "bulky" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "bluff" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "blurs" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "blurt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "blurb" }
+  ]
+}
