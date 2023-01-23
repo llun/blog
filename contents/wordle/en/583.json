@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 583 4/6",
+  "word": "elude",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨🟨", "word": "adieu" },
+    { "result": "🟨🟨⬜🟨⬜", "word": "debug" },
+    { "result": "⬜🟨⬜🟨🟨", "word": "nuked" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "elude" }
+  ]
+}
