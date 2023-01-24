@@ -124,7 +124,14 @@ const cdnResources = {
           EnableAcceptEncodingGzip: true,
           HeadersConfig: {
             HeaderBehavior: 'whitelist',
-            Headers: ['Origin', 'Date', 'Digest', 'Content-Type', 'Signature']
+            Headers: [
+              'Origin',
+              'Date',
+              'Digest',
+              'Content-Type',
+              'Signature',
+              'Accept'
+            ]
           },
           QueryStringsConfig: {
             QueryStringBehavior: 'all'
@@ -150,7 +157,14 @@ const cdnResources = {
           EnableAcceptEncodingGzip: true,
           HeadersConfig: {
             HeaderBehavior: 'whitelist',
-            Headers: ['Origin', 'Date', 'Digest', 'Content-Type', 'Signature']
+            Headers: [
+              'Origin',
+              'Date',
+              'Digest',
+              'Content-Type',
+              'Signature',
+              'Accept'
+            ]
           },
           QueryStringsConfig: {
             QueryStringBehavior: 'all'
