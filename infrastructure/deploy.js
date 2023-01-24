@@ -133,6 +133,32 @@ const cdnResources = {
       }
     }
   },
+  [`${ActivityPub}StaticCachePolicy`]: {
+    Type: 'AWS::CloudFront::CachePolicy',
+    Properties: {
+      CachePolicyConfig: {
+        Comment: `Cache policy for ${ActivityPub} Static resource`,
+        DefaultTTL: 3600,
+        MaxTTL: 3600,
+        MinTTL: 1800,
+        Name: `${ActivityPub}StaticCachePolicy`,
+        ParametersInCacheKeyAndForwardedToOrigin: {
+          CookiesConfig: {
+            CookieBehavior: 'none'
+          },
+          EnableAcceptEncodingBrotli: true,
+          EnableAcceptEncodingGzip: true,
+          HeadersConfig: {
+            HeaderBehavior: 'whitelist',
+            Headers: ['Origin', 'Date', 'Digest', 'Content-Type', 'Signature']
+          },
+          QueryStringsConfig: {
+            QueryStringBehavior: 'all'
+          }
+        }
+      }
+    }
+  },
   [`${ActivityPub}OriginRequestPolicy`]: {
     Type: 'AWS::CloudFront::OriginRequestPolicy',
     Properties: {
@@ -239,11 +265,22 @@ const cdnResources = {
         },
         CacheBehaviors: [
           activityPubBehaviour('/.well-known/*'),
+          activityPubBehaviour(
+            '/api/v1/medias/apple*',
+            `${ActivityPub}StaticCachePolicy`
+          ),
           activityPubBehaviour('/api/*'),
+          activityPubBehaviour(
+            '/users/*/statuses/*',
+            `${ActivityPub}StaticCachePolicy`
+          ),
           activityPubBehaviour('/users/*'),
           activityPubBehaviour('/inbox'),
           activityPubBehaviour('/@*'),
-          activityPubBehaviour('/activities/_next/static*'),
+          activityPubBehaviour(
+            '/activities/_next/static*',
+            `${ActivityPub}StaticCachePolicy`
+          ),
           activityPubBehaviour(
             '/_next/data/activities*',
             `${Bucket}CachePolicy`
