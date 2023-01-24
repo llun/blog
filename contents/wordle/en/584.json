@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 584 4/6",
+  "word": "count",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "brush" },
+    { "result": "⬜⬜🟩🟨⬜", "word": "pluck" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "count" }
+  ]
+}
