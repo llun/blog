@@ -157,17 +157,10 @@ const cdnResources = {
           EnableAcceptEncodingGzip: true,
           HeadersConfig: {
             HeaderBehavior: 'whitelist',
-            Headers: [
-              'Origin',
-              'Date',
-              'Digest',
-              'Content-Type',
-              'Signature',
-              'Accept'
-            ]
+            Headers: ['Accept']
           },
           QueryStringsConfig: {
-            QueryStringBehavior: 'all'
+            QueryStringBehavior: 'none'
           }
         }
       }
