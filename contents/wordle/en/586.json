@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 586 5/6",
+  "word": "beefy",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "chewy" },
+    { "result": "⬜⬜🟩⬜🟩", "word": "prexy" },
+    { "result": "🟨⬜🟩⬜🟩", "word": "enemy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "beefy" }
+  ]
+}
