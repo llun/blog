@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 587 5/6",
+  "word": "worry",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜⬜⬜", "word": "jocks" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "hobby" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "goofy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "worry" }
+  ]
+}
