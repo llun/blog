@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 588 4/6",
+  "word": "flirt",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩🟩🟨⬜", "word": "glitz" },
+    { "result": "🟩🟩🟩🟨⬜", "word": "flits" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "flirt" }
+  ]
+}
