@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 589 4/6",
+  "word": "fishy",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜⬜🟨", "word": "birth" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "lichi" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "fishy" }
+  ]
+}
