@@ -40,7 +40,7 @@ const Index = ({ posts, config }: Props) => {
       />
       <Header title={title} url={url} />
       <main>
-        <h1>All Posts</h1>
+        <h2>All Posts</h2>
         <PostList posts={posts} />
       </main>
     </>

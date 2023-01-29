@@ -34,7 +34,7 @@ const Index = ({ config, journeys }: Props) => {
         url={`${url}/journeys`}
         canonical={`${url}/journeys/`}
       />
-      <Header title={title} url={`${url}/journeys`} />
+      <Header title={title} url={`${url}/journeys/`} />
       <main>
         <h2>Journeys</h2>
         <p className={style.description}>
