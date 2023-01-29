@@ -8,9 +8,7 @@ tags:
   - AWS DynamoDB
 ---
 
-ActivityPub server I'm building is using Google Firestore as the database (it's also supporting SQL too but I mainly use Firestore now). I was used to use AWS DynamoDB a lot in the past so this is an opportunity to see how Google offer compared to AWS one.
-
-I also make a lot of mistakes and wrong assumption again when using Firestore because I assume it's the same as AWS DynamoDB in the way that it stores the data, however, I find Google Firestore is a lot different from DynamoDB especially on how data storing and query.
+[ActivityPub server](https://github.com/llun/activities.next) I'm building is using Google Firestore as the database (it's also supporting SQL too but I mainly use Firestore now). It's a good opportunity to try it after staying with DynamoDB for a long time and almost using DynamoDB too but decided to try a new database.
 
 In DynamoDB, all data are store in column like a table, and if you want to separate the type of data, you can do in two ways, different column with index or different database altogether. Each has it own problems and benefits, using single table with different index make maintenance a bit simpler because you can do everything in single table but when the table is getting bigger and you have a lot of changes, indexing time increasing a lot and it can be days before you can use those index for query.
 
