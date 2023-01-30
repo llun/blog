@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 590 6/6",
+  "word": "crave",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜⬜🟨⬜", "word": "expat" },
+    { "result": "⬜🟨🟩🟨⬜", "word": "beach" },
+    { "result": "⬜🟨🟩⬜🟩", "word": "scale" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "crane" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "crave" }
+  ]
+}
