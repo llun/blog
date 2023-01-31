@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 591 5/6",
+  "word": "cross",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "proxy" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "frogs" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "crows" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cross" }
+  ]
+}
