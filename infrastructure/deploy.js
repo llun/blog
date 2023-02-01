@@ -276,6 +276,10 @@ const cdnResources = {
             '/api/v1/medias/apple*',
             `${ActivityPub}StaticCachePolicy`
           ),
+          activityPubBehaviour(
+            '/api/v1/timelines*',
+            `${ActivityPub}StaticCachePolicy`
+          ),
           activityPubBehaviour('/api/*'),
           activityPubBehaviour(
             '/users/*/statuses/*',
