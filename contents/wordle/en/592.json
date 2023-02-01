@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 592 3/6",
+  "word": "scold",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜⬜", "word": "downy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "scold" }
+  ]
+}
