@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 593 5/6",
+  "word": "shirk",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩⬜⬜", "word": "point" },
+    { "result": "⬜🟨🟩⬜🟩", "word": "brick" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "smirk" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shirk" }
+  ]
+}
