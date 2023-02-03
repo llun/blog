@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 594 5/6",
+  "word": "tasty",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "champ" },
+    { "result": "⬜⬜⬜🟨⬜", "word": "organ" },
+    { "result": "🟨🟩⬜🟩🟩", "word": "salty" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tasty" }
+  ]
+}
