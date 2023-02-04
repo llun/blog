@@ -10,7 +10,7 @@ tags:
 
 หลังจากหยุดเขียน blog มานาน เนื่องด้วยพยายามย้ายออกจาก medium แล้วยังหาตัวเลือกอื่นที่ถูกใจไม่ได้และยุ่ง เลยทิ้ง blog ล้างมาตลอด ทั้งๆ ที่มีเรื่องอยากเขียนบ่นเยอะมาก จนวันนี้หยุดยาว + รู้สึกมีพลังงานเหลือนิดหน่อย เลยมาขุดหาว่าเอา blog ที่เขียนดองไว้ขึ้นไว้ที่ไหน จนมาเจอ [Eleventy](https://www.11ty.io/)
 
-จริงๆ ถ้าอยากได้ blog ขึ้นเร็วๆ ก็มีทางเลือกนอกจาก Medium ให้เลือกเยอะ ทั้งฟรีและไม่ฟรี ที่ไปสำรวจมาก็มี [Wordpress.com](http://wordpress.com) ,[Blogger.com](http://blogger.com) ,[Tumblr.com](http://tumblr.com), [Ghost.org](http://ghost.org) และอื่นๆ อีกเยอะ (ลองมาหมดแล้วด้วย) แต่ตัวเองเรื่องมากเองสุดท้ายก็มาลงที่ จะหา static site generator มาทำ ซึ่งก็มี check list ในหัวอีกว่าที่อยากได้มี
+จริงๆ ถ้าอยากได้ blog ขึ้นเร็วๆ ก็มีทางเลือกนอกจาก Medium ให้เลือกเยอะ ทั้งฟรีและไม่ฟรี ที่ไปสำรวจมาก็มี [Wordpress.com](https://wordpress.com) ,[Blogger.com](https://blogger.com) ,[Tumblr.com](https://tumblr.com), [Ghost.org](https://ghost.org) และอื่นๆ อีกเยอะ (ลองมาหมดแล้วด้วย) แต่ตัวเองเรื่องมากเองสุดท้ายก็มาลงที่ จะหา static site generator มาทำ ซึ่งก็มี check list ในหัวอีกว่าที่อยากได้มี
 
 - ตัว static generator สามารถเข้าไปแกะ code อ่านเล่นได้
 - เร็ว, ตัวเว็บคงเร็วไม่ต่างกันอยู่แล้วเพราะเป็น static site แต่เร็วอันนี้คือขอให้ generate ได้เร็วด้วย ไม่มี bundler มากินพลังเครื่อง (ทำเว็บด้วย webpack แล้วรู้สึกทรมานกับพวกนี้มาก)
@@ -34,7 +34,7 @@ Instruction ตัวอย่างจาก [11ty.io](https://www.11ty.io/)
 
 ## Blog
 
-พอชอบจากตัวอย่าง quick start แล้วก็เลยหาดูว่าจะทำ blog ได้ยังไงบ้าง ใน GitHub ก็มี[ตัวอย่าง code เตรียมไว้ให้แล้ว](https://github.com/11ty/eleventy-base-blog) clone มาแก้ต่อได้เลย วันนี้ทั้งวันก็เลยเล่น 11ty จนได้ออกมาสองเว็บที่ดองไว้มานาน [www.llun.bike](https://www.llun.bike) กับ [www.llun.dev](http://www.llun.dev) (llun.me เดี๊ยวไว้ทำต่อทีหลัง)
+พอชอบจากตัวอย่าง quick start แล้วก็เลยหาดูว่าจะทำ blog ได้ยังไงบ้าง ใน GitHub ก็มี[ตัวอย่าง code เตรียมไว้ให้แล้ว](https://github.com/11ty/eleventy-base-blog) clone มาแก้ต่อได้เลย วันนี้ทั้งวันก็เลยเล่น 11ty จนได้ออกมาสองเว็บที่ดองไว้มานาน www.llun.bike กับ [www.llun.dev](https://www.llun.me/) (llun.me เดี๊ยวไว้ทำต่อทีหลัง)
 
 หลักๆ ที blog ต่างจาก quick start คือมีส่วน code ที่เก็บโครงสร้างไฟล์ทั้งหมดไว้ให้ แล้ว สามารถเรียกใช้ได้ตามภาษา script ต่างๆ อย่างในตัวอย่างก็เป็น nunjucks
 

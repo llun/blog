@@ -76,7 +76,7 @@ const Page: NextPage<Props> = ({ config, post, segment }) => {
       <Meta
         title={`${title} | ${properties.title}`}
         description={properties.description}
-        url={`${url}/posts/${file.id}`}
+        url={`${url}/posts/${file.id}/`}
         canonical={`${url}/posts/${file.id}/`}
         imageUrl={
           properties.image && `${url}/posts/${file.id}/${properties.image}`
