@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 595 4/6",
+  "word": "unlit",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨⬜🟩⬜", "word": "music" },
+    { "result": "🟩🟩🟨🟩🟨", "word": "until" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "unlit" }
+  ]
+}
