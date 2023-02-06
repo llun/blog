@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 597 4/6",
+  "word": "ninth",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "🟨🟨🟨⬜⬜", "word": "intro" },
+    { "result": "🟩🟩⬜🟨🟨", "word": "night" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ninth" }
+  ]
+}
