@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 599 5/6",
+  "word": "flail",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟩⬜", "word": "chair" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "snail" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "avail" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "flail" }
+  ]
+}
