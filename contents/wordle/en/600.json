@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 600 4/6",
+  "word": "stage",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜🟨⬜", "word": "camel" },
+    { "result": "🟨⬜🟩⬜🟩", "word": "grape" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "stage" }
+  ]
+}
