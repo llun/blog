@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 601 4/6",
+  "word": "heady",
+  "guesses": [
+    { "result": "🟨🟨⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜🟨", "word": "dance" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "ready" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "heady" }
+  ]
+}
