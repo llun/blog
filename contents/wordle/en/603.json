@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 603 4/6",
+  "word": "giant",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜🟨🟨🟨⬜", "word": "panic" },
+    { "result": "🟨🟩⬜🟨🟨", "word": "titan" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "giant" }
+  ]
+}

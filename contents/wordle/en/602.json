@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 602 3/6",
+  "word": "debug",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨🟨", "word": "adieu" },
+    { "result": "⬜🟨🟨🟨🟨", "word": "jugde" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "debug" }
+  ]
+}
