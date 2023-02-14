@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 605 5/6",
+  "word": "sound",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜⬜🟨🟨🟩", "word": "cloud" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "round" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "found" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sound" }
+  ]
+}
