@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 606 4/6",
+  "word": "salsa",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "⬜🟨🟨🟩⬜", "word": "flash" },
+    { "result": "🟨🟩🟨🟩⬜", "word": "lasso" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "salsa" }
+  ]
+}
