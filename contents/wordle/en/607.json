@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 607 3/6",
+  "word": "magic",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "panic" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "magic" }
+  ]
+}
