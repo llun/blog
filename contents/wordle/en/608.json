@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 608 4/6",
+  "word": "cache",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨🟨⬜⬜", "word": "heavy" },
+    { "result": "⬜🟨🟨🟨⬜", "word": "wheat" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cache" }
+  ]
+}
