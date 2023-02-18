@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 610 4/6",
+  "word": "kiosk",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜⬜⬜", "word": "fight" },
+    { "result": "⬜🟩⬜🟨⬜", "word": "picky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "kiosk" }
+  ]
+}
