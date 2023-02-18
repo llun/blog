@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 609 4/6",
+  "word": "avail",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "🟩⬜🟩🟩⬜", "word": "again" },
+    { "result": "🟩⬜🟩🟩⬜", "word": "await" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "avail" }
+  ]
+}
