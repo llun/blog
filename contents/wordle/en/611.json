@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 611 5/6",
+  "word": "sweat",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜⬜", "word": "eagle" },
+    { "result": "⬜⬜🟩🟩⬜", "word": "ocean" },
+    { "result": "🟩🟨🟩🟩⬜", "word": "steak" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sweat" }
+  ]
+}
