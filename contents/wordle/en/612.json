@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 612 6/6",
+  "word": "ruddy",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜🟨", "word": "found" },
+    { "result": "🟨🟩⬜⬜🟩", "word": "dusty" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "buddy" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "muddy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ruddy" }
+  ]
+}
