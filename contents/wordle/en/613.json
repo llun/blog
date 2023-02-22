@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 613 6/6",
+  "word": "riper",
+  "guesses": [
+    { "result": "⬜⬜🟨🟩⬜", "word": "adieu" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "fiber" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "tiger" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "river" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "riser" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "riper" }
+  ]
+}
