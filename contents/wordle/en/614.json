@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 614 3/6",
+  "word": "vague",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨🟨", "word": "adieu" },
+    { "result": "🟨⬜🟨🟨🟩", "word": "usage" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "vague" }
+  ]
+}
