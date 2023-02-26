@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 617 4/6",
+  "word": "syrup",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜⬜🟨⬜⬜", "word": "mouth" },
+    { "result": "⬜🟨🟩⬜🟨", "word": "curvy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "syrup" }
+  ]
+}
