@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 618 4/6",
+  "word": "worse",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜🟨🟨🟩", "word": "score" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "horse" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "worse" }
+  ]
+}
