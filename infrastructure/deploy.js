@@ -287,7 +287,7 @@ const cdnResources = {
           ),
           activityPubBehaviour('/users/*'),
           activityPubBehaviour('/inbox'),
-          activityPubBehaviour('/@*'),
+          activityPubBehaviour('/@*', `${ActivityPub}StaticCachePolicy`),
           activityPubBehaviour(
             '/activities/_next/static*',
             `${ActivityPub}StaticCachePolicy`

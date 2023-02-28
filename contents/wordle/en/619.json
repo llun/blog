@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 619 2/6",
+  "word": "polka",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "polka" }
+  ]
+}
