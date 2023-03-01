@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 620 6/6",
+  "word": "moose",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨🟩⬜", "word": "flesh" },
+    { "result": "⬜⬜⬜🟩🟩", "word": "verse" },
+    { "result": "⬜⬜⬜🟩🟩", "word": "tense" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "goose" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "moose" }
+  ]
+}
