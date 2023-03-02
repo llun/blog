@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 621 2/6",
+  "word": "above",
+  "guesses": [
+    { "result": "🟩⬜⬜⬜🟩", "word": "agree" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "above" }
+  ]
+}
