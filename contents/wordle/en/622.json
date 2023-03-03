@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 622 4/6",
+  "word": "squat",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟨", "word": "adieu" },
+    { "result": "⬜🟨🟩⬜⬜", "word": "laugh" },
+    { "result": "🟩⬜🟩⬜🟨", "word": "scuba" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "squat" }
+  ]
+}
