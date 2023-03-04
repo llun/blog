@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 623 4/6",
+  "word": "trend",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨🟨⬜⬜⬜", "word": "decoy" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "spend" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "trend" }
+  ]
+}
