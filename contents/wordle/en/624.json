@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 624 4/6",
+  "word": "toxic",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "⬜🟨⬜⬜🟨", "word": "fight" },
+    { "result": "⬜🟨⬜🟩⬜", "word": "strip" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "toxic" }
+  ]
+}
