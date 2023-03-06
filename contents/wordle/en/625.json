@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 625 4/6",
+  "word": "pinky",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
+    { "result": "🟨⬜⬜⬜🟩", "word": "itchy" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "kinky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "pinky" }
+  ]
+}
