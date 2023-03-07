@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 626 4/6",
+  "word": "horse",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "⬜⬜🟨🟩🟨", "word": "flesh" },
+    { "result": "⬜🟨🟨🟩🟩", "word": "those" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "horse" }
+  ]
+}
