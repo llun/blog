@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 628 3/6",
+  "word": "where",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
+    { "result": "🟨⬜⬜⬜🟨", "word": "elbow" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "where" }
+  ]
+}
