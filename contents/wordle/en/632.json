@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 632 3/6",
+  "word": "blame",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "earth" },
+    { "result": "⬜⬜🟩🟨🟩", "word": "scale" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "blame" }
+  ]
+}
