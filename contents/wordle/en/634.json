@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 634 2/6",
+  "word": "sweep",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "money" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sweep" }
+  ]
+}

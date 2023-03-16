@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 635 3/6",
+  "word": "cider",
+  "guesses": [
+    { "result": "⬜🟩🟩🟩⬜", "word": "video" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "rider" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cider" }
+  ]
+}
