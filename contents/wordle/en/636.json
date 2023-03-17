@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 636 2/6",
+  "word": "mealy",
+  "guesses": [
+    { "result": "🟨🟩🟩⬜🟩", "word": "leaky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "mealy" }
+  ]
+}
