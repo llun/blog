@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 641 2/6",
+  "word": "duvet",
+  "guesses": [
+    { "result": "🟨⬜🟨🟩⬜", "word": "under" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "duvet" }
+  ]
+}
