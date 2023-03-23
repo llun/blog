@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 642 3/6",
+  "word": "staid",
+  "guesses": [
+    { "result": "⬜🟨⬜🟩🟩", "word": "valid" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "braid" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "staid" }
+  ]
+}
