@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 643 4/6",
+  "word": "grout",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "husky" },
+    { "result": "⬜🟨🟨🟩⬜", "word": "forum" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "group" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "grout" }
+  ]
+}

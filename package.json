@@ -19,9 +19,9 @@
     "react-modal": "^3.16.1"
   },
   "devDependencies": {
-    "@aws-sdk/client-cloudformation": "^3.297.0",
-    "@aws-sdk/client-cloudfront": "^3.297.0",
-    "@aws-sdk/client-lambda": "^3.297.0",
+    "@aws-sdk/client-cloudformation": "^3.298.0",
+    "@aws-sdk/client-cloudfront": "^3.298.0",
+    "@aws-sdk/client-lambda": "^3.298.0",
     "@babel/core": "^7.21.3",
     "@svgr/webpack": "^6.5.1",
     "@swc/core": "^1.3.42",
@@ -32,7 +32,7 @@
     "@types/luxon": "^3.2.0",
     "@types/mapbox-gl": "^2.7.10",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.15.5",
+    "@types/node": "^18.15.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-modal": "^3.13.1",
