@@ -56,7 +56,7 @@ export async function proxyAssetsUrl(
   const url =
     process.env.NODE_ENV === 'production'
       ? 'https://next.llun.dev/api/apple/'
-      : 'http://localhost:3000/api/apple/'
+      : `http://${globalThis.location.host}/api/apple/`
   const body: AssetsRequest = {
     token,
     photoGuids: medias.map((media) => media.guid)
