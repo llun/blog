@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 645 2/6",
+  "word": "untie",
+  "guesses": [
+    { "result": "⬜🟨🟨🟨🟩", "word": "suite" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "untie" }
+  ]
+}
