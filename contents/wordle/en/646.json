@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 646 4/6",
+  "word": "guano",
+  "guesses": [
+    { "result": "⬜🟨🟨🟨⬜", "word": "laugh" },
+    { "result": "⬜🟩🟨🟨⬜", "word": "sugar" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "guava" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "guano" }
+  ]
+}
