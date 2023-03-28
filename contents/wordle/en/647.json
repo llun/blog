@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 647 2/6",
+  "word": "hurry",
+  "guesses": [
+    { "result": "🟩🟩⬜⬜🟨", "word": "humor" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hurry" }
+  ]
+}
