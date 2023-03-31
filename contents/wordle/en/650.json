@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 650 3/6",
+  "word": "every",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "clone" },
+    { "result": "⬜🟨🟩⬜⬜", "word": "fresh" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "every" }
+  ]
+}
