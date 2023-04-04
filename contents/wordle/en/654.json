@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 654 3/6",
+  "word": "ratio",
+  "guesses": [
+    { "result": "⬜⬜🟨🟩⬜", "word": "plain" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "magic" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ratio" }
+  ]
+}
