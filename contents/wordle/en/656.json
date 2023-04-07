@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 657 3/6",
+  "word": "locus",
+  "guesses": [
+    { "result": "🟨⬜🟨🟨⬜", "word": "crush" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "focus" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "locus" }
+  ]
+}
