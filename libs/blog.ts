@@ -1,9 +1,9 @@
-import path from 'path'
-import fs from 'fs'
-import yaml from 'yaml'
-import { DateTime } from 'luxon'
-import memoize from 'lodash/memoize'
 import { Feed } from 'feed'
+import fs from 'fs'
+import memoize from 'lodash/memoize'
+import { DateTime } from 'luxon'
+import path from 'path'
+import yaml from 'yaml'
 
 import { getMarkdown } from './markdown'
 
@@ -181,6 +181,6 @@ export const getConfig = memoize(
   (): Config => ({
     title: '@แนท',
     description: 'Life, Ride and Code',
-    url: process.env.NEXT_PUBLIC_DOMAIN || 'https://www.llun.me'
+    url: process.env.NEXT_PUBLIC_DOMAIN || 'https://www.llun.me/'
   })
 )
