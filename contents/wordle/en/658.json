@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 658 4/6",
+  "word": "ledge",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟩", "word": "drone" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "wedge" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "hedge" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ledge" }
+  ]
+}
