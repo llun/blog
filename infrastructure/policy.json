@@ -1,0 +1,37 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CloudformationWrite",
+      "Effect": "Allow",
+      "Action": ["cloudformation:UpdateStack", "cloudformation:DescribeStacks"],
+      "Resource": "arn:aws:cloudformation:ap-southeast-1:107563078874:stack/Website/be1b0a80-929f-11ea-a1ae-0a1335ff27ae"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListAllMyBuckets",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetBucketLocation"],
+      "Resource": "arn:aws:s3:::www.llun.me"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:PutObjectAcl",
+        "s3:GetObject",
+        "s3:GetObjectAcl",
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::www.llun.me/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "cloudfront:CreateInvalidation",
+      "Resource": "arn:aws:cloudfront::107563078874:distribution/E2F19B9UCBX0DS"
+    }
+  ]
+}
