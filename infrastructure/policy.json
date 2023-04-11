@@ -30,8 +30,24 @@
     },
     {
       "Effect": "Allow",
-      "Action": "cloudfront:CreateInvalidation",
+      "Action": [
+        "cloudfront:GetDistributionConfig",
+        "cloudfront:CreateInvalidation",
+        "cloudfront:UpdateDistribution"
+      ],
       "Resource": "arn:aws:cloudfront::107563078874:distribution/E2F19B9UCBX0DS"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:GetFunctionConfiguration",
+        "lambda:UpdateAlias",
+        "lambda:UpdateFunctionCode",
+        "lambda:PublishVersion",
+        "lambda:CreateAlias"
+      ],
+      "Resource": "arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge*"
     }
   ]
 }
