@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 663 3/6",
+  "word": "carat",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "chalk" },
+    { "result": "🟩🟨🟨⬜⬜", "word": "crazy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "carat" }
+  ]
+}
