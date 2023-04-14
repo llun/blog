@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 664 4/6",
+  "word": "thief",
+  "guesses": [
+    { "result": "⬜⬜🟩🟩⬜", "word": "adieu" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "brief" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "chief" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "thief" }
+  ]
+}
