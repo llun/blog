@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 665 4/6",
+  "word": "agony",
+  "guesses": [
+    { "result": "🟩⬜⬜⬜⬜", "word": "alpha" },
+    { "result": "🟩⬜🟨⬜⬜", "word": "abyss" },
+    { "result": "🟩🟨⬜🟨🟩", "word": "annoy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "agony" }
+  ]
+}
