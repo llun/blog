@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 666 3/6",
+  "word": "dwelt",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟨", "word": "spend" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "dwell" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "dwelt" }
+  ]
+}
