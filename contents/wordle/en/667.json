@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 667 5/6",
+  "word": "whiff",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "prism" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "chich" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "thigh" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "whiny" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "whiff" }
+  ]
+}
