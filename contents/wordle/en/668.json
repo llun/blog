@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 668 2/6",
+  "word": "hound",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜🟨", "word": "dutch" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hound" }
+  ]
+}
