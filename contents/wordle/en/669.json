@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 669 5/6",
+  "word": "thump",
+  "guesses": [
+    { "result": "⬜⬜⬜🟨⬜", "word": "focus" },
+    { "result": "⬜🟨🟨🟨⬜", "word": "jumpy" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "plump" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "trump" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "thump" }
+  ]
+}
