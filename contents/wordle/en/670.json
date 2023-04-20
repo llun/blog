@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 670 3/6",
+  "word": "plate",
+  "guesses": [
+    { "result": "🟨⬜🟨⬜🟨", "word": "extra" },
+    { "result": "⬜🟨🟩⬜🟨", "word": "feast" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "plate" }
+  ]
+}
