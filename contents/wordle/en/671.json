@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 671 4/6",
+  "word": "kayak",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜⬜", "word": "favor" },
+    { "result": "⬜🟩⬜⬜⬜", "word": "watch" },
+    { "result": "⬜🟩⬜⬜🟨", "word": "salsa" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "kayak" }
+  ]
+}
