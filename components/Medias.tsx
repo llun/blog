@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
 import cn from 'classnames'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { Media, mergeMediaAssets, proxyAssetsUrl } from '../libs/apple/media'
 import { VideoPosterDerivative } from '../libs/apple/webstream'
 
-import style from './Medias.module.css'
 import MediaModal from './MediaModal'
+import style from './Medias.module.css'
 
 export enum PhotoState {
   LOADING,
@@ -98,10 +98,9 @@ const Medias: FC<Props> = ({ token, medias }) => {
       />
       {photos.map((media, index) => {
         const shouldBeBig = index % 13 === 0
+        const keys = Object.keys(media.derivatives)
         const key =
-          media.type === 'video'
-            ? VideoPosterDerivative
-            : Object.keys(media.derivatives)[0]
+          media.type === 'video' ? VideoPosterDerivative : keys[keys.length - 1]
         const backgroundImage =
           media.derivatives[key].url && `url(${media.derivatives[key].url})`
 
