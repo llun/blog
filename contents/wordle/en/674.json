@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 674 4/6",
+  "word": "ditto",
+  "guesses": [
+    { "result": "⬜🟩🟨🟨⬜", "word": "widow" },
+    { "result": "🟩🟩⬜⬜🟩", "word": "disco" },
+    { "result": "🟩🟩⬜⬜🟩", "word": "dingo" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ditto" }
+  ]
+}
