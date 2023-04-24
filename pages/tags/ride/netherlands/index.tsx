@@ -1,12 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 
-import { Config, getConfig } from '../../../../libs/blog'
 import Header from '../../../../components/Header'
 import Meta from '../../../../components/Meta'
-import RideStats from '../../../../components/RideStats'
 import RideMap from '../../../../components/RideMap'
+import RideStats from '../../../../components/RideStats'
 import RideTitle from '../../../../components/RideTitle'
+import { Config, getConfig } from '../../../../libs/blog'
 
 import rideStats from '../../../../public/tags/ride/stats.json'
 
@@ -49,6 +49,7 @@ const Netherlands: NextPage<Props> = ({ config, category }) => (
       <RideMap
         zoomLevels={[5.7, 6.0, 6.6]}
         minZoom={5}
+        maxZoom={12}
         center={[5.12548838940261, 51.98430524939225]}
         dataPath="/tags/ride/netherlands.json"
       />

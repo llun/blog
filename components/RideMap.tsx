@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
+import React, { FC, useEffect, useRef } from 'react'
 
 import { MAPBOX_PUBLIC_KEY } from '../libs/config'
 
@@ -45,7 +45,6 @@ const RideMap: FC<Props> = ({
       minZoom,
       maxZoom
     })
-    map.scrollZoom.disable()
     map.on('load', async () => {
       map.addSource('route', {
         type: 'geojson',
