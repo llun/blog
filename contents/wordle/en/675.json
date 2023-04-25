@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 675 5/6",
+  "word": "joker",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩⬜", "word": "honey" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "power" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "boxer" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "cover" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "joker" }
+  ]
+}
