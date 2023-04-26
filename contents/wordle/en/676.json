@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 676 4/6",
+  "word": "metro",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜🟨", "word": "eject" },
+    { "result": "⬜🟨⬜⬜🟨", "word": "style" },
+    { "result": "⬜🟩🟨🟨⬜", "word": "berth" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "metro" }
+  ]
+}
