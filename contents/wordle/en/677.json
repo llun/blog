@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 677 3/6",
+  "word": "logic",
+  "guesses": [
+    { "result": "⬜🟨🟩⬜⬜", "word": "fight" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "login" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "logic" }
+  ]
+}
