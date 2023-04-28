@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 678 5/6",
+  "word": "circa",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜🟩", "word": "sigma" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "pizza" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "ninja" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "viola" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "circa" }
+  ]
+}
