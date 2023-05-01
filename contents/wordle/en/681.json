@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 681 4/6",
+  "word": "range",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "cheap" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "false" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "maybe" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "range" }
+  ]
+}
