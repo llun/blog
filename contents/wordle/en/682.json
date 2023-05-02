@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 682 4/6",
+  "word": "sulky",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜🟩", "word": "curry" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "bunny" },
+    { "result": "⬜🟩🟨⬜🟩", "word": "pushy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "sulky" }
+  ]
+}
