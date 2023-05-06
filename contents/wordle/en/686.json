@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 686 3/6",
+  "word": "anger",
+  "guesses": [
+    { "result": "🟩🟩⬜🟩⬜", "word": "annex" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "angel" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "anger" }
+  ]
+}
