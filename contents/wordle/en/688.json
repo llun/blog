@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 688 4/6",
+  "word": "aglow",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "abort" },
+    { "result": "🟩⬜⬜🟩⬜", "word": "annoy" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "allow" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "aglow" }
+  ]
+}
