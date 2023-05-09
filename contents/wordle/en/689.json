@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 689 3/6",
+  "word": "cocoa",
+  "guesses": [
+    { "result": "🟩⬜🟨⬜⬜", "word": "chalk" },
+    { "result": "🟩🟨⬜⬜🟨", "word": "cargo" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "cocoa" }
+  ]
+}

@@ -2,6 +2,7 @@
 .next
 .vercel
 .env.local
+*.log
 _site
 node_modules
 public/feeds
