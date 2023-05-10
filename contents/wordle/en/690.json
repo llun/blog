@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 690 2/6",
+  "word": "ethic",
+  "guesses": [
+    { "result": "🟩🟨⬜🟨🟨", "word": "eight" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ethic" }
+  ]
+}
