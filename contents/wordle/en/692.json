@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 692 5/6",
+  "word": "snack",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "cargo" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "stack" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "smack" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "shack" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "snack" }
+  ]
+}
