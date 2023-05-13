@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 693 2/6",
+  "word": "acrid",
+  "guesses": [
+    { "result": "🟩⬜⬜🟩🟩", "word": "avoid" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "acrid" }
+  ]
+}
