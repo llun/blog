@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 694 4/6",
+  "word": "scarf",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨⬜", "word": "batch" },
+    { "result": "🟩🟩🟨🟨⬜", "word": "scrap" },
+    { "result": "🟩🟩🟩🟩⬜", "word": "scary" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "scarf" }
+  ]
+}
