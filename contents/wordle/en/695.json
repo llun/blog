@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 695 3/6",
+  "word": "canoe",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "break" },
+    { "result": "🟨⬜🟨🟨⬜", "word": "exact" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "canoe" }
+  ]
+}
