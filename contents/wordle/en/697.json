@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 697 3/6",
+  "word": "plank",
+  "guesses": [
+    { "result": "⬜🟩🟩⬜⬜", "word": "flash" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "blank" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "plank" }
+  ]
+}
