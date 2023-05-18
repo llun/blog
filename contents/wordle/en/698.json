@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 698 3/6",
+  "word": "shorn",
+  "guesses": [
+    { "result": "⬜🟨🟩⬜⬜", "word": "proxy" },
+    { "result": "🟩⬜🟩🟩🟩", "word": "sworn" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "shorn" }
+  ]
+}
