@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 701 3/6",
+  "word": "brash",
+  "guesses": [
+    { "result": "⬜🟨🟩⬜⬜", "word": "champ" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "wrath" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "brash" }
+  ]
+}
