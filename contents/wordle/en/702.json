@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 702 2/6",
+  "word": "igloo",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨🟩", "word": "bingo" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "igloo" }
+  ]
+}
