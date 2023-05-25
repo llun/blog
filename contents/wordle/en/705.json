@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 705 5/6",
+  "word": "bagel",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩⬜", "word": "safer" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "haven" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "camel" },
+    { "result": "⬜🟩🟨🟩🟩", "word": "label" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "bagel" }
+  ]
+}
