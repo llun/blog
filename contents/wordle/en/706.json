@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 706 5/6",
+  "word": "swine",
+  "guesses": [
+    { "result": "⬜🟨🟩🟨⬜", "word": "heist" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "spice" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "smile" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "seize" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "swine" }
+  ]
+}
