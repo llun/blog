@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 707 3/6",
+  "word": "ramen",
+  "guesses": [
+    { "result": "⬜🟩🟩🟩⬜", "word": "camel" },
+    { "result": "⬜🟩🟩🟩🟨", "word": "gamer" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ramen" }
+  ]
+}
