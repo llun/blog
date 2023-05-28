@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 708 3/6",
+  "word": "skimp",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "joist" },
+    { "result": "🟩🟨🟩🟨⬜", "word": "spiky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "skimp" }
+  ]
+}
