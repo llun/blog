@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 714 5/6",
+  "word": "nanny",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜⬜", "word": "cargo" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "salty" },
+    { "result": "⬜🟩⬜⬜🟩", "word": "happy" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "fanny" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "nanny" }
+  ]
+}
