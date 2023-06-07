@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 718 6/6",
+  "word": "hater",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩⬜", "word": "panel" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "safer" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "racer" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "eager" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "maker" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hater" }
+  ]
+}
