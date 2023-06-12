@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 723 2/6",
+  "word": "wrong",
+  "guesses": [
+    { "result": "⬜🟩⬜⬜⬜", "word": "crypt" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "wrong" }
+  ]
+}
