@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 724 4/6",
+  "word": "plunk",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜⬜", "word": "cough" },
+    { "result": "⬜🟩🟩⬜🟨", "word": "slurp" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "plumb" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "plunk" }
+  ]
+}
