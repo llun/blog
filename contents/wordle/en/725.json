@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 725 3/6",
+  "word": "crime",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟩", "word": "shine" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "prize" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "crime" }
+  ]
+}
