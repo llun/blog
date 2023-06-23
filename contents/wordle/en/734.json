@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 734 4/6",
+  "word": "covet",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩⬜", "word": "honey" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "power" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "golem" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "covet" }
+  ]
+}
