@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 735 4/6",
+  "word": "grand",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "adieu" },
+    { "result": "🟨🟩🟩⬜⬜", "word": "draft" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "brand" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "grand" }
+  ]
+}
