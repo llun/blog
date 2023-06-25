@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 736 2/6",
+  "word": "rodeo",
+  "guesses": [
+    { "result": "🟨🟨🟩🟩⬜", "word": "order" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "rodeo" }
+  ]
+}
