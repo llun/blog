@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 737 3/6",
+  "word": "guest",
+  "guesses": [
+    { "result": "🟨⬜🟨🟨⬜", "word": "ensue" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "quest" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "guest" }
+  ]
+}
