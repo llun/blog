@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 739 3/6",
+  "word": "tract",
+  "guesses": [
+    { "result": "🟨⬜🟩⬜⬜", "word": "chalk" },
+    { "result": "⬜🟨🟩🟨⬜", "word": "scary" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tract" }
+  ]
+}
