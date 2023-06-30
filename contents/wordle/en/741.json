@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 741 3/6",
+  "word": "straw",
+  "guesses": [
+    { "result": "⬜⬜🟨⬜⬜", "word": "plaza" },
+    { "result": "⬜🟨🟨⬜⬜", "word": "baton" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "straw" }
+  ]
+}
