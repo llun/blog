@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 742 4/6",
+  "word": "bleep",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "joker" },
+    { "result": "🟨⬜⬜🟩🟨", "word": "excel" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "sleep" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "bleep" }
+  ]
+}
