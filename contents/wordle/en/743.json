@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 743 3/6",
+  "word": "mossy",
+  "guesses": [
+    { "result": "⬜⬜🟨🟩⬜", "word": "ghost" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "bossy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "mossy" }
+  ]
+}
