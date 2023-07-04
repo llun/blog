@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 745 3/6",
+  "word": "irate",
+  "guesses": [
+    { "result": "⬜🟨⬜🟨🟨", "word": "sepia" },
+    { "result": "🟩⬜🟩⬜🟩", "word": "image" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "irate" }
+  ]
+}
