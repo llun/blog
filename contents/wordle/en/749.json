@@ -1,0 +1,12 @@
+{
+  "title": "Wordle 749 X/6",
+  "word": "cower",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩⬜", "word": "golem" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "honey" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "power" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "tower" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "rower" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "cover" }
+  ]
+}
