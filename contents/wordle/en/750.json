@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 750 4/6",
+  "word": "enter",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩🟩", "word": "foyer" },
+    { "result": "⬜🟨🟨🟩🟩", "word": "steer" },
+    { "result": "⬜🟨🟩🟩🟩", "word": "meter" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "enter" }
+  ]
+}
