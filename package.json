@@ -19,8 +19,8 @@
     "react-modal": "^3.16.1"
   },
   "devDependencies": {
-    "@aws-sdk/client-cloudformation": "^3.363.0",
-    "@aws-sdk/client-cloudfront": "^3.363.0",
+    "@aws-sdk/client-cloudformation": "^3.369.0",
+    "@aws-sdk/client-cloudfront": "^3.369.0",
     "@aws-sdk/client-lambda": "^3.363.0",
     "@babel/core": "^7.22.8",
     "@svgr/webpack": "^8.0.1",
@@ -38,7 +38,7 @@
     "@types/react-modal": "^3.16.0",
     "@types/stream-buffers": "^3.0.4",
     "@types/yargs": "^17.0.24",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
     "archiver": "^5.3.1",
     "axios": "^1.4.0",
     "decimal.js": "^10.4.3",
