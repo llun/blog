@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 753 3/6",
+  "word": "whirl",
+  "guesses": [
+    { "result": "🟨⬜🟩⬜⬜", "word": "hoist" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "chill" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "whirl" }
+  ]
+}

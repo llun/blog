@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 754 5/6",
+  "word": "barge",
+  "guesses": [
+    { "result": "⬜🟨🟨🟨⬜", "word": "cream" },
+    { "result": "⬜⬜🟨🟨🟩", "word": "share" },
+    { "result": "🟨🟩⬜🟩🟩", "word": "range" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "large" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "barge" }
+  ]
+}
