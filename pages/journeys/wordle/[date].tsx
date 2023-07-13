@@ -1,19 +1,19 @@
-import Link from 'next/link'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import React, { FC, SetStateAction, useEffect, useState } from 'react'
+import Link from 'next/link'
 import { ParsedUrlQuery } from 'querystring'
+import React, { FC, SetStateAction, useEffect, useState } from 'react'
 
-import { getConfig, Config } from '../../../libs/blog'
-import {
-  englishResult,
-  englishResults,
-  Result,
-  ResultKey
-} from '../../../libs/wordle'
 import Meta from '../../../components/Meta'
+import { Config, getConfig } from '../../../libs/blog'
+import {
+  Result,
+  ResultKey,
+  englishResult,
+  englishResults
+} from '../../../libs/wordle'
 
-import style from './[date].module.css'
 import { useRouter } from 'next/router'
+import style from './[date].module.css'
 
 interface Params extends ParsedUrlQuery {
   date: string
@@ -90,9 +90,11 @@ ${window.location}
   await navigator.clipboard.write(data)
 }
 
+type SetShowWords = (value: SetStateAction<boolean>) => void
+
 const ResultBlock: FC<{
   showWords: boolean
-  setShowWords: (value: SetStateAction<boolean>) => void
+  setShowWords: SetShowWords
   result?: Result
 }> = ({ showWords, setShowWords, result }) => {
   if (!result) return null
