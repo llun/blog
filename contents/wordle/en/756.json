@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 756 5/6",
+  "word": "crone",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "elbow" },
+    { "result": "⬜🟨⬜🟨🟨", "word": "metro" },
+    { "result": "⬜🟨🟨⬜🟩", "word": "forge" },
+    { "result": "⬜⬜🟩🟨🟩", "word": "spore" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "crone" }
+  ]
+}
