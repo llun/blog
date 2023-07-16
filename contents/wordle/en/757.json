@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 757 4/6",
+  "word": "topaz",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "cargo" },
+    { "result": "⬜🟩⬜🟩⬜", "word": "woman" },
+    { "result": "🟩🟩⬜🟩⬜", "word": "total" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "topaz" }
+  ]
+}
