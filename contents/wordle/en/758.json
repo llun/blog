@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 758 4/6",
+  "word": "droop",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨🟨", "word": "fjord" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "drown" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "droll" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "droop" }
+  ]
+}
