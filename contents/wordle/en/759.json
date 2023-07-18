@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 759 3/6",
+  "word": "flyer",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩🟩", "word": "joker" },
+    { "result": "⬜🟨⬜🟩🟩", "word": "cyber" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "flyer" }
+  ]
+}
