@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 760 4/6",
+  "word": "tonic",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "fight" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "toxic" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "topic" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tonic" }
+  ]
+}
