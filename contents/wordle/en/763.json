@@ -1,0 +1,11 @@
+{
+  "title": "Wordle 763 5/6",
+  "word": "froze",
+  "guesses": [
+    { "result": "⬜⬜🟩⬜🟩", "word": "close" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "trove" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "broke" },
+    { "result": "⬜🟩🟩⬜🟩", "word": "grope" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "froze" }
+  ]
+}

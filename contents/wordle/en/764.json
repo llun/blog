@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 764 3/6",
+  "word": "whale",
+  "guesses": [
+    { "result": "⬜🟨⬜🟩🟩", "word": "cable" },
+    { "result": "⬜⬜🟩🟩🟩", "word": "stale" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "whale" }
+  ]
+}
