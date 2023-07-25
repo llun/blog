@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 766 4/6",
+  "word": "wheel",
+  "guesses": [
+    { "result": "⬜⬜⬜🟩⬜", "word": "foyer" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "sheep" },
+    { "result": "⬜🟩🟩🟩⬜", "word": "cheek" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "wheel" }
+  ]
+}
