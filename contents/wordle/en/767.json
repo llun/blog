@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 767 4/6",
+  "word": "heart",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜🟨", "word": "canoe" },
+    { "result": "🟨🟨🟨⬜⬜", "word": "early" },
+    { "result": "🟨🟩🟨🟨⬜", "word": "rehab" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "heart" }
+  ]
+}
