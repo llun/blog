@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 769 3/6",
+  "word": "ethos",
+  "guesses": [
+    { "result": "🟩⬜⬜🟩⬜", "word": "elbow" },
+    { "result": "🟩⬜⬜🟩⬜", "word": "enjoy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "ethos" }
+  ]
+}
