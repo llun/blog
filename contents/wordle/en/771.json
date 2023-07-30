@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 771 4/6",
+  "word": "baste",
+  "guesses": [
+    { "result": "🟩⬜🟨🟨⬜", "word": "break" },
+    { "result": "🟩⬜🟨⬜🟩", "word": "blaze" },
+    { "result": "🟩🟩⬜🟨🟩", "word": "baste" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "bathe" }
+  ]
+}
