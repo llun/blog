@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 772 3/6",
+  "word": "style",
+  "guesses": [
+    { "result": "🟨⬜⬜⬜⬜", "word": "epoch" },
+    { "result": "⬜🟨⬜⬜🟨", "word": "jerky" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "style" }
+  ]
+}
