@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 773 3/6",
+  "word": "tenth",
+  "guesses": [
+    { "result": "⬜⬜⬜⬜🟨", "word": "close" },
+    { "result": "⬜🟩⬜⬜⬜", "word": "verge" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "tenth" }
+  ]
+}
