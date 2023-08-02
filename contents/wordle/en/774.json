@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 774 3/6",
+  "word": "beget",
+  "guesses": [
+    { "result": "🟨⬜⬜🟩⬜", "word": "golem" },
+    { "result": "🟨🟨⬜🟩🟩", "word": "egret" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "beget" }
+  ]
+}
