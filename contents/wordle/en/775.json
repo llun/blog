@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 775 4/6",
+  "word": "party",
+  "guesses": [
+    { "result": "⬜⬜🟨🟨⬜", "word": "charm" },
+    { "result": "⬜🟩🟨⬜🟨", "word": "vapor" },
+    { "result": "🟨🟩⬜🟨🟩", "word": "raspy" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "party" }
+  ]
+}
