@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 776 4/6",
+  "word": "chart",
+  "guesses": [
+    { "result": "⬜🟨⬜⬜⬜", "word": "mason" },
+    { "result": "🟨🟨🟩🟨⬜", "word": "track" },
+    { "result": "🟩🟨🟩⬜🟩", "word": "craft" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "chart" }
+  ]
+}
