@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 781 4/6",
+  "word": "lover",
+  "guesses": [
+    { "result": "⬜🟩⬜🟩⬜", "word": "money" },
+    { "result": "⬜🟩⬜🟩🟩", "word": "poker" },
+    { "result": "🟩🟩⬜🟩🟩", "word": "lower" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "lover" }
+  ]
+}
