@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 782 3/6",
+  "word": "empty",
+  "guesses": [
+    { "result": "🟩⬜⬜⬜⬜", "word": "elbow" },
+    { "result": "🟩⬜⬜⬜🟨", "word": "exert" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "empty" }
+  ]
+}
