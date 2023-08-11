@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 783 3/6",
+  "word": "hello",
+  "guesses": [
+    { "result": "🟨🟨⬜🟨⬜", "word": "elbow" },
+    { "result": "🟨🟩⬜🟨⬜", "word": "lemon" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "hello" }
+  ]
+}
