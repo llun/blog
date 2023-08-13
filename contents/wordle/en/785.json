@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 785 4/6",
+  "word": "wrath",
+  "guesses": [
+    { "result": "⬜🟨🟨⬜⬜", "word": "cargo" },
+    { "result": "⬜🟩🟩⬜⬜", "word": "frank" },
+    { "result": "🟨🟩🟩⬜🟩", "word": "trash" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "wrath" }
+  ]
+}
