@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 786 4/6",
+  "word": "snaky",
+  "guesses": [
+    { "result": "⬜⬜🟩🟨⬜", "word": "coast" },
+    { "result": "🟩⬜🟩🟨⬜", "word": "slang" },
+    { "result": "🟩⬜🟩⬜🟨", "word": "spawn" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "snaky" }
+  ]
+}
