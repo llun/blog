@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 789 3/6",
+  "word": "amiss",
+  "guesses": [
+    { "result": "🟩⬜🟩⬜🟨", "word": "axiom" },
+    { "result": "🟩🟩🟩⬜⬜", "word": "amity" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "amiss" }
+  ]
+}
