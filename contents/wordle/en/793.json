@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 793 4/6",
+  "word": "beach",
+  "guesses": [
+    { "result": "🟨🟨⬜⬜⬜", "word": "eagle" },
+    { "result": "🟨🟨🟨🟨⬜", "word": "cheap" },
+    { "result": "⬜🟩🟩🟩🟩", "word": "reach" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "beach" }
+  ]
+}
