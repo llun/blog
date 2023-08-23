@@ -1,0 +1,10 @@
+{
+  "title": "Wordle 795 4/6",
+  "word": "verve",
+  "guesses": [
+    { "result": "⬜🟨🟨⬜⬜", "word": "fresh" },
+    { "result": "🟨🟩⬜⬜⬜", "word": "retry" },
+    { "result": "🟩🟩🟩⬜🟩", "word": "verge" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "verve" }
+  ]
+}
