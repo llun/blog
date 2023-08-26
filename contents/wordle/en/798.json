@@ -1,0 +1,9 @@
+{
+  "title": "Wordle 798 3/6",
+  "word": "choir",
+  "guesses": [
+    { "result": "🟨⬜⬜🟨⬜", "word": "inbox" },
+    { "result": "🟨⬜⬜🟩🟨", "word": "optic" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "choir" }
+  ]
+}
