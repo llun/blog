@@ -1,0 +1,8 @@
+{
+  "title": "Wordle 807 2/6",
+  "word": "giddy",
+  "guesses": [
+    { "result": "⬜🟩🟩⬜⬜", "word": "width" },
+    { "result": "🟩🟩🟩🟩🟩", "word": "giddy" }
+  ]
+}
