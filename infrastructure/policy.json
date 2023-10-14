@@ -31,9 +31,12 @@
     {
       "Effect": "Allow",
       "Action": [
-        "cloudfront:GetDistributionConfig",
+        "cloudfront:GetDistribution",
+        "cloudfront:CreateDistribution",
         "cloudfront:CreateInvalidation",
-        "cloudfront:UpdateDistribution"
+        "cloudfront:DeleteDistribution",
+        "cloudfront:UpdateDistribution",
+        "cloudfront:List*"
       ],
       "Resource": "arn:aws:cloudfront::107563078874:distribution/E2F19B9UCBX0DS"
     },
@@ -41,6 +44,7 @@
       "Effect": "Allow",
       "Action": [
         "lambda:UpdateFunctionConfiguration",
+        "lambda:GetFunction",
         "lambda:GetFunctionConfiguration",
         "lambda:UpdateAlias",
         "lambda:UpdateFunctionCode",
