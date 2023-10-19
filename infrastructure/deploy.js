@@ -287,9 +287,14 @@ const cdnResources = {
           ),
           activityPubBehaviour('/users/*'),
           activityPubBehaviour('/inbox'),
-          activityPubBehaviour('/@null*', `${ActivityPub}StaticCachePolicy`),
+          activityPubBehaviour('/@null/*', `${ActivityPub}StaticCachePolicy`),
+          activityPubBehaviour('/@null', `${ActivityPub}StaticCachePolicy`),
           activityPubBehaviour(
             '/@null@llun.dev',
+            `${ActivityPub}StaticCachePolicy`
+          ),
+          activityPubBehaviour(
+            '/@null@llun.dev/*',
             `${ActivityPub}StaticCachePolicy`
           ),
           activityPubBehaviour(
