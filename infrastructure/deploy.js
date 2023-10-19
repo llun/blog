@@ -31,7 +31,7 @@ const activityPubBehaviour = (
     {
       EventType: 'origin-request',
       LambdaFunctionARN:
-        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:10'
+        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:11'
     }
   ]
 })
@@ -266,7 +266,7 @@ const cdnResources = {
             {
               EventType: 'origin-request',
               LambdaFunctionARN:
-                'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_redirectDomain:15'
+                'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_redirectDomain:24'
             }
           ]
         },
