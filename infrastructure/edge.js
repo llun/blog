@@ -4,6 +4,7 @@
 /**
  * @typedef {{ awsid: string, cloudfront: string }} Arguments
  * @typedef {{ name: string, description: string, memory: number, timeout: number, role: string, handler: string, runtime: string, environment: Object | null | undefined }} ProjectConfig
+ * @typedef {import('@aws-sdk/client-lambda').Runtime} Runtime
  */
 require('dotenv-flow/config')
 const fs = require('fs')
@@ -170,7 +171,7 @@ async function deploy(functionName) {
         FunctionName: name,
         Handler: local.handler,
         MemorySize: local.memory,
-        Runtime: local.runtime,
+        Runtime: /** @type {Runtime} */ (local.runtime),
         Timeout: local.timeout,
         Role: local.role,
         Environment: {
@@ -230,7 +231,7 @@ async function deploy(functionName) {
     await lambda.send(
       new CreateFunctionCommand({
         FunctionName: name,
-        Runtime: projectConfig.runtime,
+        Runtime: /** @type {Runtime} */ (projectConfig.runtime),
         Handler: projectConfig.handler,
         Role: projectConfig.role,
         Timeout: projectConfig.timeout,
