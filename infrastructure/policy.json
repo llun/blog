@@ -32,6 +32,7 @@
       "Effect": "Allow",
       "Action": [
         "cloudfront:GetDistribution",
+        "cloudfront:GetDistributionConfig",
         "cloudfront:CreateDistribution",
         "cloudfront:CreateInvalidation",
         "cloudfront:DeleteDistribution",
@@ -49,9 +50,15 @@
         "lambda:UpdateAlias",
         "lambda:UpdateFunctionCode",
         "lambda:PublishVersion",
-        "lambda:CreateAlias"
+        "lambda:CreateAlias",
+        "lambda:EnableReplication*"
       ],
       "Resource": "arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["iam:PassRole"],
+      "Resource": "arn:aws:iam::107563078874:role/BlogCDNLambdaEdge"
     }
   ]
 }
