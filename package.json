@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "export": "next build && next export",
+    "export": "next build",
     "ride": "scripts/load-netherlands-activities.ts && scripts/simplify-gps.ts && scripts/generate-rides-stats.ts"
   },
   "author": "Maythee Anegboonlap <null@llun.dev>",
