@@ -9,7 +9,11 @@
     "strictNullChecks": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -18,11 +22,22 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      },
+      {
+        "name": "next"
+      }
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/libs/*": ["libs/*"],
-      "@/components/*": ["components/*"]
+      "@/libs/*": [
+        "libs/*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ]
     }
   },
   "ts-node": {
@@ -32,6 +47,12 @@
       "module": "commonjs"
     }
   },
-  "include": ["infrastructure/**/*.js", "modules.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "infrastructure/**/*.js",
+    "modules.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
