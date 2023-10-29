@@ -1,9 +1,11 @@
-import path from 'path'
 import fs from 'fs'
-import yaml from 'yaml'
-import { DateTime } from 'luxon'
 import { memoize } from 'lodash'
+import { DateTime } from 'luxon'
+import path from 'path'
+import yaml from 'yaml'
 
+import { getMediaList } from './apple/media'
+import { fetchStream } from './apple/webstream'
 import { Config, getConfig } from './blog'
 import { getMarkdown } from './markdown'
 
@@ -87,4 +89,26 @@ export const getAllAlbums = memoize(() => {
     .filter((p): p is Album => p !== null)
     .sort(albumDescendingComparison)
   return albums
+})
+
+export const getAlbum = memoize(async (name: string) => {
+  const config = getConfig()
+  const base = path.join(process.cwd(), 'contents', 'galleries')
+  const file = path.join(base, `${name}.md`)
+  const album = parseAlbum(config, file, true)
+  if (!album) {
+    return null
+  }
+
+  const token = album.token
+  const stream = await fetchStream(token)
+  const medias = stream
+    ? getMediaList(stream).sort(
+        (first, second) => first.createdAt - second.createdAt
+      )
+    : []
+  return {
+    album,
+    medias
+  }
 })

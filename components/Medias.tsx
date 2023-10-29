@@ -1,3 +1,5 @@
+'use client'
+
 import cn from 'classnames'
 import React, { FC, useEffect, useRef, useState } from 'react'
 import { Media, mergeMediaAssets, proxyAssetsUrl } from '../libs/apple/media'

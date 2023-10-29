@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import style from './Header.module.css'
 
 export type Page = {
@@ -12,7 +11,7 @@ export type Page = {
   title: string
   target?: '_blank'
 }
-const defaultPages: Page[] = [
+const DEFAULT_PAGES: Page[] = [
   {
     url: '/tags/ride',
     image: {
@@ -71,7 +70,7 @@ type Props = {
   pages?: Page[]
 }
 
-const Header = ({ title, url, pages = defaultPages }: Props) => (
+const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
   <header>
     <h1>
       <Link href={url} legacyBehavior>
