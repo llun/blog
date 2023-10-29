@@ -32,7 +32,6 @@ export async function POST(request: NextRequest) {
 
   const response = await fetchAssetsUrl(body.token, body.photoGuids)
   if (!response || !response.body) {
-    console.log('No response')
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
       headers: Headers
