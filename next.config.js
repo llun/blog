@@ -1,5 +1,5 @@
 module.exports = {
-  output: 'export',
+  ...(process.env.BLOG_EXPORT ? { output: 'export' } : null),
   trailingSlash: true,
   images: {
     unoptimized: true,

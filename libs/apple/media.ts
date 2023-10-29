@@ -1,4 +1,4 @@
-import { AssetsRequest } from '../../pages/api/apple'
+import { AssetsRequest } from '../../app/api/apple/route'
 import { Assets, Stream, VideoPosterDerivative } from './webstream'
 
 export interface Media {
@@ -63,8 +63,7 @@ export async function proxyAssetsUrl(
   }
   const response = await fetch(url, {
     body: JSON.stringify(body),
-    method: 'POST',
-    redirect: 'follow'
+    method: 'POST'
   })
   if (response.status !== 200) return null
   return response.json()

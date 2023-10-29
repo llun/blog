@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Head from 'next/head'
-import React from 'react'
 
 type Props = {
   title: string
@@ -24,7 +23,6 @@ export const getMetadata = ({
   return {
     title,
     description,
-    viewport: { width: 'device-width', initialScale: 1 },
     twitter: {
       card: 'summary_large_image',
       site: '@llun',

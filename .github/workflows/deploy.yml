@@ -18,7 +18,7 @@ jobs:
         run: |
           yarn set version stable
           yarn install
-          yarn build
+          yarn export
       - name: Upload non-cache to S3
         uses: jakejarvis/s3-sync-action@master
         with:

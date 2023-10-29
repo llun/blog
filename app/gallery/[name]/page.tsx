@@ -27,7 +27,7 @@ export const generateMetadata = async ({
 
   const { album } = data
   return getMetadata({
-    title: `${title}, ${album.token}`,
+    title: `${title}, ${album.title}`,
     description: album.description,
     imageUrl: `${url}/gallery/${album.card}`
   })

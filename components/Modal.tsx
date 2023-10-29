@@ -1,7 +1,12 @@
 'use client'
 
+import React, { useEffect } from 'react'
 import ReactModal from 'react-modal'
 
-ReactModal.setAppElement('#__modal')
+export const Modal = () => {
+  useEffect(() => {
+    ReactModal.setAppElement('#__modal')
+  })
 
-export const Modal = () => <div id="__modal" />
+  return <div id="__modal" />
+}

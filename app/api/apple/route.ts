@@ -1,5 +1,7 @@
-import { fetchAssetsUrl } from '../../libs/apple/webstream'
-import { ALLOW_TOKEN_IDS } from '../../libs/config'
+import { type NextRequest } from 'next/server'
+
+import { fetchAssetsUrl } from '../../../libs/apple/webstream'
+import { ALLOW_TOKEN_IDS } from '../../../libs/config'
 
 export interface AssetsRequest {
   token: string
@@ -19,15 +21,8 @@ const Headers =
         'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
       }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const handle = async (req: any) => {
-  if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Invalid' }), {
-      status: 404,
-      headers: Headers
-    })
-  }
-  const body = (await req.json()) as AssetsRequest
+export async function POST(request: NextRequest) {
+  const body = (await request.json()) as AssetsRequest
   if (!ALLOW_TOKEN_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
@@ -37,6 +32,7 @@ const handle = async (req: any) => {
 
   const response = await fetchAssetsUrl(body.token, body.photoGuids)
   if (!response || !response.body) {
+    console.log('No response')
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
       headers: Headers
@@ -66,10 +62,4 @@ const handle = async (req: any) => {
     status: 200,
     headers: Headers
   })
-}
-
-export default handle
-
-export const config = {
-  runtime: 'experimental-edge'
 }

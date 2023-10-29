@@ -62,7 +62,7 @@ const Medias: FC<Props> = ({ token, medias }) => {
         const next = medias.slice(photos.length, photos.length + BatchSize)
         const assets = await proxyAssetsUrl(token, next)
         if (!assets) {
-          setPhotoState(PhotoState.IDLE)
+          // setPhotoState(PhotoState.IDLE)
           return
         }
 
