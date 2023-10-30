@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Head from 'next/head'
 import React from 'react'
+import { getConfig } from '../libs/blog'
 
 type Props = {
   title: string
@@ -24,6 +25,8 @@ export const getMetadata = ({
   return {
     title,
     description,
+    metadataBase:
+      process.env.NODE_ENV === 'production' ? new URL(getConfig().url) : null,
     twitter: {
       card: 'summary_large_image',
       site: '@llun',
