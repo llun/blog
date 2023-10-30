@@ -15,6 +15,7 @@ export enum COUNTRY {
 
 interface CountryData {
   meta: {
+    url: string
     title: string
     description: string
     imageUrl: string
@@ -37,6 +38,7 @@ interface CountryData {
 export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
   [COUNTRY.NETHERLANDS]: {
     meta: {
+      url,
       title: `${title}, Netherlands`,
       description,
       imageUrl: `${url}/tags/ride/netherlands.png`
@@ -57,6 +59,7 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
   },
   [COUNTRY.SINGAPORE]: {
     meta: {
+      url,
       title: `${title}, Singapore`,
       description,
       imageUrl: `${url}/tags/ride/singapore.png`

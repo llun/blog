@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import React from 'react'
 
 import { getMetadata } from '../../../components/Meta'
 import PostList from '../../../components/PostList'
@@ -13,6 +12,7 @@ import {
 const { title, description, url } = getConfig()
 
 export const metadata: Metadata = getMetadata({
+  url,
   title: `${title}, Rides`,
   description,
   imageUrl: `${url}/tags/ride/netherlands.png`

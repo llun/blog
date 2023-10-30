@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import React from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,9 +7,10 @@ import { getConfig } from '../../libs/blog'
 import { getAllAlbums } from '../../libs/gallery'
 import style from './gallery.module.css'
 
-const { title, description } = getConfig()
+const { url, title, description } = getConfig()
 
 export const metadata: Metadata = getMetadata({
+  url,
   title: `${title}, Gallery`,
   description
 })

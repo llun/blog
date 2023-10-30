@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import React from 'react'
 
 import Medias from '../../../components/Medias'
 import { getMetadata } from '../../../components/Meta'
@@ -22,11 +21,12 @@ export const generateMetadata = async ({
   const { title, description, url } = getConfig()
   const data = await getAlbum(name)
   if (!data) {
-    return getMetadata({ title, description })
+    return getMetadata({ url, title, description })
   }
 
   const { album } = data
   return getMetadata({
+    url,
     title: `${title}, ${album.title}`,
     description: album.description,
     imageUrl: `${url}/gallery/${album.card}`

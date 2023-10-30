@@ -1,7 +1,5 @@
 import { Metadata } from 'next'
 import Head from 'next/head'
-import React from 'react'
-import { getConfig } from '../libs/blog'
 
 type Props = {
   title: string
@@ -12,11 +10,13 @@ type Props = {
 }
 
 interface GetMetadataParams {
+  url: string
   title: string
   description: string
   imageUrl?: string
 }
 export const getMetadata = ({
+  url,
   title,
   description,
   imageUrl
@@ -25,7 +25,7 @@ export const getMetadata = ({
   return {
     title,
     description,
-    metadataBase: new URL(getConfig().url),
+    metadataBase: new URL(url),
     twitter: {
       card: 'summary_large_image',
       site: '@llun',

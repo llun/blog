@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import React from 'react'
 
 import { getMetadata } from '../components/Meta'
 import PostList from '../components/PostList'
@@ -12,9 +11,10 @@ import {
 } from '../libs/blog'
 
 const config = getConfig()
-const { title, description } = config
+const { title, description, url } = config
 
 export const metadata: Metadata = getMetadata({
+  url,
   title,
   description
 })

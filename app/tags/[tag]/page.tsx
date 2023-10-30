@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import React from 'react'
 
 import { getMetadata } from '../../../components/Meta'
 import PostList from '../../../components/PostList'
@@ -17,12 +16,21 @@ const getTagTitle = (tag: string) =>
 interface Props {
   params: { tag: string }
 }
+
+export const generateStaticParams = async () => {
+  return [{ tag: 'dev' }]
+}
+
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
   const { tag } = params
-  const { title, description } = getConfig()
-  return getMetadata({ title: `${title}, ${getTagTitle(tag)}`, description })
+  const { url, title, description } = getConfig()
+  return getMetadata({
+    url,
+    title: `${title}, ${getTagTitle(tag)}`,
+    description
+  })
 }
 
 const Tag = ({ params }: Props) => {
