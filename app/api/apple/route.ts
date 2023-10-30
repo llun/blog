@@ -8,7 +8,7 @@ export interface AssetsRequest {
   photoGuids: string[]
 }
 
-const Headers =
+const HEADERS =
   process.env.NODE_ENV === 'production'
     ? {
         'Access-Control-Allow-Origin': 'https://www.llun.me',
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
   if (!ALLOW_TOKEN_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
-      headers: Headers
+      headers: HEADERS
     })
   }
 
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
   if (!response || !response.body) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
-      headers: Headers
+      headers: HEADERS
     })
   }
 
@@ -59,6 +59,6 @@ export async function POST(request: NextRequest) {
 
   return new Response(readable, {
     status: 200,
-    headers: Headers
+    headers: HEADERS
   })
 }
