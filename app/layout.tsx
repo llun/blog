@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import Header from '../components/Header'
 import { getConfig } from '../libs/blog'
 
+import { Modal } from '../components/Modal'
 import '../public/css/index.css'
 
 export const viewport = {
@@ -10,11 +11,11 @@ export const viewport = {
   initialScale: 1
 }
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode
-}) {
+interface Props {
+  children: ReactNode
+}
+
+const RootLayout = ({ children }: Props) => {
   const { title, url } = getConfig()
 
   return (
@@ -22,8 +23,10 @@ export default function RootLayout({
       <body>
         <Header title={title} url={url} />
         {children}
-        {/* <Modal /> */}
+        <Modal />
       </body>
     </html>
   )
 }
+
+export default RootLayout
