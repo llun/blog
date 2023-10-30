@@ -25,8 +25,7 @@ export const getMetadata = ({
   return {
     title,
     description,
-    metadataBase:
-      process.env.NODE_ENV === 'production' ? new URL(getConfig().url) : null,
+    metadataBase: new URL(getConfig().url),
     twitter: {
       card: 'summary_large_image',
       site: '@llun',
