@@ -8,9 +8,11 @@ import { getConfig } from '../../libs/blog'
 import { getAllAlbums } from '../../libs/gallery'
 import style from './gallery.module.css'
 
+const { title, description } = getConfig()
+
 export const metadata: Metadata = getMetadata({
-  title: `${getConfig().title}, Gallery`,
-  description: getConfig().description
+  title: `${title}, Gallery`,
+  description
 })
 
 const Gallery = () => {
@@ -19,7 +21,7 @@ const Gallery = () => {
     <main>
       <h2 className={style.title}>Image Gallery</h2>
       <div className={style.list}>
-        {albums.map(({ name, image, description, title }) => (
+        {albums.map(({ name, image, description, title: albumTitle }) => (
           <Link key={name} href={`/gallery/${name}`}>
             <Image
               src={`/gallery/${image}`}
@@ -27,7 +29,7 @@ const Gallery = () => {
               height={512}
               alt={description}
             />
-            <h3>{title}</h3>
+            <h3>{albumTitle}</h3>
           </Link>
         ))}
       </div>

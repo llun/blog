@@ -11,14 +11,17 @@ import {
   postDescendingComparison
 } from '../libs/blog'
 
+const config = getConfig()
+const { title, description } = config
+
 export const metadata: Metadata = getMetadata({
-  title: getConfig().title,
-  description: getConfig().description
+  title,
+  description
 })
 
 const Index = () => {
   const posts = getAllPosts().sort(postDescendingComparison).slice(0, 20)
-  generateFeeds(getConfig(), posts)
+  generateFeeds(config, posts)
   return (
     <main>
       <PostList posts={posts} />

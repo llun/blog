@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Head from 'next/head'
+import React from 'react'
 
 type Props = {
   title: string

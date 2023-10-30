@@ -1,0 +1,35 @@
+import { Metadata } from 'next'
+import React from 'react'
+
+import { getMetadata } from '../../../components/Meta'
+import PostList from '../../../components/PostList'
+import RideTitle from '../../../components/RideTitle'
+import {
+  getAllPosts,
+  getConfig,
+  postDescendingComparison
+} from '../../../libs/blog'
+
+const { title, description, url } = getConfig()
+
+export const metadata: Metadata = getMetadata({
+  title: `${title}, Rides`,
+  description,
+  imageUrl: `${url}/tags/ride/netherlands.png`
+})
+
+const Ride = () => {
+  const posts = getAllPosts()
+    .filter((post) => post.file.category === 'ride')
+    .sort(postDescendingComparison)
+  return (
+    <main>
+      <RideTitle
+        icon={{ src: '/img/icons/ride.png', alt: 'Ride posts page icon' }}
+      />
+      <PostList posts={posts} />
+    </main>
+  )
+}
+
+export default Ride
