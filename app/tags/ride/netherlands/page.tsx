@@ -9,13 +9,14 @@ import { getConfig } from '../../../../libs/blog'
 
 import rideStats from '../../../../public/tags/ride/stats.json'
 
-const { title, description, url } = getConfig()
-
-export const metadata: Metadata = getMetadata({
-  title: `${title}, Netherlands`,
-  description,
-  imageUrl: `${url}/tags/ride/netherlands.png`
-})
+export const generateMetadata = async (): Promise<Metadata> => {
+  const { title, description, url } = getConfig()
+  return getMetadata({
+    title: `${title}, Netherlands`,
+    description,
+    imageUrl: `${url}/tags/ride/netherlands.png`
+  })
+}
 
 const Ride = () => {
   return (

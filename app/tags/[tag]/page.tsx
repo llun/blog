@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import React from 'react'
 
+import { getMetadata } from '../../../components/Meta'
 import PostList from '../../../components/PostList'
 import {
   getAllPosts,
@@ -21,10 +22,7 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const { tag } = params
   const { title, description } = getConfig()
-  return {
-    title: `${title}, ${getTagTitle(tag)}`,
-    description
-  }
+  return getMetadata({ title: `${title}, ${getTagTitle(tag)}`, description })
 }
 
 const Tag = ({ params }: Props) => {
