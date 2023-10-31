@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react'
 
-import Header from '../components/Header'
-import { getConfig } from '../libs/blog'
+import Header from '../../components/Header'
+import { getConfig } from '../../libs/blog'
 
-import { Modal } from '../components/Modal'
-import '../public/css/index.css'
+import { Modal } from '../../components/Modal'
+import '../../public/css/index.css'
 
 export const viewport = {
   width: 'device-width',

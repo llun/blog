@@ -1,13 +1,13 @@
 import { Metadata } from 'next'
 import React from 'react'
 
-import { getMetadata } from '../../components/Meta'
-import PostList from '../../components/PostList'
+import { getMetadata } from '../../../components/Meta'
+import PostList from '../../../components/PostList'
 import {
   getAllPosts,
   getConfig,
   postDescendingComparison
-} from '../../libs/blog'
+} from '../../../libs/blog'
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const { url, title, description } = getConfig()

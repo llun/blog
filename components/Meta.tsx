@@ -13,7 +13,7 @@ interface GetMetadataParams {
   url: string
   title: string
   description: string
-  imageUrl?: string
+  imageUrl?: string | null
 }
 export const getMetadata = ({
   url,

@@ -1,9 +1,10 @@
 import { Metadata } from 'next'
+import React from 'react'
 
-import Medias from '../../../components/Medias'
-import { getMetadata } from '../../../components/Meta'
-import { getConfig } from '../../../libs/blog'
-import { getAlbum, getAllAlbums } from '../../../libs/gallery'
+import Medias from '../../../../components/Medias'
+import { getMetadata } from '../../../../components/Meta'
+import { getConfig } from '../../../../libs/blog'
+import { getAlbum, getAllAlbums } from '../../../../libs/gallery'
 
 import style from '../gallery.module.css'
 

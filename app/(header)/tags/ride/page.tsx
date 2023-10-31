@@ -1,13 +1,14 @@
 import { Metadata } from 'next'
+import React from 'react'
 
-import { getMetadata } from '../../../components/Meta'
-import PostList from '../../../components/PostList'
-import RideTitle from '../../../components/RideTitle'
+import { getMetadata } from '../../../../components/Meta'
+import PostList from '../../../../components/PostList'
+import RideTitle from '../../../../components/RideTitle'
 import {
   getAllPosts,
   getConfig,
   postDescendingComparison
-} from '../../../libs/blog'
+} from '../../../../libs/blog'
 
 const { title, description, url } = getConfig()
 

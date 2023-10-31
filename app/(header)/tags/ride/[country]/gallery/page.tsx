@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 import React from 'react'
 
-import Medias from '../../../../../components/Medias'
-import { getMetadata } from '../../../../../components/Meta'
-import RideStats from '../../../../../components/RideStats'
-import RideTitle from '../../../../../components/RideTitle'
-import { getMediaList } from '../../../../../libs/apple/media'
-import { fetchStream } from '../../../../../libs/apple/webstream'
+import Medias from '../../../../../../components/Medias'
+import { getMetadata } from '../../../../../../components/Meta'
+import RideStats from '../../../../../../components/RideStats'
+import RideTitle from '../../../../../../components/RideTitle'
+import { getMediaList } from '../../../../../../libs/apple/media'
+import { fetchStream } from '../../../../../../libs/apple/webstream'
 
 import { COUNTRIES_DATA, COUNTRY } from '../../countries'
 

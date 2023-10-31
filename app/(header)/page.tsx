@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import { getMetadata } from '../components/Meta'
-import PostList from '../components/PostList'
+import { getMetadata } from '../../components/Meta'
+import PostList from '../../components/PostList'
 import {
   generateFeeds,
   getAllPosts,
   getConfig,
   postDescendingComparison
-} from '../libs/blog'
+} from '../../libs/blog'
 
 const config = getConfig()
 const { title, description, url } = config

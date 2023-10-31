@@ -1,14 +1,13 @@
 import { Metadata } from 'next'
+import React from 'react'
 
-import { getMetadata } from '../../../components/Meta'
-import PostList from '../../../components/PostList'
+import { getMetadata } from '../../../../components/Meta'
+import PostList from '../../../../components/PostList'
 import {
   getAllPosts,
   getConfig,
   postDescendingComparison
-} from '../../../libs/blog'
-
-import 'mapbox-gl/dist/mapbox-gl.css'
+} from '../../../../libs/blog'
 
 const getTagTitle = (tag: string) =>
   [tag[0].toLocaleUpperCase(), tag.slice(1)].join('')

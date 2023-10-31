@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import React from 'react'
 
-import { getMetadata } from '../../../../components/Meta'
-import RideMap from '../../../../components/RideMap'
-import RideStats from '../../../../components/RideStats'
-import RideTitle from '../../../../components/RideTitle'
+import { getMetadata } from '../../../../../components/Meta'
+import RideMap from '../../../../../components/RideMap'
+import RideStats from '../../../../../components/RideStats'
+import RideTitle from '../../../../../components/RideTitle'
 
 import { COUNTRIES_DATA, COUNTRY } from '../countries'
 
