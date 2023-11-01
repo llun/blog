@@ -1,7 +1,7 @@
 'use client'
 
 import mapboxgl from 'mapbox-gl'
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 
