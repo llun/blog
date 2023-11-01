@@ -1,10 +1,8 @@
-import React from 'react'
-
 import JourneyList from '../../../components/JourneyList'
 import { getAllJourneys } from '../../../libs/journey'
 import style from './journeys.module.css'
 
-export const Journeys = () => {
+const Journeys = () => {
   const journeys = getAllJourneys()
 
   return (
