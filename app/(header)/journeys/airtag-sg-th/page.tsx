@@ -1,6 +1,18 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
+import { getMetadata } from '../../../../components/Meta'
+import { getConfig } from '../../../../libs/blog'
 import { AirTagMap } from './AirTagMap'
+
+const { url, title } = getConfig()
+
+export const metadata: Metadata = getMetadata({
+  url,
+  title: `${title}, AirTag 🇸🇬 👉 🇹🇭`,
+  description:
+    'Tracking my stuffs send through relocation service from Singapore to Thailand'
+})
 
 const AirTagPage = () => {
   return (
