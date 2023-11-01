@@ -7,7 +7,7 @@ import { Calendar } from '../../../../libs/amsterdam'
 
 interface Props {
   calendars: Calendar[]
-  currentCalendar?: Calendar
+  currentCalendar?: Calendar | null
 }
 
 export const getCalendarTitle = (calendar: Calendar) =>

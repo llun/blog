@@ -8,7 +8,7 @@ import style from './amsterdam.module.css'
 
 interface Props {
   calendars: Calendar[]
-  currentCalendar?: Calendar
+  currentCalendar?: Calendar | null
 }
 
 export const MainContent: FC<Props> = ({ currentCalendar, calendars }) => {
