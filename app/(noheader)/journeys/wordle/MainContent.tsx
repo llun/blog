@@ -31,7 +31,7 @@ export const MainContent: FC<Props> = ({ list, result }) => {
           results
         </p>
 
-        <DateSelector list={list} />
+        <DateSelector list={list} result={result} />
         <CopierIcon result={result} />
         <ResultBlock result={result} />
       </div>
