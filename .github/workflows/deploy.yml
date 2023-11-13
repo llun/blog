@@ -16,6 +16,7 @@ jobs:
           node-version: '18'
       - name: install and build
         run: |
+          corepack enable
           yarn set version stable
           yarn install
           yarn export
