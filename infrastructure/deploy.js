@@ -9,7 +9,7 @@ const {
   UpdateStackCommand
 } = require('@aws-sdk/client-cloudformation')
 const StackName = 'Website'
-const Bucket = 'ContentBucket'
+const BlogBucket = 'ContentBucket'
 const ActivityPub = 'ActivityPubSource'
 
 const activityPubBehaviour = (
@@ -37,7 +37,7 @@ const activityPubBehaviour = (
 })
 
 const s3Resources = {
-  [Bucket]: {
+  [BlogBucket]: {
     Type: 'AWS::S3::Bucket',
     Properties: {
       AccessControl: 'PublicRead',
@@ -59,10 +59,10 @@ const s3Resources = {
       }
     }
   },
-  [`${Bucket}Policy`]: {
+  [`${BlogBucket}Policy`]: {
     Type: 'AWS::S3::BucketPolicy',
     Properties: {
-      Bucket: { Ref: Bucket },
+      Bucket: { Ref: BlogBucket },
       PolicyDocument: {
         Version: '2012-10-17',
         Statement: [
@@ -72,7 +72,7 @@ const s3Resources = {
             Principal: '*',
             Action: 's3:GetObject',
             Resource: {
-              'Fn::Join': ['', ['arn:aws:s3:::', { Ref: Bucket }, '/*']]
+              'Fn::Join': ['', ['arn:aws:s3:::', { Ref: BlogBucket }, '/*']]
             }
           }
         ]
@@ -81,15 +81,15 @@ const s3Resources = {
   }
 }
 const cdnResources = {
-  [`${Bucket}CachePolicy`]: {
+  [`${BlogBucket}CachePolicy`]: {
     Type: 'AWS::CloudFront::CachePolicy',
     Properties: {
       CachePolicyConfig: {
-        Comment: `Cache policy for ${Bucket}`,
+        Comment: `Cache policy for ${BlogBucket}`,
         DefaultTTL: 86400,
         MaxTTL: 31536000,
         MinTTL: 1,
-        Name: `${Bucket}CachePolicy`,
+        Name: `${BlogBucket}CachePolicy`,
         ParametersInCacheKeyAndForwardedToOrigin: {
           CookiesConfig: {
             CookieBehavior: 'none'
@@ -192,11 +192,11 @@ const cdnResources = {
       }
     }
   },
-  [`${Bucket}OriginRequestPolicy`]: {
+  [`${BlogBucket}OriginRequestPolicy`]: {
     Type: 'AWS::CloudFront::OriginRequestPolicy',
     Properties: {
       OriginRequestPolicyConfig: {
-        Comment: `Origin request policy for ${Bucket}`,
+        Comment: `Origin request policy for ${BlogBucket}`,
         CookiesConfig: {
           CookieBehavior: 'none'
         },
@@ -204,26 +204,26 @@ const cdnResources = {
           HeaderBehavior: 'whitelist',
           Headers: ['Host']
         },
-        Name: `${Bucket}OriginRequestPolicy`,
+        Name: `${BlogBucket}OriginRequestPolicy`,
         QueryStringsConfig: {
           QueryStringBehavior: 'none'
         }
       }
     }
   },
-  [`${Bucket}CDN`]: {
+  [`${BlogBucket}CDN`]: {
     Type: 'AWS::CloudFront::Distribution',
     Properties: {
       DistributionConfig: {
         Aliases: ['llun.me', 'www.llun.me', 'llun.dev', 'www.llun.dev'],
         Origins: [
           {
-            Id: Bucket,
+            Id: BlogBucket,
             DomainName: {
               'Fn::Join': [
                 '.',
                 [
-                  { Ref: Bucket },
+                  { Ref: BlogBucket },
                   {
                     'Fn::FindInMap': [
                       'RegionToS3DomainSuffix',
@@ -253,12 +253,12 @@ const cdnResources = {
         PriceClass: 'PriceClass_All',
         IPV6Enabled: true,
         DefaultCacheBehavior: {
-          TargetOriginId: Bucket,
+          TargetOriginId: BlogBucket,
           CachePolicyId: {
-            Ref: `${Bucket}CachePolicy`
+            Ref: `${BlogBucket}CachePolicy`
           },
           OriginRequestPolicyId: {
-            Ref: `${Bucket}OriginRequestPolicy`
+            Ref: `${BlogBucket}OriginRequestPolicy`
           },
           Compress: true,
           ViewerProtocolPolicy: 'redirect-to-https',
@@ -303,7 +303,7 @@ const cdnResources = {
           ),
           activityPubBehaviour(
             '/_next/data/activities*',
-            `${Bucket}CachePolicy`
+            `${BlogBucket}CachePolicy`
           )
         ],
         ViewerCertificate: {
