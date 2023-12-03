@@ -36,7 +36,7 @@ const activityPubBehaviour = (
   ]
 })
 
-const s3Resources = {
+const blogS3Resources = {
   [BlogBucket]: {
     Type: 'AWS::S3::Bucket',
     Properties: {
@@ -332,7 +332,7 @@ const template = {
     }
   },
   Resources: {
-    ...s3Resources,
+    ...blogS3Resources,
     ...cdnResources
   }
 }
