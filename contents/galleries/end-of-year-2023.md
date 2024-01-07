@@ -8,6 +8,7 @@ token: B125fEtEvihRbB
 
 End of year 2023 camper van trip to Slovenia with a few stops along the way in Austria and Germany.
 The long post in Thai is [here](https://www.llun.me/posts/2024-01-07-campervan-slovenia/).
+Short summary
 
 - The way to Slovenia, we stop at [Dettelbach, Germany](https://maps.app.goo.gl/Su76ckcQEzV2K4i17) and
   Fluchau, Austria. Dettelbach got flood and facility are mostly closed (no electricity for charging
@@ -24,3 +25,6 @@ The long post in Thai is [here](https://www.llun.me/posts/2024-01-07-campervan-s
   however, it's quite far for any nearby toilet in the winter which is only downside for this stop.
   The restuarant at the place only open after April and summer, so coming here in summer would be nice
   stop.
+- Hiking and cycling a few places in Slovenia, Ljubljana, Maribor, Litija and Lake Bled
+
+<iframe width='100%' height='600px' src="https://api.mapbox.com/styles/v1/llun/clr28o0h701b401pj612xbol0.html?title=false&access_token=pk.eyJ1IjoibGx1biIsImEiOiJja2FqN2k2djIwNDU5MnlvNjR4YXRrMzFsIn0.Oir7SYHkVKBlgbPHldtRGQ&zoomwheel=false#5.08/48.33/9.15" title="New year 2024 trip" style="border:none;"></iframe>
