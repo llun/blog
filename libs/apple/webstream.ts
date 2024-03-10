@@ -96,7 +96,9 @@ export async function fetchStream(token: string): Promise<Stream | null> {
       method: 'POST',
       headers: {
         'Content-Type': 'text/plain',
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache',
+        'User-Agent':
+          'Photos/5.0 (Macintosh; OS X 10.15.4) AppleWebKit/605.1.15'
       },
       body: JSON.stringify({ streamCtag: null })
     }
