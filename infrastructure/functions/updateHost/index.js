@@ -9,7 +9,7 @@ exports.entry = async function (event) {
   request.headers.host = [
     {
       key: 'Host',
-      value: 'activities.llun.dev'
+      value: 'cloudrun.llun.social'
     }
   ]
   request.headers['x-activity-next-host'] = [

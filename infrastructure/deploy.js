@@ -31,7 +31,7 @@ const activityPubBehaviour = (
     {
       EventType: 'origin-request',
       LambdaFunctionARN:
-        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:11'
+        'arn:aws:lambda:us-east-1:107563078874:function:Blog_Edge_updateHost:12'
     }
   ]
 })
@@ -240,7 +240,7 @@ const cdnResources = {
           },
           {
             Id: ActivityPub,
-            DomainName: 'activities.llun.dev',
+            DomainName: 'cloudrun.llun.social',
             CustomOriginConfig: {
               OriginProtocolPolicy: 'https-only'
             }
