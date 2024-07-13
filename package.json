@@ -22,7 +22,7 @@
     "@aws-sdk/client-cloudformation": "^3.614.0",
     "@aws-sdk/client-cloudfront": "^3.614.0",
     "@aws-sdk/client-lambda": "^3.614.0",
-    "@babel/core": "^7.24.7",
+    "@babel/core": "^7.24.8",
     "@svgr/webpack": "^8.1.0",
     "@swc/core": "1.6.13",
     "@types/archiver": "^6.0.2",
