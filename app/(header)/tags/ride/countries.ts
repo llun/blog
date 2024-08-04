@@ -5,6 +5,8 @@ import {
 } from '../../../../libs/config'
 import rideStats from '../../../../public/tags/ride/stats.json'
 
+import { YoutubeVideo } from '@/components/RideVideos'
+
 const config = getConfig()
 const { title, description, url } = config
 
@@ -33,6 +35,7 @@ interface CountryData {
     dataPath: string
   }
   galleryToken: string
+  youtubes: YoutubeVideo[]
 }
 
 export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
@@ -55,7 +58,39 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
       center: [5.12548838940261, 51.98430524939225],
       dataPath: '/tags/ride/netherlands.json'
     },
-    galleryToken: NETHERLANDS_ALBUM_TOKEN
+    galleryToken: NETHERLANDS_ALBUM_TOKEN,
+    youtubes: [
+      {
+        title: '3 August 2024, Rotterdam - Den Haag and Dune',
+        url: 'https://youtu.be/Knsq_lF0Y3c',
+        coordinates: [4.4004438045655, 52.21077457877102]
+      },
+      {
+        title: '27 July 2024, Amsterdam to Lelystad',
+        url: 'https://youtu.be/f6x1oGd808I',
+        coordinates: [5.122277688637535, 52.376803516202024]
+      },
+      {
+        title: '20 July 2024, Amsterdam to Den Helder',
+        url: 'https://youtu.be/qRiLFjLMJLk',
+        coordinates: [4.75410468545544, 52.63208165340734]
+      },
+      {
+        title: '14 July 2024, Purmerend to Amsterdam',
+        url: 'https://youtu.be/hUSs2XPBoMs',
+        coordinates: [4.950130637641448, 52.423383560982835]
+      },
+      {
+        title: '14 July 2024, Amsterdam to Marken',
+        url: 'https://youtu.be/Do7lAt6O5ng',
+        coordinates: [5.100470236583325, 52.45748476224982]
+      },
+      {
+        title: '10 July 2024 ride, Den Bosch to Appeldoorn',
+        url: 'https://youtu.be/cknx2SFbc0o',
+        coordinates: [5.577499174310558, 51.955453248549496]
+      }
+    ]
   },
   [COUNTRY.SINGAPORE]: {
     meta: {
@@ -76,6 +111,7 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
       center: [103.81561802376315, 1.3498842996482667],
       dataPath: '/tags/ride/singapore.json'
     },
-    galleryToken: SINGAPORE_ALBUM_TOKEN
+    galleryToken: SINGAPORE_ALBUM_TOKEN,
+    youtubes: []
   }
 }

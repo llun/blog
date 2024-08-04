@@ -7,6 +7,7 @@ import RideStats from '../../../../../components/RideStats'
 import RideTitle from '../../../../../components/RideTitle'
 
 import { COUNTRIES_DATA, COUNTRY } from '../countries'
+import RideVideos from '@/components/RideVideos'
 
 interface Props {
   params: { country: string }
@@ -32,6 +33,7 @@ const Ride = ({ params }: Props) => {
       <RideTitle icon={icon} />
       <RideStats stats={rideStat} />
       <RideMap {...map} />
+      <RideVideos videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
     </main>
   )
 }
