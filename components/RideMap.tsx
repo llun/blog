@@ -8,6 +8,7 @@ import { MAPBOX_PUBLIC_KEY } from '../libs/config'
 import style from './RideMap.module.css'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { YoutubeVideo } from './RideVideos'
 
 interface Props {
   zoomLevels: [number, number, number]
@@ -15,6 +16,7 @@ interface Props {
   maxZoom?: number
   center: [number, number]
   dataPath: string
+  videos: YoutubeVideo[]
 }
 
 const RideMap: FC<Props> = ({
@@ -22,7 +24,8 @@ const RideMap: FC<Props> = ({
   minZoom,
   maxZoom,
   center,
-  dataPath
+  dataPath,
+  videos
 }) => {
   const mapEl = useRef<HTMLDivElement>(null)
   mapboxgl.accessToken = MAPBOX_PUBLIC_KEY
@@ -61,10 +64,24 @@ const RideMap: FC<Props> = ({
           'line-cap': 'round'
         },
         paint: {
-          'line-color': 'red',
+          'line-color': '#ff2c2c',
           'line-width': 2
         }
       })
+      for (const video of videos) {
+        const link = document.createElement('a')
+        link.href = video.url
+        link.target = '_blank'
+
+        const image = document.createElement('img')
+        image.src = '/img/icons/television.png'
+        image.width = 32
+        image.height = 32
+        image.style.border = '0'
+        link.appendChild(image)
+
+        new mapboxgl.Marker(link).setLngLat(video.coordinates).addTo(map)
+      }
     })
   })
 
