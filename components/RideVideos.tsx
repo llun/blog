@@ -4,7 +4,9 @@ import React, { FC } from 'react'
 
 export interface YoutubeVideo {
   title: string
+  poster: string
   url: string
+  stravaLink: string
   coordinates: [number, number]
 }
 
