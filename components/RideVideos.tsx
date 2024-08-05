@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import React, { FC } from 'react'
 
 export interface YoutubeVideo {
@@ -25,6 +26,10 @@ const RideVideos: FC<Props> = ({ videos }) => {
           <li key={video.url}>
             <a href={video.url} target="_blank">
               {video.title}
+            </a>
+            ,&nbsp;
+            <a href={video.stravaLink} target="_blank">
+              Strava
             </a>
           </li>
         ))}
