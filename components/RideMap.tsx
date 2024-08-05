@@ -1,6 +1,6 @@
 'use client'
 
-import mapboxgl from 'mapbox-gl'
+import mapboxgl, { Map } from 'mapbox-gl'
 import React, { FC, useEffect, useRef } from 'react'
 
 import { MAPBOX_PUBLIC_KEY } from '../libs/config'
@@ -18,6 +18,8 @@ interface Props {
   dataPath: string
   videos: YoutubeVideo[]
 }
+
+const getMarkerScale = (map: Map) => `scale(${1 + (map.getZoom() - 8) * 0.4})`
 
 const RideMap: FC<Props> = ({
   zoomLevels,
@@ -73,14 +75,25 @@ const RideMap: FC<Props> = ({
         link.href = video.url
         link.target = '_blank'
 
+        const container = document.createElement('div')
+        container.className = style.markerContainer
+        container.style.transform = getMarkerScale(map)
+
+        const item = document.createElement('div')
+        item.className = style.markerItem
+
         const image = document.createElement('img')
-        image.src = '/img/icons/television.png'
-        image.width = 32
-        image.height = 32
-        image.style.border = '0'
-        link.appendChild(image)
+        image.src = video.poster
+        image.className = style.markerImage
+        item.appendChild(image)
+        container.appendChild(item)
+
+        link.appendChild(container)
 
         new mapboxgl.Marker(link).setLngLat(video.coordinates).addTo(map)
+        map.on('zoom', () => {
+          container.style.transform = getMarkerScale(map)
+        })
       }
     })
   })
