@@ -129,6 +129,13 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
         coordinates: [5.051349404293454, 52.64134558426742],
         stravaLink: 'https://www.strava.com/activities/11394487478',
         poster: '/tags/ride/youtube/20240512-ride.jpg'
+      },
+      {
+        title: '11 May 2024, Breda to Middelburg',
+        url: 'https://youtu.be/TTeXQkr80sI',
+        coordinates: [4.235758189116446, 51.4291230484402],
+        stravaLink: 'https://www.strava.com/activities/11384232754',
+        poster: '/tags/ride/youtube/20240511-ride.jpg'
       }
     ]
   },
