@@ -122,6 +122,13 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
         coordinates: [5.153654423152908, 51.515585554937815],
         stravaLink: 'https://www.strava.com/activities/11499916773',
         poster: '/tags/ride/youtube/20240526-ride.jpg'
+      },
+      {
+        title: '12 May 2024, Amsterdam to Hoorn',
+        url: 'https://youtu.be/xQK4unlnIHg',
+        coordinates: [5.051349404293454, 52.64134558426742],
+        stravaLink: 'https://www.strava.com/activities/11394487478',
+        poster: '/tags/ride/youtube/20240512-ride.jpg'
       }
     ]
   },
