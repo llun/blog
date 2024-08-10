@@ -61,6 +61,13 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
     galleryToken: NETHERLANDS_ALBUM_TOKEN,
     youtubes: [
       {
+        title: '10 August 2024, Quick Muiden ride',
+        url: 'https://youtu.be/ALWSQy0uKfY',
+        coordinates: [4.98490924517493, 52.35172597871807],
+        stravaLink: 'https://www.strava.com/activities/12109299754',
+        poster: '/tags/ride/youtube/20240810-ride.jpg'
+      },
+      {
         title: '3 August 2024, Rotterdam - Den Haag and Dune',
         url: 'https://youtu.be/Knsq_lF0Y3c',
         coordinates: [4.4004438045655, 52.21077457877102],
