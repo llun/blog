@@ -108,6 +108,13 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
         coordinates: [5.577499174310558, 51.955453248549496],
         stravaLink: 'https://www.strava.com/activities/11853990929',
         poster: '/tags/ride/youtube/20240710-ride.jpg'
+      },
+      {
+        title: '9 June 2024 ride, Amsterdam to Utrecht',
+        url: 'https://youtu.be/r1xC8pEV_b0',
+        coordinates: [5.11505091108174, 52.08882279220756],
+        stravaLink: 'https://www.strava.com/activities/11611341231',
+        poster: '/tags/ride/youtube/20240609-ride.jpg'
       }
     ]
   },
