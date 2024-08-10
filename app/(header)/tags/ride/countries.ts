@@ -115,6 +115,13 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
         coordinates: [5.11505091108174, 52.08882279220756],
         stravaLink: 'https://www.strava.com/activities/11611341231',
         poster: '/tags/ride/youtube/20240609-ride.jpg'
+      },
+      {
+        title: '26 May 2024 ride, Eindhoven to Breda',
+        url: 'https://youtu.be/Hn4jeAXvIgk',
+        coordinates: [5.153654423152908, 51.515585554937815],
+        stravaLink: 'https://www.strava.com/activities/11499916773',
+        poster: '/tags/ride/youtube/20240526-ride.jpg'
       }
     ]
   },
