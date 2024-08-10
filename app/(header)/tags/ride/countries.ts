@@ -166,6 +166,28 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
       dataPath: '/tags/ride/singapore.json'
     },
     galleryToken: SINGAPORE_ALBUM_TOKEN,
-    youtubes: []
+    youtubes: [
+      {
+        title: '19 January 2019, Mandai loop',
+        url: 'https://youtu.be/OBg438lu_NY',
+        coordinates: [103.77928208799975, 1.4108291407126594],
+        stravaLink: 'https://www.strava.com/activities/2090462749',
+        poster: '/tags/ride/youtube/20190120-ride.jpg'
+      },
+      {
+        title: '16 January 2019, Circuit road to Block 71',
+        url: 'https://youtu.be/ZCLUXgg3X_o',
+        coordinates: [103.85590255773636, 1.2773641414582162],
+        stravaLink: 'https://www.strava.com/activities/2081525549',
+        poster: '/tags/ride/youtube/20190116-ride.jpg'
+      },
+      {
+        title: '8 December 2018, Changi loop',
+        url: 'https://youtu.be/1OPPIgVJVrc',
+        coordinates: [104.02311581753212, 1.3361024059127566],
+        stravaLink: 'https://www.strava.com/activities/2005566091',
+        poster: '/tags/ride/youtube/20181208-ride.jpg'
+      }
+    ]
   }
 }
