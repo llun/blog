@@ -136,6 +136,13 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
         coordinates: [4.235758189116446, 51.4291230484402],
         stravaLink: 'https://www.strava.com/activities/11384232754',
         poster: '/tags/ride/youtube/20240511-ride.jpg'
+      },
+      {
+        title: '9 March 2024, Middelburg to Rotterdam',
+        url: 'https://youtu.be/ODh4cTITV_Y',
+        coordinates: [3.858254926463255, 51.76615307633068],
+        stravaLink: 'https://www.strava.com/activities/10923238272',
+        poster: '/tags/ride/youtube/20240309-ride.jpg'
       }
     ]
   },
