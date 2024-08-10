@@ -187,6 +187,27 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
         coordinates: [104.02311581753212, 1.3361024059127566],
         stravaLink: 'https://www.strava.com/activities/2005566091',
         poster: '/tags/ride/youtube/20181208-ride.jpg'
+      },
+      {
+        title: '2 December 2018, Singapore 100km round island',
+        url: 'https://youtu.be/q57N3-i-fcw',
+        coordinates: [103.69397260109879, 1.369388816066645],
+        stravaLink: 'https://www.strava.com/activities/1995344946',
+        poster: '/tags/ride/youtube/20181202-ride.jpg'
+      },
+      {
+        title: '17 November 2018, East-West ride',
+        url: 'https://youtu.be/gwd5_NcNlfk',
+        coordinates: [103.63723927476568, 1.3413214237097926],
+        stravaLink: 'https://www.strava.com/activities/1969704152',
+        poster: '/tags/ride/youtube/20181117-ride.jpg'
+      },
+      {
+        title: '10 November 2018, Sentosa loop',
+        url: 'https://youtu.be/hDMC7oB5WMI',
+        coordinates: [103.82496725449893, 1.2513348952756036],
+        stravaLink: 'https://www.strava.com/activities/1955625683',
+        poster: '/tags/ride/youtube/20181110-ride.jpg'
       }
     ]
   }
