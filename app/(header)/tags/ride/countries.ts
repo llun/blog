@@ -1,11 +1,8 @@
-import { getConfig } from '../../../../libs/blog'
-import {
-  NETHERLANDS_ALBUM_TOKEN,
-  SINGAPORE_ALBUM_TOKEN
-} from '../../../../libs/config'
-import rideStats from '../../../../public/tags/ride/stats.json'
-
+import { getConfig } from '@/libs/blog'
+import { NETHERLANDS_ALBUM_TOKEN, SINGAPORE_ALBUM_TOKEN } from '@/libs/config'
 import { YoutubeVideo } from '@/components/RideVideos'
+
+import rideStats from '../../../../public/tags/ride/stats.json'
 
 const config = getConfig()
 const { title, description, url } = config

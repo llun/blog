@@ -3,7 +3,7 @@
 import mapboxgl, { Map } from 'mapbox-gl'
 import React, { FC, useEffect, useRef } from 'react'
 
-import { MAPBOX_PUBLIC_KEY } from '../libs/config'
+import { MAPBOX_PUBLIC_KEY } from '@/libs/config'
 
 import style from './RideMap.module.css'
 
