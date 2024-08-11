@@ -58,6 +58,13 @@ export const COUNTRIES_DATA: Record<COUNTRY, CountryData> = {
     galleryToken: NETHERLANDS_ALBUM_TOKEN,
     youtubes: [
       {
+        title: '11 August 2024, Brompton social ride',
+        url: 'https://youtu.be/Jl9EEPb-ND0',
+        coordinates: [5.045952124862415, 52.30725095800632],
+        stravaLink: 'https://www.strava.com/activities/12120093087',
+        poster: '/tags/ride/youtube/20240811-ride.jpg'
+      },
+      {
         title: '10 August 2024, Quick Muiden ride',
         url: 'https://youtu.be/ALWSQy0uKfY',
         coordinates: [4.98490924517493, 52.35172597871807],
