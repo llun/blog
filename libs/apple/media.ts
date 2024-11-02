@@ -50,6 +50,7 @@ export function getMediaList(stream: Stream): Media[] {
 }
 
 export async function proxyAssetsUrl(
+  partition: number,
   token: string,
   medias: Media[]
 ): Promise<Assets | null> {
@@ -58,6 +59,7 @@ export async function proxyAssetsUrl(
       ? 'https://next.llun.dev/api/apple/'
       : `http://${globalThis.location.host}/api/apple/`
   const body: AssetsRequest = {
+    partition,
     token,
     photoGuids: medias.map((media) => media.guid)
   }

@@ -4,6 +4,7 @@ import { fetchAssetsUrl } from '../../../libs/apple/webstream'
 import { ALLOW_TOKEN_IDS } from '../../../libs/config'
 
 export interface AssetsRequest {
+  partition: number
   token: string
   photoGuids: string[]
 }
@@ -30,7 +31,11 @@ export async function POST(request: NextRequest) {
     })
   }
 
-  const response = await fetchAssetsUrl(body.token, body.photoGuids)
+  const response = await fetchAssetsUrl(
+    body.partition,
+    body.token,
+    body.photoGuids
+  )
   if (!response || !response.body) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,

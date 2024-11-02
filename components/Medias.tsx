@@ -26,11 +26,12 @@ function canLoadPhoto(
 }
 
 interface Props {
+  partition: number
   token: string
   medias: Media[]
 }
 
-const Medias: FC<Props> = ({ token, medias }) => {
+const Medias: FC<Props> = ({ partition, token, medias }) => {
   const [photoState, setPhotoState] = useState<PhotoState>(PhotoState.IDLE)
   const [photos, setPhotos] = useState<Media[]>(medias.slice(0, BatchSize * 2))
   const [selectedMedia, setSelectedMedia] = useState<{
@@ -42,7 +43,7 @@ const Medias: FC<Props> = ({ token, medias }) => {
   useEffect(() => {
     setPhotoState(PhotoState.LOADING)
     const firstBatch = medias.slice(0, BatchSize * 2)
-    proxyAssetsUrl(token, firstBatch).then((assets) => {
+    proxyAssetsUrl(partition, token, firstBatch).then((assets) => {
       if (!assets) return
 
       setPhotoState(PhotoState.IDLE)
@@ -60,7 +61,7 @@ const Medias: FC<Props> = ({ token, medias }) => {
         // Load next batch
         setPhotoState(PhotoState.LOADING)
         const next = medias.slice(photos.length, photos.length + BatchSize)
-        const assets = await proxyAssetsUrl(token, next)
+        const assets = await proxyAssetsUrl(partition, token, next)
         if (!assets) {
           // setPhotoState(PhotoState.IDLE)
           return

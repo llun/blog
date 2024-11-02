@@ -38,6 +38,7 @@ export interface Stream {
   userFirstName: string
   streamName: string
   photos: Photo[]
+  partition: number
 }
 
 export interface Assets {
@@ -60,6 +61,8 @@ export const VideoPosterDerivative = 'PosterFrame'
 export const Video720p = '720p'
 export const Video360p = '360p'
 
+const PhotoAppUserAgent =
+  'Photos/5.0 (Macintosh; OS X 10.15.4) AppleWebKit/605.1.15'
 const Base62Charset =
   '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
@@ -90,29 +93,43 @@ function getStreamBaseUrl(token: string) {
  *  https://www.icloud.com/sharedalbum/#B125ON9t3mbLNC id is B125ON9t3mbLNC
  */
 export async function fetchStream(token: string): Promise<Stream | null> {
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/plain',
+      'Cache-Control': 'no-cache',
+      'User-Agent': PhotoAppUserAgent
+    },
+    body: JSON.stringify({ streamCtag: null })
+  }
   const response = await fetch(
     `${getStreamBaseUrl(token)}/${token}/sharedstreams/webstream`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/plain',
-        'Cache-Control': 'no-cache',
-        'User-Agent':
-          'Photos/5.0 (Macintosh; OS X 10.15.4) AppleWebKit/605.1.15'
-      },
-      body: JSON.stringify({ streamCtag: null })
-    }
+    requestOptions
   )
+  if (response.status === 330) {
+    const data = await response.json()
+    const newPartition = response.headers.get('x-apple-user-partition')
+    const redirectResponse = await fetch(
+      `https://${data['X-Apple-MMe-Host']}/${token}/sharedstreams/webstream`,
+      requestOptions
+    )
+
+    return {
+      ...(await redirectResponse.json()),
+      partition: parseInt(newPartition || '0', 10)
+    }
+  }
   if (response.status !== 200) return null
-  return response.json()
+  return { ...(await response.json()), partition: getPartitionFromToken(token) }
 }
 
 export async function fetchAssetsUrl(
+  partition: number,
   token: string,
   photoGuids: string[]
 ): Promise<Response | null> {
   const response = await fetch(
-    `${getStreamBaseUrl(token)}/${token}/sharedstreams/webasseturls`,
+    `https://p${partition}-sharedstreams.icloud.com/${token}/sharedstreams/webasseturls`,
     {
       headers: {
         'cache-control': 'no-cache',

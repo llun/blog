@@ -41,7 +41,11 @@ const RideGallery = async ({ params }: Props) => {
     <main>
       <RideTitle icon={icon} />
       <RideStats stats={rideStat} />
-      <Medias token={galleryToken} medias={medias} />
+      <Medias
+        partition={stream?.partition ?? 0}
+        token={galleryToken}
+        medias={medias}
+      />
     </main>
   )
 }

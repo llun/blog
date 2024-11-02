@@ -13,12 +13,12 @@ export const generateStaticParams = async () => {
 }
 
 interface Props {
-  params: { name: string }
+  params: Promise<{ name: string }>
 }
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
-  const { name } = params
+  const { name } = await params
   const { title, description, url } = getConfig()
   const data = await getAlbum(name)
   if (!data) {
@@ -35,11 +35,11 @@ export const generateMetadata = async ({
 }
 
 const Gallery = async ({ params }: Props) => {
-  const { name } = params
+  const { name } = await params
   const data = await getAlbum(name)
   if (!data) return null
 
-  const { album, medias } = data
+  const { partition, album, medias } = data
   return (
     <main>
       <h2 className={style.title}>{album.title}</h2>
@@ -49,7 +49,7 @@ const Gallery = async ({ params }: Props) => {
           dangerouslySetInnerHTML={{ __html: album.content }}
         />
       )}
-      <Medias token={album.token} medias={medias} />
+      <Medias partition={partition} token={album.token} medias={medias} />
     </main>
   )
 }

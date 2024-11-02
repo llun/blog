@@ -109,6 +109,7 @@ export const getAlbum = memoize(async (name: string) => {
     : []
   return {
     album,
-    medias
+    medias,
+    partition: stream?.partition ?? 0
   }
 })
