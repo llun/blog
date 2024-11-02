@@ -50,7 +50,7 @@ const Medias: FC<Props> = ({ partition, token, medias }) => {
       mergeMediaAssets(firstBatch, assets)
       setPhotos(firstBatch)
     })
-  }, [token, medias])
+  }, [partition, token, medias])
 
   useEffect(() => {
     if (!photoDom.current) return
@@ -74,7 +74,7 @@ const Medias: FC<Props> = ({ partition, token, medias }) => {
     })
     intersectionObserver.observe(photoDom.current)
     return () => intersectionObserver.disconnect()
-  }, [token, medias, photos, photoState])
+  }, [partition, token, medias, photos, photoState])
 
   if (!photos.length) return null
 

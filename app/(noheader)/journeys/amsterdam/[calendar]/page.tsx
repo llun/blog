@@ -11,11 +11,11 @@ export const generateStaticParams = async () => {
 }
 
 interface Props {
-  params: { calendar: string }
+  params: Promise<{ calendar: string }>
 }
 
 const CalendarPage: FC<Props> = async ({ params }) => {
-  const { calendar } = params
+  const { calendar } = await params
   const currentCalendar = await getCalendar(calendar)
   const calendars = await getAllCalendars()
   return <MainContent calendars={calendars} currentCalendar={currentCalendar} />

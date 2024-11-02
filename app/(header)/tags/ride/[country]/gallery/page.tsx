@@ -11,7 +11,7 @@ import { fetchStream } from '../../../../../../libs/apple/webstream'
 import { COUNTRIES_DATA, COUNTRY } from '../../countries'
 
 interface Props {
-  params: { country: string }
+  params: Promise<{ country: string }>
 }
 
 export const generateStaticParams = async () => {
@@ -21,13 +21,13 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
-  const { country } = params
+  const { country } = await params
   const { meta } = COUNTRIES_DATA[country as COUNTRY]
   return getMetadata(meta)
 }
 
 const RideGallery = async ({ params }: Props) => {
-  const { country } = params
+  const { country } = await params
   const { icon, rideStat, galleryToken } = COUNTRIES_DATA[country as COUNTRY]
 
   const stream = await fetchStream(galleryToken)

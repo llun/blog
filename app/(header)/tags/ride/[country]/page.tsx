@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import React from 'react'
+import React, { use } from 'react'
 
 import { getMetadata } from '../../../../../components/Meta'
 import RideMap from '../../../../../components/RideMap'
@@ -10,7 +10,7 @@ import { COUNTRIES_DATA, COUNTRY } from '../countries'
 import RideVideos from '@/components/RideVideos'
 
 interface Props {
-  params: { country: string }
+  params: Promise<{ country: string }>
 }
 
 export const generateStaticParams = async () => {
@@ -20,13 +20,13 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
-  const { country } = params
+  const { country } = await params
   const { meta } = COUNTRIES_DATA[country as COUNTRY]
   return getMetadata(meta)
 }
 
 const Ride = ({ params }: Props) => {
-  const { country } = params
+  const { country } = use(params)
   const { icon, rideStat, map } = COUNTRIES_DATA[country as COUNTRY]
   return (
     <main>

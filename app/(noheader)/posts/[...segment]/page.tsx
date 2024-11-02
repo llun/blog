@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import path from 'path'
-import React from 'react'
+import React, { use } from 'react'
 
 import { getMetadata } from '../../../../components/Meta'
 import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
@@ -22,7 +22,7 @@ const getPost = (segment: string) => {
 }
 
 interface Props {
-  params: { segment: string }
+  params: Promise<{ segment: string }>
 }
 
 export const generateStaticParams = async () => {
@@ -35,7 +35,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
-  const { segment } = params
+  const { segment } = await params
   const { url, title, description } = getConfig()
   const post = getPost(segment)
   if (!post) {
@@ -58,7 +58,7 @@ export const generateMetadata = async ({
 }
 
 const Post = ({ params }: Props) => {
-  const { segment } = params
+  const { segment } = use(params)
   const post = getPost(segment)
   if (!post) {
     return notFound()

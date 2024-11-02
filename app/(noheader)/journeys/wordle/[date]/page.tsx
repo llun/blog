@@ -4,9 +4,9 @@ import { englishResult, englishResults } from '../../../../../libs/wordle'
 import { MainContent } from '../MainContent'
 
 interface Props {
-  params: {
+  params: Promise<{
     date: string
-  }
+  }>
 }
 
 export const generateStaticParams = async () => {
@@ -17,7 +17,7 @@ export const generateStaticParams = async () => {
 }
 
 const WordlePage: FC<Props> = async ({ params }) => {
-  const { date } = params
+  const { date } = await params
   const [list, result] = await Promise.all([
     englishResults(),
     englishResult(date)

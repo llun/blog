@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import Link from 'next/link'
 import path from 'path'
-import React from 'react'
+import React, { use } from 'react'
 
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -11,7 +11,7 @@ import { getAllJourneys, parseJourney } from '../../../../libs/journey'
 import style from './journey.module.css'
 
 interface Props {
-  params: { title: string }
+  params: Promise<{ title: string }>
 }
 
 const getJourney = _.memoize((title: string) => {
@@ -31,7 +31,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
-  const { title } = params
+  const { title } = await params
   const { title: configTitle, description, url } = getConfig()
   const data = getJourney(title)
   if (!data) {
@@ -47,7 +47,7 @@ export const generateMetadata = async ({
 }
 
 const Journey = ({ params }: Props) => {
-  const { title } = params
+  const { title } = use(params)
   const journey = getJourney(title)
   if (!journey) {
     return notFound()

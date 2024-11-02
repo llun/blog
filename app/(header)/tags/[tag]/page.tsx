@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import React from 'react'
+import React, { use } from 'react'
 
 import { getMetadata } from '../../../../components/Meta'
 import PostList from '../../../../components/PostList'
@@ -13,7 +13,7 @@ const getTagTitle = (tag: string) =>
   [tag[0].toLocaleUpperCase(), tag.slice(1)].join('')
 
 interface Props {
-  params: { tag: string }
+  params: Promise<{ tag: string }>
 }
 
 export const generateStaticParams = async () => {
@@ -23,7 +23,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
-  const { tag } = params
+  const { tag } = await params
   const { url, title, description } = getConfig()
   return getMetadata({
     url,
@@ -33,7 +33,7 @@ export const generateMetadata = async ({
 }
 
 const Tag = ({ params }: Props) => {
-  const { tag } = params
+  const { tag } = use(params)
   const posts = getAllPosts()
     .filter((post) => post.file.category === tag)
     .sort(postDescendingComparison)
