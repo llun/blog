@@ -101,7 +101,7 @@ export const NETHERLANDS: CountryData = {
     {
       title: '10 July 2024 ride, Den Bosch to Appeldoorn',
       url: 'https://youtu.be/cknx2SFbc0o',
-      coordinates: [5.577499174310558, 51.955453248549496],
+      coordinates: [5.2957564560215795, 51.690566280864395],
       stravaLink: 'https://www.strava.com/activities/11853990929',
       poster: '/tags/ride/youtube/20240710-ride.jpg'
     },
