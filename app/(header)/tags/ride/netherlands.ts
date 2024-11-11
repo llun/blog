@@ -31,7 +31,7 @@ export const NETHERLANDS: CountryData = {
     {
       title: '9 November 2024, Bennekom (NL) to Kleve (D)',
       url: 'https://youtu.be/yUEYRfuwuMM',
-      coordinates: [5.980620849645411, 51.78567736248717],
+      coordinates: [6.126446609578506, 51.799392113393004],
       stravaLink: 'https://www.strava.com/activities/12863375856',
       poster: '/tags/ride/youtube/20241109-ride.jpg'
     },
