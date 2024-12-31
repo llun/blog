@@ -1,7 +1,7 @@
 import { type NextRequest } from 'next/server'
 
 import { fetchAssetsUrl } from '../../../libs/apple/webstream'
-import { ALLOW_TOKEN_IDS } from '../../../libs/config'
+import { ALLOW_ORIGINS, ALLOW_TOKEN_IDS } from '../../../libs/config'
 
 export interface AssetsRequest {
   partition: number
@@ -9,35 +9,39 @@ export interface AssetsRequest {
   photoGuids: string[]
 }
 
-const HEADERS =
-  process.env.NODE_ENV === 'production'
-    ? {
-        'Access-Control-Allow-Origin': 'https://www.llun.me',
-        'Content-Type': 'application/json',
-        'Cache-Control': 's-maxage=3600, stale-while-revalidate=3600'
-      }
-    : {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
-      }
+const getHeaders = (request: NextRequest) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+      'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
+    }
+  }
+
+  const origin = request.headers.get('origin') ?? ''
+  if (!ALLOW_ORIGINS.includes(origin)) {
+    return {
+      'Access-Control-Allow-Origin': 'https://www.llun.me',
+      'Content-Type': 'application/json',
+      'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
+    }
+  }
+
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Content-Type': 'application/json',
+    'Cache-Control': 's-maxage=3600, stale-while-revalidate=3600'
+  }
+}
 
 export async function POST(request: NextRequest) {
   const body = (await request.json()) as AssetsRequest
 
-  // if (!ALLOW_ORIGINS.includes(request.headers.get('origin') ?? '')) {
-  //   return new Response(JSON.stringify({ error: 'Not Found' }), {
-  //     status: 404,
-  //     headers: HEADERS
-  //   })
-  // }
-
-  console.log('Origin = ', request.headers.get('origin') ?? '')
-
+  const headers = getHeaders(request)
   if (!ALLOW_TOKEN_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
-      headers: HEADERS
+      headers
     })
   }
 
@@ -49,7 +53,7 @@ export async function POST(request: NextRequest) {
   if (!response || !response.body) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
-      headers: HEADERS
+      headers
     })
   }
 
@@ -74,6 +78,6 @@ export async function POST(request: NextRequest) {
 
   return new Response(readable, {
     status: 200,
-    headers: HEADERS
+    headers
   })
 }
