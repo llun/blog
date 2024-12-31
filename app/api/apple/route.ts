@@ -3,6 +3,8 @@ import { type NextRequest } from 'next/server'
 import { fetchAssetsUrl } from '../../../libs/apple/webstream'
 import { ALLOW_TOKEN_IDS } from '../../../libs/config'
 
+export const ALLOW_ORIGINS = ['https://www.llun.me', 'https://tomaz.llun.me']
+
 export interface AssetsRequest {
   partition: number
   token: string
@@ -24,6 +26,16 @@ const HEADERS =
 
 export async function POST(request: NextRequest) {
   const body = (await request.json()) as AssetsRequest
+
+  // if (!ALLOW_ORIGINS.includes(request.headers.get('origin') ?? '')) {
+  //   return new Response(JSON.stringify({ error: 'Not Found' }), {
+  //     status: 404,
+  //     headers: HEADERS
+  //   })
+  // }
+
+  console.log('Origin = ', request.headers.get('origin') ?? '')
+
   if (!ALLOW_TOKEN_IDS.includes(body.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
