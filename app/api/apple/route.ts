@@ -3,8 +3,6 @@ import { type NextRequest } from 'next/server'
 import { fetchAssetsUrl } from '../../../libs/apple/webstream'
 import { ALLOW_TOKEN_IDS } from '../../../libs/config'
 
-export const ALLOW_ORIGINS = ['https://www.llun.me', 'https://tomaz.llun.me']
-
 export interface AssetsRequest {
   partition: number
   token: string

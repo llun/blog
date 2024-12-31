@@ -52,3 +52,5 @@ export const ALLOW_TOKEN_IDS = [
 
   TOMAZ_ALBUM_TOKEN
 ]
+
+export const ALLOW_ORIGINS = ['https://www.llun.me', 'https://tomaz.llun.me']
