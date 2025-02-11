@@ -102,8 +102,7 @@ const Medias: FC<Props> = ({ partition, token, medias }) => {
       {photos.map((media, index) => {
         const shouldBeBig = index % 13 === 0
         const keys = Object.keys(media.derivatives)
-        const key =
-          media.type === 'video' ? VideoPosterDerivative : keys[keys.length - 1]
+        const key = media.type === 'video' ? VideoPosterDerivative : keys[0]
         const backgroundImage =
           media.derivatives[key].url && `url(${media.derivatives[key].url})`
 
