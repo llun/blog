@@ -24,12 +24,22 @@ const Gallery = () => {
       <div className={style.list}>
         {albums.map(({ name, image, description, title: albumTitle }) => (
           <Link key={name} href={`/gallery/${name}`}>
-            <Image
-              src={`/gallery/${image}`}
-              width={512}
-              height={512}
-              alt={description}
-            />
+            <picture>
+              <source
+                srcSet={`/gallery/${image.replace('.jpg', '.avif')}`}
+                type="image/avif"
+              />
+              <source
+                srcSet={`/gallery/${image.replace('.jpg', '.webp')}`}
+                type="image/webp"
+              />
+              <img
+                width={512}
+                height={512}
+                src={`/gallery/${image}`}
+                alt={description}
+              />
+            </picture>
             <h3>{albumTitle}</h3>
           </Link>
         ))}
