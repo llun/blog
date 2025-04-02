@@ -35,11 +35,9 @@ const RootLayout = ({ children }: Props) => {
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative flex min-h-dvh flex-col bg-background">
+          <div className="layout-div">
             <Header title={title} url={url} />
-            <main className="container mx-auto max-w-5xl flex-1 px-4 py-8">
-              {children}
-            </main>
+            <main className="main-container">{children}</main>
           </div>
           <Modal />
         </ThemeProvider>

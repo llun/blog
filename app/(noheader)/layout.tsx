@@ -32,7 +32,7 @@ interface Props {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="prose prose-neutral antialiased">
+      <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
