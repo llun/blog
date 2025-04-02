@@ -33,7 +33,7 @@ const RootLayout = ({ children }: Props) => {
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased min-h-screen bg-background">
+      <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="relative flex min-h-dvh flex-col bg-background">
             <Header title={title} url={url} />

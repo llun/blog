@@ -1,0 +1,29 @@
+@layer components {
+  .header {
+    @apply sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60;
+  }
+
+  .header-container {
+    @apply container mx-auto flex h-14 max-w-5xl items-center justify-between px-4;
+  }
+
+  .logo-link {
+    @apply mr-6 flex items-center space-x-2;
+  }
+
+  .logo-text {
+    @apply text-lg sm:inline-block;
+  }
+
+  .nav-container {
+    @apply flex flex-1 items-center justify-end space-x-2;
+  }
+
+  .nav-bar {
+    @apply flex items-center gap-1 md:gap-2;
+  }
+
+  .nav-link {
+    @apply inline-flex items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-3;
+  }
+}
