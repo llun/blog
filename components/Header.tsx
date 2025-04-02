@@ -88,7 +88,7 @@ type Props = {
 }
 
 const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
-  <header className="header-base">
+  <header className="header">
     <div className="header-container">
       <Link href={url} className="logo-link">
         <span className="logo-text">{title}</span>
