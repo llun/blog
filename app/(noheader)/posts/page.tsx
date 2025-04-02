@@ -22,8 +22,8 @@ const Posts = () => {
   const posts = getAllPosts().sort(postDescendingComparison)
 
   return (
-    <main>
-      <h2>All Posts</h2>
+    <main className="main-container space-y-8">
+      <h2 className="text-4xl">All Posts</h2>
       <PostList posts={posts} />
     </main>
   )
