@@ -13,6 +13,7 @@
   "author": "Maythee Anegboonlap <contact@llun.dev>",
   "license": "UNLICENSED",
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.2",
     "classnames": "^2.5.1",
     "exif-js": "^2.3.0",
     "json5": "^2.2.3",

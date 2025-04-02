@@ -37,10 +37,11 @@
   }
 
   a {
-    @apply text-primary underline text-sky-600;
+    @apply text-primary underline text-sky-700;
   }
 
   a:visited {
     @apply text-sky-900;
   }
+
 }

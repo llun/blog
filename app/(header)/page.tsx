@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-
+import { ArrowRight } from 'lucide-react'
 import PostList from '../../components/PostList'
 import {
   generateFeeds,
@@ -16,9 +16,12 @@ const Index = () => {
   return (
     <main>
       <PostList posts={posts} />
-      <p>
-        More posts can be found in <Link href="/posts/">the archive</Link>
-      </p>
+      <div className="text-center mt-8">
+        <Link href="/posts/" className="all-posts-link">
+          View all posts
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
     </main>
   )
 }
