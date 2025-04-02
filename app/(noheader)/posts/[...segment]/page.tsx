@@ -1,12 +1,15 @@
 import { Metadata } from 'next'
 import path from 'path'
 import React, { use } from 'react'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { ArrowLeft } from 'lucide-react'
+
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 import { getMetadata } from '../../../../components/Meta'
 import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
 
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
 import style from './post.module.css'
 
 const getPost = (segment: string) => {
@@ -66,10 +69,17 @@ const Post = ({ params }: Props) => {
 
   const { properties, content } = post
   return (
-    <main className={style.post}>
-      <p>
-        <Link href="/">← Home</Link>
-      </p>
+    <main className="main-container">
+      <div className="flex items-center justify-between">
+        <Link
+          className="inline-flex items-center gap-1 text-lg font-light"
+          href="/"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back
+        </Link>
+        <ThemeToggle />
+      </div>
 
       <div className={style.title}>
         <h1>{properties.title}</h1>

@@ -37,11 +37,12 @@
   }
 
   a {
-    @apply text-primary underline text-sky-700;
+    @apply underline;
+    color: var(--link);
   }
 
   a:visited {
-    @apply text-sky-900;
+    color: var(--link-visited);
   }
 
 }
