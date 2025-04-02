@@ -1,0 +1,9 @@
+@layer components {
+  .layout-div {
+    @apply relative flex min-h-dvh flex-col bg-background
+  }
+
+  .main-container {
+    @apply container mx-auto max-w-5xl flex-1 px-4 py-8;
+  }
+}

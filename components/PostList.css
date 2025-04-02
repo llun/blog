@@ -1,0 +1,17 @@
+@layer components {
+  .post-list {
+    @apply space-y-4;
+  }
+
+  .post-list-item {
+    @apply flex items-baseline gap-4;
+  }
+
+  .post-list-item-date {
+    @apply text-sm text-muted-foreground w-24 flex-shrink-0;
+  }
+
+  .post-list-item-title {
+    @apply text-2xl font-light hover:underline truncate;
+  }
+}

@@ -86,4 +86,8 @@
 }
 
 @import "./base.css";
-@import "./header.css";
+
+@import "../../app/(header)/layout.css";
+
+@import "../../components/header.css";
+@import "../../components/PostList.css";
