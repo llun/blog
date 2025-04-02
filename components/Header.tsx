@@ -1,5 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
+import { ThemeToggle } from './ThemeToggle'
 import style from './Header.module.css'
 
 export type Page = {
@@ -9,6 +13,7 @@ export type Page = {
     alt: string
   }
   title: string
+  icon: LucideIcon | (() => React.ReactNode)
   target?: '_blank'
 }
 const DEFAULT_PAGES: Page[] = [
@@ -18,6 +23,7 @@ const DEFAULT_PAGES: Page[] = [
       src: '/img/icons/ride.png',
       alt: `navigation icon for riding post`
     },
+    icon: Bike,
     title: 'Ride'
   },
   {
@@ -26,6 +32,7 @@ const DEFAULT_PAGES: Page[] = [
       src: '/img/icons/dev.png',
       alt: `navigation icon for dev post`
     },
+    icon: Computer,
     title: 'Dev'
   },
   {
@@ -34,6 +41,7 @@ const DEFAULT_PAGES: Page[] = [
       src: '/img/icons/camera.png',
       alt: `navigation icon for my photos gallery`
     },
+    icon: BookImage,
     title: 'Gallery'
   },
   {
@@ -42,6 +50,7 @@ const DEFAULT_PAGES: Page[] = [
       src: '/img/icons/all.png',
       alt: `navigation icon for journeys, story that doesn't move with time`
     },
+    icon: BookMarked,
     title: 'Journeys'
   },
   {
@@ -51,6 +60,9 @@ const DEFAULT_PAGES: Page[] = [
       alt: `navigation icon for github`
     },
     title: 'Github',
+    icon: () => (
+      <img src="/img/icons/github.png" alt="Github" className="h-5 w-5" />
+    ),
     target: '_blank'
   },
   {
@@ -60,6 +72,13 @@ const DEFAULT_PAGES: Page[] = [
       alt: 'วงแหวนเว็บ'
     },
     title: 'Webring',
+    icon: () => (
+      <img
+        src="https://www.llun.me/img/icons/webring.black.svg"
+        alt="Webring"
+        className="h-5 w-5"
+      />
+    ),
     target: '_blank'
   }
 ]
@@ -70,8 +89,35 @@ type Props = {
   pages?: Page[]
 }
 
+const NewHeader = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
+  <header className="header-base">
+    <div className="header-container">
+      <Link href={url} className="logo-link">
+        <span className="logo-text">{title}</span>
+      </Link>
+      <div className="nav-container">
+        <nav className="nav-bar">
+          {pages.map((item) => (
+            <Link
+              key={item.url}
+              href={item.url}
+              target={item.target}
+              rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
+              className={'nav-link'}
+            >
+              <item.icon className="mr-2 h-4 w-4" />
+              {item.title}
+            </Link>
+          ))}
+        </nav>
+        <ThemeToggle />
+      </div>
+    </div>
+  </header>
+)
+
 const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
-  <header>
+  <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
     <h1>
       <Link href={url} legacyBehavior>
         {title}
@@ -111,4 +157,4 @@ const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
     </nav>
   </header>
 )
-export default Header
+export default NewHeader

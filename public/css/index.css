@@ -26,8 +26,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  color: rgb(var(--content));
-  background-color: rgb(var(--background));
+  /* color: rgb(var(--content)); */
+  /* background-color: rgb(var(--background)); */
   line-height: 2rem;
   font-weight: 300;
 }
@@ -44,12 +44,12 @@ a {
 }
 
 header a[href] {
-  color: rgb(var(--content));
+  /* color: rgb(var(--content)); */
   text-decoration: none;
 }
 
 header a[href]:visited {
-  color: rgb(var(--content));
+  /* color: rgb(var(--content)); */
 }
 
 header a[href]:not(:hover) {
@@ -57,11 +57,11 @@ header a[href]:not(:hover) {
 }
 
 a[href] {
-  color: rgb(var(--link));
+  /* color: rgb(var(--link)); */
 }
 
 a[href]:visited {
-  color: rgb(var(--visited-link));
+  /* color: rgb(var(--visited-link)); */
 }
 
 pre,
