@@ -1,10 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
-import style from './Header.module.css'
 
 export type Page = {
   url: string
@@ -89,7 +87,7 @@ type Props = {
   pages?: Page[]
 }
 
-const NewHeader = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
+const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
   <header className="header-base">
     <div className="header-container">
       <Link href={url} className="logo-link">
@@ -115,46 +113,4 @@ const NewHeader = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
     </div>
   </header>
 )
-
-const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
-  <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-    <h1>
-      <Link href={url} legacyBehavior>
-        {title}
-      </Link>
-    </h1>
-    <nav className={style.nav}>
-      <ul>
-        {pages.map((page) => (
-          <li key={page.url}>
-            {page.target && (
-              <a href={page.url} target={page.target}>
-                <Image
-                  className={style.icon}
-                  {...page.image}
-                  width={26}
-                  height={26}
-                  alt={page.image.alt}
-                />
-                <span className={style.text}>{page.title}</span>
-              </a>
-            )}
-            {!page.target && (
-              <Link href={page.url}>
-                <Image
-                  className={style.icon}
-                  {...page.image}
-                  width={26}
-                  height={26}
-                  alt={page.image.alt}
-                />
-                <span className={style.text}>{page.title}</span>
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </header>
-)
-export default NewHeader
+export default Header
