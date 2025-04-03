@@ -1,0 +1,17 @@
+@layer components {
+  .post-header {
+    @apply flex items-center justify-between space-y-6;
+  }
+
+  .post-header-back-link {
+    @apply inline-flex items-center gap-1 text-lg font-light;
+  }
+
+  .post-title {
+    @apply text-4xl font-light tracking-tight lg:text-5xl;
+  }
+
+  .post-date {
+    @apply text-muted-foreground;
+  }
+}

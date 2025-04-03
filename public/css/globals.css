@@ -103,6 +103,7 @@
 
 @import "../../app/(header)/layout.css";
 @import "../../app/(header)/page.css";
+@import "../../app/(noheader)/posts/[...segment]/page.css";
 
 @import "../../components/header.css";
 @import "../../components/PostList.css";
