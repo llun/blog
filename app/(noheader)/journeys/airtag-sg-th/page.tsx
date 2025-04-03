@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
+import { ArrowLeft } from 'lucide-react'
+
+import { ThemeToggle } from '@/components/ThemeToggle'
+
 import { getMetadata } from '../../../../components/Meta'
 import { getConfig } from '../../../../libs/blog'
 import { AirTagMap } from './AirTagMap'
@@ -16,17 +20,21 @@ export const metadata: Metadata = getMetadata({
 
 const AirTagPage = () => {
   return (
-    <main>
-      <p>
-        <Link href="/journeys">← Journeys</Link>
-      </p>
+    <main className="main-container">
+      <div className="post-header">
+        <Link className="post-header-back-link" href="/journeys">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Journeys
+        </Link>
+        <ThemeToggle />
+      </div>
       <div>
-        <h1>AirTag 🇸🇬 👉 🇹🇭</h1>
+        <h1 className="post-title mb-4">AirTag 🇸🇬 👉 🇹🇭</h1>
         <AirTagMap />
 
-        <h2>Timeline</h2>
-        <h3>11 February 2022</h3>
-        <ul>
+        <h2 className="mb-2">Timeline</h2>
+        <h3 className="mb-2">11 February 2022</h3>
+        <ul className="mb-4">
           <li>
             <strong>09.45 SGT</strong> Packing everything to the box
           </li>
@@ -52,12 +60,14 @@ const AirTagPage = () => {
             </Link>
           </li>
         </ul>
-        <h3>12 - 17 February 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">12 - 17 February 2022</h3>
+        <ul className="mb-4">
           <li>Stay at K C Dat Logistics pte</li>
         </ul>
-        <h3>18 February 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">18 February 2022</h3>
+        <ul className="mb-4">
           <li>
             <strong>15.05 ICT</strong> West Coast Highway near harbourfront
             <Link href="https://goo.gl/maps/uS8J1vyZrYrDgoDj9" target="_blank">
@@ -68,16 +78,19 @@ const AirTagPage = () => {
             <strong>10.29 ICT</strong> Load to the ship
           </li>
         </ul>
-        <h3>19 - 22 February 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">19 - 22 February 2022</h3>
+        <ul className="mb-4">
           <li>In transit somewhere in the sea</li>
         </ul>
-        <h3>23 - 28 February 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">23 - 28 February 2022</h3>
+        <ul className="mb-4">
           <li>In transit somewhere in Thailand, loading to custom</li>
         </ul>
-        <h3>28 February 2022 - 1 March 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">28 February 2022 - 1 March 2022</h3>
+        <ul className="mb-4">
           <li>
             <strong>11.09 ICT</strong> In Thailand Custom at Ladkrabang Cargo
             Control Customs Office{' '}
@@ -86,8 +99,9 @@ const AirTagPage = () => {
             </Link>
           </li>
         </ul>
-        <h3>2 March 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">2 March 2022</h3>
+        <ul className="mb-4">
           <li>
             <strong>09.13 ICT</strong> Moving out from custom
             (13.741084534618823, 100.76725355699101)
@@ -104,12 +118,14 @@ const AirTagPage = () => {
             </Link>
           </li>
         </ul>
-        <h3>3 March 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">3 March 2022</h3>
+        <ul className="mb-4">
           <li>Stay at the warehouse</li>
         </ul>
-        <h3>4 March 2022</h3>
-        <ul>
+
+        <h3 className="mb-2">4 March 2022</h3>
+        <ul className="mb-4">
           <li>
             <strong>07.00 ICT</strong> Leaving warehouse and move to Nonthaburi?
             (13.886406621322134, 100.52258561534529)
@@ -148,9 +164,10 @@ const AirTagPage = () => {
           </li>
         </ul>
       </div>
-      <p>
-        <Link href="/journeys">← Journeys</Link>
-      </p>
+      <Link className="post-header-back-link" href="/journeys">
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Journeys
+      </Link>
     </main>
   )
 }

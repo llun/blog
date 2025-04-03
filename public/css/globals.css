@@ -104,6 +104,7 @@
 @import "../../app/(header)/layout.css";
 @import "../../app/(header)/page.css";
 @import "../../app/(noheader)/posts/[...segment]/page.css";
+@import "../../app/(noheader)/journeys/airtag-sg-th/airtag-map.css";
 
 @import "../../components/header.css";
 @import "../../components/PostList.css";

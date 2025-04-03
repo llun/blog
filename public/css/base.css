@@ -56,4 +56,12 @@
   pre {
     @apply bg-black text-white text-left whitespace-pre break-normal hyphens-none p-4 my-2 overflow-x-auto dark:bg-muted dark:text-muted-foreground;
   }
+
+  ul {
+    @apply list-disc list-inside ml-4;
+  }
+
+  ol {
+    @apply list-decimal list-inside ml-4;
+  }
 }

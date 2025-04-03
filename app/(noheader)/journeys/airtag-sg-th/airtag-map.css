@@ -1,0 +1,5 @@
+@layer components {
+  .map {
+    @apply h-[600px] lg:h-[400px] sm:h-[250px];
+  }
+}

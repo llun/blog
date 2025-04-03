@@ -6,7 +6,6 @@ import React, { useEffect, useRef } from 'react'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 import { MAPBOX_PUBLIC_KEY } from '../../../../libs/config'
-import style from './airtag.module.css'
 
 export const AirTagMap = () => {
   const mapEl = useRef<HTMLDivElement>(null)
@@ -104,5 +103,5 @@ export const AirTagMap = () => {
     })
   }, [])
 
-  return <div ref={mapEl} id="map" className={style.map} />
+  return <div ref={mapEl} id="map" className="map mb-4" />
 }
