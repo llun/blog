@@ -7,7 +7,6 @@ import { Metadata } from 'next'
 import { getMetadata } from '../../components/Meta'
 import { Modal } from '../../components/Modal'
 
-import '../../public/css/index.css'
 import '../../public/css/globals.css'
 
 const config = getConfig()

@@ -5,7 +5,6 @@ import { ThemeProvider } from 'next-themes'
 import { getMetadata } from '../../components/Meta'
 import { getConfig } from '../../libs/blog'
 
-import '../../public/css/index.css'
 import '../../public/css/globals.css'
 
 const config = getConfig()
