@@ -4,8 +4,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-light;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    @apply font-sans bg-background text-foreground font-light;
   }
 
   h1 {
@@ -45,4 +44,16 @@
     color: var(--link-visited);
   }
 
+  pre,
+  code {
+    @apply font-mono text-sm leading-normal;
+  }
+
+  code {
+    @apply font-semibold break-words my-auto dark:bg-muted dark:text-muted-foreground;
+  }
+
+  pre {
+    @apply bg-black text-white text-left whitespace-pre break-normal hyphens-none p-4 my-2 overflow-x-auto dark:bg-muted dark:text-muted-foreground;
+  }
 }
