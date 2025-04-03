@@ -6,8 +6,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { DateTime } from 'luxon'
 
-import { ThemeToggle } from '@/components/ThemeToggle'
-
+import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
 

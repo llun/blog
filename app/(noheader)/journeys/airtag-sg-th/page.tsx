@@ -3,8 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { ArrowLeft } from 'lucide-react'
 
-import { ThemeToggle } from '@/components/ThemeToggle'
-
+import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getConfig } from '../../../../libs/blog'
 import { AirTagMap } from './AirTagMap'

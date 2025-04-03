@@ -64,4 +64,8 @@
   ol {
     @apply list-decimal list-inside ml-4;
   }
+
+  select {
+    @apply border-solid border-1 border-gray-800 p-2;
+  }
 }
