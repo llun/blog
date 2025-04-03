@@ -2,9 +2,11 @@ import _ from 'lodash'
 import Link from 'next/link'
 import path from 'path'
 import React, { use } from 'react'
-
+import { ArrowLeft } from 'lucide-react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getConfig } from '../../../../libs/blog'
 import { getAllJourneys, parseJourney } from '../../../../libs/journey'
@@ -55,17 +57,24 @@ const Journey = ({ params }: Props) => {
 
   const { content } = journey
   return (
-    <main>
-      <p>
-        <Link href="/journeys">← Journeys</Link>
-      </p>
+    <main className="main-container">
+      <div className="post-header">
+        <Link className="post-header-back-link" href="/journeys">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Journeys
+        </Link>
+        <ThemeToggle />
+      </div>
+
       <div
         className={style.content}
         dangerouslySetInnerHTML={{ __html: content || '' }}
       />
-      <p>
-        <Link href="/journeys">← Journeys</Link>
-      </p>
+
+      <Link className="post-header-back-link" href="/journeys">
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Journeys
+      </Link>
     </main>
   )
 }
