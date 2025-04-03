@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
-
+import React from 'react'
 export type Page = {
   url: string
   image: {

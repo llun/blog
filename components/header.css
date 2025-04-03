@@ -13,7 +13,7 @@
   }
 
   .logo-text {
-    @apply text-lg sm:inline-block;
+    @apply text-2xl sm:inline-block;
   }
 
   .nav-container {
