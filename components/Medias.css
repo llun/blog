@@ -4,7 +4,7 @@
   }
 
   .ride-medias-super-square {
-    @apply col-span-2 row-span-2;
+    @apply col-auto row-auto md:col-span-2 md:row-span-2;
   }
 
   .ride-medias-image {
