@@ -103,6 +103,7 @@
 
 @import "../../app/(header)/layout.css";
 @import "../../app/(header)/page.css";
+@import "../../app/(header)/gallery/page.css";
 @import "../../app/(noheader)/journeys/airtag-sg-th/airtag-map.css";
 @import "../../app/(noheader)/layout.css";
 @import "../../app/(noheader)/journeys/wordle/wordle.css";

@@ -8,7 +8,7 @@ const Journeys = () => {
 
   return (
     <>
-      <h2 className="my-2">Journeys</h2>
+      <h2 className="mt-2">Journeys</h2>
       <p className="mb-2">
         A collection of long running topic that I keep updating
       </p>
