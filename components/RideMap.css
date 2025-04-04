@@ -8,10 +8,10 @@
   }
 
   .ride-map-marker-item {
-    @apply w-32 h-32 bg-white border border-gray-200 rounded-md p-1;
+    @apply w-[32px] h-[32px] bg-white border border-gray-200 rounded-sm;
   }
 
   .ride-map-marker-image {
-    @apply w-full h-full border-none object-cover rounded-md;
+    @apply w-full h-full border-none object-cover rounded-sm p-[1px];
   }
 }
