@@ -29,12 +29,12 @@ const Ride = ({ params }: Props) => {
   const { country } = use(params)
   const { icon, rideStat, map } = COUNTRIES_DATA[country as COUNTRY]
   return (
-    <main>
-      <RideTitle icon={icon} />
+    <>
+      <RideTitle className="mt-2" icon={icon} />
       <RideStats stats={rideStat} />
       <RideMap {...map} videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
       <RideVideos videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
-    </main>
+    </>
   )
 }
 
