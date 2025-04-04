@@ -30,4 +30,12 @@
   .media-modal-navigation-mobile-button {
     @apply rounded-full bg-background/80 p-3 text-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 touch-manipulation cursor-pointer;
   }
+
+  .media-modal-image {
+    @apply object-contain max-w-full max-h-[85vh] block border-none mb-0;
+  }
+
+  .media-modal-video {
+    @apply object-contain max-w-full max-h-[85vh];
+  }
 }

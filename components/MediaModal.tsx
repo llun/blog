@@ -20,7 +20,7 @@ const Photo: FC<MediaProps> = ({ media }) => {
 
   return (
     <img
-      className="object-contain max-w-full max-h-[85vh] block border-none mb-0"
+      className="media-modal-image"
       src={source}
       alt="Detail image"
       width={media.width}
@@ -39,7 +39,7 @@ const Video: FC<MediaProps> = ({ media }) => {
       src={source}
       poster={poster}
       controls
-      className="object-contain max-w-full max-h-[85vh]"
+      className="media-modal-video"
       playsInline
       controlsList="nodownload"
       autoPlay
