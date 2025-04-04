@@ -1,0 +1,17 @@
+@layer components {
+  .ride-map {
+    @apply h-[250px] md:h-[400px] lg:h-[600px];
+  }
+
+  .ride-map-marker-container {
+    @apply flex flex-col items-center;
+  }
+
+  .ride-map-marker-item {
+    @apply w-32 h-32 bg-white border border-gray-200 rounded-md p-1;
+  }
+
+  .ride-map-marker-image {
+    @apply w-full h-full border-none object-cover rounded-md;
+  }
+}
