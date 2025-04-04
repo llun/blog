@@ -71,7 +71,7 @@ const Post = ({ params }: Props) => {
       <div className="post-header">
         <Link className="post-header-back-link" href="/">
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Back
+          Home
         </Link>
         <ThemeToggle />
       </div>
@@ -93,7 +93,7 @@ const Post = ({ params }: Props) => {
 
       <Link className="post-header-back-link" href="/">
         <ArrowLeft className="mr-2 h-4 w-4" />
-        Back
+        Home
       </Link>
     </main>
   )
