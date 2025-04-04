@@ -1,20 +1,18 @@
 'use client'
 
 import React, { FC, useState } from 'react'
-
+import { Eye, EyeClosed } from 'lucide-react'
 import { Result } from '../../../../libs/wordle'
 import { idficationTitle } from './DateSelector'
-import style from './wordle.module.css'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const tileClassname = (style: any, char: string) => {
+export const tileClassname = (char: string) => {
   switch (char) {
     case '🟨':
-      return style.guessPresent
+      return 'bg-yellow-500'
     case '🟩':
-      return style.guessCorrect
+      return 'bg-green-500'
     default:
-      return style.guessAbsent
+      return 'bg-gray-500'
   }
 }
 
@@ -28,27 +26,31 @@ export const ResultBlock: FC<{
   return (
     <div
       id={`${idficationTitle(result.title)}`}
-      className={style.guess}
+      className="block mt-4"
       key={`guesses-${idficationTitle(result.title)}`}
     >
-      <h2>
+      <h2 className="mb-2">
         {result.title}{' '}
         <span
-          className={style.reviewIcon}
+          className="cursor-pointer ml-2"
           onClick={() => setShowWords(!showWords)}
         >
-          {showWords ? '🙊' : '🙈'}
+          {showWords ? (
+            <Eye className="w-5 h-5 inline" />
+          ) : (
+            <EyeClosed className="w-5 h-5 inline" />
+          )}
         </span>
       </h2>
 
       {result.guesses.map((guess, index) => (
-        <div key={`tile-${index}`} className={style.tile}>
+        <div key={`tile-${index}`} className="mb-2">
           {[...guess.result].map((char, index) => (
             <span
               key={`char-${index}`}
-              className={`${style.guessBlock} ${tileClassname(style, char)}`}
+              className={`wordle-block ${tileClassname(char)}`}
             >
-              <span className={showWords ? style.visible : style.invisible}>
+              <span className={showWords ? 'visible' : 'invisible'}>
                 {guess.word[index]}
               </span>
             </span>
