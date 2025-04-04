@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes'
 import { Sun, Moon, Laptop } from 'lucide-react'
 import React, { useState } from 'react'
+import cn from 'classnames'
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme()
@@ -23,7 +24,7 @@ export const ThemeToggle = () => {
     <div className="relative">
       <button
         onClick={() => setShowModal(!showModal)}
-        className="flex items-center border rounded-md p-1.5 dark:border-gray-700"
+        className="theme-toggle"
         aria-label="Toggle theme"
       >
         {getCurrentIcon()}
@@ -32,19 +33,19 @@ export const ThemeToggle = () => {
       {showModal && (
         <>
           <div
-            className="fixed inset-0 z-10"
+            className="theme-toggle-modal"
             onClick={() => setShowModal(false)}
           />
-          <div className="absolute right-0 mt-2 z-20 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg p-2">
-            <div className="flex flex-col space-y-2">
+          <div className="theme-toggle-modal-content">
+            <div className="theme-toggle-modal-button-container">
               <button
                 onClick={() => {
                   setTheme('light')
                   setShowModal(false)
                 }}
-                className={`flex items-center space-x-2 p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                  theme === 'light' ? 'bg-gray-200 dark:bg-gray-700' : ''
-                }`}
+                className={cn('theme-toggle-modal-button', {
+                  'theme-toggle-modal-button-selected': theme === 'light'
+                })}
                 aria-label="Light mode"
               >
                 <Sun size={16} />
@@ -55,9 +56,9 @@ export const ThemeToggle = () => {
                   setTheme('dark')
                   setShowModal(false)
                 }}
-                className={`flex items-center space-x-2 p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                  theme === 'dark' ? 'bg-gray-200 dark:bg-gray-700' : ''
-                }`}
+                className={cn('theme-toggle-modal-button', {
+                  'theme-toggle-modal-button-selected': theme === 'dark'
+                })}
                 aria-label="Dark mode"
               >
                 <Moon size={16} />
@@ -68,9 +69,9 @@ export const ThemeToggle = () => {
                   setTheme('system')
                   setShowModal(false)
                 }}
-                className={`flex items-center space-x-2 p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                  theme === 'system' ? 'bg-gray-200 dark:bg-gray-700' : ''
-                }`}
+                className={cn('theme-toggle-modal-button', {
+                  'theme-toggle-modal-button-selected': theme === 'system'
+                })}
                 aria-label="System preference"
               >
                 <Laptop size={16} />

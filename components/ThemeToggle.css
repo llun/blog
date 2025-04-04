@@ -1,0 +1,21 @@
+@layer components {
+  .theme-toggle {
+    @apply flex items-center p-1.5;
+  }
+
+  .theme-toggle-modal {
+    @apply fixed inset-0 z-10;
+  }
+
+  .theme-toggle-modal-content {
+    @apply absolute right-0 mt-2 z-20 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg p-2;
+  }
+
+  .theme-toggle-modal-button {
+    @apply flex items-center space-x-2 p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700;
+  }
+
+  .theme-toggle-modal-button-selected {
+    @apply bg-gray-200 dark:bg-gray-700;
+  }
+}

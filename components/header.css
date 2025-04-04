@@ -4,7 +4,7 @@
   }
 
   .header-container {
-    @apply container mx-auto flex h-14 items-center justify-between;
+    @apply container mx-auto flex h-14 items-center justify-between px-4 max-w-5xl;
   }
 
   .logo-link {
@@ -27,5 +27,9 @@
   .nav-link {
     @apply inline-flex items-center justify-start whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-3;
     color: var(--primary);
+  }
+
+  .nav-link img {
+    @apply mb-0 mr-2 p-0 border-none;
   }
 }
