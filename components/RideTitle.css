@@ -1,0 +1,5 @@
+@layer components {
+  .ride-title-icon {
+    @apply w-5 h-5 mr-2 inline align-text-bottom text-[var(--primary)];
+  }
+}

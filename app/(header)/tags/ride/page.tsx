@@ -24,12 +24,13 @@ const Ride = () => {
     .filter((post) => post.file.category === 'ride')
     .sort(postDescendingComparison)
   return (
-    <main>
+    <>
       <RideTitle
+        className="mt-2"
         icon={{ src: '/img/icons/ride.png', alt: 'Ride posts page icon' }}
       />
       <PostList posts={posts} />
-    </main>
+    </>
   )
 }
 
