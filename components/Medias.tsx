@@ -6,7 +6,6 @@ import { Media, mergeMediaAssets, proxyAssetsUrl } from '../libs/apple/media'
 import { VideoPosterDerivative } from '../libs/apple/webstream'
 
 import MediaModal from './MediaModal'
-import style from './Medias.module.css'
 
 export enum PhotoState {
   LOADING,
@@ -26,12 +25,13 @@ function canLoadPhoto(
 }
 
 interface Props {
+  className?: string
   partition: number
   token: string
   medias: Media[]
 }
 
-const Medias: FC<Props> = ({ partition, token, medias }) => {
+const Medias: FC<Props> = ({ partition, token, medias, className }) => {
   const [photoState, setPhotoState] = useState<PhotoState>(PhotoState.IDLE)
   const [photos, setPhotos] = useState<Media[]>(medias.slice(0, BatchSize * 2))
   const [selectedMedia, setSelectedMedia] = useState<{
@@ -79,7 +79,7 @@ const Medias: FC<Props> = ({ partition, token, medias }) => {
   if (!photos.length) return null
 
   return (
-    <div className={style.images}>
+    <div className={`ride-medias ${className}`}>
       <MediaModal
         isOpen={!!selectedMedia}
         media={selectedMedia?.media}
@@ -109,8 +109,8 @@ const Medias: FC<Props> = ({ partition, token, medias }) => {
         return (
           <div
             key={media.guid}
-            className={cn(style.image, {
-              [style['super-square']]: shouldBeBig
+            className={cn('ride-medias-image', {
+              'ride-medias-super-square': shouldBeBig
             })}
             style={{ backgroundImage }}
             onClick={() => setSelectedMedia({ media, index })}
