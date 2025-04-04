@@ -1,0 +1,13 @@
+@layer components {
+  .ride-medias {
+    @apply grid grid-cols-1 gap-2 grid-flow-dense md:grid-cols-3 lg:grid-cols-5;
+  }
+
+  .ride-medias-super-square {
+    @apply col-auto row-auto md:col-span-2 md:row-span-2;
+  }
+
+  .ride-medias-image {
+    @apply p-0 border-none m-0 w-full aspect-square bg-gray-100 cursor-pointer bg-center bg-cover;
+  }
+}

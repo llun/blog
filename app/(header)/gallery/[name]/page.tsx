@@ -6,8 +6,6 @@ import { getMetadata } from '../../../../components/Meta'
 import { getConfig } from '../../../../libs/blog'
 import { getAlbum, getAllAlbums } from '../../../../libs/gallery'
 
-import style from '../gallery.module.css'
-
 export const generateStaticParams = async () => {
   return getAllAlbums().map(({ name }) => ({ name }))
 }
@@ -41,16 +39,16 @@ const Gallery = async ({ params }: Props) => {
 
   const { partition, album, medias } = data
   return (
-    <main>
-      <h2 className={style.title}>{album.title}</h2>
+    <>
+      <h2 className="mt-2">{album.title}</h2>
       {album.content && (
         <div
-          className={style.description}
+          className="text-muted-foreground"
           dangerouslySetInnerHTML={{ __html: album.content }}
         />
       )}
       <Medias partition={partition} token={album.token} medias={medias} />
-    </main>
+    </>
   )
 }
 

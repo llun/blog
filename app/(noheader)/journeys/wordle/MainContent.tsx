@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import React, { FC } from 'react'
+import { ArrowLeft } from 'lucide-react'
 
 import { Result } from '../../../../libs/wordle'
 import { CopierIcon } from './CopierIcon'
 import { DateSelector } from './DateSelector'
 import { ResultBlock } from './ResultBlock'
-import style from './wordle.module.css'
+import { ThemeToggle } from '../../../../components/ThemeToggle'
 
 interface Props {
   list: Result[]
@@ -14,11 +15,16 @@ interface Props {
 
 export const MainContent: FC<Props> = ({ list, result }) => {
   return (
-    <main className={style.wordle}>
-      <p>
-        <Link href="/journeys">← Journeys</Link>
-      </p>
-      <div className={style.content}>
+    <main className="main-container">
+      <div className="post-header">
+        <Link className="post-header-back-link" href="/journeys">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Journeys
+        </Link>
+        <ThemeToggle />
+      </div>
+
+      <div className="content">
         <h1>Wordle</h1>
         <p>
           A record of my{' '}
@@ -32,12 +38,13 @@ export const MainContent: FC<Props> = ({ list, result }) => {
         </p>
 
         <DateSelector list={list} result={result} />
-        <CopierIcon result={result} />
+        <CopierIcon className="ml-4" result={result} />
         <ResultBlock result={result} />
       </div>
-      <p>
-        <Link href="/journeys">← Journeys</Link>
-      </p>
+      <Link className="post-header-back-link mt-4" href="/journeys">
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Journeys
+      </Link>
     </main>
   )
 }

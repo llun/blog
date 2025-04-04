@@ -5,7 +5,6 @@ import React from 'react'
 import { getMetadata } from '../../../components/Meta'
 import { getConfig } from '../../../libs/blog'
 import { getAllAlbums } from '../../../libs/gallery'
-import style from './gallery.module.css'
 
 const { url, title, description } = getConfig()
 
@@ -18,9 +17,9 @@ export const metadata: Metadata = getMetadata({
 const Gallery = () => {
   const albums = getAllAlbums()
   return (
-    <main>
-      <h2 className={style.title}>Image Gallery</h2>
-      <div className={style.list}>
+    <>
+      <h2 className="my-2">Image Gallery</h2>
+      <div className="gallery-list">
         {albums.map(({ name, image, description, title: albumTitle }) => (
           <Link key={name} href={`/gallery/${name}`}>
             <picture>
@@ -33,6 +32,7 @@ const Gallery = () => {
                 type="image/webp"
               />
               <img
+                className="border-none p-0"
                 width={512}
                 height={512}
                 src={`/gallery/${image}`}
@@ -43,7 +43,7 @@ const Gallery = () => {
           </Link>
         ))}
       </div>
-    </main>
+    </>
   )
 }
 

@@ -1,0 +1,5 @@
+@layer components {
+  .all-posts-link {
+    @apply inline-flex items-center gap-1 text-lg font-light;
+  }
+}

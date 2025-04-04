@@ -1,13 +1,14 @@
 import { Metadata } from 'next'
 import path from 'path'
 import React, { use } from 'react'
-
-import { getMetadata } from '../../../../components/Meta'
-import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
-
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import style from './post.module.css'
+import { ArrowLeft } from 'lucide-react'
+import { DateTime } from 'luxon'
+
+import { ThemeToggle } from '../../../../components/ThemeToggle'
+import { getMetadata } from '../../../../components/Meta'
+import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
 
 const getPost = (segment: string) => {
   const config = getConfig()
@@ -66,23 +67,34 @@ const Post = ({ params }: Props) => {
 
   const { properties, content } = post
   return (
-    <main className={style.post}>
-      <p>
-        <Link href="/">← Home</Link>
-      </p>
-
-      <div className={style.title}>
-        <h1>{properties.title}</h1>
+    <main className="main-container">
+      <div className="post-header">
+        <Link className="post-header-back-link" href="/">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Home
+        </Link>
+        <ThemeToggle />
       </div>
 
+      <header className="space-y-2 mb-4">
+        <h1 className="post-title">{properties.title}</h1>
+        <p className="post-date">
+          Published on{' '}
+          {DateTime.fromMillis(post.timestamp)
+            .setLocale('en-US')
+            .toLocaleString(DateTime.DATE_MED)}
+        </p>
+      </header>
+
       <div
-        className={style.content}
+        className="space-y-6 mb-4"
         dangerouslySetInnerHTML={{ __html: content || '' }}
       />
 
-      <p>
-        <Link href="/">← Home</Link>
-      </p>
+      <Link className="post-header-back-link" href="/">
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Home
+      </Link>
     </main>
   )
 }

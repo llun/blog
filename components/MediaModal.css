@@ -1,0 +1,41 @@
+@layer components {
+  .media-modal {
+    @apply relative max-w-[95vw] md:max-w-4xl max-h-[90vh] w-full p-0.5 md:p-1 outline-none mx-auto my-[5vh] bg-background;
+  }
+
+  .media-modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm;
+  }
+
+  .media-modal-content {
+    @apply relative w-full h-full flex items-center justify-center bg-background rounded-lg overflow-hidden;
+  }
+
+  .media-modal-close-button {
+    @apply absolute -top-2 -right-2 z-10 rounded-full bg-background/80 p-1.5 text-foreground hover:bg-accent hover:text-accent-foreground touch-manipulation cursor-pointer;
+  }
+
+  .media-modal-navigation {
+    @apply absolute inset-0 hidden md:flex items-center justify-between opacity-0 hover:opacity-100 transition-opacity duration-200;
+  }
+
+  .media-modal-navigation-button {
+    @apply rounded-full bg-background/60 p-2 text-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 touch-manipulation cursor-pointer;
+  }
+
+  .media-modal-navigation-mobile {
+    @apply fixed bottom-4 left-0 right-0 flex justify-center space-x-4 md:hidden;
+  }
+
+  .media-modal-navigation-mobile-button {
+    @apply rounded-full bg-background/80 p-3 text-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 touch-manipulation cursor-pointer;
+  }
+
+  .media-modal-image {
+    @apply object-contain max-w-full max-h-[85vh] block border-none mb-0;
+  }
+
+  .media-modal-video {
+    @apply object-contain max-w-full max-h-[85vh];
+  }
+}

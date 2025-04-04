@@ -11,14 +11,15 @@ export interface YoutubeVideo {
 }
 
 interface Props {
+  className?: string
   videos: YoutubeVideo[]
 }
 
-const RideVideos: FC<Props> = ({ videos }) => {
+const RideVideos: FC<Props> = ({ videos, className }) => {
   if (!videos.length) return null
 
   return (
-    <div>
+    <div className={className}>
       <h2>Videos</h2>
       <ul>
         {videos.map((video) => (

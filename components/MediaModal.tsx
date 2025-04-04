@@ -1,15 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { FC, MouseEventHandler, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import ReactModal from 'react-modal'
 import cn from 'classnames'
+import { ChevronLeftIcon, ChevronRightIcon, XIcon } from 'lucide-react'
 import { Media } from '../libs/apple/media'
 import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
-
-import CloseButton from '../public/img/fa/times.svg'
-import PreviousButton from '../public/img/fa/chevron-left.svg'
-import NextButton from '../public/img/fa/chevron-right.svg'
-
-import style from './MediaModal.module.css'
 
 interface MediaProps {
   media?: Media
@@ -18,18 +13,14 @@ interface MediaProps {
 const Photo: FC<MediaProps> = ({ media }) => {
   if (media?.type !== 'photo') return null
   const qualities = Object.keys(media.derivatives)
-  const [small, best] = qualities
+  const [, best] = qualities
 
   const source = media.derivatives[best].url
   if (!source) return null
 
-  const background = media.derivatives[small].url
-  if (!background) return null
-
   return (
     <img
-      style={{ backgroundImage: `url(${background})` }}
-      className={style.image}
+      className="media-modal-image"
       src={source}
       alt="Detail image"
       width={media.width}
@@ -44,94 +35,111 @@ const Video: FC<MediaProps> = ({ media }) => {
   const source = media.derivatives[Video720p].url
 
   return (
-    <div className={style.video} style={{ backgroundImage: `url(${poster})` }}>
-      <video poster={poster} controls>
-        <source src={source} type="video/mp4" />
-      </video>
-    </div>
+    <video
+      src={source}
+      poster={poster}
+      controls
+      className="media-modal-video"
+      playsInline
+      controlsList="nodownload"
+      autoPlay
+    >
+      Your browser does not support the video tag.
+    </video>
   )
 }
 
-interface TitleProps extends MediaProps {
-  className?: string
-  onNext: MouseEventHandler<SVGElement>
-  onPrevious: MouseEventHandler<SVGElement>
-  onClose: MouseEventHandler<SVGElement>
-}
-
-const Title: FC<TitleProps> = ({
-  className,
-  media,
-  onNext,
-  onPrevious,
-  onClose
-}) => (
-  <div className={cn(style.control, className)}>
-    <div className={cn(style.title, style.expand)}>
-      {media && (
-        <>
-          <PreviousButton
-            className={cn(style.icon, style.previous)}
-            onClick={onPrevious}
-          />
-          <span>
-            {new Intl.DateTimeFormat('en-GB', {
-              dateStyle: 'full',
-              timeStyle: 'short'
-            }).format(new Date(media?.createdAt))}
-          </span>
-          <NextButton className={cn(style.icon, style.next)} onClick={onNext} />
-        </>
-      )}
-    </div>
-    <CloseButton className={cn(style.icon, style.close)} onClick={onClose} />
-  </div>
-)
-
 interface Props extends MediaProps {
   isOpen: boolean
+  currentMediaIndex: number
+  mediaLength: number
   next: () => void
   previous: () => void
   close: () => void
 }
 
-const MediaModal: FC<Props> = ({ isOpen, media, next, previous, close }) => {
-  const [shouldShowControl, setShouldShowControl] = useState(true)
-
-  useEffect(() => {
-    if (!isOpen) return
-    document.body.className = style.open
-  }, [isOpen])
-
+const MediaModal: FC<Props> = ({
+  isOpen,
+  media,
+  currentMediaIndex,
+  mediaLength,
+  next,
+  previous,
+  close
+}) => {
   return (
     <ReactModal
-      overlayClassName={style.overlay}
-      className={style.modal}
       isOpen={isOpen}
+      onRequestClose={close}
+      contentLabel="Media Modal"
+      className="media-modal"
+      overlayClassName="media-modal-overlay"
+      ariaHideApp={typeof window !== 'undefined'}
     >
-      <div
-        className={style.content}
-        onClick={() => setShouldShowControl(!shouldShowControl)}
+      <button
+        onClick={close}
+        className="media-modal-close-button"
+        aria-label="Close modal"
       >
+        <XIcon className="h-5 w-5" />
+      </button>
+
+      <div className="media-modal-content">
         <Photo media={media} />
         <Video media={media} />
-        <Title
-          media={media}
-          className={cn({ [style.hide]: !shouldShowControl })}
-          onNext={(e) => {
-            e.stopPropagation()
-            next()
-          }}
-          onPrevious={(e) => {
-            e.stopPropagation()
-            previous()
-          }}
-          onClose={(e) => {
-            e.stopPropagation()
-            document.body.className = ''
-            close()
-          }}
-        />
+
+        <div className="media-modal-navigation">
+          <button
+            onClick={previous}
+            disabled={currentMediaIndex === 0}
+            className={cn('media-modal-navigation-button', {
+              invisible: currentMediaIndex === 0
+            })}
+            aria-label="Previous media"
+          >
+            <ChevronLeftIcon className="h-6 w-6" />
+          </button>
+          <button
+            onClick={next}
+            disabled={currentMediaIndex === mediaLength - 1}
+            className={cn('media-modal-navigation-button', {
+              invisible: currentMediaIndex === mediaLength - 1
+            })}
+            aria-label="Next media"
+          >
+            <ChevronRightIcon className="h-6 w-6" />
+          </button>
+        </div>
+
+        <div className="media-modal-navigation-mobile">
+          <button
+            onClick={previous}
+            disabled={currentMediaIndex === 0}
+            className={cn('media-modal-navigation-mobile-button', {
+              'opacity-50': currentMediaIndex === 0
+            })}
+            aria-label="Previous media"
+          >
+            <ChevronLeftIcon className="h-6 w-6" />
+          </button>
+          <button
+            onClick={close}
+            className="media-modal-navigation-mobile-button"
+            aria-label="Close gallery"
+          >
+            <XIcon className="h-6 w-6" />
+          </button>
+          <button
+            onClick={next}
+            disabled={currentMediaIndex === mediaLength - 1}
+            className={cn('media-modal-navigation-mobile-button', {
+              'opacity-50': currentMediaIndex === mediaLength - 1
+            })}
+            aria-label="Next media"
+          >
+            <ChevronRightIcon className="h-6 w-6" />
+          </button>
+        </div>
       </div>
     </ReactModal>
   )

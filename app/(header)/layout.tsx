@@ -1,12 +1,13 @@
+import { Metadata } from 'next'
+import { ThemeProvider } from 'next-themes'
 import React, { ReactNode } from 'react'
 
-import Header from '../../components/Header'
 import { getConfig } from '../../libs/blog'
-
-import { Metadata } from 'next'
+import Header from '../../components/Header'
 import { getMetadata } from '../../components/Meta'
 import { Modal } from '../../components/Modal'
-import '../../public/css/index.css'
+
+import '../../public/css/globals.css'
 
 const config = getConfig()
 const { title, description, url } = config
@@ -30,11 +31,15 @@ const RootLayout = ({ children }: Props) => {
   const { title, url } = getConfig()
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <Header title={title} url={url} />
-        {children}
-        <Modal />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="layout-div">
+            <Header title={title} url={url} />
+            <main className="main-container">{children}</main>
+          </div>
+          <Modal />
+        </ThemeProvider>
       </body>
     </html>
   )

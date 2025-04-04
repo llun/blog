@@ -1,7 +1,6 @@
-import { getConfig } from '@/libs/blog'
-import { NETHERLANDS_ALBUM_TOKEN } from '@/libs/config'
-
 import rideStats from '../../../../public/tags/ride/stats.json'
+import { getConfig } from '../../../../libs/blog'
+import { NETHERLANDS_ALBUM_TOKEN } from '../../../../libs/config'
 import { CountryData } from './types'
 
 const config = getConfig()

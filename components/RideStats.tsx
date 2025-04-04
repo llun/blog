@@ -1,7 +1,5 @@
 import React, { FC } from 'react'
 
-import style from './RideStats.module.css'
-
 interface Stats {
   distance: number
   activities: number
@@ -9,15 +7,16 @@ interface Stats {
 
 interface Props {
   stats: Stats
+  className?: string
 }
 
-const RideStats: FC<Props> = ({ stats }) => (
-  <section className={style.stats}>
-    <div className={style.card}>
+const RideStats: FC<Props> = ({ stats, className }) => (
+  <section className={`ride-stats ${className}`}>
+    <div className="ride-stats-card">
       <h2>Total Rides</h2>
       <p>{new Intl.NumberFormat('en').format(stats.activities)} Rides</p>
     </div>
-    <div className={style.card}>
+    <div className="ride-stats-card">
       <h2>Total Distance</h2>
       <p>{new Intl.NumberFormat('en').format(stats.distance)} Kilometers</p>
     </div>

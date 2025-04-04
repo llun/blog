@@ -5,12 +5,11 @@ import React, { FC, useEffect, useRef } from 'react'
 
 import { MAPBOX_PUBLIC_KEY } from '@/libs/config'
 
-import style from './RideMap.module.css'
-
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { YoutubeVideo } from './RideVideos'
 
 interface Props {
+  className?: string
   zoomLevels: [number, number, number]
   minZoom?: number
   maxZoom?: number
@@ -22,6 +21,7 @@ interface Props {
 const getMarkerScale = (map: Map) => `scale(${1 + (map.getZoom() - 8) * 0.4})`
 
 const RideMap: FC<Props> = ({
+  className,
   zoomLevels,
   minZoom,
   maxZoom,
@@ -76,15 +76,15 @@ const RideMap: FC<Props> = ({
         link.target = '_blank'
 
         const container = document.createElement('div')
-        container.className = style.markerContainer
+        container.className = 'ride-map-marker-container'
         container.style.transform = getMarkerScale(map)
 
         const item = document.createElement('div')
-        item.className = style.markerItem
+        item.className = 'ride-map-marker-item'
 
         const image = document.createElement('img')
         image.src = video.poster
-        image.className = style.markerImage
+        image.className = 'ride-map-marker-image'
         item.appendChild(image)
         container.appendChild(item)
 
@@ -98,7 +98,7 @@ const RideMap: FC<Props> = ({
     })
   })
 
-  return <div ref={mapEl} id="map" className={style.map} />
+  return <div ref={mapEl} id="map" className={`ride-map ${className}`} />
 }
 
 export default RideMap
