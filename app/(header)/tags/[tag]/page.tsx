@@ -39,10 +39,10 @@ const Tag = ({ params }: Props) => {
     .sort(postDescendingComparison)
 
   return (
-    <main>
-      <h2>{getTagTitle(tag)}</h2>
+    <>
+      <h2 className="my-2">{getTagTitle(tag)}</h2>
       <PostList posts={posts} />
-    </main>
+    </>
   )
 }
 
