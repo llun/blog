@@ -37,7 +37,10 @@ const Ride = ({ params }: Props) => {
         {...map}
         videos={COUNTRIES_DATA[country as COUNTRY].youtubes}
       />
-      <RideVideos videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
+      <RideVideos
+        className="mt-4"
+        videos={COUNTRIES_DATA[country as COUNTRY].youtubes}
+      />
     </>
   )
 }
