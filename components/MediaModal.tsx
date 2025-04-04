@@ -72,30 +72,29 @@ const MediaModal: FC<Props> = ({
       isOpen={isOpen}
       onRequestClose={close}
       contentLabel="Media Modal"
-      className="relative max-w-[95vw] md:max-w-4xl max-h-[90vh] w-full p-0.5 md:p-1 outline-none mx-auto my-[5vh] bg-background"
-      overlayClassName="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      className="media-modal"
+      overlayClassName="media-modal-overlay"
       ariaHideApp={typeof window !== 'undefined'}
     >
       <button
         onClick={close}
-        className="absolute -top-2 -right-2 z-10 rounded-full bg-background/80 p-1.5 text-foreground hover:bg-accent hover:text-accent-foreground touch-manipulation cursor-pointer"
+        className="media-modal-close-button"
         aria-label="Close modal"
       >
         <XIcon className="h-5 w-5" />
       </button>
 
-      <div className="gallery-modal-content relative w-full h-full flex items-center justify-center bg-background rounded-lg overflow-hidden">
+      <div className="media-modal-content">
         <Photo media={media} />
         <Video media={media} />
 
-        <div className="absolute inset-0 hidden md:flex items-center justify-between opacity-0 hover:opacity-100 transition-opacity duration-200">
+        <div className="media-modal-navigation">
           <button
             onClick={previous}
             disabled={currentMediaIndex === 0}
-            className={cn(
-              'absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-background/60 p-2 text-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 touch-manipulation cursor-pointer',
-              currentMediaIndex === 0 && 'invisible'
-            )}
+            className={cn('media-modal-navigation-button', {
+              invisible: currentMediaIndex === 0
+            })}
             aria-label="Previous media"
           >
             <ChevronLeftIcon className="h-6 w-6" />
@@ -103,31 +102,29 @@ const MediaModal: FC<Props> = ({
           <button
             onClick={next}
             disabled={currentMediaIndex === mediaLength - 1}
-            className={cn(
-              'absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-background/60 p-2 text-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 touch-manipulation cursor-pointer',
-              currentMediaIndex === mediaLength - 1 && 'invisible'
-            )}
+            className={cn('media-modal-navigation-button', {
+              invisible: currentMediaIndex === mediaLength - 1
+            })}
             aria-label="Next media"
           >
             <ChevronRightIcon className="h-6 w-6" />
           </button>
         </div>
 
-        <div className="fixed bottom-4 left-0 right-0 flex justify-center space-x-4 md:hidden">
+        <div className="media-modal-navigation-mobile">
           <button
             onClick={previous}
             disabled={currentMediaIndex === 0}
-            className={cn(
-              'rounded-full bg-background/80 p-3 text-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 touch-manipulation cursor-pointer',
-              currentMediaIndex === 0 && 'opacity-50'
-            )}
+            className={cn('media-modal-navigation-mobile-button', {
+              'opacity-50': currentMediaIndex === 0
+            })}
             aria-label="Previous media"
           >
             <ChevronLeftIcon className="h-6 w-6" />
           </button>
           <button
             onClick={close}
-            className="rounded-full bg-background/80 p-3 text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring touch-manipulation cursor-pointer"
+            className="media-modal-navigation-mobile-button"
             aria-label="Close gallery"
           >
             <XIcon className="h-6 w-6" />
@@ -135,10 +132,9 @@ const MediaModal: FC<Props> = ({
           <button
             onClick={next}
             disabled={currentMediaIndex === mediaLength - 1}
-            className={cn(
-              'rounded-full bg-background/80 p-3 text-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 touch-manipulation cursor-pointer',
-              currentMediaIndex === mediaLength - 1 && 'opacity-50'
-            )}
+            className={cn('media-modal-navigation-mobile-button', {
+              'opacity-50': currentMediaIndex === mediaLength - 1
+            })}
             aria-label="Next media"
           >
             <ChevronRightIcon className="h-6 w-6" />
