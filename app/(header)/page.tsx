@@ -14,7 +14,7 @@ const Index = () => {
   const posts = getAllPosts().sort(postDescendingComparison).slice(0, 20)
   generateFeeds(config, posts)
   return (
-    <main>
+    <>
       <PostList posts={posts} />
       <div className="text-center mt-8">
         <Link href="/posts/" className="all-posts-link">
@@ -22,7 +22,7 @@ const Index = () => {
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
-    </main>
+    </>
   )
 }
 export default Index

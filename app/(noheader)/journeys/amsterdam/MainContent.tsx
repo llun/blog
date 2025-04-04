@@ -5,7 +5,6 @@ import { ArrowLeft } from 'lucide-react'
 import { Calendar } from '../../../../libs/amsterdam'
 import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { CalendarSelector } from './CalendarSelector'
-import style from './amsterdam.module.css'
 
 interface Props {
   calendars: Calendar[]

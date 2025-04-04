@@ -4,6 +4,6 @@
   }
 
   .main-container {
-    @apply container mx-auto px-4 py-8 max-w-5xl;
+    @apply container mx-auto px-4 max-w-5xl;
   }
 }
