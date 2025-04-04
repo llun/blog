@@ -1,6 +1,6 @@
 @layer components {
   .theme-toggle {
-    @apply flex items-center p-1.5;
+    @apply flex items-center p-1.5 cursor-pointer;
   }
 
   .theme-toggle-modal {
@@ -9,6 +9,10 @@
 
   .theme-toggle-modal-content {
     @apply absolute right-0 mt-2 z-20 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg p-2;
+  }
+
+  .theme-toggle-modal-button-container {
+    @apply flex flex-col space-y-2;
   }
 
   .theme-toggle-modal-button {

@@ -6,10 +6,6 @@ import { ThemeToggle } from './ThemeToggle'
 import React from 'react'
 export type Page = {
   url: string
-  image: {
-    src: string
-    alt: string
-  }
   title: string
   icon: LucideIcon | (() => React.ReactNode)
   target?: '_blank'
@@ -17,64 +13,37 @@ export type Page = {
 const DEFAULT_PAGES: Page[] = [
   {
     url: '/tags/ride',
-    image: {
-      src: '/img/icons/ride.png',
-      alt: `navigation icon for riding post`
-    },
     icon: Bike,
     title: 'Ride'
   },
   {
     url: '/tags/dev',
-    image: {
-      src: '/img/icons/dev.png',
-      alt: `navigation icon for dev post`
-    },
     icon: Computer,
     title: 'Dev'
   },
   {
     url: '/gallery',
-    image: {
-      src: '/img/icons/camera.png',
-      alt: `navigation icon for my photos gallery`
-    },
     icon: BookImage,
     title: 'Gallery'
   },
   {
     url: '/journeys',
-    image: {
-      src: '/img/icons/all.png',
-      alt: `navigation icon for journeys, story that doesn't move with time`
-    },
     icon: BookMarked,
     title: 'Journeys'
   },
   {
     url: 'https://github.com/llun',
-    image: {
-      src: '/img/icons/github.png',
-      alt: `navigation icon for github`
-    },
     title: 'Github',
-    icon: () => (
-      <img src="/img/icons/github.png" alt="Github" className="h-5 w-5" />
-    ),
+    icon: () => <img src="/img/icons/github.png" alt="Github" />,
     target: '_blank'
   },
   {
     url: 'https://webring.wonderful.software#llun.me',
-    image: {
-      src: '/img/icons/webring.black.svg',
-      alt: 'วงแหวนเว็บ'
-    },
     title: 'Webring',
     icon: () => (
       <img
         src="https://www.llun.me/img/icons/webring.black.svg"
         alt="Webring"
-        className="h-5 w-5"
       />
     ),
     target: '_blank'
@@ -104,7 +73,7 @@ const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
               className={'nav-link'}
             >
               <item.icon className="mr-2 h-4 w-4" />
-              {item.title}
+              <span className="nav-link-text">{item.title}</span>
             </Link>
           ))}
         </nav>
