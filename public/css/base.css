@@ -58,11 +58,11 @@
   }
 
   ul {
-    @apply list-disc list-inside ml-4;
+    @apply list-disc ml-4 my-4 pl-4 space-y-2;
   }
 
   ol {
-    @apply list-decimal list-inside ml-4;
+    @apply list-decimal ml-4 my-4 pl-4 space-y-2;
   }
 
   select {

@@ -10,7 +10,6 @@ import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getConfig } from '../../../../libs/blog'
 import { getAllJourneys, parseJourney } from '../../../../libs/journey'
-import style from './journey.module.css'
 
 interface Props {
   params: Promise<{ title: string }>
@@ -66,10 +65,7 @@ const Journey = ({ params }: Props) => {
         <ThemeToggle />
       </div>
 
-      <div
-        className={style.content}
-        dangerouslySetInnerHTML={{ __html: content || '' }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: content || '' }} />
 
       <Link className="post-header-back-link" href="/journeys">
         <ArrowLeft className="mr-2 h-4 w-4" />
