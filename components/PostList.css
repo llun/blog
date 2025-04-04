@@ -12,6 +12,6 @@
   }
 
   .post-list-item-title {
-    @apply text-xl font-light hover:underline md:text-2xl;
+    @apply text-lg font-light hover:underline md:text-xl;
   }
 }
