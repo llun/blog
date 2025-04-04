@@ -31,7 +31,7 @@ const Ride = ({ params }: Props) => {
   return (
     <>
       <RideTitle className="mt-2" icon={icon} />
-      <RideStats stats={rideStat} />
+      <RideStats className="mt-4" stats={rideStat} />
       <RideMap {...map} videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
       <RideVideos videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
     </>
