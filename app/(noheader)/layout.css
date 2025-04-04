@@ -1,6 +1,6 @@
 @layer components {
   .post-header {
-    @apply flex items-center justify-between space-y-6;
+    @apply flex items-center justify-between my-4;
   }
 
   .post-header-back-link {
