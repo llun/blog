@@ -1,6 +1,6 @@
 @layer components {
   .layout-div {
-    @apply relative flex min-h-dvh flex-col bg-background
+    @apply relative flex min-h-dvh flex-col bg-background;
   }
 
   .main-container {
