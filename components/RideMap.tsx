@@ -11,6 +11,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { YoutubeVideo } from './RideVideos'
 
 interface Props {
+  className?: string
   zoomLevels: [number, number, number]
   minZoom?: number
   maxZoom?: number
@@ -22,6 +23,7 @@ interface Props {
 const getMarkerScale = (map: Map) => `scale(${1 + (map.getZoom() - 8) * 0.4})`
 
 const RideMap: FC<Props> = ({
+  className,
   zoomLevels,
   minZoom,
   maxZoom,
@@ -98,7 +100,7 @@ const RideMap: FC<Props> = ({
     })
   })
 
-  return <div ref={mapEl} id="map" className={style.map} />
+  return <div ref={mapEl} id="map" className={`${style.map} ${className}`} />
 }
 
 export default RideMap

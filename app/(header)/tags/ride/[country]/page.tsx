@@ -32,7 +32,11 @@ const Ride = ({ params }: Props) => {
     <>
       <RideTitle className="mt-2" icon={icon} />
       <RideStats className="mt-4" stats={rideStat} />
-      <RideMap {...map} videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
+      <RideMap
+        className="mt-4"
+        {...map}
+        videos={COUNTRIES_DATA[country as COUNTRY].youtubes}
+      />
       <RideVideos videos={COUNTRIES_DATA[country as COUNTRY].youtubes} />
     </>
   )
