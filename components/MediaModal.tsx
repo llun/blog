@@ -2,14 +2,9 @@
 import React, { FC, MouseEventHandler, useEffect, useState } from 'react'
 import ReactModal from 'react-modal'
 import cn from 'classnames'
+import { ChevronLeft, ChevronRight, XIcon } from 'lucide-react'
 import { Media } from '../libs/apple/media'
 import { Video720p, VideoPosterDerivative } from '../libs/apple/webstream'
-
-import CloseButton from '../public/img/fa/times.svg'
-import PreviousButton from '../public/img/fa/chevron-left.svg'
-import NextButton from '../public/img/fa/chevron-right.svg'
-
-import style from './MediaModal.module.css'
 
 interface MediaProps {
   media?: Media
@@ -28,8 +23,7 @@ const Photo: FC<MediaProps> = ({ media }) => {
 
   return (
     <img
-      style={{ backgroundImage: `url(${background})` }}
-      className={style.image}
+      className="object-contain max-w-full max-h-[85vh] block border-none"
       src={source}
       alt="Detail image"
       width={media.width}
@@ -44,94 +38,94 @@ const Video: FC<MediaProps> = ({ media }) => {
   const source = media.derivatives[Video720p].url
 
   return (
-    <div className={style.video} style={{ backgroundImage: `url(${poster})` }}>
-      <video poster={poster} controls>
-        <source src={source} type="video/mp4" />
-      </video>
-    </div>
+    <video
+      src={source}
+      poster={poster}
+      controls
+      className="object-contain max-w-full max-h-[85vh]"
+      playsInline
+      controlsList="nodownload"
+      autoPlay
+    >
+      Your browser does not support the video tag.
+    </video>
   )
 }
 
-interface TitleProps extends MediaProps {
-  className?: string
-  onNext: MouseEventHandler<SVGElement>
-  onPrevious: MouseEventHandler<SVGElement>
-  onClose: MouseEventHandler<SVGElement>
-}
-
-const Title: FC<TitleProps> = ({
-  className,
-  media,
-  onNext,
-  onPrevious,
-  onClose
-}) => (
-  <div className={cn(style.control, className)}>
-    <div className={cn(style.title, style.expand)}>
-      {media && (
-        <>
-          <PreviousButton
-            className={cn(style.icon, style.previous)}
-            onClick={onPrevious}
-          />
-          <span>
-            {new Intl.DateTimeFormat('en-GB', {
-              dateStyle: 'full',
-              timeStyle: 'short'
-            }).format(new Date(media?.createdAt))}
-          </span>
-          <NextButton className={cn(style.icon, style.next)} onClick={onNext} />
-        </>
-      )}
-    </div>
-    <CloseButton className={cn(style.icon, style.close)} onClick={onClose} />
-  </div>
-)
-
 interface Props extends MediaProps {
   isOpen: boolean
+  currentMediaIndex: number
+  mediaLength: number
   next: () => void
   previous: () => void
   close: () => void
 }
 
-const MediaModal: FC<Props> = ({ isOpen, media, next, previous, close }) => {
-  const [shouldShowControl, setShouldShowControl] = useState(true)
-
-  useEffect(() => {
-    if (!isOpen) return
-    document.body.className = style.open
-  }, [isOpen])
-
+const MediaModal: FC<Props> = ({
+  isOpen,
+  media,
+  currentMediaIndex,
+  mediaLength,
+  next,
+  previous,
+  close
+}) => {
   return (
     <ReactModal
-      overlayClassName={style.overlay}
-      className={style.modal}
       isOpen={isOpen}
+      onRequestClose={() => {
+        close()
+      }}
+      contentLabel="Media Modal"
+      className="relative max-w-4xl max-h-[90vh] w-full p-4 outline-none mx-auto my-[5vh] bg-background"
+      overlayClassName="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      ariaHideApp={typeof window !== 'undefined'}
     >
-      <div
-        className={style.content}
-        onClick={() => setShouldShowControl(!shouldShowControl)}
+      <button
+        onClick={(event) => {
+          event.stopPropagation()
+          close()
+        }}
+        className="absolute -top-2 -right-2 z-10 rounded-full bg-background/80 p-1.5 text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer"
+        aria-label="Close modal"
       >
+        <XIcon className="h-5 w-5" />
+      </button>
+
+      <div className="relative w-full h-full flex items-center justify-center bg-background rounded-lg overflow-hidden">
         <Photo media={media} />
         <Video media={media} />
-        <Title
-          media={media}
-          className={cn({ [style.hide]: !shouldShowControl })}
-          onNext={(e) => {
-            e.stopPropagation()
-            next()
-          }}
-          onPrevious={(e) => {
-            e.stopPropagation()
-            previous()
-          }}
-          onClose={(e) => {
-            e.stopPropagation()
-            document.body.className = ''
-            close()
-          }}
-        />
+
+        <div className="absolute inset-0 flex items-center justify-between opacity-0 hover:opacity-100 transition-opacity duration-200">
+          <button
+            onClick={(event) => {
+              event.stopPropagation()
+              previous()
+            }}
+            disabled={currentMediaIndex === 0}
+            className={cn(
+              'absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-background/60 p-2 text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50 cursor-pointer',
+              currentMediaIndex === 0 && 'invisible'
+            )}
+            aria-label="Previous media"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            onClick={(event) => {
+              event.stopPropagation()
+              next()
+            }}
+            disabled={currentMediaIndex === mediaLength - 1}
+            className={cn(
+              'absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-background/60 p-2 text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50 cursor-pointer',
+              currentMediaIndex === mediaLength - 1 && 'invisible'
+            )}
+            aria-label="Next media"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        </div>
       </div>
     </ReactModal>
   )

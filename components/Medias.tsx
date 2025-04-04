@@ -83,6 +83,8 @@ const Medias: FC<Props> = ({ partition, token, medias, className }) => {
       <MediaModal
         isOpen={!!selectedMedia}
         media={selectedMedia?.media}
+        currentMediaIndex={selectedMedia?.index ?? 0}
+        mediaLength={medias.length}
         next={() => {
           if (!selectedMedia) return
           const nextMediaIndex = selectedMedia.index + 1
