@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react'
-import { ThemeProvider } from 'next-themes'
-import Header from '../../components/Header'
-import { getConfig } from '../../libs/blog'
-
 import { Metadata } from 'next'
+import { ThemeProvider } from 'next-themes'
+import React, { ReactNode } from 'react'
+
+import { getConfig } from '../../libs/blog'
+import Header from '../../components/Header'
 import { getMetadata } from '../../components/Meta'
 import { Modal } from '../../components/Modal'
 

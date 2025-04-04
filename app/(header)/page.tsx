@@ -1,13 +1,14 @@
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
-import PostList from '../../components/PostList'
+
 import {
   generateFeeds,
   getAllPosts,
   getConfig,
   postDescendingComparison
 } from '../../libs/blog'
+import PostList from '../../components/PostList'
 
 const Index = () => {
   const config = getConfig()
