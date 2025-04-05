@@ -14,8 +14,7 @@ const config = {
       center: true,
       padding: '2rem'
     }
-  },
-  plugins: [forms]
+  }
 } satisfies Config
 
 export default config
