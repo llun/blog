@@ -1,13 +1,16 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
+import Webring from './icons/webring.svg'
+
 import { ThemeToggle } from './ThemeToggle'
-import React from 'react'
+
 export type Page = {
   url: string
   title: string
-  icon: LucideIcon | (() => React.ReactNode)
+  icon: LucideIcon | ((props: { className?: string }) => React.ReactNode)
   target?: '_blank'
 }
 const DEFAULT_PAGES: Page[] = [
@@ -40,11 +43,8 @@ const DEFAULT_PAGES: Page[] = [
   {
     url: 'https://webring.wonderful.software#llun.me',
     title: 'Webring',
-    icon: () => (
-      <img
-        src="https://www.llun.me/img/icons/webring.black.svg"
-        alt="Webring"
-      />
+    icon: (props: { className?: string }) => (
+      <Webring className={props.className} />
     ),
     target: '_blank'
   }
