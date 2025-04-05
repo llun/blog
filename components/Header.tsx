@@ -3,8 +3,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
-import Webring from './icons/webring.svg'
-
+import WebringIcon from './icons/webring.svg'
+import GithubIcon from './icons/github.svg'
 import { ThemeToggle } from './ThemeToggle'
 
 export type Page = {
@@ -37,15 +37,13 @@ const DEFAULT_PAGES: Page[] = [
   {
     url: 'https://github.com/llun',
     title: 'Github',
-    icon: () => <img src="/img/icons/github.png" alt="Github" />,
+    icon: GithubIcon,
     target: '_blank'
   },
   {
     url: 'https://webring.wonderful.software#llun.me',
     title: 'Webring',
-    icon: (props: { className?: string }) => (
-      <Webring className={props.className} />
-    ),
+    icon: WebringIcon,
     target: '_blank'
   }
 ]
