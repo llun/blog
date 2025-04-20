@@ -1,6 +1,6 @@
 @layer components {
   .post-list {
-    @apply space-y-2;
+    @apply space-y-2 max-w-4xl;
   }
 
   .post-list-item {
