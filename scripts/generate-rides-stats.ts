@@ -7,6 +7,7 @@ import {
   Country,
   COUNTRY_NETHERLANDS,
   COUNTRY_SINGAPORE,
+  COUNTRY_SLOVENIA,
   getCountryStreamPath,
   STATS_PATH,
   Streams
@@ -68,7 +69,8 @@ async function countryStats(country: Country) {
 async function run() {
   const stats = {
     [COUNTRY_SINGAPORE]: await countryStats(COUNTRY_SINGAPORE),
-    [COUNTRY_NETHERLANDS]: await countryStats(COUNTRY_NETHERLANDS)
+    [COUNTRY_NETHERLANDS]: await countryStats(COUNTRY_NETHERLANDS),
+    [COUNTRY_SLOVENIA]: await countryStats(COUNTRY_SLOVENIA)
   }
   console.log(stats)
   await fs.writeFile(STATS_PATH, JSON.stringify(stats))
