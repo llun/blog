@@ -41,7 +41,17 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
       >
         Singapore
       </Link>
-      <Link href={`/tags/ride/singapore/gallery`}>
+      <Link href={`/tags/ride/singapore/gallery`} className="mr-2">
+        <BookImage className="ride-title-icon" />
+      </Link>
+      <Link
+        href="/tags/ride/slovenia"
+        className="mr-2"
+        aria-label="Link to my Slovenia cycling map"
+      >
+        Slovenia
+      </Link>
+      <Link href={`/tags/ride/slovenia/gallery`}>
         <BookImage className="ride-title-icon" />
       </Link>
     </h3>

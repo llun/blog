@@ -82,10 +82,11 @@ export interface Streams {
   time: NumberStream
 }
 
-export type Country = 'netherlands' | 'singapore'
+export type Country = 'netherlands' | 'singapore' | 'slovenia'
 
 export const COUNTRY_NETHERLANDS = 'netherlands'
 export const COUNTRY_SINGAPORE = 'singapore'
+export const COUNTRY_SLOVENIA = 'slovenia'
 export const GEOJSON_PATH = path.join(__dirname, '..', 'public', 'tags', 'ride')
 export const STATS_PATH = path.join(
   __dirname,
