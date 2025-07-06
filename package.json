@@ -8,7 +8,7 @@
     "lint": "next lint",
     "export": "BLOG_EXPORT=1 next build",
     "optimize-images": "scripts/optimize-images.sh",
-    "ride": "scripts/load-netherlands-activities.ts && scripts/simplify-gps.ts && scripts/generate-rides-stats.ts"
+    "ride": "scripts/load-netherlands-activities.ts && scripts/load-slovenia-activities.ts && scripts/simplify-gps.ts && scripts/generate-rides-stats.ts"
   },
   "author": "Maythee Anegboonlap <contact@llun.dev>",
   "license": "UNLICENSED",

@@ -12,7 +12,9 @@ scripts/simplify
 scripts/streams
 scripts/netherlands
 scripts/singapore
+scripts/slovenia
 scripts/activities.json
 scripts/netherlands.json
 scripts/singapore.json
+scripts/slovenia.json
 .yarn
