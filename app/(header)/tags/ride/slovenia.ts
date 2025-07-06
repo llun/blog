@@ -1,3 +1,4 @@
+import { SLOVENIA_ALBUM_TOKEN } from '@/libs/config'
 import { getConfig } from '../../../../libs/blog'
 import { CountryData } from './types'
 
@@ -23,6 +24,6 @@ export const SLOVENIA: CountryData = {
     center: [14.9955, 46.1512],
     dataPath: '/tags/ride/slovenia.json'
   },
-  galleryToken: '',
+  galleryToken: SLOVENIA_ALBUM_TOKEN,
   youtubes: []
 }
