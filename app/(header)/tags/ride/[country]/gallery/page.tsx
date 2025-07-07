@@ -15,7 +15,11 @@ interface Props {
 }
 
 export const generateStaticParams = async () => {
-  return [{ country: COUNTRY.NETHERLANDS }, { country: COUNTRY.SINGAPORE }]
+  return [
+    { country: COUNTRY.NETHERLANDS },
+    { country: COUNTRY.SINGAPORE },
+    { country: COUNTRY.SLOVENIA }
+  ]
 }
 
 export const generateMetadata = async ({
