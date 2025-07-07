@@ -4,24 +4,7 @@ import fs from 'fs/promises'
 
 import { COUNTRY_SLOVENIA, getCountryActivities } from './constTypes'
 import { getActivities, getLatLngs } from './strava'
-
-// Slovenia geographic bounds
-const SLOVENIA_BOUNDS = {
-  minLat: 45.4, // Southern border
-  maxLat: 46.9, // Northern border
-  minLng: 13.4, // Western border
-  maxLng: 16.6 // Eastern border
-}
-
-// Check if coordinates are within Slovenia bounds
-function isInSlovenia(lat: number, lng: number): boolean {
-  return (
-    lat >= SLOVENIA_BOUNDS.minLat &&
-    lat <= SLOVENIA_BOUNDS.maxLat &&
-    lng >= SLOVENIA_BOUNDS.minLng &&
-    lng <= SLOVENIA_BOUNDS.maxLng
-  )
-}
+import { isInSlovenia } from './country-utils'
 
 async function getSloveniaRides() {
   const activities = await getActivities()
