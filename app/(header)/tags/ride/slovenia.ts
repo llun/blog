@@ -1,4 +1,5 @@
-import { SLOVENIA_ALBUM_TOKEN } from '@/libs/config'
+import rideStats from '../../../../public/tags/ride/stats.json'
+import { SLOVENIA_ALBUM_TOKEN } from '../../../../libs/config'
 import { getConfig } from '../../../../libs/blog'
 import { CountryData } from './types'
 
@@ -16,7 +17,7 @@ export const SLOVENIA: CountryData = {
     src: '/img/icons/slovenia.png',
     alt: 'Slovenia flag for ride in Slovenia page'
   },
-  rideStat: { distance: 0, activities: 0 },
+  rideStat: rideStats.slovenia,
   map: {
     zoomLevels: [7.0, 8.0, 9.0],
     minZoom: 6,

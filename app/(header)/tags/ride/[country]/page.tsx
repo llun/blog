@@ -7,14 +7,18 @@ import RideStats from '../../../../../components/RideStats'
 import RideTitle from '../../../../../components/RideTitle'
 
 import { COUNTRIES_DATA, COUNTRY } from '../countries'
-import RideVideos from '@/components/RideVideos'
+import RideVideos from '../../../../../components/RideVideos'
 
 interface Props {
   params: Promise<{ country: string }>
 }
 
 export const generateStaticParams = async () => {
-  return [{ country: COUNTRY.NETHERLANDS }, { country: COUNTRY.SINGAPORE }]
+  return [
+    { country: COUNTRY.NETHERLANDS },
+    { country: COUNTRY.SINGAPORE },
+    { country: COUNTRY.SLOVENIA }
+  ]
 }
 
 export const generateMetadata = async ({

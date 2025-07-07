@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { isAxiosError } from 'axios'
 import fs from 'fs/promises'
 import { exec } from 'child_process'
 import { promisify } from 'util'
@@ -46,8 +46,15 @@ async function refreshAccessToken(): Promise<string> {
     process.env.STRAVA_REFRESH_TOKEN = data.refresh_token
 
     console.log('Access token refreshed successfully')
-    return data.access_token
+    return process.env.STRAVA_TOKEN
   } catch (error) {
+    if (isAxiosError(error) && error.response?.status === 429) {
+      const usage = error.response.headers['x-ratelimit-usage']
+      const limit = error.response.headers['x-ratelimit-limit']
+      console.error(
+        `Rate limit hit on refreshing token. Usage: ${usage}, Limit: ${limit}`
+      )
+    }
     console.error('Failed to refresh access token:', error)
     throw error
   }
@@ -70,6 +77,16 @@ async function getValidAccessToken(): Promise<string> {
 
     return currentToken
   } catch (error) {
+    if (isAxiosError(error) && error.response) {
+      if (error.response.status === 429) {
+        const usage = error.response.headers['x-ratelimit-usage']
+        const limit = error.response.headers['x-ratelimit-limit']
+        console.error(
+          `Rate limit hit on getting athlete. Usage: ${usage}, Limit: ${limit}`
+        )
+        throw error
+      }
+    }
     // Token is likely expired, refresh it
     console.log('Access token expired, refreshing...')
     return await refreshAccessToken()
@@ -84,21 +101,33 @@ export async function getActivities(before?: number, loadAll = false) {
   const accessToken = await getValidAccessToken()
 
   while (page < totalPage) {
-    const { data } = await axios.get(
-      `https://www.strava.com/api/v3/athlete/activities`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        },
-        params: {
-          page,
-          ...(before ? { before } : null)
+    try {
+      const { data } = await axios.get(
+        `https://www.strava.com/api/v3/athlete/activities`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          },
+          params: {
+            page,
+            per_page: 60,
+            ...(before ? { before } : null)
+          }
         }
+      )
+      all.push(...data)
+      page++
+      if (data.length === 0) break
+    } catch (error) {
+      if (isAxiosError(error) && error.response?.status === 429) {
+        const usage = error.response.headers['x-ratelimit-usage']
+        const limit = error.response.headers['x-ratelimit-limit']
+        console.error(
+          `Rate limit hit on getting activities. Usage: ${usage}, Limit: ${limit}`
+        )
       }
-    )
-    all.push(...data)
-    page++
-    if (data.length === 0) break
+      throw error
+    }
     await new Promise((resolve) => setTimeout(resolve, 1000))
   }
   console.log('Total', all.length)
@@ -115,19 +144,32 @@ export async function getLatLngs(country: Country, activity: Activity) {
   } catch {
     const accessToken = await getValidAccessToken()
 
-    const { data } = await axios.get(
-      `https://www.strava.com/api/v3/activities/${activity.id}/streams`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        },
-        params: {
-          keys: 'latlng,altitude,time,heartrate',
-          key_by_type: 'true'
+    try {
+      const { data } = await axios.get(
+        `https://www.strava.com/api/v3/activities/${activity.id}/streams`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          },
+          params: {
+            keys: 'latlng,altitude,time,heartrate',
+            key_by_type: 'true'
+          }
         }
+      )
+      await fs.writeFile(streamFile, JSON.stringify(data), {
+        encoding: 'utf8'
+      })
+      return data as Streams
+    } catch (error) {
+      if (isAxiosError(error) && error.response?.status === 429) {
+        const usage = error.response.headers['x-ratelimit-usage']
+        const limit = error.response.headers['x-ratelimit-limit']
+        console.error(
+          `Rate limit hit on getting lat/lng for activity ${activity.id}. Usage: ${usage}, Limit: ${limit}`
+        )
       }
-    )
-    await fs.writeFile(streamFile, JSON.stringify(data), { encoding: 'utf8' })
-    return data as Streams
+      throw error
+    }
   }
 }
