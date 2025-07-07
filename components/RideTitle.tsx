@@ -51,7 +51,7 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
       >
         Slovenia
       </Link>
-      <Link href={`/tags/ride/slovenia/gallery`}>
+      <Link href={`/tags/ride/slovenia/gallery`} className="mr-2">
         <BookImage className="ride-title-icon" />
       </Link>
     </h3>

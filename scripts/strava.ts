@@ -1,11 +1,7 @@
 import axios, { isAxiosError } from 'axios'
 import fs from 'fs/promises'
-import { exec } from 'child_process'
-import { promisify } from 'util'
 
 import { Activity, Country, getCountryStreamPath, Streams } from './constTypes'
-
-const execAsync = promisify(exec)
 
 interface TokenResponse {
   access_token: string

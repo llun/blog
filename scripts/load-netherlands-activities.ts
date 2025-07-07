@@ -4,24 +4,7 @@ import fs from 'fs/promises'
 
 import { COUNTRY_NETHERLANDS, getCountryActivities } from './constTypes'
 import { getActivities, getLatLngs } from './strava'
-
-// Netherlands geographic bounds
-const NETHERLANDS_BOUNDS = {
-  minLat: 50.75, // Southern border
-  maxLat: 53.7, // Northern border
-  minLng: 3.2, // Western border
-  maxLng: 7.2 // Eastern border
-}
-
-// Check if coordinates are within Netherlands bounds
-function isInNetherlands(lat: number, lng: number): boolean {
-  return (
-    lat >= NETHERLANDS_BOUNDS.minLat &&
-    lat <= NETHERLANDS_BOUNDS.maxLat &&
-    lng >= NETHERLANDS_BOUNDS.minLng &&
-    lng <= NETHERLANDS_BOUNDS.maxLng
-  )
-}
+import { isInNetherlands } from './country-utils'
 
 async function getNetherlandsRides() {
   const activities = await getActivities()
