@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S npx tsx
 import { kdTree } from 'kd-tree-javascript'
 import fs from 'fs/promises'
 import path from 'path'
@@ -24,7 +24,7 @@ function distance(c1: Coordinate, c2: Coordinate) {
 
 function getLineWithoutDuplicate(activity: Streams) {
   return activity.latlng.data
-    .map(([x, y]) => ({ x: new Decimal(y), y: new Decimal(x) } as Coordinate))
+    .map(([x, y]) => ({ x: new Decimal(y), y: new Decimal(x) }) as Coordinate)
     .filter((position, index, array) => {
       if (index < 1) return true
       return distance(position, array[index - 1]) > 0

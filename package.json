@@ -8,7 +8,7 @@
     "lint": "next lint",
     "export": "BLOG_EXPORT=1 next build",
     "optimize-images": "scripts/optimize-images.sh",
-    "ride": "scripts/load-netherlands-activities.ts && scripts/load-slovenia-activities.ts && scripts/simplify-gps.ts && scripts/generate-rides-stats.ts"
+    "ride": "tsx scripts/load-netherlands-activities.ts && tsx scripts/load-slovenia-activities.ts && tsx scripts/simplify-gps.ts && tsx scripts/generate-rides-stats.ts"
   },
   "author": "Maythee Anegboonlap <contact@llun.dev>",
   "license": "UNLICENSED",
@@ -72,7 +72,7 @@
     "simplify-js": "^1.2.4",
     "stream-buffers": "^3.0.3",
     "tailwindcss": "^4.1.11",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.1",
     "typescript": "^5.8.3",
     "yaml": "^2.8.0",
     "yargs": "^18.0.0"

@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env -S npx tsx
 import 'dotenv-flow/config'
 import fs from 'fs/promises'
 import path from 'path'
