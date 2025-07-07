@@ -34,12 +34,19 @@ async function refreshAccessToken(): Promise<string> {
     )
 
     // Update .env.local file with new tokens using bash commands
-    await execAsync(
-      `sed -i '' 's/STRAVA_TOKEN=.*/STRAVA_TOKEN=${data.access_token}/' .env.local`
-    )
-    await execAsync(
-      `sed -i '' 's/STRAVA_REFRESH_TOKEN=.*/STRAVA_REFRESH_TOKEN=${data.refresh_token}/' .env.local`
-    )
+    const envFilePath = '.env.local';
+    let envContent = await fs.readFile(envFilePath, 'utf-8');
+
+    envContent = envContent.replace(
+      /STRAVA_TOKEN=.*/,
+      `STRAVA_TOKEN=${data.access_token}`
+    );
+    envContent = envContent.replace(
+      /STRAVA_REFRESH_TOKEN=.*/,
+      `STRAVA_REFRESH_TOKEN=${data.refresh_token}`
+    );
+
+    await fs.writeFile(envFilePath, envContent, 'utf-8');
 
     // Update process.env for current session
     process.env.STRAVA_TOKEN = data.access_token
