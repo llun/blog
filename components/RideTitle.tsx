@@ -6,7 +6,6 @@ import { Bike, BookImage } from 'lucide-react'
 interface Props {
   className?: string
   icon?: { src: string; alt: string }
-  currentCountry?: string
 }
 
 const COUNTRIES = [
@@ -15,7 +14,7 @@ const COUNTRIES = [
   { name: 'Slovenia', code: 'SI', slug: 'slovenia' }
 ] as const
 
-const RideTitle: FC<Props> = ({ icon, className, currentCountry }) => (
+const RideTitle: FC<Props> = ({ icon, className }) => (
   <section className={`flex flex-col ${className}`}>
     <h3 className="flex-1">
       {icon && (
@@ -41,11 +40,9 @@ const RideTitle: FC<Props> = ({ icon, className, currentCountry }) => (
             <span className="sm:hidden">{country.code}</span>
             <span className="hidden sm:inline">{country.name}</span>
           </Link>
-          {currentCountry === country.slug && (
-            <Link href={`/tags/ride/${country.slug}/gallery`} className="mr-2">
-              <BookImage className="ride-title-icon" />
-            </Link>
-          )}
+          <Link href={`/tags/ride/${country.slug}/gallery`} className="mr-2">
+            <BookImage className="ride-title-icon" />
+          </Link>
         </React.Fragment>
       ))}
     </h3>
