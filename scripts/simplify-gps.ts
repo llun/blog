@@ -80,21 +80,6 @@ function removeNearbyPoints(
   return filteredPoints
 }
 
-// Enhanced simplification that combines simplify-js with nearby point removal
-function enhancedSimplify(
-  points: { x: number; y: number }[],
-  tolerance: number = 0.00001,
-  minDistance: number = 5
-): { x: number; y: number }[] {
-  // First pass: Remove points that are too close to each other
-  const nearbyFiltered = removeNearbyPoints(points, minDistance)
-
-  // Second pass: Apply simplify-js for geometric simplification
-  const geometricSimplified = simplifyjs(nearbyFiltered, tolerance, true)
-
-  return geometricSimplified
-}
-
 async function simplifyCountry(country: Country) {
   const simplifyPath = getCountrySimplifyPath(country)
   await fs.mkdir(simplifyPath, { recursive: true })
@@ -103,7 +88,6 @@ async function simplifyCountry(country: Country) {
   const features: Feature[] = []
   const processedFiles: string[] = []
   let totalPointsOriginal = 0
-  let totalPointsAfterNearbyRemoval = 0
   let totalPointsAfterSimplification = 0
 
   for (const file of files) {
@@ -127,7 +111,6 @@ async function simplifyCountry(country: Country) {
     const finalSimplified = simplifyjs(nearbyFiltered, 0.0001, true) // Moderate tolerance
 
     totalPointsOriginal += originalPoints.length
-    totalPointsAfterNearbyRemoval += nearbyFiltered.length
     totalPointsAfterSimplification += finalSimplified.length
 
     console.log(
@@ -168,9 +151,6 @@ async function simplifyCountry(country: Country) {
 
   console.log('\n=== POINT REDUCTION SUMMARY ===')
   console.log(`Total original points: ${totalPointsOriginal.toLocaleString()}`)
-  console.log(
-    `After nearby removal: ${totalPointsAfterNearbyRemoval.toLocaleString()} (${(((totalPointsOriginal - totalPointsAfterNearbyRemoval) / totalPointsOriginal) * 100).toFixed(1)}% reduction)`
-  )
   console.log(
     `After final simplification: ${totalPointsAfterSimplification.toLocaleString()} (${(((totalPointsOriginal - totalPointsAfterSimplification) / totalPointsOriginal) * 100).toFixed(1)}% total reduction)`
   )
