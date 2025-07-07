@@ -43,7 +43,7 @@ const RideGallery = async ({ params }: Props) => {
 
   return (
     <>
-      <RideTitle className="mt-2" icon={icon} />
+      <RideTitle className="mt-2" icon={icon} currentCountry={country} />
       <RideStats className="mt-4" stats={rideStat} />
       <Medias
         className="mt-4"
