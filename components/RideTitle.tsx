@@ -29,8 +29,8 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
         className="mr-2"
         aria-label="Link to my Netherlands cycling map"
       >
-        <span className="md:hidden">NL</span>
-        <span className="hidden md:inline">Netherlands</span>
+        <span className="sm:hidden">NL</span>
+        <span className="hidden sm:inline">Netherlands</span>
       </Link>
       <Link href={`/tags/ride/netherlands/gallery`} className="mr-2">
         <BookImage className="ride-title-icon" />
@@ -40,8 +40,8 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
         className="mr-2"
         aria-label="Link to my Singapore cycling map"
       >
-        <span className="md:hidden">SG</span>
-        <span className="hidden md:inline">Singapore</span>
+        <span className="sm:hidden">SG</span>
+        <span className="hidden sm:inline">Singapore</span>
       </Link>
       <Link href={`/tags/ride/singapore/gallery`} className="mr-2">
         <BookImage className="ride-title-icon" />
@@ -51,8 +51,8 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
         className="mr-2"
         aria-label="Link to my Slovenia cycling map"
       >
-        <span className="md:hidden">SI</span>
-        <span className="hidden md:inline">Slovenia</span>
+        <span className="sm:hidden">SI</span>
+        <span className="hidden sm:inline">Slovenia</span>
       </Link>
       <Link href={`/tags/ride/slovenia/gallery`} className="mr-2">
         <BookImage className="ride-title-icon" />
