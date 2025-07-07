@@ -7,6 +7,7 @@ import {
   Country,
   COUNTRY_NETHERLANDS,
   COUNTRY_SINGAPORE,
+  COUNTRY_SLOVENIA,
   GEOJSON_PATH,
   getCountrySimplifyPath,
   getCountryStreamPath,
@@ -79,6 +80,7 @@ async function simplifyCountry(country: Country) {
 async function run() {
   await simplifyCountry(COUNTRY_NETHERLANDS)
   // await simplifyCountry(COUNTRY_SINGAPORE)
+  await simplifyCountry(COUNTRY_SLOVENIA)
 }
 
 run()
