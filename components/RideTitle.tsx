@@ -6,10 +6,9 @@ import { Bike, BookImage } from 'lucide-react'
 interface Props {
   className?: string
   icon?: { src: string; alt: string }
-  country?: 'netherlands' | 'singapore' | 'slovenia'
 }
 
-const RideTitle: FC<Props> = ({ icon, className, country }) => (
+const RideTitle: FC<Props> = ({ icon, className }) => (
   <section className={`flex flex-col ${className}`}>
     <h3 className="flex-1">
       {icon && (
@@ -30,37 +29,34 @@ const RideTitle: FC<Props> = ({ icon, className, country }) => (
         className="mr-2"
         aria-label="Link to my Netherlands cycling map"
       >
-        Netherlands
+        <span className="md:hidden">NL</span>
+        <span className="hidden md:inline">Netherlands</span>
       </Link>
-      {country === 'netherlands' && (
-        <Link href={`/tags/ride/netherlands/gallery`} className="mr-2">
-          <BookImage className="ride-title-icon" />
-        </Link>
-      )}
+      <Link href={`/tags/ride/netherlands/gallery`} className="mr-2">
+        <BookImage className="ride-title-icon" />
+      </Link>
       <Link
         href="/tags/ride/singapore"
         className="mr-2"
         aria-label="Link to my Singapore cycling map"
       >
-        Singapore
+        <span className="md:hidden">SG</span>
+        <span className="hidden md:inline">Singapore</span>
       </Link>
-      {country === 'singapore' && (
-        <Link href={`/tags/ride/singapore/gallery`} className="mr-2">
-          <BookImage className="ride-title-icon" />
-        </Link>
-      )}
+      <Link href={`/tags/ride/singapore/gallery`} className="mr-2">
+        <BookImage className="ride-title-icon" />
+      </Link>
       <Link
         href="/tags/ride/slovenia"
         className="mr-2"
         aria-label="Link to my Slovenia cycling map"
       >
-        Slovenia
+        <span className="md:hidden">SI</span>
+        <span className="hidden md:inline">Slovenia</span>
       </Link>
-      {country === 'slovenia' && (
-        <Link href={`/tags/ride/slovenia/gallery`} className="mr-2">
-          <BookImage className="ride-title-icon" />
-        </Link>
-      )}
+      <Link href={`/tags/ride/slovenia/gallery`} className="mr-2">
+        <BookImage className="ride-title-icon" />
+      </Link>
     </h3>
   </section>
 )

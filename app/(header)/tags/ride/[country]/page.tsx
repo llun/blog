@@ -34,11 +34,7 @@ const Ride = ({ params }: Props) => {
   const { icon, rideStat, map } = COUNTRIES_DATA[country as COUNTRY]
   return (
     <>
-      <RideTitle
-        className="mt-2"
-        icon={icon}
-        country={country as 'netherlands' | 'singapore' | 'slovenia'}
-      />
+      <RideTitle className="mt-2" icon={icon} />
       <RideStats className="mt-4" stats={rideStat} />
       <RideMap
         className="mt-4"
