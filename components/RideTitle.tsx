@@ -8,6 +8,12 @@ interface Props {
   icon?: { src: string; alt: string }
 }
 
+const COUNTRIES = [
+  { name: 'Netherlands', code: 'NL', slug: 'netherlands' },
+  { name: 'Singapore', code: 'SG', slug: 'singapore' },
+  { name: 'Slovenia', code: 'SI', slug: 'slovenia' }
+] as const
+
 const RideTitle: FC<Props> = ({ icon, className }) => (
   <section className={`flex flex-col ${className}`}>
     <h3 className="flex-1">
@@ -24,36 +30,21 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
       <Link href="/tags/ride/" className="mr-2" aria-label="Link to post list">
         Posts
       </Link>
-      <Link
-        href="/tags/ride/netherlands"
-        className="mr-2"
-        aria-label="Link to my Netherlands cycling map"
-      >
-        Netherlands
-      </Link>
-      <Link href={`/tags/ride/netherlands/gallery`} className="mr-2">
-        <BookImage className="ride-title-icon" />
-      </Link>
-      <Link
-        href="/tags/ride/singapore"
-        className="mr-2"
-        aria-label="Link to my Singapore cycling map"
-      >
-        Singapore
-      </Link>
-      <Link href={`/tags/ride/singapore/gallery`} className="mr-2">
-        <BookImage className="ride-title-icon" />
-      </Link>
-      <Link
-        href="/tags/ride/slovenia"
-        className="mr-2"
-        aria-label="Link to my Slovenia cycling map"
-      >
-        Slovenia
-      </Link>
-      <Link href={`/tags/ride/slovenia/gallery`} className="mr-2">
-        <BookImage className="ride-title-icon" />
-      </Link>
+      {COUNTRIES.map((country) => (
+        <React.Fragment key={country.slug}>
+          <Link
+            href={`/tags/ride/${country.slug}`}
+            className="mr-2"
+            aria-label={`Link to my ${country.name} cycling map`}
+          >
+            <span className="sm:hidden">{country.code}</span>
+            <span className="hidden sm:inline">{country.name}</span>
+          </Link>
+          <Link href={`/tags/ride/${country.slug}/gallery`} className="mr-2">
+            <BookImage className="ride-title-icon" />
+          </Link>
+        </React.Fragment>
+      ))}
     </h3>
   </section>
 )
