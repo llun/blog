@@ -19,8 +19,8 @@ export const SLOVENIA: CountryData = {
   },
   rideStat: rideStats.slovenia,
   map: {
-    zoomLevels: [7.0, 8.0, 9.0],
-    minZoom: 6,
+    zoomLevels: [5.8, 6.2, 6.8],
+    minZoom: 5,
     maxZoom: 12,
     center: [14.9955, 46.1512],
     dataPath: '/tags/ride/slovenia.json'
