@@ -31,11 +31,12 @@ const archiver = require('archiver')
 const streamBuffers = require('stream-buffers')
 const crypto = require('crypto')
 const _ = require('lodash')
+const { hideBin } = require('yargs/helpers')
 
 const N_VIRGINIA = 'us-east-1'
 
 const argv = /** @type {Arguments} */ (
-  require('yargs')
+  require('yargs')(hideBin(process.argv))
     .option('awsid', {
       describe: 'AWS Account ID',
       required: true,
