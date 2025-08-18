@@ -5,6 +5,7 @@ import path from 'path'
 
 import { COUNTRY_SINGAPORE, getCountryActivities, Streams } from './constTypes'
 import { getActivities, getLatLngs } from './strava'
+import { isSupportedRideType } from './ride-utils'
 
 async function getSingaporeRides() {
   try {
@@ -21,7 +22,7 @@ async function getSingaporeRides() {
     const activities = await getActivities(1646814555, true)
     const singaporeRides = activities.filter(
       (activity) =>
-        activity.sport_type === 'Ride' && [28800].includes(activity.utc_offset)
+        isSupportedRideType(activity) && [28800].includes(activity.utc_offset)
     )
     await fs.writeFile(
       `${getCountryActivities(COUNTRY_SINGAPORE)}`,

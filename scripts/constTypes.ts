@@ -87,6 +87,16 @@ export type Country = 'netherlands' | 'singapore' | 'slovenia'
 export const COUNTRY_NETHERLANDS = 'netherlands'
 export const COUNTRY_SINGAPORE = 'singapore'
 export const COUNTRY_SLOVENIA = 'slovenia'
+
+// Supported sport types for rides
+export const SPORT_TYPE_RIDE = 'Ride'
+export const SPORT_TYPE_EBIKE_RIDE = 'EBikeRide'
+export const SUPPORTED_RIDE_TYPES = [
+  SPORT_TYPE_RIDE,
+  SPORT_TYPE_EBIKE_RIDE
+] as const
+
+export type RideSportType = (typeof SUPPORTED_RIDE_TYPES)[number]
 export const GEOJSON_PATH = path.join(__dirname, '..', 'public', 'tags', 'ride')
 export const STATS_PATH = path.join(
   __dirname,
