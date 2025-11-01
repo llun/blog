@@ -3,7 +3,20 @@ module.exports = {
   trailingSlash: true,
   images: {
     unoptimized: true,
-    domains: ['webring.wonderful.software']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'webring.wonderful.software'
+      }
+    ]
+  },
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js'
+      }
+    }
   },
   async headers() {
     return [
