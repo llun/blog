@@ -15,6 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
+          cache: 'yarn'
 
       - name: Install and build
         run: |
@@ -29,8 +30,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-southeast-1
 
-      - name: Upload non-cache to S3
+      - name: Upload to S3 (parallel)
         run: |
+          echo "🚀 Starting parallel S3 uploads..."
+
+          # HTML, CSS, JS and other text assets (no cache header - always fresh)
+          echo "📄 [1/3] Uploading HTML, CSS, JS and text assets..."
           aws s3 sync out/ s3://${{ secrets.AWS_S3_BUCKET }}/ \
             --acl public-read \
             --follow-symlinks \
@@ -40,10 +45,11 @@ jobs:
             --exclude '*.ico' \
             --exclude 'feeds/main' \
             --exclude 'feeds/atom.xml' \
-            --exclude '.well-known/webfinger'
+            --exclude '.well-known/webfinger' &
+          PID1=$!
 
-      - name: Upload cache to S3
-        run: |
+          # Images with long cache (7 days) - these rarely change
+          echo "🖼️  [2/3] Uploading images with 7-day cache..."
           aws s3 sync out/ s3://${{ secrets.AWS_S3_BUCKET }}/ \
             --acl public-read \
             --cache-control max-age=604800 \
@@ -52,17 +58,26 @@ jobs:
             --include '*.jpg' \
             --include '*.jpeg' \
             --include '*.png' \
-            --include '*.ico'
+            --include '*.ico' &
+          PID2=$!
 
-      - name: Upload feeds to S3
-        run: |
+          # RSS/Atom feeds with proper content-type for feed readers
+          echo "📡 [3/3] Uploading RSS/Atom feeds..."
           aws s3 sync out/ s3://${{ secrets.AWS_S3_BUCKET }}/ \
             --acl public-read \
             --follow-symlinks \
             --exclude '*' \
             --include 'feeds/main' \
             --include 'feeds/atom.xml' \
-            --content-type 'application/atom+xml'
+            --content-type 'application/atom+xml' &
+          PID3=$!
+
+          # Wait for all uploads to complete
+          echo "⏳ Waiting for all uploads to complete..."
+          wait $PID1 && echo "✅ [1/3] Text assets uploaded" || { echo "❌ [1/3] Text assets failed"; exit 1; }
+          wait $PID2 && echo "✅ [2/3] Images uploaded" || { echo "❌ [2/3] Images failed"; exit 1; }
+          wait $PID3 && echo "✅ [3/3] Feeds uploaded" || { echo "❌ [3/3] Feeds failed"; exit 1; }
+          echo "🎉 All S3 uploads completed successfully!"
 
       - name: Invalidate CloudFront
         run: |
