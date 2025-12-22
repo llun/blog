@@ -35,6 +35,11 @@ export interface Config {
   url: string
 }
 
+/**
+ * Recursively reads all leaf directories (directories with no subdirectories) from a root path.
+ * @param root - The root directory path to scan
+ * @returns An array of leaf directory paths
+ */
 export function readAllLeafDirectories(root: string) {
   const posts = fs
     .readdirSync(root)
@@ -52,6 +57,13 @@ export function readAllLeafDirectories(root: string) {
   return paths
 }
 
+/**
+ * Parses a blog post from a markdown file with YAML frontmatter.
+ * @param config - The blog configuration containing URL and other settings
+ * @param file - Path to the markdown file to parse
+ * @param includeContent - Whether to parse and include the markdown content as HTML (default: false)
+ * @returns A Post object with properties and optional content, or null if parsing fails
+ */
 export const parsePost = (
   config: Config,
   file: string,
@@ -103,12 +115,23 @@ export const parsePost = (
   }
 }
 
+/**
+ * Comparison function for sorting posts in descending order by timestamp, then by title.
+ * @param post1 - First post to compare
+ * @param post2 - Second post to compare
+ * @returns Negative if post1 is newer, positive if post2 is newer, 0 if equal
+ */
 export const postDescendingComparison = (post1: Post, post2: Post) => {
   if (post1.timestamp !== post2.timestamp)
     return post2.timestamp - post1.timestamp
   return post2.properties.title.localeCompare(post1.properties.title)
 }
 
+/**
+ * Retrieves all blog posts from the contents directory.
+ * Results are memoized for performance.
+ * @returns An array of all posts without content
+ */
 export const getAllPosts = memoize((): Post[] => {
   const config = getConfig()
   const paths = readAllLeafDirectories(
@@ -122,6 +145,13 @@ export const getAllPosts = memoize((): Post[] => {
   return posts
 })
 
+/**
+ * Generates RSS and Atom feeds from blog posts.
+ * Results are memoized for performance.
+ * @param config - The blog configuration
+ * @param sortedPosts - Posts sorted in the desired order
+ * @returns Feed object containing RSS and Atom feeds
+ */
 export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
   const feed = new Feed({
     title: config.title,
