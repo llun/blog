@@ -6,7 +6,6 @@ import simplifyjs from 'simplify-js'
 import {
   Country,
   COUNTRY_NETHERLANDS,
-  COUNTRY_SINGAPORE,
   COUNTRY_SLOVENIA,
   GEOJSON_PATH,
   getCountrySimplifyPath,

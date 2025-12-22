@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { FC } from 'react'
 import ReactModal from 'react-modal'
 import cn from 'classnames'
