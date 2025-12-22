@@ -55,7 +55,7 @@ async function run() {
     (content) => JSON.parse(content) as Streams
   )
 
-  const [a1, a2, ...rest] = activities
+  const [a1, a2] = activities
   writeGeoJson('a1.json', a1.latlng.data)
   writeGeoJson('a2.json', a2.latlng.data)
 
