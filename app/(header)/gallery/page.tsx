@@ -14,6 +14,9 @@ export const metadata: Metadata = getMetadata({
   description
 })
 
+const SAFE_ROUTE_SEGMENT = /^[A-Za-z0-9._-]+$/
+const SAFE_IMAGE_FILE = /^[A-Za-z0-9._-]+\.jpg$/i
+
 const Gallery = () => {
   const albums = getAllAlbums()
   return (
@@ -21,24 +24,22 @@ const Gallery = () => {
       <h2 className="my-2">Image Gallery</h2>
       <div className="gallery-list">
         {albums.map(({ name, image, description, title: albumTitle }) => {
-          const encodedName = encodeURIComponent(name)
-          const encodedImage = encodeURIComponent(image)
-          const encodedAvif = encodeURIComponent(
-            image.replace(/\.jpg$/i, '.avif')
-          )
-          const encodedWebp = encodeURIComponent(
-            image.replace(/\.jpg$/i, '.webp')
-          )
+          if (!SAFE_ROUTE_SEGMENT.test(name) || !SAFE_IMAGE_FILE.test(image)) {
+            return null
+          }
+
+          const avifImage = image.replace(/\.jpg$/i, '.avif')
+          const webpImage = image.replace(/\.jpg$/i, '.webp')
           return (
-            <Link key={name} href={`/gallery/${encodedName}`}>
+            <Link key={name} href={`/gallery/${name}`}>
               <picture>
-                <source srcSet={`/gallery/${encodedAvif}`} type="image/avif" />
-                <source srcSet={`/gallery/${encodedWebp}`} type="image/webp" />
+                <source srcSet={`/gallery/${avifImage}`} type="image/avif" />
+                <source srcSet={`/gallery/${webpImage}`} type="image/webp" />
                 <img
                   className="border-none p-0"
                   width={512}
                   height={512}
-                  src={`/gallery/${encodedImage}`}
+                  src={`/gallery/${image}`}
                   alt={description}
                 />
               </picture>
