@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 /**
  * @typedef {{ awsid: string, cloudfront: string }} Arguments
@@ -27,8 +26,7 @@ const {
   UpdateDistributionCommand,
   CreateInvalidationCommand
 } = require('@aws-sdk/client-cloudfront')
-const archiver = require('archiver')
-const streamBuffers = require('stream-buffers')
+const { ZipFile } = require('yazl')
 const crypto = require('crypto')
 const _ = require('lodash')
 const { hideBin } = require('yargs/helpers')
@@ -69,20 +67,27 @@ const projectConfig = /** @type {ProjectConfig} */ (
  */
 async function archivingFunction(functionName) {
   const name = `${projectConfig.name}_${functionName}`
+  const directory = path.join(__dirname, 'functions', functionName)
+
   return new Promise((resolve, reject) => {
     console.log(`> Creating ${name} archive`)
-    const buffers = new streamBuffers.WritableStreamBuffer({
-      initialSize: 100 * 1024, // start at 100 kilobytes.
-      incrementAmount: 10 * 1024 // grow by 10 kilobytes each time buffer overflows.
+    const zip = new ZipFile()
+    const chunks = []
+
+    try {
+      addDirectoryToZip(zip, directory, directory)
+    } catch (error) {
+      reject(error)
+      return
+    }
+
+    zip.outputStream.on('data', (chunk) => {
+      chunks.push(chunk)
     })
-
-    const archive = archiver('zip', { zlib: { level: -1 } })
-    archive.on('error', (error) => reject(error))
-    archive.pipe(buffers)
-
-    buffers.on('finish', () => {
-      const content = buffers.getContents()
-      if (!content) {
+    zip.outputStream.on('error', (error) => reject(error))
+    zip.outputStream.on('end', () => {
+      const content = Buffer.concat(chunks)
+      if (content.length === 0) {
         return resolve(['', null])
       }
 
@@ -92,9 +97,37 @@ async function archivingFunction(functionName) {
       resolve([digest, content])
     })
 
-    archive.directory(path.join(__dirname, 'functions', functionName), false)
-    archive.finalize()
+    zip.end()
   })
+}
+
+/**
+ * @param {ZipFile} zip
+ * @param {string} rootPath
+ * @param {string} currentPath
+ * @returns {void}
+ */
+function addDirectoryToZip(zip, rootPath, currentPath) {
+  const entries = fs.readdirSync(currentPath, { withFileTypes: true })
+  entries.sort((a, b) => a.name.localeCompare(b.name))
+
+  for (const entry of entries) {
+    const absolutePath = path.join(currentPath, entry.name)
+    if (entry.isDirectory()) {
+      addDirectoryToZip(zip, rootPath, absolutePath)
+      continue
+    }
+
+    if (!entry.isFile()) {
+      continue
+    }
+
+    const relativePath = path
+      .relative(rootPath, absolutePath)
+      .split(path.sep)
+      .join('/')
+    zip.addFile(absolutePath, relativePath)
+  }
 }
 
 /**
