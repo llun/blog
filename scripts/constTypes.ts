@@ -117,8 +117,8 @@ export const STATS_PATH = path.join(
 )
 
 export const getCountryStreamPath = (country: Country) =>
-  `${SCRIPT_DIR}/${country}`
+  path.join(SCRIPT_DIR, country)
 export const getCountrySimplifyPath = (country: Country) =>
-  `${SCRIPT_DIR}/${country}/simplify`
+  path.join(SCRIPT_DIR, country, 'simplify')
 export const getCountryActivities = (country: Country) =>
-  `${SCRIPT_DIR}/${country}.json`
+  path.join(SCRIPT_DIR, `${country}.json`)

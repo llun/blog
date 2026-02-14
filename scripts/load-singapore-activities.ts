@@ -1,6 +1,7 @@
 #!/usr/bin/env -S npx tsx
 import 'dotenv-flow/config'
 import fs from 'fs/promises'
+import path from 'path'
 
 import {
   COUNTRY_SINGAPORE,
@@ -45,7 +46,10 @@ async function run() {
   let [notFound, found] = [0, 0]
   for (const activity of activities) {
     try {
-      const filePath = `${getCountryStreamPath(COUNTRY_SINGAPORE)}/${activity.id}.json`
+      const filePath = path.join(
+        getCountryStreamPath(COUNTRY_SINGAPORE),
+        `${activity.id}.json`
+      )
       await fs.stat(filePath)
       const data = await fs.readFile(filePath, 'utf8')
       const json = JSON.parse(data) as Streams
