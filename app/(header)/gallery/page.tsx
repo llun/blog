@@ -20,28 +20,32 @@ const Gallery = () => {
     <>
       <h2 className="my-2">Image Gallery</h2>
       <div className="gallery-list">
-        {albums.map(({ name, image, description, title: albumTitle }) => (
-          <Link key={name} href={`/gallery/${name}`}>
-            <picture>
-              <source
-                srcSet={`/gallery/${image.replace('.jpg', '.avif')}`}
-                type="image/avif"
-              />
-              <source
-                srcSet={`/gallery/${image.replace('.jpg', '.webp')}`}
-                type="image/webp"
-              />
-              <img
-                className="border-none p-0"
-                width={512}
-                height={512}
-                src={`/gallery/${image}`}
-                alt={description}
-              />
-            </picture>
-            <h3>{albumTitle}</h3>
-          </Link>
-        ))}
+        {albums.map(({ name, image, description, title: albumTitle }) => {
+          const encodedName = encodeURIComponent(name)
+          const encodedImage = encodeURIComponent(image)
+          const encodedAvif = encodeURIComponent(
+            image.replace(/\.jpg$/i, '.avif')
+          )
+          const encodedWebp = encodeURIComponent(
+            image.replace(/\.jpg$/i, '.webp')
+          )
+          return (
+            <Link key={name} href={`/gallery/${encodedName}`}>
+              <picture>
+                <source srcSet={`/gallery/${encodedAvif}`} type="image/avif" />
+                <source srcSet={`/gallery/${encodedWebp}`} type="image/webp" />
+                <img
+                  className="border-none p-0"
+                  width={512}
+                  height={512}
+                  src={`/gallery/${encodedImage}`}
+                  alt={description}
+                />
+              </picture>
+              <h3>{albumTitle}</h3>
+            </Link>
+          )
+        })}
       </div>
     </>
   )
