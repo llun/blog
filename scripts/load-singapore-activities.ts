@@ -3,7 +3,12 @@ import 'dotenv-flow/config'
 import fs from 'fs/promises'
 import path from 'path'
 
-import { COUNTRY_SINGAPORE, getCountryActivities, Streams } from './constTypes'
+import {
+  COUNTRY_SINGAPORE,
+  getCountryActivities,
+  getCountryStreamPath,
+  Streams
+} from './constTypes'
 import { getActivities, getLatLngs } from './strava'
 import { isSupportedRideType } from './ride-utils'
 
@@ -11,7 +16,7 @@ async function getSingaporeRides() {
   try {
     console.log('Cache found')
     const data = await fs.readFile(
-      path.join(__dirname, 'singapore.json'),
+      getCountryActivities(COUNTRY_SINGAPORE),
       'utf8'
     )
     const rides = JSON.parse(data)
@@ -41,7 +46,10 @@ async function run() {
   let [notFound, found] = [0, 0]
   for (const activity of activities) {
     try {
-      const filePath = path.join(__dirname, 'singapore', `${activity.id}.json`)
+      const filePath = path.join(
+        getCountryStreamPath(COUNTRY_SINGAPORE),
+        `${activity.id}.json`
+      )
       await fs.stat(filePath)
       const data = await fs.readFile(filePath, 'utf8')
       const json = JSON.parse(data) as Streams

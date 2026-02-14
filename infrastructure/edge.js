@@ -5,10 +5,16 @@
  * @typedef {{ name: string, description: string, memory: number, timeout: number, role: string, handler: string, runtime: string, environment: Object | null | undefined }} ProjectConfig
  * @typedef {import('@aws-sdk/client-lambda').Runtime} Runtime
  */
-require('dotenv-flow/config')
-const fs = require('fs')
-const path = require('path')
-const {
+import 'dotenv-flow/config'
+import crypto from 'node:crypto'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import _ from 'lodash'
+import { ZipFile } from 'yazl'
+import yargs from 'yargs/yargs'
+import { hideBin } from 'yargs/helpers'
+import {
   LambdaClient,
   GetFunctionConfigurationCommand,
   UpdateFunctionConfigurationCommand,
@@ -19,22 +25,21 @@ const {
   CreateAliasCommand,
   waitUntilFunctionUpdated,
   waitUntilFunctionActive
-} = require('@aws-sdk/client-lambda')
-const {
+} from '@aws-sdk/client-lambda'
+import {
   CloudFrontClient,
   GetDistributionConfigCommand,
   UpdateDistributionCommand,
   CreateInvalidationCommand
-} = require('@aws-sdk/client-cloudfront')
-const { ZipFile } = require('yazl')
-const crypto = require('crypto')
-const _ = require('lodash')
-const { hideBin } = require('yargs/helpers')
+} from '@aws-sdk/client-cloudfront'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const N_VIRGINIA = 'us-east-1'
 
 const argv = /** @type {Arguments} */ (
-  require('yargs')(hideBin(process.argv))
+  yargs(hideBin(process.argv))
     .option('awsid', {
       describe: 'AWS Account ID',
       required: true,
@@ -47,7 +52,8 @@ const argv = /** @type {Arguments} */ (
       type: 'string',
       default: process.env.AWS_CLOUDFRONT_DISTRIBUTION
     })
-    .help().argv
+    .help()
+    .parseSync()
 )
 
 const distributionId = argv.cloudfront

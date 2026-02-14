@@ -1,4 +1,4 @@
-module.exports = {
+const nextConfig = {
   ...(process.env.BLOG_EXPORT ? { output: 'export' } : null),
   trailingSlash: true,
   images: {
@@ -31,31 +31,7 @@ module.exports = {
         ]
       }
     ]
-  },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  name: 'preset-default',
-                  params: {
-                    overrides: {
-                      removeViewBox: false
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      ]
-    })
-
-    return config
   }
 }
+
+export default nextConfig
