@@ -1,4 +1,4 @@
-module.exports = {
+const nextConfig = {
   ...(process.env.BLOG_EXPORT ? { output: 'export' } : null),
   trailingSlash: true,
   images: {
@@ -59,3 +59,5 @@ module.exports = {
     return config
   }
 }
+
+export default nextConfig

@@ -1,4 +1,7 @@
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+export const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url))
 
 export type LatLng = [number, number]
 
@@ -97,9 +100,15 @@ export const SUPPORTED_RIDE_TYPES = [
 ] as const
 
 export type RideSportType = (typeof SUPPORTED_RIDE_TYPES)[number]
-export const GEOJSON_PATH = path.join(__dirname, '..', 'public', 'tags', 'ride')
+export const GEOJSON_PATH = path.join(
+  SCRIPT_DIR,
+  '..',
+  'public',
+  'tags',
+  'ride'
+)
 export const STATS_PATH = path.join(
-  __dirname,
+  SCRIPT_DIR,
   '..',
   'public',
   'tags',
@@ -108,8 +117,8 @@ export const STATS_PATH = path.join(
 )
 
 export const getCountryStreamPath = (country: Country) =>
-  `${__dirname}/${country}`
+  `${SCRIPT_DIR}/${country}`
 export const getCountrySimplifyPath = (country: Country) =>
-  `${__dirname}/${country}/simplify`
+  `${SCRIPT_DIR}/${country}/simplify`
 export const getCountryActivities = (country: Country) =>
-  `${__dirname}/${country}.json`
+  `${SCRIPT_DIR}/${country}.json`

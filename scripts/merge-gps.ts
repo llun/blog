@@ -5,6 +5,7 @@ import path from 'path'
 import { Decimal } from 'decimal.js'
 import {
   COUNTRY_NETHERLANDS,
+  SCRIPT_DIR,
   getCountryStreamPath,
   Streams
 } from './constTypes'
@@ -42,7 +43,7 @@ async function writeGeoJson(name: string, points) {
       name
     }
   }
-  await fs.writeFile(path.join(__dirname, name), JSON.stringify(feature))
+  await fs.writeFile(path.join(SCRIPT_DIR, name), JSON.stringify(feature))
 }
 
 async function run() {

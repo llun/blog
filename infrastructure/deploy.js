@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 // @ts-check
-require('dotenv-flow/config')
-const {
+import 'dotenv-flow/config'
+import {
   CloudFormationClient,
   DescribeStacksCommand,
   CreateStackCommand,
   UpdateStackCommand
-} = require('@aws-sdk/client-cloudformation')
+} from '@aws-sdk/client-cloudformation'
 const StackName = 'Website'
 const BlogBucket = 'ContentBucket'
 const ActivityPub = 'ActivityPubSource'
