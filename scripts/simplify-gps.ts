@@ -6,7 +6,6 @@ import simplifyjs from 'simplify-js'
 import {
   Country,
   COUNTRY_NETHERLANDS,
-  COUNTRY_SINGAPORE, // Kept for future use
   COUNTRY_SLOVENIA,
   GEOJSON_PATH,
   getCountrySimplifyPath,
@@ -159,7 +158,6 @@ async function simplifyCountry(country: Country) {
 
 async function run() {
   await simplifyCountry(COUNTRY_NETHERLANDS)
-  // await simplifyCountry(COUNTRY_SINGAPORE)
   await simplifyCountry(COUNTRY_SLOVENIA)
 }
 
