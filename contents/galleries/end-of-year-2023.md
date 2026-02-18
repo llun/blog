@@ -27,4 +27,4 @@ Short summary
   stop.
 - Hiking and cycling a few places in Slovenia, Ljubljana, Maribor, Litija and Lake Bled
 
-<iframe width='100%' height='600px' src="https://api.mapbox.com/styles/v1/llun/clr28o0h701b401pj612xbol0.html?title=false&access_token=pk.eyJ1IjoibGx1biIsImEiOiJja2FqN2k2djIwNDU5MnlvNjR4YXRrMzFsIn0.Oir7SYHkVKBlgbPHldtRGQ&zoomwheel=false#5.08/48.33/9.15" title="New year 2024 trip" style="border:none;"></iframe>
+<iframe width='100%' height='600px' src="https://api.mapbox.com/styles/v1/llun/clr28o0h701b401pj612xbol0.html?title=false&access_token=pk.eyJ1IjoibGx1biIsImEiOiJjbWxzYmJxOGgwNDYyM2RzYmpzajJ0cG8yIn0.uylz6el9LxWirkubJMjKRw&zoomwheel=false#5.08/48.33/9.15" title="New year 2024 trip" style="border:none;"></iframe>

@@ -1,5 +1,5 @@
 export const MAPBOX_PUBLIC_KEY =
-  'pk.eyJ1IjoibGx1biIsImEiOiJja2FqN2k2djIwNDU5MnlvNjR4YXRrMzFsIn0.Oir7SYHkVKBlgbPHldtRGQ'
+  'pk.eyJ1IjoibGx1biIsImEiOiJjbWxzYmJxOGgwNDYyM2RzYmpzajJ0cG8yIn0.uylz6el9LxWirkubJMjKRw'
 export const NETHERLANDS_ALBUM_TOKEN = 'B125ON9t3mbLNC'
 export const SINGAPORE_ALBUM_TOKEN = 'B12GqkRUiGojvkQ'
 export const SLOVENIA_ALBUM_TOKEN = 'B2GGzFCC1JPyxyI'
