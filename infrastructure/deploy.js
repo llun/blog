@@ -10,6 +10,7 @@ import {
 const StackName = 'Website'
 const BlogBucket = 'ContentBucket'
 const ActivityPub = 'ActivityPubSource'
+const Docmost = 'Docmost'
 
 const activityPubBehaviour = (
   pathPattern,
@@ -320,6 +321,136 @@ const cdnResources = {
   }
 }
 
+const docmostResources = {
+  [`${Docmost}SetXForwardedHostFunction`]: {
+    Type: 'AWS::CloudFront::Function',
+    Properties: {
+      AutoPublish: true,
+      FunctionCode: [
+        'function handler(event) {',
+        '  var request = event.request;',
+        "  request.headers['x-forwarded-host'] = { value: 'docmost.llun.dev' };",
+        '  return request;',
+        '}'
+      ].join('\n'),
+      FunctionConfig: {
+        Comment: `Set X-Forwarded-Host header for ${Docmost}`,
+        Runtime: 'cloudfront-js-2.0'
+      },
+      Name: `${Docmost}SetXForwardedHost`
+    }
+  },
+  [`${Docmost}CachePolicy`]: {
+    Type: 'AWS::CloudFront::CachePolicy',
+    Properties: {
+      CachePolicyConfig: {
+        Comment: `No-cache policy for ${Docmost}`,
+        DefaultTTL: 0,
+        MaxTTL: 1,
+        MinTTL: 0,
+        Name: `${Docmost}CachePolicy`,
+        ParametersInCacheKeyAndForwardedToOrigin: {
+          CookiesConfig: {
+            CookieBehavior: 'none'
+          },
+          EnableAcceptEncodingBrotli: true,
+          EnableAcceptEncodingGzip: true,
+          HeadersConfig: {
+            HeaderBehavior: 'none'
+          },
+          QueryStringsConfig: {
+            QueryStringBehavior: 'all'
+          }
+        }
+      }
+    }
+  },
+  [`${Docmost}OriginRequestPolicy`]: {
+    Type: 'AWS::CloudFront::OriginRequestPolicy',
+    Properties: {
+      OriginRequestPolicyConfig: {
+        Comment: `Origin request policy for ${Docmost}`,
+        CookiesConfig: {
+          CookieBehavior: 'all'
+        },
+        HeadersConfig: {
+          HeaderBehavior: 'whitelist',
+          Headers: [
+            'Authorization',
+            'Accept',
+            'Content-Type',
+            'Origin',
+            'X-Forwarded-Host',
+            'X-CSRF-Token'
+          ]
+        },
+        Name: `${Docmost}OriginRequestPolicy`,
+        QueryStringsConfig: {
+          QueryStringBehavior: 'all'
+        }
+      }
+    }
+  },
+  [`${Docmost}CDN`]: {
+    Type: 'AWS::CloudFront::Distribution',
+    Properties: {
+      DistributionConfig: {
+        Aliases: ['docmost.llun.dev'],
+        Origins: [
+          {
+            Id: Docmost,
+            DomainName: 'vm.llun.dev',
+            CustomOriginConfig: {
+              OriginProtocolPolicy: 'https-only'
+            }
+          }
+        ],
+        Enabled: true,
+        HttpVersion: 'http2and3',
+        Comment: 'Docmost',
+        IPV6Enabled: true,
+        DefaultCacheBehavior: {
+          AllowedMethods: [
+            'GET',
+            'HEAD',
+            'OPTIONS',
+            'PUT',
+            'PATCH',
+            'POST',
+            'DELETE'
+          ],
+          TargetOriginId: Docmost,
+          CachePolicyId: {
+            Ref: `${Docmost}CachePolicy`
+          },
+          OriginRequestPolicyId: {
+            Ref: `${Docmost}OriginRequestPolicy`
+          },
+          Compress: true,
+          ViewerProtocolPolicy: 'redirect-to-https',
+          FunctionAssociations: [
+            {
+              EventType: 'viewer-request',
+              FunctionARN: {
+                'Fn::GetAtt': [
+                  `${Docmost}SetXForwardedHostFunction`,
+                  'FunctionARN'
+                ]
+              }
+            }
+          ]
+        },
+        ViewerCertificate: {
+          AcmCertificateArn:
+            'arn:aws:acm:us-east-1:107563078874:certificate/ac5fa475-48ed-4182-bffa-68a7d921c9af',
+          SslSupportMethod: 'sni-only',
+          MinimumProtocolVersion: 'TLSv1.2_2021'
+        }
+      }
+    }
+  }
+}
+
 const template = {
   AWSTemplateFormatVersion: '2010-09-09',
   Description: 'Blog storage and CDN',
@@ -332,7 +463,8 @@ const template = {
   },
   Resources: {
     ...blogS3Resources,
-    ...cdnResources
+    ...cdnResources,
+    ...docmostResources
   }
 }
 
