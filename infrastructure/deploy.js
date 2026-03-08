@@ -356,7 +356,8 @@ const docmostResources = {
           EnableAcceptEncodingBrotli: true,
           EnableAcceptEncodingGzip: true,
           HeadersConfig: {
-            HeaderBehavior: 'none'
+            HeaderBehavior: 'whitelist',
+            Headers: ['Authorization']
           },
           QueryStringsConfig: {
             QueryStringBehavior: 'all'
@@ -376,7 +377,6 @@ const docmostResources = {
         HeadersConfig: {
           HeaderBehavior: 'whitelist',
           Headers: [
-            'Authorization',
             'Accept',
             'Content-Type',
             'Origin',
@@ -442,7 +442,7 @@ const docmostResources = {
         },
         ViewerCertificate: {
           AcmCertificateArn:
-            'arn:aws:acm:us-east-1:107563078874:certificate/ac5fa475-48ed-4182-bffa-68a7d921c9af',
+            'arn:aws:acm:us-east-1:107563078874:certificate/19e291a6-95e7-4f88-9213-76254637bb6a',
           SslSupportMethod: 'sni-only',
           MinimumProtocolVersion: 'TLSv1.2_2021'
         }
