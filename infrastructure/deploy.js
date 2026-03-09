@@ -382,6 +382,12 @@ const docmostResources = {
           {
             Id: Docmost,
             DomainName: 'vm.llun.dev',
+            OriginCustomHeaders: [
+              {
+                HeaderName: 'X-Gateway-Host',
+                HeaderValue: 'docmost.llun.dev'
+              }
+            ],
             CustomOriginConfig: {
               OriginProtocolPolicy: 'https-only'
             }
