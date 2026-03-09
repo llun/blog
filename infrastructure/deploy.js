@@ -322,24 +322,6 @@ const cdnResources = {
 }
 
 const docmostResources = {
-  [`${Docmost}SetXForwardedHostFunction`]: {
-    Type: 'AWS::CloudFront::Function',
-    Properties: {
-      AutoPublish: true,
-      FunctionCode: [
-        'function handler(event) {',
-        '  var request = event.request;',
-        "  request.headers['x-forwarded-host'] = { value: 'docmost.llun.dev' };",
-        '  return request;',
-        '}'
-      ].join('\n'),
-      FunctionConfig: {
-        Comment: `Set X-Forwarded-Host header for ${Docmost}`,
-        Runtime: 'cloudfront-js-2.0'
-      },
-      Name: `${Docmost}SetXForwardedHost`
-    }
-  },
   [`${Docmost}CachePolicy`]: {
     Type: 'AWS::CloudFront::CachePolicy',
     Properties: {
@@ -427,18 +409,7 @@ const docmostResources = {
             Ref: `${Docmost}OriginRequestPolicy`
           },
           Compress: true,
-          ViewerProtocolPolicy: 'redirect-to-https',
-          FunctionAssociations: [
-            {
-              EventType: 'viewer-request',
-              FunctionARN: {
-                'Fn::GetAtt': [
-                  `${Docmost}SetXForwardedHostFunction`,
-                  'FunctionARN'
-                ]
-              }
-            }
-          ]
+          ViewerProtocolPolicy: 'redirect-to-https'
         },
         ViewerCertificate: {
           AcmCertificateArn:
