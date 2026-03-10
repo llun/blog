@@ -10,7 +10,7 @@ import {
 const StackName = 'Website'
 const BlogBucket = 'ContentBucket'
 const ActivityPub = 'ActivityPubSource'
-const Docmost = 'Docmost'
+const Docs = 'Docs'
 
 const activityPubBehaviour = (
   pathPattern,
@@ -321,16 +321,16 @@ const cdnResources = {
   }
 }
 
-const docmostResources = {
-  [`${Docmost}CachePolicy`]: {
+const docsResources = {
+  [`${Docs}CachePolicy`]: {
     Type: 'AWS::CloudFront::CachePolicy',
     Properties: {
       CachePolicyConfig: {
-        Comment: `No-cache policy for ${Docmost}`,
+        Comment: `No-cache policy for ${Docs}`,
         DefaultTTL: 0,
         MaxTTL: 1,
         MinTTL: 0,
-        Name: `${Docmost}CachePolicy`,
+        Name: `${Docs}CachePolicy`,
         ParametersInCacheKeyAndForwardedToOrigin: {
           CookiesConfig: {
             CookieBehavior: 'none'
@@ -348,11 +348,11 @@ const docmostResources = {
       }
     }
   },
-  [`${Docmost}OriginRequestPolicy`]: {
+  [`${Docs}OriginRequestPolicy`]: {
     Type: 'AWS::CloudFront::OriginRequestPolicy',
     Properties: {
       OriginRequestPolicyConfig: {
-        Comment: `Origin request policy for ${Docmost}`,
+        Comment: `Origin request policy for ${Docs}`,
         CookiesConfig: {
           CookieBehavior: 'all'
         },
@@ -366,26 +366,26 @@ const docmostResources = {
             'X-CSRF-Token'
           ]
         },
-        Name: `${Docmost}OriginRequestPolicy`,
+        Name: `${Docs}OriginRequestPolicy`,
         QueryStringsConfig: {
           QueryStringBehavior: 'all'
         }
       }
     }
   },
-  [`${Docmost}CDN`]: {
+  [`${Docs}CDN`]: {
     Type: 'AWS::CloudFront::Distribution',
     Properties: {
       DistributionConfig: {
-        Aliases: ['docmost.llun.dev'],
+        Aliases: ['docs.llun.dev'],
         Origins: [
           {
-            Id: Docmost,
+            Id: Docs,
             DomainName: 'vm.llun.dev',
             OriginCustomHeaders: [
               {
                 HeaderName: 'X-Gateway-Host',
-                HeaderValue: 'docmost.llun.dev'
+                HeaderValue: 'docs.llun.dev'
               }
             ],
             CustomOriginConfig: {
@@ -395,7 +395,7 @@ const docmostResources = {
         ],
         Enabled: true,
         HttpVersion: 'http2and3',
-        Comment: 'Docmost',
+        Comment: 'Docs',
         IPV6Enabled: true,
         DefaultCacheBehavior: {
           AllowedMethods: [
@@ -407,19 +407,19 @@ const docmostResources = {
             'POST',
             'DELETE'
           ],
-          TargetOriginId: Docmost,
+          TargetOriginId: Docs,
           CachePolicyId: {
-            Ref: `${Docmost}CachePolicy`
+            Ref: `${Docs}CachePolicy`
           },
           OriginRequestPolicyId: {
-            Ref: `${Docmost}OriginRequestPolicy`
+            Ref: `${Docs}OriginRequestPolicy`
           },
           Compress: true,
           ViewerProtocolPolicy: 'redirect-to-https'
         },
         ViewerCertificate: {
           AcmCertificateArn:
-            'arn:aws:acm:us-east-1:107563078874:certificate/19e291a6-95e7-4f88-9213-76254637bb6a',
+            'arn:aws:acm:us-east-1:107563078874:certificate/fe8a4665-e248-4f64-91e9-929fd8c4cc9d',
           SslSupportMethod: 'sni-only',
           MinimumProtocolVersion: 'TLSv1.2_2021'
         }
@@ -441,7 +441,7 @@ const template = {
   Resources: {
     ...blogS3Resources,
     ...cdnResources,
-    ...docmostResources
+    ...docsResources
   }
 }
 
