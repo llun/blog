@@ -363,7 +363,8 @@ const docsResources = {
             'Content-Type',
             'Origin',
             'X-Forwarded-Host',
-            'X-CSRF-Token'
+            'X-CSRF-Token',
+            'X-CSRFToken'
           ]
         },
         Name: `${Docs}OriginRequestPolicy`,
