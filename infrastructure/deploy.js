@@ -348,32 +348,6 @@ const docsResources = {
       }
     }
   },
-  [`${Docs}OriginRequestPolicy`]: {
-    Type: 'AWS::CloudFront::OriginRequestPolicy',
-    Properties: {
-      OriginRequestPolicyConfig: {
-        Comment: `Origin request policy for ${Docs}`,
-        CookiesConfig: {
-          CookieBehavior: 'all'
-        },
-        HeadersConfig: {
-          HeaderBehavior: 'whitelist',
-          Headers: [
-            'Accept',
-            'Content-Type',
-            'Origin',
-            'X-Forwarded-Host',
-            'X-CSRF-Token',
-            'X-CSRFToken'
-          ]
-        },
-        Name: `${Docs}OriginRequestPolicy`,
-        QueryStringsConfig: {
-          QueryStringBehavior: 'all'
-        }
-      }
-    }
-  },
   [`${Docs}CDN`]: {
     Type: 'AWS::CloudFront::Distribution',
     Properties: {
@@ -412,9 +386,8 @@ const docsResources = {
           CachePolicyId: {
             Ref: `${Docs}CachePolicy`
           },
-          OriginRequestPolicyId: {
-            Ref: `${Docs}OriginRequestPolicy`
-          },
+          // Managed policy: all viewer headers/cookies/query strings except Host.
+          OriginRequestPolicyId: 'b689b0a8-53d0-40ab-baf2-68738e2966ac',
           Compress: true,
           ViewerProtocolPolicy: 'redirect-to-https'
         },
