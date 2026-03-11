@@ -322,32 +322,6 @@ const cdnResources = {
 }
 
 const docsResources = {
-  [`${Docs}CachePolicy`]: {
-    Type: 'AWS::CloudFront::CachePolicy',
-    Properties: {
-      CachePolicyConfig: {
-        Comment: `No-cache policy for ${Docs}`,
-        DefaultTTL: 0,
-        MaxTTL: 1,
-        MinTTL: 0,
-        Name: `${Docs}CachePolicy`,
-        ParametersInCacheKeyAndForwardedToOrigin: {
-          CookiesConfig: {
-            CookieBehavior: 'none'
-          },
-          EnableAcceptEncodingBrotli: true,
-          EnableAcceptEncodingGzip: true,
-          HeadersConfig: {
-            HeaderBehavior: 'whitelist',
-            Headers: ['Authorization']
-          },
-          QueryStringsConfig: {
-            QueryStringBehavior: 'all'
-          }
-        }
-      }
-    }
-  },
   [`${Docs}CDN`]: {
     Type: 'AWS::CloudFront::Distribution',
     Properties: {
@@ -383,9 +357,8 @@ const docsResources = {
             'DELETE'
           ],
           TargetOriginId: Docs,
-          CachePolicyId: {
-            Ref: `${Docs}CachePolicy`
-          },
+          // Managed policy: CachingDisabled.
+          CachePolicyId: '4135ea2d-6df8-44a3-9df3-4b5a84be39ad',
           // Managed policy: all viewer headers/cookies/query strings except Host.
           OriginRequestPolicyId: 'b689b0a8-53d0-40ab-baf2-68738e2966ac',
           Compress: true,
