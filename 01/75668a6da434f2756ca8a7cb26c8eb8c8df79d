@@ -1,0 +1,21 @@
+tsconfig.json
+  s_f5e2f63df9be34::t_98845169c50359 7
+next.config.mjs
+  s_f5e2f63df9be34::t_3e74f75096441c 1-2,4,23-38,40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "0175668a6da434f2756ca8a7cb26c8eb8c8df79d",
+  "prompts": {},
+  "sessions": {
+    "s_f5e2f63df9be34": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e03b2-6db3-73f0-8a70-b272c9bcd319",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
