@@ -1,0 +1,19 @@
+package.json
+  s_f5e2f63df9be34::t_2654af4c4aca76 94
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "fab6d894c2b83861bedcb4ed24091f638227c91b",
+  "prompts": {},
+  "sessions": {
+    "s_f5e2f63df9be34": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e03b2-6db3-73f0-8a70-b272c9bcd319",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
