@@ -1,4 +1,4 @@
-const isExport = Boolean(process.env.BLOG_EXPORT)
+const isExport = process.env.BLOG_EXPORT === '1'
 
 const nextConfig = {
   ...(isExport ? { output: 'export' } : null),

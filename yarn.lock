@@ -7359,6 +7359,15 @@ __metadata:
     yaml: "npm:^2.8.4"
     yargs: "npm:^18.0.0"
     yazl: "npm:^3.3.1"
+  dependenciesMeta:
+    "@swc/core":
+      built: true
+    esbuild:
+      built: true
+    sharp:
+      built: true
+    unrs-resolver:
+      built: true
   languageName: unknown
   linkType: soft
 
