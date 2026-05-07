@@ -1,0 +1,21 @@
+yarn.lock
+  ai_agent 4922-4923,4927,4931-4933,4936,6218-6220,6638-6640,7384,7527,7536,7546-7547,7549-7550,7651,8039-8041,8046-8048,8059,8122-8124,8456-8462,8718,8928-8929,8937,8940,8959-8960,8967
+package.json
+  s_f5e2f63df9be34::t_2045ccb5fae775 78-81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "ecd667d5b1841303833125d7eaf1a672fc700fb2",
+  "prompts": {},
+  "sessions": {
+    "s_f5e2f63df9be34": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e03b2-6db3-73f0-8a70-b272c9bcd319",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
