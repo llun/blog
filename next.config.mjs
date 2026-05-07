@@ -1,5 +1,7 @@
+const isExport = Boolean(process.env.BLOG_EXPORT)
+
 const nextConfig = {
-  ...(process.env.BLOG_EXPORT ? { output: 'export' } : null),
+  ...(isExport ? { output: 'export' } : null),
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -18,20 +20,24 @@ const nextConfig = {
       }
     }
   },
-  async headers() {
-    return [
-      {
-        // Apply these headers to all routes in your application.
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          }
-        ]
+  ...(!isExport
+    ? {
+        async headers() {
+          return [
+            {
+              // Apply these headers to all routes in your application.
+              source: '/(.*)',
+              headers: [
+                {
+                  key: 'X-Frame-Options',
+                  value: 'SAMEORIGIN'
+                }
+              ]
+            }
+          ]
+        }
       }
-    ]
-  }
+    : null)
 }
 
 export default nextConfig

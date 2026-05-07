@@ -4,7 +4,7 @@
     "noEmit": true,
     "esModuleInterop": true,
     "target": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "preserveSymlinks": false,
     "strictNullChecks": true,
     "strictBindCallApply": true,
