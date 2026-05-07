@@ -1,4 +1,6 @@
-const isExport = process.env.BLOG_EXPORT === '1'
+const isExport = ['1', 'true', 'yes'].includes(
+  (process.env.BLOG_EXPORT ?? '').toLowerCase()
+)
 
 const nextConfig = {
   ...(isExport ? { output: 'export' } : null),
