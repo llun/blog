@@ -30,13 +30,12 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/libs/*": [
-        "libs/*"
+        "./libs/*"
       ],
       "@/components/*": [
-        "components/*"
+        "./components/*"
       ]
     }
   },
