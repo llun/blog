@@ -281,6 +281,12 @@ const cdnResources = {
             `${ActivityPub}StaticCachePolicy`
           ),
           activityPubBehaviour('/api/*'),
+          // Sign-in UI pages and Mastodon OAuth flow live outside /api/.
+          // Forward them to the activities.next origin with the dynamic
+          // (no-cache, forward-all-cookies) policy so credential/session
+          // cookies reach the origin and nothing is cached.
+          activityPubBehaviour('/auth/*'),
+          activityPubBehaviour('/oauth/*'),
           activityPubBehaviour(
             '/users/*/statuses/*',
             `${ActivityPub}StaticCachePolicy`
