@@ -130,7 +130,17 @@ const cdnResources = {
               'Digest',
               'Content-Type',
               'Signature',
-              'Accept'
+              'Accept',
+              // Defense-in-depth fail-safe against Web Cache Deception:
+              // authenticated Mastodon API calls under /api/* carry a bearer
+              // token here, so even if the origin ever returned an
+              // authenticated response with a cacheable Cache-Control,
+              // CloudFront keys it per-token and can never serve it to another
+              // user. Requests without the header (HTTP-Signature federation,
+              // anonymous/public ActivityPub) all collapse to one cache entry,
+              // so public caching is unaffected. Cache-key headers are also
+              // forwarded to the origin, so this delivers the token too.
+              'Authorization'
             ]
           },
           QueryStringsConfig: {
@@ -183,18 +193,13 @@ const cdnResources = {
             'Referer',
             'Accept',
             'Origin',
-            // Forwarded (not part of the cache key) so authenticated Mastodon
-            // client API calls reach the origin, without fragmenting the cache
-            // per token. This change removes the only behaviour that
-            // force-cached authenticated responses on a token-blind key
-            // (/api/v1/timelines* on the static 3600s policy); authenticated
-            // calls now use the dynamic /api/* policy (DefaultTTL 0, MaxTTL 60),
-            // which caches only when the origin sends a positive Cache-Control.
-            // Cache-safety for authenticated calls therefore depends on the
-            // origin marking per-user responses no-store/private (the Mastodon
-            // API convention), not on CloudFront. Idempotency-Key lets clients
-            // dedupe retried POST /api/v1/statuses requests.
-            'Authorization',
+            // Idempotency-Key lets Mastodon clients dedupe a retried
+            // POST /api/v1/statuses so it doesn't double-post; forwarded only
+            // (not in the cache key). Authorization is intentionally NOT listed
+            // here: it lives in ActivityPubCachePolicy's cache key (cache-key
+            // headers are forwarded to the origin too), so authenticated
+            // responses can never be shared-cached across tokens — see the
+            // note there.
             'Idempotency-Key'
           ]
         },
@@ -288,8 +293,14 @@ const cdnResources = {
           // The NodeInfo document (/nodeinfo and /nodeinfo/2.0) is public
           // instance metadata that clients fetch when adding the server. Route
           // it to the app origin so it no longer falls through to the blog
-          // default behaviour (which 302s it to www.llun.me).
-          activityPubBehaviour('/nodeinfo*', `${ActivityPub}StaticCachePolicy`),
+          // default behaviour (which 302s it to www.llun.me). Two exact
+          // patterns rather than a greedy /nodeinfo* so unrelated paths such as
+          // /nodeinfo-anything stay on the blog default behaviour.
+          activityPubBehaviour('/nodeinfo', `${ActivityPub}StaticCachePolicy`),
+          activityPubBehaviour(
+            '/nodeinfo/*',
+            `${ActivityPub}StaticCachePolicy`
+          ),
           activityPubBehaviour(
             '/api/v1/medias/apple*',
             `${ActivityPub}StaticCachePolicy`
