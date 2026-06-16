@@ -1,4 +1,4 @@
-#!/usr/bin/env -S npx tsx
+#!/usr/bin/env -S node --import @swc-node/register/esm-register
 import 'dotenv-flow/config'
 import fs from 'fs/promises'
 import path from 'path'

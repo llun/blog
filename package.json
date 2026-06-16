@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "export": "BLOG_EXPORT=1 next build --turbopack",
     "optimize-images": "scripts/optimize-images.sh",
-    "ride": "tsx scripts/load-netherlands-activities.ts && tsx scripts/load-slovenia-activities.ts && tsx scripts/simplify-gps.ts && tsx scripts/generate-rides-stats.ts"
+    "ride": "node --import @swc-node/register/esm-register scripts/load-netherlands-activities.ts && node --import @swc-node/register/esm-register scripts/load-slovenia-activities.ts && node --import @swc-node/register/esm-register scripts/simplify-gps.ts && node --import @swc-node/register/esm-register scripts/generate-rides-stats.ts"
   },
   "author": "Maythee Anegboonlap <contact@llun.dev>",
   "license": "UNLICENSED",
@@ -26,10 +26,11 @@
     "@aws-sdk/client-cloudformation": "^3.1069.0",
     "@aws-sdk/client-cloudfront": "^3.1069.0",
     "@aws-sdk/client-lambda": "^3.1069.0",
-    "@babel/core": "^8.0.0",
+    "@babel/core": "^7.29.0",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
     "@svgr/webpack": "^8.1.0",
+    "@swc-node/register": "^1.11.1",
     "@swc/core": "^1.15.41",
     "@tailwindcss/postcss": "^4.3.1",
     "@types/aws-lambda": "^8.10.162",
@@ -68,7 +69,6 @@
     "react-dom": "^19.2.7",
     "simplify-js": "^1.2.4",
     "tailwindcss": "^4.3.1",
-    "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.61.1",
     "yaml": "^2.9.0",
@@ -77,9 +77,6 @@
   },
   "dependenciesMeta": {
     "@swc/core": {
-      "built": true
-    },
-    "esbuild": {
       "built": true
     },
     "sharp": {
@@ -92,7 +89,6 @@
   "packageManager": "yarn@4.17.0",
   "resolutions": {
     "postcss": "^8.5.15",
-    "esbuild": "^0.28.1",
     "@babel/plugin-transform-modules-systemjs": "^7.29.4"
   }
 }
