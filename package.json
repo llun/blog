@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "export": "BLOG_EXPORT=1 next build --turbopack",
     "optimize-images": "scripts/optimize-images.sh",
-    "ride": "./scripts/load-netherlands-activities.ts && ./scripts/load-slovenia-activities.ts && ./scripts/simplify-gps.ts && ./scripts/generate-rides-stats.ts"
+    "ride:exec": "node --import @swc-node/register/esm-register",
+    "ride": "yarn ride:exec scripts/load-netherlands-activities.ts && yarn ride:exec scripts/load-slovenia-activities.ts && yarn ride:exec scripts/simplify-gps.ts && yarn ride:exec scripts/generate-rides-stats.ts"
   },
   "author": "Maythee Anegboonlap <contact@llun.dev>",
   "license": "UNLICENSED",
