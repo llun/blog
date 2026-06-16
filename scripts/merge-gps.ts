@@ -1,5 +1,5 @@
-#!/usr/bin/env -S npx tsx
-import { kdTree } from 'kd-tree-javascript'
+#!/usr/bin/env -S node --import @swc-node/register/esm-register
+import kdTreePkg from 'kd-tree-javascript'
 import fs from 'fs/promises'
 import path from 'path'
 import { Decimal } from 'decimal.js'
@@ -9,6 +9,11 @@ import {
   getCountryStreamPath,
   Streams
 } from './constTypes'
+
+// kd-tree-javascript is a CommonJS/UMD module whose named export `kdTree`
+// is not statically detectable by Node's ESM<->CJS interop, so import the
+// default export and destructure at runtime (works under @swc-node/register).
+const { kdTree } = kdTreePkg
 
 interface Coordinate {
   x: Decimal
