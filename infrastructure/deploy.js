@@ -138,10 +138,11 @@ const cdnResources = {
               // CloudFront keys it per-token and can never serve it to another
               // user. Requests without the header (HTTP-Signature federation,
               // anonymous/public ActivityPub) all collapse to one cache entry,
-              // so public caching is unaffected. Being in the cache key also
-              // forwards the token to the origin for cacheable methods;
-              // ActivityPubOriginRequestPolicy forwards it for the rest
-              // (POST/PUT/PATCH/DELETE).
+              // so public caching is unaffected. Cache-key headers are also
+              // automatically forwarded to the origin for every HTTP method
+              // (including non-cacheable POST/PUT/PATCH/DELETE — posting,
+              // follows, favourites), so authenticated writes get the token
+              // without listing it in the origin-request policy.
               'Authorization'
             ]
           },
@@ -197,15 +198,12 @@ const cdnResources = {
             'Origin',
             // Idempotency-Key lets Mastodon clients dedupe a retried
             // POST /api/v1/statuses so it doesn't double-post (forwarded only;
-            // not in the cache key).
-            'Idempotency-Key',
-            // Authorization is ALSO in ActivityPubCachePolicy's cache key (the
-            // Web Cache Deception fail-safe — see the note there). It is listed
-            // here too so the token is explicitly forwarded for non-cacheable
-            // methods (POST/PUT/PATCH/DELETE — posting, (un)following,
-            // (un)favouriting), which don't go through the cache policy. A
-            // header may appear in both policies; Accept and Origin already do.
-            'Authorization'
+            // not in the cache key). Authorization is intentionally NOT here:
+            // it lives in ActivityPubCachePolicy's cache key, and cache-key
+            // headers are automatically forwarded to the origin for every HTTP
+            // method (including non-cacheable POST/PUT/PATCH/DELETE), so adding
+            // it here would be redundant.
+            'Idempotency-Key'
           ]
         },
         Name: `${ActivityPub}OriginRequestPolicy`,
