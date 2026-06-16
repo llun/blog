@@ -1,0 +1,35 @@
+yarn.lock
+  s_3706c12c25c820::t_d487ebfe1daa39 404-407,434-447,449,452-453,531-533,535-536,538-540,819-822,847-849,851-853,1935,1955,2614-2617,2621-2728,2730-2747,3044-3081,4413-4416,4505-4511,4682,4882-4885,5726,6493,6498,6700,6979-7044,7151-7157,7554,7765-7768,7772-7774,7776-7778,7782-7785,8004
+package.json
+  s_3706c12c25c820::t_e0c361c42c4b75 33
+  s_3706c12c25c820::t_1c0a3c8b5674c1 12
+  s_3706c12c25c820::t_f84301a655e605 29
+scripts/generate-rides-stats.ts
+  s_3706c12c25c820::t_e4cde274bbe085 1
+scripts/load-netherlands-activities.ts
+  s_3706c12c25c820::t_e4cde274bbe085 1
+scripts/merge-gps.ts
+  s_3706c12c25c820::t_e4cde274bbe085 1
+scripts/simplify-gps.ts
+  s_3706c12c25c820::t_e4cde274bbe085 1
+scripts/load-singapore-activities.ts
+  s_3706c12c25c820::t_e4cde274bbe085 1
+scripts/load-slovenia-activities.ts
+  s_3706c12c25c820::t_e4cde274bbe085 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "637b7049d87d00e2ed472700f65c433de39731e7",
+  "prompts": {},
+  "sessions": {
+    "s_3706c12c25c820": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60f49918-ac89-4a3e-bc24-55cfeaba4663",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
