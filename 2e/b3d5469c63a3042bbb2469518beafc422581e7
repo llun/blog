@@ -1,0 +1,20 @@
+infrastructure/deploy.js
+  s_769a1d0e247b4f::t_63176357dae727 199-208
+  s_769a1d0e247b4f::t_09be615f3e24f2 141-144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "2eb3d5469c63a3042bbb2469518beafc422581e7",
+  "prompts": {},
+  "sessions": {
+    "s_769a1d0e247b4f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9618fcba-9422-43f9-9c02-13a16ec05056",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
