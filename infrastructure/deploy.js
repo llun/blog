@@ -182,7 +182,20 @@ const cdnResources = {
             'X-Activity-Next-Host',
             'Referer',
             'Accept',
-            'Origin'
+            'Origin',
+            // Forwarded (not part of the cache key) so authenticated Mastodon
+            // client API calls reach the origin, without fragmenting the cache
+            // per token. This change removes the only behaviour that
+            // force-cached authenticated responses on a token-blind key
+            // (/api/v1/timelines* on the static 3600s policy); authenticated
+            // calls now use the dynamic /api/* policy (DefaultTTL 0, MaxTTL 60),
+            // which caches only when the origin sends a positive Cache-Control.
+            // Cache-safety for authenticated calls therefore depends on the
+            // origin marking per-user responses no-store/private (the Mastodon
+            // API convention), not on CloudFront. Idempotency-Key lets clients
+            // dedupe retried POST /api/v1/statuses requests.
+            'Authorization',
+            'Idempotency-Key'
           ]
         },
         Name: `${ActivityPub}OriginRequestPolicy`,
@@ -272,14 +285,19 @@ const cdnResources = {
         },
         CacheBehaviors: [
           activityPubBehaviour('/.well-known/*'),
+          // The NodeInfo document (/nodeinfo and /nodeinfo/2.0) is public
+          // instance metadata that clients fetch when adding the server. Route
+          // it to the app origin so it no longer falls through to the blog
+          // default behaviour (which 302s it to www.llun.me).
+          activityPubBehaviour('/nodeinfo*', `${ActivityPub}StaticCachePolicy`),
           activityPubBehaviour(
             '/api/v1/medias/apple*',
             `${ActivityPub}StaticCachePolicy`
           ),
-          activityPubBehaviour(
-            '/api/v1/timelines*',
-            `${ActivityPub}StaticCachePolicy`
-          ),
+          // Timelines are per-account and change constantly; they must not be
+          // shared-cached (a token-blind static cache key would leak one
+          // account's feed to another and serve stale feeds). They fall
+          // through to the dynamic /api/* behaviour below (DefaultTTL 0).
           activityPubBehaviour('/api/*'),
           // Sign-in UI pages and Mastodon OAuth flow live outside /api/.
           // Forward them to the activities.next origin with the dynamic
