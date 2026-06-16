@@ -298,12 +298,16 @@ const cdnResources = {
           // it to the app origin so it no longer falls through to the blog
           // default behaviour (which 302s it to www.llun.me). Two exact
           // patterns rather than a greedy /nodeinfo* so unrelated paths such as
-          // /nodeinfo-anything stay on the blog default behaviour.
-          activityPubBehaviour('/nodeinfo', `${ActivityPub}StaticCachePolicy`),
-          activityPubBehaviour(
-            '/nodeinfo/*',
-            `${ActivityPub}StaticCachePolicy`
-          ),
+          // /nodeinfo-anything stay on the blog default behaviour. Uses the
+          // dynamic policy (no second arg) — not the static one — because the
+          // origin returns Cache-Control: private on nodeinfo and the response
+          // carries an Access-Control-Allow-Origin CORS header. The dynamic
+          // ActivityPubCachePolicy keys on Origin (so a cached response is
+          // never served to a different web origin) and honours the origin's
+          // no-cache directive, matching how /.well-known/nodeinfo discovery is
+          // already handled.
+          activityPubBehaviour('/nodeinfo'),
+          activityPubBehaviour('/nodeinfo/*'),
           activityPubBehaviour(
             '/api/v1/medias/apple*',
             `${ActivityPub}StaticCachePolicy`
