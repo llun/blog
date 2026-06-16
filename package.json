@@ -91,6 +91,8 @@
   },
   "packageManager": "yarn@4.17.0",
   "resolutions": {
-    "postcss": "^8.5.15"
+    "postcss": "^8.5.15",
+    "esbuild": "^0.28.1",
+    "@babel/plugin-transform-modules-systemjs": "^7.29.4"
   }
 }
