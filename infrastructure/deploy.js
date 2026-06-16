@@ -130,7 +130,20 @@ const cdnResources = {
               'Digest',
               'Content-Type',
               'Signature',
-              'Accept'
+              'Accept',
+              // Defense-in-depth fail-safe against Web Cache Deception:
+              // authenticated Mastodon API calls under /api/* carry a bearer
+              // token here, so even if the origin ever returned an
+              // authenticated response with a cacheable Cache-Control,
+              // CloudFront keys it per-token and can never serve it to another
+              // user. Requests without the header (HTTP-Signature federation,
+              // anonymous/public ActivityPub) all collapse to one cache entry,
+              // so public caching is unaffected. Cache-key headers are also
+              // automatically forwarded to the origin for every HTTP method
+              // (including non-cacheable POST/PUT/PATCH/DELETE — posting,
+              // follows, favourites), so authenticated writes get the token
+              // without listing it in the origin-request policy.
+              'Authorization'
             ]
           },
           QueryStringsConfig: {
@@ -182,7 +195,15 @@ const cdnResources = {
             'X-Activity-Next-Host',
             'Referer',
             'Accept',
-            'Origin'
+            'Origin',
+            // Idempotency-Key lets Mastodon clients dedupe a retried
+            // POST /api/v1/statuses so it doesn't double-post (forwarded only;
+            // not in the cache key). Authorization is intentionally NOT here:
+            // it lives in ActivityPubCachePolicy's cache key, and cache-key
+            // headers are automatically forwarded to the origin for every HTTP
+            // method (including non-cacheable POST/PUT/PATCH/DELETE), so adding
+            // it here would be redundant.
+            'Idempotency-Key'
           ]
         },
         Name: `${ActivityPub}OriginRequestPolicy`,
@@ -272,14 +293,29 @@ const cdnResources = {
         },
         CacheBehaviors: [
           activityPubBehaviour('/.well-known/*'),
+          // The NodeInfo document (/nodeinfo and /nodeinfo/2.0) is public
+          // instance metadata that clients fetch when adding the server. Route
+          // it to the app origin so it no longer falls through to the blog
+          // default behaviour (which 302s it to www.llun.me). Two exact
+          // patterns rather than a greedy /nodeinfo* so unrelated paths such as
+          // /nodeinfo-anything stay on the blog default behaviour. Uses the
+          // dynamic policy (no second arg) — not the static one — because the
+          // origin returns Cache-Control: private on nodeinfo and the response
+          // carries an Access-Control-Allow-Origin CORS header. The dynamic
+          // ActivityPubCachePolicy keys on Origin (so a cached response is
+          // never served to a different web origin) and honours the origin's
+          // no-cache directive, matching how /.well-known/nodeinfo discovery is
+          // already handled.
+          activityPubBehaviour('/nodeinfo'),
+          activityPubBehaviour('/nodeinfo/*'),
           activityPubBehaviour(
             '/api/v1/medias/apple*',
             `${ActivityPub}StaticCachePolicy`
           ),
-          activityPubBehaviour(
-            '/api/v1/timelines*',
-            `${ActivityPub}StaticCachePolicy`
-          ),
+          // Timelines are per-account and change constantly; they must not be
+          // shared-cached (a token-blind static cache key would leak one
+          // account's feed to another and serve stale feeds). They fall
+          // through to the dynamic /api/* behaviour below (DefaultTTL 0).
           activityPubBehaviour('/api/*'),
           // Sign-in UI pages and Mastodon OAuth flow live outside /api/.
           // Forward them to the activities.next origin with the dynamic
