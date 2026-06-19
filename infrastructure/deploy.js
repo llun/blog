@@ -12,6 +12,11 @@ const BlogBucket = 'ContentBucket'
 const ActivityPub = 'ActivityPubSource'
 const Docs = 'Docs'
 
+// AWS-managed CachingDisabled policy. Used for authenticated routes that must
+// never be cached at the CDN regardless of origin headers (also used by the
+// Docs distribution below).
+const CachingDisabledPolicyId = '4135ea2d-6df8-44a3-9df3-4b5a84be39ad'
+
 const activityPubBehaviour = (
   pathPattern,
   cachePolicy = `${ActivityPub}CachePolicy`
@@ -19,9 +24,12 @@ const activityPubBehaviour = (
   AllowedMethods: ['GET', 'HEAD', 'OPTIONS', 'PUT', 'PATCH', 'POST', 'DELETE'],
   PathPattern: pathPattern,
   TargetOriginId: ActivityPub,
-  CachePolicyId: {
-    Ref: cachePolicy
-  },
+  // Cache policies defined in this template are referenced by logical name
+  // (CloudFormation Ref); AWS-managed policies are referenced by their UUID
+  // directly. Detect the UUID shape so callers can pass either.
+  CachePolicyId: /^[0-9a-f-]{36}$/.test(cachePolicy)
+    ? cachePolicy
+    : { Ref: cachePolicy },
   OriginRequestPolicyId: {
     Ref: `${ActivityPub}OriginRequestPolicy`
   },
@@ -323,6 +331,26 @@ const cdnResources = {
           // cookies reach the origin and nothing is cached.
           activityPubBehaviour('/auth/*'),
           activityPubBehaviour('/oauth/*'),
+          // The signed-in account settings section (including
+          // /settings/account, where the passkey manager lives and where the
+          // add-passkey flow navigates to as /settings/account?add-passkey=...)
+          // is served by activities.next, not the blog. Forward the whole
+          // /settings/* tree to the app origin; without this these pages fall
+          // through to the blog default behaviour and 404. The passkey APIs
+          // themselves already route via /api/* (better-auth's
+          // /api/auth/passkey/* and /api/v1/passkeys).
+          //
+          // Use the managed CachingDisabled policy rather than the shared
+          // ActivityPubCachePolicy: these pages are authenticated with
+          // better-auth *session cookies*, which are not part of the
+          // ActivityPub cache key (CookieBehavior 'none'; only Authorization,
+          // used by bearer-token /api/* calls, is keyed). With MaxTTL 60 a
+          // settings page that ever shipped a cacheable Cache-Control could be
+          // served across users (Web Cache Deception). CachingDisabled removes
+          // that dependency on origin headers entirely. The origin-request
+          // policy still forwards cookies and query strings to the origin, so
+          // the session and ?add-passkey= resume flow keep working.
+          activityPubBehaviour('/settings/*', CachingDisabledPolicyId),
           activityPubBehaviour(
             '/users/*/statuses/*',
             `${ActivityPub}StaticCachePolicy`
@@ -400,7 +428,7 @@ const docsResources = {
           ],
           TargetOriginId: Docs,
           // Managed policy: CachingDisabled.
-          CachePolicyId: '4135ea2d-6df8-44a3-9df3-4b5a84be39ad',
+          CachePolicyId: CachingDisabledPolicyId,
           // Managed policy: all viewer headers/cookies/query strings except Host.
           OriginRequestPolicyId: 'b689b0a8-53d0-40ab-baf2-68738e2966ac',
           Compress: true,
