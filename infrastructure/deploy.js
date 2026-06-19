@@ -323,6 +323,16 @@ const cdnResources = {
           // cookies reach the origin and nothing is cached.
           activityPubBehaviour('/auth/*'),
           activityPubBehaviour('/oauth/*'),
+          // The signed-in account settings section (including
+          // /settings/account, where the passkey manager lives and where the
+          // add-passkey flow navigates to as /settings/account?add-passkey=...)
+          // is served by activities.next, not the blog. Forward the whole
+          // /settings/* tree with the dynamic (no-cache, forward-all-cookies)
+          // policy so session cookies reach the origin and nothing is cached;
+          // without this these pages fall through to the blog default
+          // behaviour and 404. The passkey APIs themselves already route via
+          // /api/* (better-auth's /api/auth/passkey/* and /api/v1/passkeys).
+          activityPubBehaviour('/settings/*'),
           activityPubBehaviour(
             '/users/*/statuses/*',
             `${ActivityPub}StaticCachePolicy`
