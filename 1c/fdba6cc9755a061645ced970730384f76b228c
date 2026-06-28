@@ -1,0 +1,16 @@
+libs/config.ts
+  h_580a04e334fef4 29,60
+contents/galleries/apple-museum-utrecht-2026.md
+  h_580a04e334fef4 1-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "1cfdba6cc9755a061645ced970730384f76b228c",
+  "prompts": {},
+  "humans": {
+    "h_580a04e334fef4": {
+      "author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
