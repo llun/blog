@@ -1,0 +1,27 @@
+.github/workflows/deploy.yml
+  s_3f3230ce653201::t_87e00bad95ca54 12
+  s_3f3230ce653201::t_4e15946f269fa5 30-31
+libs/config.ts
+  h_580a04e334fef4 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "2c14958d55d7e1d1755c009c21a172f421c164fd",
+  "prompts": {},
+  "humans": {
+    "h_580a04e334fef4": {
+      "author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  },
+  "sessions": {
+    "s_3f3230ce653201": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bbd6d074-7c93-4d64-af8b-48642642a55d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
