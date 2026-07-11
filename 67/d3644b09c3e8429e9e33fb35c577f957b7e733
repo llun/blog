@@ -1,0 +1,33 @@
+.github/workflows/codeql.yml
+  s_3f3230ce653201::t_ee0eb62b2fb757 30
+  s_3f3230ce653201::t_1e6fc45e07672a 27
+  s_3f3230ce653201::t_ecac71fff7d68c 38
+  s_3f3230ce653201::t_af7a29850290ef 35
+.github/workflows/deploy.yml
+  s_3f3230ce653201::t_290e164ea5fceb 20
+  s_3f3230ce653201::t_a4294428201a92 14
+  s_3f3230ce653201::t_5051a0c4dab5f1 34
+  s_3f3230ce653201::t_2787320e65588d 45
+  s_3f3230ce653201::t_b8af9a83df4acc 51,112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "67d3644b09c3e8429e9e33fb35c577f957b7e733",
+  "prompts": {},
+  "humans": {
+    "h_580a04e334fef4": {
+      "author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  },
+  "sessions": {
+    "s_3f3230ce653201": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bbd6d074-7c93-4d64-af8b-48642642a55d",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
