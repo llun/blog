@@ -1,5 +1,6 @@
 import axios, { isAxiosError } from 'axios'
 import fs from 'fs/promises'
+import path from 'path'
 
 import { Activity, Country, getCountryStreamPath, Streams } from './constTypes'
 
@@ -7,6 +8,52 @@ interface TokenResponse {
   access_token: string
   refresh_token: string
   expires_at: number
+}
+
+// Axios attaches the request config and the raw request to every error, so
+// logging one whole would print the Bearer token and the OAuth client secret.
+// error.config is the same object as error.response.config, so scrubbing it
+// once covers both.
+function redactAxiosError(error: unknown) {
+  if (!isAxiosError(error)) return error
+  if (error.config) {
+    const headers = error.config.headers as Record<string, unknown>
+    for (const key of Object.keys(headers ?? {})) {
+      if (key.toLowerCase() === 'authorization') delete headers[key]
+    }
+    error.config.data = undefined
+  }
+  error.request = undefined
+  if (error.response) error.response.request = undefined
+  return error
+}
+
+async function writeEnvLocal(variables: Record<string, string>) {
+  const envFilePath = path.resolve(process.cwd(), '.env.local')
+
+  let content = ''
+  let created = false
+  try {
+    content = await fs.readFile(envFilePath, 'utf-8')
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
+    created = true
+  }
+
+  for (const [key, value] of Object.entries(variables)) {
+    const line = new RegExp(`^${key}=.*$`, 'm')
+    if (line.test(content)) {
+      content = content.replace(line, () => `${key}=${value}`)
+      continue
+    }
+    if (content.length > 0 && !content.endsWith('\n')) content += '\n'
+    content += `${key}=${value}\n`
+  }
+
+  await fs.writeFile(envFilePath, content, { encoding: 'utf-8', mode: 0o600 })
+  console.log(
+    `${created ? 'Created' : 'Updated'} ${envFilePath} with the new Strava tokens`
+  )
 }
 
 async function refreshAccessToken(): Promise<string> {
@@ -29,20 +76,12 @@ async function refreshAccessToken(): Promise<string> {
       }
     )
 
-    // Update .env.local file with new tokens using bash commands
-    const envFilePath = '.env.local';
-    let envContent = await fs.readFile(envFilePath, 'utf-8');
-
-    envContent = envContent.replace(
-      /STRAVA_TOKEN=.*/,
-      `STRAVA_TOKEN=${data.access_token}`
-    );
-    envContent = envContent.replace(
-      /STRAVA_REFRESH_TOKEN=.*/,
-      `STRAVA_REFRESH_TOKEN=${data.refresh_token}`
-    );
-
-    await fs.writeFile(envFilePath, envContent, 'utf-8');
+    // Strava rotates the refresh token on every use, the new one must be
+    // persisted or the next run has to re-authorise by hand
+    await writeEnvLocal({
+      STRAVA_TOKEN: data.access_token,
+      STRAVA_REFRESH_TOKEN: data.refresh_token
+    })
 
     // Update process.env for current session
     process.env.STRAVA_TOKEN = data.access_token
@@ -58,8 +97,8 @@ async function refreshAccessToken(): Promise<string> {
         `Rate limit hit on refreshing token. Usage: ${usage}, Limit: ${limit}`
       )
     }
-    console.error('Failed to refresh access token:', error)
-    throw error
+    console.error('Failed to refresh access token:', redactAxiosError(error))
+    throw redactAxiosError(error)
   }
 }
 
@@ -87,7 +126,7 @@ async function getValidAccessToken(): Promise<string> {
         console.error(
           `Rate limit hit on getting athlete. Usage: ${usage}, Limit: ${limit}`
         )
-        throw error
+        throw redactAxiosError(error)
       }
     }
     // Token is likely expired, refresh it
@@ -129,7 +168,7 @@ export async function getActivities(before?: number, loadAll = false) {
           `Rate limit hit on getting activities. Usage: ${usage}, Limit: ${limit}`
         )
       }
-      throw error
+      throw redactAxiosError(error)
     }
     await new Promise((resolve) => setTimeout(resolve, 1000))
   }
@@ -172,7 +211,7 @@ export async function getLatLngs(country: Country, activity: Activity) {
           `Rate limit hit on getting lat/lng for activity ${activity.id}. Usage: ${usage}, Limit: ${limit}`
         )
       }
-      throw error
+      throw redactAxiosError(error)
     }
   }
 }

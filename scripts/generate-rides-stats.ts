@@ -78,7 +78,7 @@ async function run() {
 
 run()
   .then(() => console.log('done'))
-  .catch((e) => {
-    console.error(e.message)
-    console.error(e.stack)
+  .catch((error) => {
+    console.error(error)
+    process.exitCode = 1
   })

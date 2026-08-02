@@ -4,7 +4,7 @@ import { DateTime } from 'luxon'
 import path from 'path'
 import yaml from 'yaml'
 
-import { getMediaList } from './apple/media'
+import { Media, getMediaList } from './apple/media'
 import { fetchStream } from './apple/webstream'
 import { Config, getConfig } from './blog'
 import { getMarkdown } from './markdown'
@@ -91,7 +91,13 @@ export const getAllAlbums = memoize(() => {
   return albums
 })
 
-export const getAlbum = memoize(async (name: string) => {
+export interface AlbumMedias {
+  album: Album
+  medias: Media[]
+  partition: number
+}
+
+const loadAlbum = async (name: string): Promise<AlbumMedias | null> => {
   const config = getConfig()
   const base = path.join(process.cwd(), 'contents', 'galleries')
   const file = path.join(base, `${name}.md`)
@@ -112,4 +118,12 @@ export const getAlbum = memoize(async (name: string) => {
     medias,
     partition: stream?.partition ?? 0
   }
+}
+
+export const getAlbum = memoize((name: string): Promise<AlbumMedias | null> => {
+  const promise = loadAlbum(name)
+  promise.catch(() => {
+    getAlbum.cache.delete(name)
+  })
+  return promise
 })

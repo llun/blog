@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import React, { FC } from 'react'
 
 interface Stats {
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const RideStats: FC<Props> = ({ stats, className }) => (
-  <section className={`ride-stats ${className}`}>
+  <section className={cn('ride-stats', className)}>
     <div className="ride-stats-card">
       <h2>Total Rides</h2>
       <p>{new Intl.NumberFormat('en').format(stats.activities)} Rides</p>

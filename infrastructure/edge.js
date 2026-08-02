@@ -260,7 +260,7 @@ async function deploy(functionName) {
       version = latestVersion.Version
     }
   } catch (error) {
-    if (error.code !== 'ResourceNotFoundException') {
+    if (error.name !== 'ResourceNotFoundException') {
       throw error
     }
     const [digest, content] = await archivingFunction(functionName)
@@ -403,4 +403,5 @@ run()
   .catch((error) => {
     console.error(error.message)
     console.error(error.stack)
+    process.exit(-1)
   })

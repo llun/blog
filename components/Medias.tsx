@@ -39,17 +39,26 @@ const Medias: FC<Props> = ({ partition, token, medias, className }) => {
     index: number
   }>()
   const photoDom = useRef<HTMLDivElement>(null)
+  const failedOffset = useRef<number | null>(null)
 
   useEffect(() => {
     setPhotoState(PhotoState.LOADING)
     const firstBatch = medias.slice(0, BatchSize * 2)
-    proxyAssetsUrl(partition, token, firstBatch).then((assets) => {
-      if (!assets) return
+    proxyAssetsUrl(partition, token, firstBatch)
+      .then((assets) => {
+        if (!assets) {
+          setPhotoState(PhotoState.IDLE)
+          return
+        }
 
-      setPhotoState(PhotoState.IDLE)
-      mergeMediaAssets(firstBatch, assets)
-      setPhotos(firstBatch)
-    })
+        setPhotoState(PhotoState.IDLE)
+        mergeMediaAssets(firstBatch, assets)
+        setPhotos(firstBatch)
+      })
+      .catch((error) => {
+        console.error(error)
+        setPhotoState(PhotoState.IDLE)
+      })
   }, [partition, token, medias])
 
   useEffect(() => {
@@ -57,19 +66,34 @@ const Medias: FC<Props> = ({ partition, token, medias, className }) => {
 
     const intersectionObserver = new IntersectionObserver(async (entries) => {
       const entry = entries[0]
-      if (entry.isIntersecting && canLoadPhoto(medias, photos, photoState)) {
-        // Load next batch
-        setPhotoState(PhotoState.LOADING)
-        const next = medias.slice(photos.length, photos.length + BatchSize)
+      if (!entry.isIntersecting) {
+        failedOffset.current = null
+        return
+      }
+      // Releasing the state back to IDLE re-runs this effect and the fresh
+      // observer fires again on the still-visible sentinel, so a batch that
+      // failed is only retried once the sentinel leaves and re-enters view
+      if (failedOffset.current === photos.length) return
+      if (!canLoadPhoto(medias, photos, photoState)) return
+
+      // Load next batch
+      setPhotoState(PhotoState.LOADING)
+      const next = medias.slice(photos.length, photos.length + BatchSize)
+      try {
         const assets = await proxyAssetsUrl(partition, token, next)
         if (!assets) {
-          // setPhotoState(PhotoState.IDLE)
+          failedOffset.current = photos.length
+          setPhotoState(PhotoState.IDLE)
           return
         }
 
         setPhotoState(PhotoState.IDLE)
         mergeMediaAssets(next, assets)
         setPhotos([...photos, ...next])
+      } catch (error) {
+        console.error(error)
+        failedOffset.current = photos.length
+        setPhotoState(PhotoState.IDLE)
       }
     })
     intersectionObserver.observe(photoDom.current)
@@ -79,7 +103,7 @@ const Medias: FC<Props> = ({ partition, token, medias, className }) => {
   if (!photos.length) return null
 
   return (
-    <div className={`ride-medias ${className}`}>
+    <div className={cn('ride-medias', className)}>
       <MediaModal
         isOpen={!!selectedMedia}
         media={selectedMedia?.media}
