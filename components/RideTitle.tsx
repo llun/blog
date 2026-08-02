@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
@@ -15,7 +16,7 @@ const COUNTRIES = [
 ] as const
 
 const RideTitle: FC<Props> = ({ icon, className }) => (
-  <section className={`flex flex-col ${className}`}>
+  <section className={cn('flex flex-col', className)}>
     <h3 className="flex-1">
       {icon && (
         <Image

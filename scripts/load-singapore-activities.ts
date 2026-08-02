@@ -70,4 +70,7 @@ run()
   .then(() => {
     console.log('done')
   })
-  .catch((e) => console.error(e.message))
+  .catch((error) => {
+    console.error(error)
+    process.exitCode = 1
+  })

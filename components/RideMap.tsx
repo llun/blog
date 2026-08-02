@@ -1,12 +1,19 @@
 'use client'
 
+import cn from 'classnames'
 import mapboxgl, { Map } from 'mapbox-gl'
+import { useTheme } from 'next-themes'
 import React, { FC, useEffect, useRef } from 'react'
 
 import { MAPBOX_PUBLIC_KEY } from '@/libs/config'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { YoutubeVideo } from './RideVideos'
+
+mapboxgl.accessToken = MAPBOX_PUBLIC_KEY
+
+const LIGHT_STYLE = 'mapbox://styles/mapbox/light-v10'
+const DARK_STYLE = 'mapbox://styles/mapbox/dark-v11'
 
 interface Props {
   className?: string
@@ -30,10 +37,18 @@ const RideMap: FC<Props> = ({
   videos
 }) => {
   const mapEl = useRef<HTMLDivElement>(null)
-  mapboxgl.accessToken = MAPBOX_PUBLIC_KEY
+  const { resolvedTheme } = useTheme()
 
   const [mobile, tablet, desktop] = zoomLevels
+  const [longitude, latitude] = center
+  const videosKey = JSON.stringify(videos)
+
   useEffect(() => {
+    const element = mapEl.current
+    if (!element) return
+
+    const markers = JSON.parse(videosKey) as YoutubeVideo[]
+
     const zoomLevel = (height?: number) => {
       switch (height) {
         case 250:
@@ -45,10 +60,10 @@ const RideMap: FC<Props> = ({
       }
     }
     const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/light-v10',
-      zoom: zoomLevel(mapEl?.current?.offsetHeight),
-      center,
+      container: element,
+      style: resolvedTheme === 'dark' ? DARK_STYLE : LIGHT_STYLE,
+      zoom: zoomLevel(element.offsetHeight),
+      center: [longitude, latitude],
       minZoom,
       maxZoom
     })
@@ -70,10 +85,11 @@ const RideMap: FC<Props> = ({
           'line-width': 2
         }
       })
-      for (const video of videos) {
+      for (const video of markers) {
         const link = document.createElement('a')
         link.href = video.url
         link.target = '_blank'
+        link.rel = 'noopener noreferrer'
 
         const container = document.createElement('div')
         container.className = 'ride-map-marker-container'
@@ -96,9 +112,21 @@ const RideMap: FC<Props> = ({
         })
       }
     })
-  })
+    return () => map.remove()
+  }, [
+    mobile,
+    tablet,
+    desktop,
+    longitude,
+    latitude,
+    minZoom,
+    maxZoom,
+    dataPath,
+    videosKey,
+    resolvedTheme
+  ])
 
-  return <div ref={mapEl} id="map" className={`ride-map ${className}`} />
+  return <div ref={mapEl} className={cn('ride-map', className)} />
 }
 
 export default RideMap

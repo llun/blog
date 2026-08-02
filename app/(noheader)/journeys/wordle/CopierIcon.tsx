@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FC, useEffect } from 'react'
+import React, { FC, useCallback, useEffect } from 'react'
 import { Copy } from 'lucide-react'
 
 import { Result } from '../../../../libs/wordle'
@@ -12,14 +12,22 @@ interface Props {
 }
 
 export const CopierIcon: FC<Props> = ({ result, className }) => {
+  const copyResult = useCallback(() => {
+    setResultToClipboard(result).catch((error) => {
+      // Rejected without a user gesture, or when ClipboardItem is unavailable
+      console.warn('Unable to copy wordle result', error)
+    })
+  }, [result])
+
   useEffect(() => {
-    setResultToClipboard(result)
-  })
+    copyResult()
+  }, [copyResult])
+
   return (
     <span
       className={`cursor-pointer ${className}`}
       title="Copy"
-      onClick={() => setResultToClipboard(result)}
+      onClick={copyResult}
     >
       <Copy className="w-5 h-5 inline" />
     </span>

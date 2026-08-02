@@ -7,12 +7,15 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 import { MAPBOX_PUBLIC_KEY } from '../../../../libs/config'
 
+mapboxgl.accessToken = MAPBOX_PUBLIC_KEY
+
 export const AirTagMap = () => {
   const mapEl = useRef<HTMLDivElement>(null)
 
-  mapboxgl.accessToken = MAPBOX_PUBLIC_KEY
-
   useEffect(() => {
+    const element = mapEl.current
+    if (!element) return
+
     const zoomLevel = (height?: number) => {
       switch (height) {
         case 250:
@@ -25,10 +28,10 @@ export const AirTagMap = () => {
     }
 
     const map = new mapboxgl.Map({
-      container: 'map',
+      container: element,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [102.2949, 7.7051],
-      zoom: zoomLevel(mapEl?.current?.offsetHeight),
+      zoom: zoomLevel(element.offsetHeight),
       minZoom: 5
     })
     map.on('load', () => {
@@ -101,7 +104,8 @@ export const AirTagMap = () => {
         }
       })
     })
+    return () => map.remove()
   }, [])
 
-  return <div ref={mapEl} id="map" className="map mb-4" />
+  return <div ref={mapEl} className="map mb-4" />
 }

@@ -13,6 +13,7 @@ const getHeaders = (request: NextRequest) => {
   if (process.env.NODE_ENV !== 'production') {
     return {
       'Access-Control-Allow-Origin': '*',
+      Vary: 'Origin',
       'Content-Type': 'application/json',
       'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
     }
@@ -22,6 +23,7 @@ const getHeaders = (request: NextRequest) => {
   if (!ALLOW_ORIGINS.includes(origin)) {
     return {
       'Access-Control-Allow-Origin': 'https://www.llun.me',
+      Vary: 'Origin',
       'Content-Type': 'application/json',
       'Cache-Control': 's-maxage=1, stale-while-revalidate=30'
     }
@@ -29,16 +31,34 @@ const getHeaders = (request: NextRequest) => {
 
   return {
     'Access-Control-Allow-Origin': origin,
+    Vary: 'Origin',
     'Content-Type': 'application/json',
     'Cache-Control': 's-maxage=3600, stale-while-revalidate=3600'
   }
 }
 
-export async function POST(request: NextRequest) {
-  const body = (await request.json()) as AssetsRequest
+const ParseError = Symbol('ParseError')
 
+const parseBody = async (request: NextRequest) => {
+  try {
+    return (await request.json()) as AssetsRequest
+  } catch {
+    return ParseError
+  }
+}
+
+export async function POST(request: NextRequest) {
   const headers = getHeaders(request)
-  if (!ALLOW_TOKEN_IDS.includes(body.token)) {
+
+  const body = await parseBody(request)
+  if (body === ParseError) {
+    return new Response(JSON.stringify({ error: 'Bad Request' }), {
+      status: 400,
+      headers
+    })
+  }
+
+  if (!ALLOW_TOKEN_IDS.includes(body?.token)) {
     return new Response(JSON.stringify({ error: 'Not Found' }), {
       status: 404,
       headers

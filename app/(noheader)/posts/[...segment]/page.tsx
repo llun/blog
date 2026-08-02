@@ -10,7 +10,7 @@ import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
 
-const getPost = (segment: string) => {
+const getPost = (segment: string[]) => {
   const config = getConfig()
   const contentPath = path.join(
     process.cwd(),
@@ -23,7 +23,7 @@ const getPost = (segment: string) => {
 }
 
 interface Props {
-  params: Promise<{ segment: string }>
+  params: Promise<{ segment: string[] }>
 }
 
 export const generateStaticParams = async () => {

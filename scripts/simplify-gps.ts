@@ -82,7 +82,7 @@ function removeNearbyPoints(
 async function simplifyCountry(country: Country) {
   const simplifyPath = getCountrySimplifyPath(country)
   await fs.mkdir(simplifyPath, { recursive: true })
-  const files = await fs.readdir(getCountryStreamPath(country))
+  const files = (await fs.readdir(getCountryStreamPath(country))).sort()
 
   const features: Feature[] = []
   const processedFiles: string[] = []
@@ -163,7 +163,7 @@ async function run() {
 
 run()
   .then(() => console.log('\n=== OPTIMIZATION COMPLETE ==='))
-  .catch((e) => {
-    console.error(e.message)
-    console.error(e.stack)
+  .catch((error) => {
+    console.error(error)
+    process.exitCode = 1
   })

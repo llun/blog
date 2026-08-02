@@ -34,7 +34,7 @@ const RootLayout = ({ children }: Props) => {
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="layout-div">
+          <div id="app-root" className="layout-div">
             <Header title={title} url={url} />
             <main className="main-container">{children}</main>
           </div>
