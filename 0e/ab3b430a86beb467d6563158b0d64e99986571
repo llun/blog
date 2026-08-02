@@ -1,0 +1,103 @@
+public/robots.txt
+  s_d28bd4fdea6f50::t_799bbf29c77362 2-4
+app/(header)/error.tsx
+  s_d28bd4fdea6f50::t_c2736654f1f0a4 24-25
+  s_d28bd4fdea6f50::t_edb0d0551c95bf 1-23,26-39
+components/RideTitle.tsx
+  s_d28bd4fdea6f50::t_78ca5efd83125e 44-49
+components/Meta.tsx
+  s_d28bd4fdea6f50::t_cad107f87dae21 15
+  s_d28bd4fdea6f50::t_9d920b78d3ef02 41,46,48
+app/(noheader)/not-found.tsx
+  s_d28bd4fdea6f50::t_8f9386314c9786 1-20
+components/MediaModal.tsx
+  s_d28bd4fdea6f50::t_42130c22da58a9 24
+app/sitemap.ts
+  s_d28bd4fdea6f50::t_12ad938669c6db 10-13
+  s_d28bd4fdea6f50::t_136561a0dc7e99 1-9,14-151
+scripts/generate-feeds.ts
+  s_d28bd4fdea6f50::t_4805ffe629ffbf 1,3-36
+  s_d28bd4fdea6f50::t_e4e1bfe331f3ad 2
+.github/workflows/deploy.yml
+  s_d28bd4fdea6f50::t_fbe806ee8821e5 108-109
+  s_d28bd4fdea6f50::t_5fc14c04667081 127-133
+components/ThemeToggle.tsx
+  s_d28bd4fdea6f50::t_16e54ed01c55d7 5,14,18-24,30,34
+  s_d28bd4fdea6f50::t_5487becef20deb 11-13,16-17,25-29,31-33,37-38,56,67,70-71,74-75
+  s_d28bd4fdea6f50::t_6eb9e6be864876 79,85,93,99,107,113
+  s_d28bd4fdea6f50::t_060964ac49b4e3 52,57,66,72-73
+  s_d28bd4fdea6f50::t_1b273857123e77 15
+libs/blog.ts
+  s_d28bd4fdea6f50::t_1e14f0bf2cea08 149,152,154
+  s_d28bd4fdea6f50::t_706456b3452c96 200-204
+libs/journey.ts
+  s_d28bd4fdea6f50::t_e87f09b4f85169 8
+  s_d28bd4fdea6f50::t_96e67f0b41997e 25-28,32-42,45,60-61
+  s_d28bd4fdea6f50::t_d0b8a693070ad1 29-31
+components/ThemeToggle.css
+  s_d28bd4fdea6f50::t_0ffb8a2f0a17e6 22-23,25
+  s_d28bd4fdea6f50::t_f087ecd3e03816 11
+  s_d28bd4fdea6f50::t_fab058373f8f54 19
+components/Medias.tsx
+  s_d28bd4fdea6f50::t_7e3edd85dce6d0 134-137,140,142-144
+  s_d28bd4fdea6f50::t_44261e88254922 41
+package.json
+  s_d28bd4fdea6f50::t_229dcb9298dfdc 8,11-12
+libs/wordle.ts
+  s_d28bd4fdea6f50::t_ef20de124c618b 35-39
+  s_d28bd4fdea6f50::t_b91f151c10e45f 40-56
+  s_d28bd4fdea6f50::t_fd5fbd03424eac 4-5
+libs/apple/media.ts
+  s_d28bd4fdea6f50::t_27ea7da483fffa 57,60
+app/(noheader)/error.tsx
+  s_d28bd4fdea6f50::t_c2736654f1f0a4 27-28
+  s_d28bd4fdea6f50::t_490fe09625abf0 1-19,23-26,29-43
+  s_d28bd4fdea6f50::t_25b2ce935213c0 20-22
+app/(header)/gallery/page.tsx
+  s_d28bd4fdea6f50::t_ee2db2f217fc34 27
+  s_d28bd4fdea6f50::t_49e7bae75cae9c 44-45
+  s_d28bd4fdea6f50::t_c1fac70d06697b 8
+components/Header.tsx
+  s_d28bd4fdea6f50::t_217db8ae71ab82 70,72
+  s_d28bd4fdea6f50::t_65528ea517230f 11
+libs/amsterdam.ts
+  s_d28bd4fdea6f50::t_1ecd97ac0b1d04 57-58
+  s_d28bd4fdea6f50::t_dd3083b3eb9f21 73-78,82
+  s_d28bd4fdea6f50::t_81648499361926 35-39
+  s_d28bd4fdea6f50::t_45aeb9a5495ebc 5
+app/(noheader)/posts/[...segment]/page.tsx
+  s_d28bd4fdea6f50::t_675a48da958ada 1,15-16,18-30,32
+  s_d28bd4fdea6f50::t_aacb6f4ce27a58 13,17
+  s_d28bd4fdea6f50::t_e7719ccf25fcaf 31
+components/RideVideos.tsx
+  s_d28bd4fdea6f50::t_bb37e1646ba26c 27,31-35
+libs/utils.ts
+  s_d28bd4fdea6f50::t_7033405f6345f1 4-6,8-21,25
+  s_d28bd4fdea6f50::t_39bfe13efa136f 1-3,7,22-24
+app/(header)/not-found.tsx
+  s_d28bd4fdea6f50::t_61998f4f0fb280 1-18
+app/(header)/page.tsx
+  s_d28bd4fdea6f50::t_b7e6344cd2e8f8 5
+libs/gallery.ts
+  s_d28bd4fdea6f50::t_22169c0063dddb 78-79
+  s_d28bd4fdea6f50::t_b12d2e27425257 109-111
+  s_d28bd4fdea6f50::t_bf8bf23c8a50ce 108
+  s_d28bd4fdea6f50::t_939298021aa08b 11
+  s_d28bd4fdea6f50::t_d21f19d53171e1 39-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "0eab3b430a86beb467d6563158b0d64e99986571",
+  "prompts": {},
+  "sessions": {
+    "s_d28bd4fdea6f50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f3e8b0b8-4d08-49f3-a4f7-1d8fc9185b85",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
