@@ -5,6 +5,11 @@ const isExport = ['1', 'true', 'yes'].includes(
 const nextConfig = {
   ...(isExport ? { output: 'export' } : null),
   trailingSlash: true,
+  // TypeScript 7 ships only the Go compiler, so next build must shell out to
+  // the tsc CLI instead of calling the JavaScript compiler API
+  experimental: {
+    useTypeScriptCli: true
+  },
   images: {
     unoptimized: true
   },
