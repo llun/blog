@@ -24,9 +24,6 @@
     "jsx": "react-jsx",
     "plugins": [
       {
-        "name": "typescript-plugin-css-modules"
-      },
-      {
         "name": "next"
       }
     ],
@@ -37,13 +34,6 @@
       "@/components/*": [
         "./components/*"
       ]
-    }
-  },
-  "ts-node": {
-    "swc": true,
-    "transpileOnly": true,
-    "compilerOptions": {
-      "module": "commonjs"
     }
   },
   "include": [
