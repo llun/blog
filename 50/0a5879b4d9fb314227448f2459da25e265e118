@@ -1,0 +1,59 @@
+.github/workflows/deploy.yml
+  s_d28bd4fdea6f50::t_92ba057c075b02 69,74-75
+  s_d28bd4fdea6f50::t_b197558cd7adff 121-124
+  s_d28bd4fdea6f50::t_6ccf5e4b07ccfa 103-104
+  s_d28bd4fdea6f50::t_e226e53a292c93 65-66,77
+  s_d28bd4fdea6f50::t_a934a75e26448d 109
+  s_d28bd4fdea6f50::t_021eb635c356bb 82-92,94
+  s_d28bd4fdea6f50::t_7306f7327df3e4 8-11
+  s_d28bd4fdea6f50::t_2206f0df5a3a35 30
+scripts/optimize-images.sh
+  s_d28bd4fdea6f50::t_73a21bd1194498 3-22
+readme.md
+  s_d28bd4fdea6f50::t_febb3db076f97a 12-13
+  s_d28bd4fdea6f50::t_0e222173030da6 164
+  s_d28bd4fdea6f50::t_14cd1d6f90b551 33-34,40-45,50
+  s_d28bd4fdea6f50::t_59489f589c990c 127
+  s_d28bd4fdea6f50::t_92f070aa1b71e1 145-148
+  s_d28bd4fdea6f50::t_0119665fad4be8 51
+  s_d28bd4fdea6f50::t_5dea5822300140 68-70,78
+  s_d28bd4fdea6f50::t_ecacb40a3a484e 91,93-94
+  s_d28bd4fdea6f50::t_a47f6434a37194 82-84,90,92,95-99
+  s_d28bd4fdea6f50::t_1cb611a28d6411 140-142,144,149,159,162-163,165,169,175
+  s_d28bd4fdea6f50::t_3936b34016a719 102
+  s_d28bd4fdea6f50::t_1d1021679b7f37 21
+  s_d28bd4fdea6f50::t_558c2054da797d 152
+  s_d28bd4fdea6f50::t_a3c2a28bd2974b 79
+  s_d28bd4fdea6f50::t_c911edea842370 153
+  s_d28bd4fdea6f50::t_90a64c97a4df07 176
+tsconfig.json
+  s_d28bd4fdea6f50::t_bccaa30651af0a 40,42-44,49-51
+eslint.config.mjs
+  s_d28bd4fdea6f50::t_4c239bdfe22272 2,25-33
+  s_d28bd4fdea6f50::t_0eaeba225d69ef 34
+.github/workflows/ci.yml
+  s_d28bd4fdea6f50::t_679704b6d2ded9 41-45
+  s_d28bd4fdea6f50::t_2d2be1ce122d9e 1-40,46-47
+package.json
+  s_d28bd4fdea6f50::t_74154a591a49d9 9
+  s_d28bd4fdea6f50::t_0537c2848aad88 10
+  s_d28bd4fdea6f50::t_2070401a4a9d4d 48
+yarn.lock
+  s_d28bd4fdea6f50::t_b5e8f7d2ed2b7b 290,527-537,1501-1510,3839-3853,4213-4228,4649,5807-5822
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "500a5879b4d9fb314227448f2459da25e265e118",
+  "prompts": {},
+  "sessions": {
+    "s_d28bd4fdea6f50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f3e8b0b8-4d08-49f3-a4f7-1d8fc9185b85",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
