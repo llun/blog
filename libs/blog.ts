@@ -1,6 +1,6 @@
 import { Feed } from 'feed'
 import fs from 'fs'
-import memoize from 'lodash/memoize'
+import memoize from 'lodash/memoize.js'
 import { DateTime } from 'luxon'
 import path from 'path'
 import yaml from 'yaml'
@@ -146,13 +146,12 @@ export const getAllPosts = memoize((): Post[] => {
 })
 
 /**
- * Generates RSS and Atom feeds from blog posts.
- * Results are memoized for performance.
+ * Builds the Atom and JSON Feed documents from blog posts.
  * @param config - The blog configuration
  * @param sortedPosts - Posts sorted in the desired order
- * @returns Feed object containing RSS and Atom feeds
+ * @returns The serialised Atom and JSON Feed documents
  */
-export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
+export const buildFeeds = (config: Config, sortedPosts: Post[]) => {
   const feed = new Feed({
     title: config.title,
     description: config.description,
@@ -169,7 +168,6 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       link: config.url
     },
     feedLinks: {
-      rss2: `${config.url}/feeds/feed.xml`,
       json: `${config.url}/feeds/feed.json`,
       atom: `${config.url}/feeds/atom.xml`
     }
@@ -199,13 +197,11 @@ export const generateFeeds = memoize((config: Config, sortedPosts: Post[]) => {
       content
     })
   }
-  const feedsPath = path.join(process.cwd(), 'public', 'feeds')
-  fs.mkdirSync(feedsPath, { recursive: true })
-  fs.writeFileSync(path.join(feedsPath, 'rss.xml'), feed.rss2())
-  fs.writeFileSync(path.join(feedsPath, 'atom.xml'), feed.atom1())
-  fs.writeFileSync(path.join(feedsPath, 'main'), feed.atom1())
-  fs.writeFileSync(path.join(feedsPath, 'feed.json'), feed.json1())
-})
+  return {
+    atom: feed.atom1(),
+    json: feed.json1()
+  }
+}
 
 export const getConfig = memoize(
   (): Config => ({

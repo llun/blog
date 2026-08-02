@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "yarn feeds && next build --turbopack",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
-    "export": "BLOG_EXPORT=1 next build --turbopack",
+    "export": "yarn feeds && BLOG_EXPORT=1 next build --turbopack",
+    "feeds": "yarn ride:exec scripts/generate-feeds.ts",
     "optimize-images": "scripts/optimize-images.sh",
     "ride:exec": "node --import @swc-node/register/esm-register",
     "ride": "yarn ride:exec scripts/load-netherlands-activities.ts && yarn ride:exec scripts/load-slovenia-activities.ts && yarn ride:exec scripts/simplify-gps.ts && yarn ride:exec scripts/generate-rides-stats.ts"

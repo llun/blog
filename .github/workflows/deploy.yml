@@ -105,8 +105,8 @@ jobs:
             --include '*.ico' &
           PID2=$!
 
-          # RSS/Atom feeds with proper content-type for feed readers
-          echo "📡 [4/4] Uploading RSS/Atom feeds..."
+          # Atom feeds with proper content-type for feed readers
+          echo "📡 [4/4] Uploading Atom feeds..."
           aws s3 sync out/ s3://${{ secrets.AWS_S3_BUCKET }}/ \
             --acl public-read \
             --follow-symlinks \
@@ -123,6 +123,13 @@ jobs:
           wait $PID2 && echo "✅ [3/4] Images uploaded" || { echo "❌ [3/4] Images failed"; exit 1; }
           wait $PID3 && echo "✅ [4/4] Feeds uploaded" || { echo "❌ [4/4] Feeds failed"; exit 1; }
           echo "🎉 All S3 uploads completed successfully!"
+
+      - name: Remove retired RSS feed
+        run: |
+          # RSS was retired in favour of Atom. The syncs above deliberately run
+          # without --delete, so this object would otherwise keep serving a
+          # frozen copy of the feed forever instead of 404ing.
+          aws s3 rm s3://${{ secrets.AWS_S3_BUCKET }}/feeds/rss.xml || true
 
   invalidate-cdn:
     name: Invalidate CloudFront

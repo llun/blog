@@ -8,6 +8,7 @@ import { Media, getMediaList } from './apple/media'
 import { fetchStream } from './apple/webstream'
 import { Config, getConfig } from './blog'
 import { getMarkdown } from './markdown'
+import { isSinglePathSegment } from './utils'
 
 interface AlbumProperties {
   title: string
@@ -35,6 +36,11 @@ export const parseAlbum = (
 ): Album | null => {
   try {
     fs.statSync(file)
+  } catch {
+    return null
+  }
+
+  try {
     const name = path.basename(file, '.md')
     const raw = fs.readFileSync(file).toString('utf-8')
     const begin = raw.indexOf('---')
@@ -69,7 +75,8 @@ export const parseAlbum = (
       token,
       content
     }
-  } catch {
+  } catch (error) {
+    console.warn(`Failed to parse album ${file}`, error)
     return null
   }
 }
@@ -98,6 +105,10 @@ export interface AlbumMedias {
 }
 
 const loadAlbum = async (name: string): Promise<AlbumMedias | null> => {
+  if (!isSinglePathSegment(name)) {
+    return null
+  }
+
   const config = getConfig()
   const base = path.join(process.cwd(), 'contents', 'galleries')
   const file = path.join(base, `${name}.md`)

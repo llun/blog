@@ -8,7 +8,7 @@
   }
 
   .theme-toggle-modal-content {
-    @apply absolute right-0 mt-2 z-20 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-md shadow-lg p-2;
+    @apply absolute right-0 mt-2 z-20 bg-popover text-popover-foreground border border-border rounded-md shadow-lg p-2;
   }
 
   .theme-toggle-modal-button-container {
@@ -16,10 +16,12 @@
   }
 
   .theme-toggle-modal-button {
-    @apply flex items-center space-x-2 p-2 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700;
+    @apply flex items-center space-x-2 p-2 rounded-sm cursor-pointer hover:bg-accent hover:text-accent-foreground;
   }
 
+  /* hover also resolves to bg-accent, so the selected row needs a second
+     signal to stay distinguishable while another row is hovered */
   .theme-toggle-modal-button-selected {
-    @apply bg-gray-200 dark:bg-gray-700;
+    @apply bg-accent text-accent-foreground font-medium ring-1 ring-border;
   }
 }

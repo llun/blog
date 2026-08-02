@@ -41,8 +41,12 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
             <span className="sm:hidden">{country.code}</span>
             <span className="hidden sm:inline">{country.name}</span>
           </Link>
-          <Link href={`/tags/ride/${country.slug}/gallery`} className="mr-2">
-            <BookImage className="ride-title-icon" />
+          <Link
+            href={`/tags/ride/${country.slug}/gallery`}
+            className="mr-2"
+            aria-label={`Link to my ${country.name} cycling photos`}
+          >
+            <BookImage className="ride-title-icon" aria-hidden="true" />
           </Link>
         </React.Fragment>
       ))}

@@ -38,7 +38,7 @@ const Medias: FC<Props> = ({ partition, token, medias, className }) => {
     media: Media
     index: number
   }>()
-  const photoDom = useRef<HTMLDivElement>(null)
+  const photoDom = useRef<HTMLButtonElement>(null)
   const failedOffset = useRef<number | null>(null)
 
   useEffect(() => {
@@ -131,11 +131,17 @@ const Medias: FC<Props> = ({ partition, token, medias, className }) => {
         const key = media.type === 'video' ? VideoPosterDerivative : keys[0]
         const backgroundImage =
           media.derivatives[key].url && `url(${media.derivatives[key].url})`
+        const caption = media.caption?.trim()
+        const label = caption
+          ? `Open ${caption}`
+          : `Open ${media.type === 'video' ? 'video' : 'photo'} ${index + 1}`
 
         return (
-          <div
+          <button
             key={media.guid}
-            className={cn('ride-medias-image', {
+            type="button"
+            aria-label={label}
+            className={cn('ride-medias-image', 'appearance-none block', {
               'ride-medias-super-square': shouldBeBig
             })}
             style={{ backgroundImage }}

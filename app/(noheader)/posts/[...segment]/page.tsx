@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { Metadata } from 'next'
 import path from 'path'
 import React, { use } from 'react'
@@ -9,18 +10,26 @@ import { DateTime } from 'luxon'
 import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
+import { isSinglePathSegment } from '../../../../libs/utils'
 
-const getPost = (segment: string[]) => {
-  const config = getConfig()
-  const contentPath = path.join(
-    process.cwd(),
-    'contents',
-    'posts',
-    ...segment,
-    'index.md'
-  )
-  return parsePost(config, contentPath, true)
-}
+const getPost = _.memoize(
+  (segment: string[]) => {
+    if (!segment.every(isSinglePathSegment)) {
+      return null
+    }
+
+    const config = getConfig()
+    const contentPath = path.join(
+      process.cwd(),
+      'contents',
+      'posts',
+      ...segment,
+      'index.md'
+    )
+    return parsePost(config, contentPath, true)
+  },
+  (segment: string[]) => JSON.stringify(segment)
+)
 
 interface Props {
   params: Promise<{ segment: string[] }>

@@ -21,7 +21,7 @@ const Photo: FC<MediaProps> = ({ media }) => {
     <img
       className="media-modal-image"
       src={source}
-      alt="Detail image"
+      alt={media.caption?.trim() || 'Gallery photo'}
       width={media.width}
       height={media.height}
     />
