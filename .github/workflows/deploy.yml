@@ -68,8 +68,7 @@ jobs:
             --exclude '*.png' \
             --exclude '*.ico' \
             --exclude 'feeds/main' \
-            --exclude 'feeds/atom.xml' \
-            --exclude '.well-known/webfinger' &
+            --exclude 'feeds/atom.xml' &
           PID1=$!
 
           # Images with long cache (7 days) - these rarely change

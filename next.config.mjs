@@ -6,13 +6,7 @@ const nextConfig = {
   ...(isExport ? { output: 'export' } : null),
   trailingSlash: true,
   images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'webring.wonderful.software'
-      }
-    ]
+    unoptimized: true
   },
   turbopack: {
     rules: {

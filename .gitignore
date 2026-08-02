@@ -2,9 +2,9 @@
 .next
 .vercel
 .vscode
-.env.local
+.env
+.env.*
 *.log
-_site
 node_modules
 public/feeds
 out
