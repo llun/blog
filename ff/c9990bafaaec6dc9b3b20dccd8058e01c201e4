@@ -1,0 +1,82 @@
+libs/gallery.ts
+  s_d28bd4fdea6f50::t_6fe65bbb142502 94-100,121-122
+  s_d28bd4fdea6f50::t_86f84fe360258b 7
+  s_d28bd4fdea6f50::t_f490ed8246a9b6 123-128
+components/RideTitle.tsx
+  s_d28bd4fdea6f50::t_c5fde3e7c7aa3b 19
+  s_d28bd4fdea6f50::t_a1ce7d62744104 1
+app/(header)/layout.tsx
+  s_d28bd4fdea6f50::t_46a6ff4f2dbedd 37
+scripts/load-singapore-activities.ts
+  s_d28bd4fdea6f50::t_6673de7e8ef686 73-76
+components/RideMap.tsx
+  s_d28bd4fdea6f50::t_ee036a79d9c4dc 3,5,13-17,40,43-45,47-48,51,63-66,88,92,115-124,126-127
+  s_d28bd4fdea6f50::t_2673b9223d7348 125,129
+  s_d28bd4fdea6f50::t_1c28dfffaf692a 49-50
+components/Medias.tsx
+  s_d28bd4fdea6f50::t_63502cc078bee9 69-82,85,93-96
+  s_d28bd4fdea6f50::t_88a725b9828dea 86
+  s_d28bd4fdea6f50::t_3a26bffb285597 47-52,54-61
+  s_d28bd4fdea6f50::t_c10829436d9f64 106
+  s_d28bd4fdea6f50::t_19286106c049f1 42
+scripts/load-slovenia-activities.ts
+  s_d28bd4fdea6f50::t_636c5aa2cbed2d 21-24
+app/api/apple/route.ts
+  s_d28bd4fdea6f50::t_4605005fcf70b2 47,52-53,55-60
+  s_d28bd4fdea6f50::t_b5c1c99267e9b7 40,46,54,61
+  s_d28bd4fdea6f50::t_6e4bec192259f5 16,26,34,42-45
+  s_d28bd4fdea6f50::t_cd8f7e9dfb3af1 48-50
+app/(noheader)/posts/[...segment]/page.tsx
+  s_d28bd4fdea6f50::t_483c5b041ccdf4 26
+  s_d28bd4fdea6f50::t_a29bff686a7b17 13
+components/Modal.tsx
+  s_d28bd4fdea6f50::t_568464b6178f1c 3,8-9,11
+app/(noheader)/journeys/wordle/CopierIcon.tsx
+  s_d28bd4fdea6f50::t_793a4478e127d5 16-19
+  s_d28bd4fdea6f50::t_d8bc8603c91ee4 15,20-21,23-25,30
+  s_d28bd4fdea6f50::t_10cea25f2b411d 3
+infrastructure/edge.js
+  s_d28bd4fdea6f50::t_885d9a1e189375 263
+  s_d28bd4fdea6f50::t_b6f1c7c71e7ded 406
+scripts/generate-rides-stats.ts
+  s_d28bd4fdea6f50::t_1bfeed64175ee5 81-83
+components/RideStats.tsx
+  s_d28bd4fdea6f50::t_81c12bb53d1967 1
+  s_d28bd4fdea6f50::t_92342da408a609 15
+scripts/load-netherlands-activities.ts
+  s_d28bd4fdea6f50::t_208007879d06a0 21-24
+scripts/strava.ts
+  s_d28bd4fdea6f50::t_5d74ef637626dc 3,31-45,47-52,54-56
+  s_d28bd4fdea6f50::t_0d6d4b4da4a586 79-84
+  s_d28bd4fdea6f50::t_4dcda2da07cb86 100-101
+  s_d28bd4fdea6f50::t_0b5d76f0474a1b 171
+  s_d28bd4fdea6f50::t_51a3937142d1df 214
+  s_d28bd4fdea6f50::t_08baccbb1d68d0 46,53
+  s_d28bd4fdea6f50::t_ea011eb590c007 13-16,20-23
+  s_d28bd4fdea6f50::t_6a95ee65bf7152 17-19,24-30,57
+  s_d28bd4fdea6f50::t_db2baab4f83915 129
+  s_d28bd4fdea6f50::t_ee941088dfac2e 58
+app/(noheader)/journeys/airtag-sg-th/AirTagMap.tsx
+  s_d28bd4fdea6f50::t_4fdb24eab8b912 31,34
+  s_d28bd4fdea6f50::t_11402dc6b7b27e 10-11,16-18
+  s_d28bd4fdea6f50::t_3ae9b41f6b50ef 107,110
+scripts/simplify-gps.ts
+  s_d28bd4fdea6f50::t_1900991d8be5f1 166-168
+  s_d28bd4fdea6f50::t_1fc9d9f3c0ced2 85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "ffc9990bafaaec6dc9b3b20dccd8058e01c201e4",
+  "prompts": {},
+  "sessions": {
+    "s_d28bd4fdea6f50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f3e8b0b8-4d08-49f3-a4f7-1d8fc9185b85",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
