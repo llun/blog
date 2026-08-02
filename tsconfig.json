@@ -37,12 +37,17 @@
     }
   },
   "include": [
-    "infrastructure/**/*.js",
+    "next-env.d.ts",
     "modules.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "infrastructure/**/*.js",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "out",
+    ".next"
   ]
 }
