@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Lint, typecheck and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Build site
+        run: yarn export
+        # This secret lives in the production environment, which this job
+        # deliberately does not join, so it is empty on every pull request. The
+        # key only affects runtime map rendering, so the build still succeeds
+        # without it. Add a repository-level copy to make CI bundle-identical
+        # to production.
+        env:
+          NEXT_PUBLIC_MAPBOX_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_MAPBOX_PUBLIC_KEY }}

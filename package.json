@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
     "export": "BLOG_EXPORT=1 next build --turbopack",
     "optimize-images": "scripts/optimize-images.sh",
     "ride:exec": "node --import @swc-node/register/esm-register",
@@ -44,6 +45,7 @@
     "decimal.js": "^10.6.0",
     "dotenv-flow": "^4.1.0",
     "eslint": "^10.8.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "feed": "^6.0.0",
     "kd-tree-javascript": "^1.0.3",
     "lodash": "^4.18.1",
