@@ -1,5 +1,5 @@
 import path from 'path'
-import memoize from 'lodash/memoize'
+import memoize from 'lodash/memoize.js'
 import yaml from 'yaml'
 import fs from 'fs'
 

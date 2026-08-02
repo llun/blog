@@ -1,6 +1,6 @@
 import { Feed } from 'feed'
 import fs from 'fs'
-import memoize from 'lodash/memoize'
+import memoize from 'lodash/memoize.js'
 import { DateTime } from 'luxon'
 import path from 'path'
 import yaml from 'yaml'
