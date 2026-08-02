@@ -1,0 +1,21 @@
+libs/blog.ts
+  s_d28bd4fdea6f50::t_0c76eec55bb957 3
+libs/journey.ts
+  s_d28bd4fdea6f50::t_0c76eec55bb957 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "28c3302637ea8a9b64369cdb0f95aab2d8a7ac92",
+  "prompts": {},
+  "sessions": {
+    "s_d28bd4fdea6f50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f3e8b0b8-4d08-49f3-a4f7-1d8fc9185b85",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
