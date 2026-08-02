@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import Link from 'next/link'
 import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
@@ -10,7 +8,7 @@ import { ThemeToggle } from './ThemeToggle'
 export type Page = {
   url: string
   title: string
-  icon: LucideIcon | ((props: { className?: string }) => React.ReactNode)
+  icon: LucideIcon | ((props: React.SVGProps<SVGSVGElement>) => React.ReactNode)
   target?: '_blank'
 }
 const DEFAULT_PAGES: Page[] = [
@@ -69,8 +67,9 @@ const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
               target={item.target}
               rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
               className={'nav-link'}
+              aria-label={item.title}
             >
-              <item.icon className="mr-2 h-4 w-4" />
+              <item.icon className="mr-2 h-4 w-4" aria-hidden="true" />
               <span className="nav-link-text">{item.title}</span>
             </Link>
           ))}

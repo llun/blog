@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import yaml from 'yaml'
 import path from 'path'
 import { getMarkdown } from './markdown'
+import { isSafeSegment } from './utils'
 
 export interface CalendarProperty {
   month:
@@ -31,6 +32,11 @@ export const parseCalendar = async (
 ): Promise<Calendar | null> => {
   try {
     await fs.stat(file)
+  } catch {
+    return null
+  }
+
+  try {
     const raw = await fs.readFile(file, 'utf-8')
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
@@ -48,7 +54,8 @@ export const parseCalendar = async (
       id: path.basename(file, '.md'),
       content: md.render(raw.substring(end + 3).trim())
     }
-  } catch {
+  } catch (error) {
+    console.warn(`Failed to parse calendar ${file}`, error)
     return null
   }
 }
@@ -63,8 +70,13 @@ export const getAllCalendars = async () => {
   ).filter((p): p is Calendar => p !== null)
 }
 
-export const getCalendar = async (id: string) =>
-  parseCalendar(
+export const getCalendar = async (id: string): Promise<Calendar | null> => {
+  if (!isSafeSegment(id)) {
+    return null
+  }
+
+  return parseCalendar(
     path.join(process.cwd(), 'contents', 'amsterdam', 'calendar', `${id}.md`),
     true
   )
+}

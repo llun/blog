@@ -24,11 +24,15 @@ const RideVideos: FC<Props> = ({ videos, className }) => {
       <ul>
         {videos.map((video) => (
           <li key={video.url}>
-            <a href={video.url} target="_blank">
+            <a href={video.url} target="_blank" rel="noopener noreferrer">
               {video.title}
             </a>
             ,&nbsp;
-            <a href={video.stravaLink} target="_blank">
+            <a
+              href={video.stravaLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Strava
             </a>
           </li>

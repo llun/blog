@@ -12,7 +12,7 @@ export const getMetadata = ({
   description,
   imageUrl
 }: GetMetadataParams): Metadata => {
-  const defaultImageUrl = 'https://llun.me/img/default.png'
+  const defaultImageUrl = `${url}/img/default.png`
   return {
     title,
     description,
@@ -38,19 +38,14 @@ export const getMetadata = ({
     },
     manifest: '/site.webmanifest',
     verification: {
-      me: ['https://llun.me', 'https://llun.dev/@null']
+      me: [url, 'https://llun.dev/@null']
     },
     alternates: {
       types: {
         'application/atom+xml': [
-          { title: '@llun', url: 'https://llun.me/feeds/atom.xml' }
+          { title: '@llun', url: `${url}/feeds/atom.xml` }
         ],
-        'application/rss+xml': [
-          { title: '@llun', url: 'https://llun.me/feeds/rss.xml' }
-        ],
-        'application/json': [
-          { title: '@llun', url: 'https://llun.me/feeds/feed.json' }
-        ]
+        'application/json': [{ title: '@llun', url: `${url}/feeds/feed.json` }]
       }
     }
   }

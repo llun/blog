@@ -5,6 +5,7 @@ import fs from 'fs'
 
 import { readAllLeafDirectories } from './blog'
 import { getMarkdown } from './markdown'
+import { isSinglePathSegment } from './utils'
 
 interface JourneyProperty {
   title: string
@@ -21,10 +22,27 @@ export const parseJourney = (
   file: string,
   includeContent = false
 ): Journey | null => {
+  const journeysPath = path.join(process.cwd(), 'contents', 'journeys')
+  const relativePath = path.relative(journeysPath, file)
+  if (
+    relativePath.length === 0 ||
+    relativePath
+      .split(path.sep)
+      .some((segment) => !isSinglePathSegment(segment))
+  ) {
+    return null
+  }
+
+  const indexPath = path.join(file, 'index.md')
   try {
-    fs.statSync(file)
+    fs.statSync(indexPath)
+  } catch {
+    return null
+  }
+
+  try {
     const name = path.basename(file)
-    const raw = fs.readFileSync(path.join(file, 'index.md')).toString('utf-8')
+    const raw = fs.readFileSync(indexPath).toString('utf-8')
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
     const properties: JourneyProperty = yaml.parse(raw.substring(begin, end))
@@ -39,7 +57,8 @@ export const parseJourney = (
       name,
       content: md.render(raw.substring(end + 3).trim())
     }
-  } catch {
+  } catch (error) {
+    console.warn(`Failed to parse journey ${indexPath}`, error)
     return null
   }
 }

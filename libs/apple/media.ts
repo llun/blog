@@ -54,9 +54,10 @@ export async function proxyAssetsUrl(
   token: string,
   medias: Media[]
 ): Promise<Assets | null> {
+  const apiHost = process.env.NEXT_PUBLIC_API_HOST ?? 'https://next.llun.dev'
   const url =
     process.env.NODE_ENV === 'production'
-      ? 'https://next.llun.dev/api/apple/'
+      ? `${apiHost.replace(/\/+$/, '')}/api/apple/`
       : `http://${globalThis.location.host}/api/apple/`
   const body: AssetsRequest = {
     partition,

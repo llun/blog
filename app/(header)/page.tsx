@@ -2,18 +2,11 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
-import {
-  generateFeeds,
-  getAllPosts,
-  getConfig,
-  postDescendingComparison
-} from '../../libs/blog'
+import { getAllPosts, postDescendingComparison } from '../../libs/blog'
 import PostList from '../../components/PostList'
 
 const Index = () => {
-  const config = getConfig()
   const posts = getAllPosts().sort(postDescendingComparison).slice(0, 20)
-  generateFeeds(config, posts)
   return (
     <>
       <PostList posts={posts} />

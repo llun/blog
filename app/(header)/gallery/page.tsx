@@ -5,6 +5,7 @@ import React from 'react'
 import { getMetadata } from '../../../components/Meta'
 import { getConfig } from '../../../libs/blog'
 import { getAllAlbums } from '../../../libs/gallery'
+import { isSafeSegment } from '../../../libs/utils'
 
 const { url, title, description } = getConfig()
 
@@ -14,7 +15,6 @@ export const metadata: Metadata = getMetadata({
   description
 })
 
-const SAFE_ROUTE_SEGMENT = /^[A-Za-z0-9._-]+$/
 const SAFE_IMAGE_FILE = /^[A-Za-z0-9._-]+\.jpg$/i
 
 const Gallery = () => {
@@ -24,7 +24,7 @@ const Gallery = () => {
       <h2 className="my-2">Image Gallery</h2>
       <div className="gallery-list">
         {albums.map(({ name, image, description, title: albumTitle }) => {
-          if (!SAFE_ROUTE_SEGMENT.test(name) || !SAFE_IMAGE_FILE.test(image)) {
+          if (!isSafeSegment(name) || !SAFE_IMAGE_FILE.test(image)) {
             return null
           }
 
@@ -41,6 +41,8 @@ const Gallery = () => {
                   height={512}
                   src={`/gallery/${image}`}
                   alt={description}
+                  loading="lazy"
+                  decoding="async"
                 />
               </picture>
               <h3>{albumTitle}</h3>
