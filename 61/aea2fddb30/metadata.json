@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "61aea2fddb30",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "infrastructure/deploy.js"
+  ],
+  "sessions": [
+    {
+      "metadata": "/61/aea2fddb30/0/metadata.json",
+      "transcript": "/61/aea2fddb30/0/full.jsonl",
+      "compact_transcript": "/61/aea2fddb30/0/transcript.jsonl",
+      "content_hash": "/61/aea2fddb30/0/content_hash.txt",
+      "prompt": "/61/aea2fddb30/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 4,
+    "cache_creation_tokens": 30673,
+    "cache_read_tokens": 91089,
+    "output_tokens": 760,
+    "api_call_count": 2
+  }
+}
