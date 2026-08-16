@@ -367,6 +367,16 @@ const cdnResources = {
             '/@null@llun.dev/*',
             `${ActivityPub}StaticCachePolicy`
           ),
+          activityPubBehaviour('/@test/*', `${ActivityPub}StaticCachePolicy`),
+          activityPubBehaviour('/@test', `${ActivityPub}StaticCachePolicy`),
+          activityPubBehaviour(
+            '/@test@llun.dev',
+            `${ActivityPub}StaticCachePolicy`
+          ),
+          activityPubBehaviour(
+            '/@test@llun.dev/*',
+            `${ActivityPub}StaticCachePolicy`
+          ),
           activityPubBehaviour(
             '/activities/_next/static*',
             `${ActivityPub}StaticCachePolicy`
