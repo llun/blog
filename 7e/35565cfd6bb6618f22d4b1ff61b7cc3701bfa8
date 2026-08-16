@@ -1,0 +1,19 @@
+infrastructure/deploy.js
+  s_e317c66f4de870::t_e7366b44ea1b52 370-379
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7e35565cfd6bb6618f22d4b1ff61b7cc3701bfa8",
+  "prompts": {},
+  "sessions": {
+    "s_e317c66f4de870": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c603f78-2ab5-42a6-865d-8381e97ee4ae",
+        "model": "unknown"
+      },
+      "human_author": null
+    }
+  }
+}
