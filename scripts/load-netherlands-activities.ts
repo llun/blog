@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --import @swc-node/register/esm-register
+#!/usr/bin/env -S tsx
 import 'dotenv-flow/config'
 
 import { COUNTRY_NETHERLANDS } from './constTypes'

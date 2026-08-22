@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --import @swc-node/register/esm-register
+#!/usr/bin/env -S tsx
 import fs from 'fs/promises'
 import path from 'path'
 import simplifyjs from 'simplify-js'

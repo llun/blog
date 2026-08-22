@@ -1,5 +1,4 @@
-import { PluginWithOptions } from 'markdown-it'
-import type Token from 'markdown-it/lib/token.mjs'
+import type { MarkdownIt, Token } from 'markdown-it'
 
 export interface AbsolutePathConfig {
   rootURL?: string | null
@@ -25,9 +24,9 @@ function isRelativePath(src: string) {
   )
 }
 
-const MarkdownItAbsolutePath: PluginWithOptions<AbsolutePathConfig> = (
-  md,
-  opt
+const MarkdownItAbsolutePath = (
+  md: MarkdownIt,
+  opt?: AbsolutePathConfig
 ) => {
   md.core.ruler.push('absolute_image', (state) => {
     if (!opt) return
@@ -39,7 +38,7 @@ const MarkdownItAbsolutePath: PluginWithOptions<AbsolutePathConfig> = (
     const imageTokens = getAllImageTokens(tokens)
     for (const imageToken of imageTokens) {
       const source = imageToken.attrGet('src')
-      if (source && isRelativePath(source)) {
+      if (typeof source === 'string' && isRelativePath(source)) {
         imageToken.attrSet('src', `${opt.rootURL}/${source}`)
       }
     }

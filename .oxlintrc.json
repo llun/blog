@@ -1,0 +1,38 @@
+{
+  "plugins": [
+    "typescript",
+    "react",
+    "unicorn",
+    "oxc",
+    "nextjs"
+  ],
+  "ignorePatterns": [
+    ".next/**",
+    "out/**",
+    "node_modules/**",
+    "public/**",
+    ".yarn/**",
+    "scripts/simplify/**",
+    "scripts/streams/**",
+    "scripts/netherlands/**",
+    "scripts/singapore/**",
+    "scripts/slovenia/**",
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.cjs"
+  ],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "react/set-state-in-effect": "off",
+    "nextjs/no-img-element": "off",
+    "typescript/no-explicit-any": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
