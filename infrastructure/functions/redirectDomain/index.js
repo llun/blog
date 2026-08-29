@@ -32,6 +32,11 @@ function found(url) {
 exports.entry = async function (event) {
   const record = event.Records[0].cf
   const request = record.request
+
+  delete request.headers['traceparent']
+  delete request.headers['tracestate']
+  delete request.headers['x-cloud-trace-context']
+
   // Ignore webfinger redirect for @llun.dev or @llun.me in mastodon
   if (request.uri.startsWith('/.well-known/webfinger')) {
     request.headers.host = [
