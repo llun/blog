@@ -1,0 +1,18 @@
+infrastructure/deploy.js
+  h_580a04e334fef4 405-428,466-468
+infrastructure/functions/redirectDomain/index.js
+  h_580a04e334fef4 35-39
+infrastructure/functions/updateHost/index.js
+  h_580a04e334fef4 27-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "f7684070f388aaac0f29839500137661018fd8cf",
+  "prompts": {},
+  "humans": {
+    "h_580a04e334fef4": {
+      "author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
