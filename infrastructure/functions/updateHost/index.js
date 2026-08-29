@@ -24,5 +24,8 @@ exports.entry = async function (event) {
       value: 'llun.dev'
     }
   ]
+  delete request.headers['traceparent']
+  delete request.headers['tracestate']
+  delete request.headers['x-cloud-trace-context']
   return request
 }
