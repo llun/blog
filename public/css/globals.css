@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -62,8 +62,12 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, 'Helvetica Neue', sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
 
   /* Link colors */
   --link: oklch(43.38% 0.117 257.32);
@@ -99,20 +103,21 @@
   /* sky-300 */
 }
 
-@import "./base.css";
+@import './base.css';
 
-@import "../../app/(header)/layout.css";
-@import "../../app/(header)/page.css";
-@import "../../app/(header)/gallery/page.css";
-@import "../../app/(noheader)/journeys/airtag-sg-th/airtag-map.css";
-@import "../../app/(noheader)/layout.css";
-@import "../../app/(noheader)/journeys/wordle/wordle.css";
+@import '../../app/(header)/layout.css';
+@import '../../app/(header)/page.css';
+@import '../../app/(header)/gallery/page.css';
+@import '../../app/(noheader)/journeys/airtag-sg-th/airtag-map.css';
+@import '../../app/(noheader)/layout.css';
+@import '../../app/(noheader)/journeys/wordle/wordle.css';
 
-@import "../../components/RideTitle.css";
-@import "../../components/RideStats.css";
-@import "../../components/RideMap.css";
-@import "../../components/Header.css";
-@import "../../components/PostList.css";
-@import "../../components/ThemeToggle.css";
-@import "../../components/Medias.css";
-@import "../../components/MediaModal.css";
+@import '../../components/RideTitle.css';
+@import '../../components/RideStats.css';
+@import '../../components/RideMap.css';
+@import '../../components/Footer.css';
+@import '../../components/Header.css';
+@import '../../components/PostList.css';
+@import '../../components/ThemeToggle.css';
+@import '../../components/Medias.css';
+@import '../../components/MediaModal.css';

@@ -1,0 +1,13 @@
+@layer components {
+  .footer {
+    @apply mt-12 w-full border-t border-border/40 bg-background/95;
+  }
+
+  .footer-container {
+    @apply container mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 py-6 max-w-5xl;
+  }
+
+  .footer-link {
+    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-1 text-sm text-muted-foreground no-underline transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+}

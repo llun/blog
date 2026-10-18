@@ -1,17 +1,7 @@
-import {
-  Activity,
-  Bike,
-  BookImage,
-  BookMarked,
-  Computer,
-  LucideIcon
-} from 'lucide-react'
+import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
-import GithubIcon from './icons/github.svg'
-import MastodonIcon from './icons/mastodon.svg'
-import WebringIcon from './icons/webring.svg'
 import { ThemeToggle } from './ThemeToggle'
 
 export type Page = {
@@ -41,32 +31,6 @@ const DEFAULT_PAGES: Page[] = [
     url: '/journeys',
     icon: BookMarked,
     title: 'Journeys'
-  },
-  {
-    url: 'https://github.com/llun',
-    title: 'Github',
-    icon: GithubIcon,
-    target: '_blank'
-  },
-  {
-    url: 'https://llun.dev/@null',
-    title: '@null@llun.dev',
-    icon: MastodonIcon,
-    target: '_blank',
-    rel: 'me'
-  },
-  {
-    url: 'https://llun.social/@ride',
-    title: '@ride@llun.social',
-    icon: Activity,
-    target: '_blank',
-    rel: 'me'
-  },
-  {
-    url: 'https://webring.wonderful.software#llun.me',
-    title: 'Webring',
-    icon: WebringIcon,
-    target: '_blank'
   }
 ]
 
@@ -102,7 +66,7 @@ const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
               aria-label={item.title}
             >
               <item.icon
-                className="h-4 w-4 shrink-0 lg:mr-2"
+                className="h-4 w-4 shrink-0 sm:mr-2"
                 aria-hidden="true"
               />
               <span className="nav-link-text">{item.title}</span>
