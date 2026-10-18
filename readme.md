@@ -43,10 +43,6 @@ My personal website and blog. 👉 https://www.llun.me
    - `STRAVA_CLIENT_ID` - Strava API application client ID, used to refresh the access token.
    - `STRAVA_CLIENT_SECRET` - Strava API application client secret, used to refresh the access token.
    - `STRAVA_REFRESH_TOKEN` - Strava refresh token. Strava rotates this on every refresh, so it has to be persisted between runs.
-   - `AWS_ACCOUNT_ID` - AWS Account ID
-   - `AWS_ACCESS_KEY_ID` - AWS Key for running infrastructure code
-   - `AWS_CLOUDFRONT_DISTRIBUTION` - CloudFront distribution ID
-   - `AWS_SECRET_ACCESS_KEY` - AWS Secret for running infrastructure code
 
 When `STRAVA_TOKEN` is rejected, `scripts/strava.ts` refreshes it with the client ID, client secret and refresh token, then **rewrites `.env.local` in place** - it replaces the existing `STRAVA_TOKEN` and `STRAVA_REFRESH_TOKEN` lines, or appends them if they are missing, and creates the file with mode `0600` when it does not exist yet. The rest of the file, including comments on other lines, is preserved. Anything on the same line as those two keys is not, and a key written with a prefix such as `export ` or with leading whitespace is not recognised and gets appended a second time.
 
@@ -127,10 +123,6 @@ This project uses ESLint and Prettier for code formatting and quality.
   - `api/` - API routes. `api/apple/` proxies iCloud shared album asset URLs. It is not part of the static export - `yarn export` sets `output: 'export'`, which drops route handlers - and is served by the Vercel deployment instead, so it is live code even though it never appears in `out/`.
 - `components/` - React components
 - `contents/` - Blog posts and content in markdown format
-- `infrastructure/` - AWS infrastructure deployment scripts
-  - `deploy.js` - Main deployment script
-  - `edge.js` - CloudFront edge functions
-  - `functions/` - Lambda functions
 - `libs/` - Shared utility libraries
 - `public/` - Static assets
 - `scripts/` - Data processing and build scripts
@@ -176,7 +168,7 @@ The build job runs in the `production` environment, so `NEXT_PUBLIC_MAPBOX_PUBLI
 
 ## Notes
 
-- When changing ActivityPub server domain, update `infrastructure/functions/updateHost/index.js` script to the new domain
+- The CloudFront stack and edge functions for this site live in [llun/labs `infrastructure/aws/blog`](https://github.com/llun/labs/tree/main/infrastructure/aws/blog). Change the ActivityPub server domain there, in `functions/updateHost/index.js`.
 - Most icons are from [favicon.io](https://favicon.io/emoji-favicons/) except the GitHub icon
 
 ## License
