@@ -3,6 +3,7 @@ import { ThemeProvider } from 'next-themes'
 import React, { ReactNode } from 'react'
 
 import { getConfig } from '../../libs/blog'
+import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import { getMetadata } from '../../components/Meta'
 import { Modal } from '../../components/Modal'
@@ -37,6 +38,7 @@ const RootLayout = ({ children }: Props) => {
           <div id="app-root" className="layout-div">
             <Header title={title} url={url} />
             <main className="main-container">{children}</main>
+            <Footer />
           </div>
           <Modal />
         </ThemeProvider>

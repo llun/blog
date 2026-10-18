@@ -1,8 +1,7 @@
-import React from 'react'
-import Link from 'next/link'
 import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
-import WebringIcon from './icons/webring.svg'
-import GithubIcon from './icons/github.svg'
+import Link from 'next/link'
+import React from 'react'
+
 import { ThemeToggle } from './ThemeToggle'
 
 export type Page = {
@@ -10,6 +9,7 @@ export type Page = {
   title: string
   icon: LucideIcon | ((props: React.SVGProps<SVGSVGElement>) => React.ReactNode)
   target?: '_blank'
+  rel?: string
 }
 const DEFAULT_PAGES: Page[] = [
   {
@@ -31,20 +31,16 @@ const DEFAULT_PAGES: Page[] = [
     url: '/journeys',
     icon: BookMarked,
     title: 'Journeys'
-  },
-  {
-    url: 'https://github.com/llun',
-    title: 'Github',
-    icon: GithubIcon,
-    target: '_blank'
-  },
-  {
-    url: 'https://webring.wonderful.software#llun.me',
-    title: 'Webring',
-    icon: WebringIcon,
-    target: '_blank'
   }
 ]
+
+const getLinkRel = (item: Page) => {
+  const rels = [
+    item.rel,
+    item.target === '_blank' ? 'noopener noreferrer' : undefined
+  ].filter(Boolean)
+  return rels.length > 0 ? rels.join(' ') : undefined
+}
 
 type Props = {
   title: string
@@ -65,11 +61,14 @@ const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
               key={item.url}
               href={item.url}
               target={item.target}
-              rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
+              rel={getLinkRel(item)}
               className={'nav-link'}
               aria-label={item.title}
             >
-              <item.icon className="mr-2 h-4 w-4" aria-hidden="true" />
+              <item.icon
+                className="h-4 w-4 shrink-0 sm:mr-2"
+                aria-hidden="true"
+              />
               <span className="nav-link-text">{item.title}</span>
             </Link>
           ))}

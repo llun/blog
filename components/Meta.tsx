@@ -38,7 +38,7 @@ export const getMetadata = ({
     },
     manifest: '/site.webmanifest',
     verification: {
-      me: [url, 'https://llun.dev/@null']
+      me: [url, 'https://llun.dev/@null', 'https://llun.social/@ride']
     },
     alternates: {
       types: {

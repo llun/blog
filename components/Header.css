@@ -28,6 +28,6 @@
   }
 
   .nav-link-text {
-    @apply hidden lg:block;
+    @apply hidden sm:block;
   }
 }
