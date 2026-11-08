@@ -98,7 +98,13 @@ const post = async (url: string, body: unknown) => {
     headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify(body)
   })
-  if (response.status !== 200) return null
+  if (response.status !== 200) {
+    const text = await response.text().catch(() => '')
+    console.warn(
+      `CloudKit request failed (${response.status}) ${new URL(url).pathname}: ${text.slice(0, 300)}`
+    )
+    return null
+  }
   return response.json()
 }
 
