@@ -8,6 +8,7 @@ import { fetchCloudKitAlbum, isCloudKitAlbumToken } from './apple/cloudkit'
 import { Media, getMediaList } from './apple/media'
 import { fetchStream } from './apple/webstream'
 import { Config, getConfig } from './blog'
+import { fetchGooglePhotosAlbum, isGooglePhotosToken } from './google/photos'
 import { getMarkdown } from './markdown'
 import { isSinglePathSegment } from './utils'
 
@@ -17,6 +18,9 @@ interface AlbumProperties {
   image: string
   date: string
   token: string
+  section?: string
+  scientificName?: string
+  wikipedia?: string
 }
 
 export interface Album {
@@ -27,6 +31,9 @@ export interface Album {
   card: string
   timestamp: number
   token: string
+  section?: string
+  scientificName?: string
+  wikipedia?: string
   content?: string
 }
 
@@ -46,9 +53,16 @@ export const parseAlbum = (
     const raw = fs.readFileSync(file).toString('utf-8')
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
-    const { title, description, image, date, token } = yaml.parse(
-      raw.substring(begin, end)
-    ) as AlbumProperties
+    const {
+      title,
+      description,
+      image,
+      date,
+      token,
+      section,
+      scientificName,
+      wikipedia
+    } = yaml.parse(raw.substring(begin, end)) as AlbumProperties
     const timestamp = DateTime.fromISO(date).toMillis()
     if (!includeContent) {
       return {
@@ -58,7 +72,8 @@ export const parseAlbum = (
         image: `${image}.jpg`,
         card: `${image}.card.jpg`,
         timestamp,
-        token
+        token,
+        section
       }
     }
 
@@ -74,6 +89,9 @@ export const parseAlbum = (
       card: `${image}.card.jpg`,
       timestamp,
       token,
+      section,
+      scientificName,
+      wikipedia,
       content
     }
   } catch (error) {
@@ -119,6 +137,17 @@ const loadAlbum = async (name: string): Promise<AlbumMedias | null> => {
   }
 
   const token = album.token
+  if (isGooglePhotosToken(token)) {
+    const medias = await fetchGooglePhotosAlbum(token)
+    return {
+      album,
+      medias: (medias ?? []).sort(
+        (first, second) => first.createdAt - second.createdAt
+      ),
+      partition: 0
+    }
+  }
+
   if (isCloudKitAlbumToken(token)) {
     const cloudKitAlbum = await fetchCloudKitAlbum(token)
     return {

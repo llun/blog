@@ -1,4 +1,4 @@
-import { Bike, LucideIcon, Terminal } from 'lucide-react'
+import { Bike, Bird, LucideIcon, Terminal } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -29,6 +29,11 @@ const DEFAULT_PAGES: Page[] = [
     url: '/gallery',
     icon: GalleryIcon,
     title: 'Gallery'
+  },
+  {
+    url: '/birds',
+    icon: Bird,
+    title: 'Birds'
   }
 ]
 

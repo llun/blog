@@ -72,6 +72,15 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       changeFrequency: 'weekly',
       priority: 0.8
     },
+    ...(albums.some((album) => album.section === 'birds')
+      ? [
+          {
+            url: url('/birds'),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7
+          }
+        ]
+      : []),
     {
       url: url('/gallery'),
       lastModified: lastModified(latestAlbum),
@@ -114,7 +123,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     ),
     ...albums.map(
       (album): SitemapEntry => ({
-        url: url(`/gallery/${album.name}`),
+        url: url(`/${album.section ?? 'gallery'}/${album.name}`),
         lastModified: lastModified(album.timestamp),
         changeFrequency: 'yearly',
         priority: 0.6
