@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 400 3/6",
-  "word": "power",
-  "guesses": [
-    { "result": "⬜⬜⬜🟩⬜", "word": "fused" },
-    { "result": "⬜⬜⬜🟩⬜", "word": "hazel" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "power" }
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 342 2/6",
-  "word": "tiara",
-  "guesses": [
-    { "result": "🟩🟨🟩🟨⬜", "word": "train" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "tiara" }
-  ]
-}

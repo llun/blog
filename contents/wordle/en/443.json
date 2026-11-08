@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 443 2/6",
-  "word": "whoop",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "whoop" }
-  ]
-}

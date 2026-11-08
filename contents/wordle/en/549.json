@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 549 3/6",
-  "word": "third",
-  "guesses": [
-    { "result": "⬜🟨🟩⬜⬜", "word": "adieu" },
-    { "result": "🟨🟨🟩⬜⬜", "word": "drink" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "third" }
-  ]
-}

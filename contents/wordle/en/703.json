@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 703 3/6",
-  "word": "clerk",
-  "guesses": [
-    { "result": "🟨🟩⬜⬜⬜", "word": "elbow" },
-    { "result": "⬜🟩🟩⬜⬜", "word": "slept" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "clerk" }
-  ]
-}

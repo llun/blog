@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 343 3/6",
-  "word": "crept",
-  "guesses": [
-    { "result": "🟩🟩🟩⬜⬜", "word": "creme" },
-    { "result": "🟩🟩🟩⬜🟩", "word": "crest" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "crept" }
-  ]
-}

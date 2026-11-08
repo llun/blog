@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 428 3/6",
-  "word": "waste",
-  "guesses": [
-    { "result": "⬜🟩⬜🟨⬜", "word": "bagel" },
-    { "result": "⬜🟩⬜⬜🟩", "word": "cache" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "waste" }
-  ]
-}

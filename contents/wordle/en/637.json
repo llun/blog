@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 637 3/6",
-  "word": "yacht",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜🟩", "word": "grant" },
-    { "result": "⬜⬜⬜🟨🟩", "word": "float" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "yacht" }
-  ]
-}

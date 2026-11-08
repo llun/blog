@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 747 3/6",
-  "word": "windy",
-  "guesses": [
-    { "result": "⬜🟨🟨⬜⬜", "word": "adieu" },
-    { "result": "⬜⬜⬜🟨🟨", "word": "solid" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "windy" }
-  ]
-}

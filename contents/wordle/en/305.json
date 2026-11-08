@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 305 3/6",
-  "word": "cargo",
-  "guesses": [
-    { "result": "🟨🟩⬜⬜⬜", "word": "raise" },
-    { "result": "⬜🟩🟩⬜⬜", "word": "harpy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "cargo" }
-  ]
-}

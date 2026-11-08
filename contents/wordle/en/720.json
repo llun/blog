@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 720 3/6",
-  "word": "balsa",
-  "guesses": [
-    { "result": "⬜🟩⬜⬜⬜", "word": "cargo" },
-    { "result": "⬜🟩🟨⬜🟩", "word": "pasta" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "balsa" }
-  ]
-}

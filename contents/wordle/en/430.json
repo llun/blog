@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 430 3/6",
-  "word": "woven",
-  "guesses": [
-    { "result": "⬜🟩🟨🟩⬜", "word": "tower" },
-    { "result": "🟩🟩⬜⬜🟩", "word": "woman" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "woven" }
-  ]
-}

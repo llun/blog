@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 402 3/6",
-  "word": "cinch",
-  "guesses": [
-    { "result": "⬜⬜🟨🟩⬜", "word": "price" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "finch" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "cinch" }
-  ]
-}

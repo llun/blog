@@ -1,5 +1,0 @@
-@layer components {
-  .wordle-block {
-    @apply inline-block px-2 py-1 mr-2 font-mono text-white;
-  }
-}

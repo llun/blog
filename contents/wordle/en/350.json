@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 350 3/6",
-  "word": "froth",
-  "guesses": [
-    { "result": "⬜🟩🟩⬜⬜", "word": "proxy" },
-    { "result": "🟨🟩🟩⬜⬜", "word": "trout" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "froth" }
-  ]
-}

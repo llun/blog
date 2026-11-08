@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 435 3/6",
-  "word": "guaze",
-  "guesses": [
-    { "result": "⬜🟩⬜⬜🟩", "word": "canoe" },
-    { "result": "⬜🟩⬜🟩🟩", "word": "maize" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "guaze" }
-  ]
-}

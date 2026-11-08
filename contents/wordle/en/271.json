@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 271 3/6",
-  "word": "movie",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜🟩", "word": "raise" },
-    { "result": "⬜⬜🟨⬜🟩", "word": "knife" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "movie" }
-  ]
-}

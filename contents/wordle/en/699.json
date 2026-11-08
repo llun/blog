@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 699 3/6",
-  "word": "grief",
-  "guesses": [
-    { "result": "⬜⬜🟩🟩🟩", "word": "chief" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "brief" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "grief" }
-  ]
-}

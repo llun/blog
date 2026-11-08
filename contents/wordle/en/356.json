@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 356 3/6",
-  "word": "piety",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜⬜", "word": "datum" },
-    { "result": "⬜🟨⬜🟩🟩", "word": "zesty" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "piety" }
-  ]
-}

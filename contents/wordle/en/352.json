@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 352 3/6",
-  "word": "gloom",
-  "guesses": [
-    { "result": "⬜🟩🟩⬜⬜", "word": "flour" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "bloom" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "gloom" }
-  ]
-}

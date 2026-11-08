@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 377 2/6",
-  "word": "pinto",
-  "guesses": [
-    { "result": "⬜🟩🟩⬜🟩", "word": "lingo" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "pinto" }
-  ]
-}

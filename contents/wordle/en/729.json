@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 729 3/6",
-  "word": "shyly",
-  "guesses": [
-    { "result": "⬜🟨⬜⬜⬜", "word": "flock" },
-    { "result": "⬜🟨🟩⬜🟨", "word": "glyph" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "shyly" }
-  ]
-}

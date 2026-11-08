@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 323 3/6",
-  "word": "canny",
-  "guesses": [
-    { "result": "⬜⬜🟨🟩⬜", "word": "plany" },
-    { "result": "🟨⬜⬜🟩🟩", "word": "agony" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "canny" }
-  ]
-}

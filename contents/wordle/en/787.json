@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 787 2/6",
-  "word": "index",
-  "guesses": [
-    { "result": "⬜🟨🟩🟩⬜", "word": "wider" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "index" }
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 648 3/6",
-  "word": "beset",
-  "guesses": [
-    { "result": "⬜⬜⬜🟩⬜", "word": "golem" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "reset" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "beset" }
-  ]
-}

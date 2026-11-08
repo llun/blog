@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 364 3/6",
-  "word": "cacao",
-  "guesses": [
-    { "result": "⬜🟨⬜🟩⬜", "word": "polar" },
-    { "result": "🟨🟨⬜🟩⬜", "word": "ocean" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "cacao" }
-  ]
-}

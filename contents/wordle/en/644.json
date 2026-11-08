@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 644 3/6",
-  "word": "voter",
-  "guesses": [
-    { "result": "⬜🟩⬜🟩⬜", "word": "money" },
-    { "result": "🟨🟩⬜🟩🟩", "word": "tower" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "voter" }
-  ]
-}

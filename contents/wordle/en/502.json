@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 502 2/6",
-  "word": "aloud",
-  "guesses": [
-    { "result": "🟩🟨⬜⬜🟨", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "aloud" }
-  ]
-}

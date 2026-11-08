@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 253 3/6",
-  "word": "chant",
-  "guesses": [
-    { "result": "🟩⬜🟩🟩⬜", "word": "crane" },
-    { "result": "🟩⬜🟩🟩⬜", "word": "clang" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "chant" }
-  ]
-}

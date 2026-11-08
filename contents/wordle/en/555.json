@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 555 2/6",
-  "word": "judge",
-  "guesses": [
-    { "result": "⬜🟨⬜🟨🟨", "word": "judge" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "judge" }
-  ]
-}

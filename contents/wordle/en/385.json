@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 385 2/6",
-  "word": "stead",
-  "guesses": [
-    { "result": "🟩⬜🟩🟩⬜", "word": "speak" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "stead" }
-  ]
-}

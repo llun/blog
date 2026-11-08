@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 422 2/6",
-  "word": "poker",
-  "guesses": [
-    { "result": "🟩🟩⬜🟩🟩", "word": "power" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "poker" }
-  ]
-}

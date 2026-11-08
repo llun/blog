@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 719 3/6",
-  "word": "crumb",
-  "guesses": [
-    { "result": "⬜🟩⬜🟨⬜", "word": "group" },
-    { "result": "⬜🟩🟩⬜⬜", "word": "trust" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "crumb" }
-  ]
-}

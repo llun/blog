@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 404 3/6",
-  "word": "stomp",
-  "guesses": [
-    { "result": "🟨🟨⬜⬜⬜", "word": "polar" },
-    { "result": "⬜🟨🟩⬜⬜", "word": "epoxy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "stomp" }
-  ]
-}

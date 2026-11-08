@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 805 3/6",
-  "word": "onion",
-  "guesses": [
-    { "result": "⬜🟨🟩⬜⬜", "word": "hoist" },
-    { "result": "⬜⬜🟩🟩⬜", "word": "prior" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "onion" }
-  ]
-}

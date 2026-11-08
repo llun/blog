@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 376 2/6",
-  "word": "hutch",
-  "guesses": [
-    { "result": "⬜🟩🟩🟩🟩", "word": "dutch" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "hutch" }
-  ]
-}

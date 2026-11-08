@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 257 3/6",
-  "word": "mourn",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
-    { "result": "🟩🟩⬜⬜🟨", "word": "motor" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "mourn" }
-  ]
-}

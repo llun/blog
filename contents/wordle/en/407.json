@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 407 3/6",
-  "word": "cramp",
-  "guesses": [
-    { "result": "⬜⬜⬜🟨⬜", "word": "knock" },
-    { "result": "🟩🟩🟩⬜⬜", "word": "crazy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "cramp" }
-  ]
-}

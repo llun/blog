@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 596 3/6",
-  "word": "dance",
-  "guesses": [
-    { "result": "🟨🟨⬜🟨⬜", "word": "adieu" },
-    { "result": "🟩🟨🟨⬜⬜", "word": "death" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "dance" }
-  ]
-}

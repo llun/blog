@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 326 3/6",
-  "word": "farce",
-  "guesses": [
-    { "result": "⬜🟨⬜🟨⬜", "word": "broad" },
-    { "result": "⬜🟩🟩🟩⬜", "word": "march" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "farce" }
-  ]
-}

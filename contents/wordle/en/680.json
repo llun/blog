@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 680 3/6",
-  "word": "plaza",
-  "guesses": [
-    { "result": "⬜⬜🟩🟨⬜", "word": "chalk" },
-    { "result": "🟩🟩🟩⬜⬜", "word": "plant" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "plaza" }
-  ]
-}

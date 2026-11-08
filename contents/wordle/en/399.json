@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 399 3/6",
-  "word": "midge",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜⬜", "word": "plant" },
-    { "result": "⬜🟩🟩⬜⬜", "word": "widow" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "midge" }
-  ]
-}

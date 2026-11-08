@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 762 3/6",
-  "word": "burly",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜⬜", "word": "found" },
-    { "result": "🟩🟨🟨⬜⬜", "word": "brush" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "burly" }
-  ]
-}

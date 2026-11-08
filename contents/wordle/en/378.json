@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 378 3/6",
-  "word": "egret",
-  "guesses": [
-    { "result": "⬜⬜🟩🟩⬜", "word": "shrew" },
-    { "result": "⬜🟨🟩🟩🟩", "word": "beret" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "egret" }
-  ]
-}

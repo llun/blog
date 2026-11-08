@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 504 3/6",
-  "word": "dream",
-  "guesses": [
-    { "result": "🟨🟨⬜🟨⬜", "word": "adieu" },
-    { "result": "🟩🟨⬜⬜🟨", "word": "dance" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "dream" }
-  ]
-}

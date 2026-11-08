@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 393 3/6",
-  "word": "wacky",
-  "guesses": [
-    { "result": "⬜⬜⬜🟨⬜", "word": "polar" },
-    { "result": "⬜⬜🟨🟨🟨", "word": "quack" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "wacky" }
-  ]
-}

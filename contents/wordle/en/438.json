@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 438 2/6",
-  "word": "prize",
-  "guesses": [
-    { "result": "⬜⬜⬜🟨🟩", "word": "score" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "prize" }
-  ]
-}

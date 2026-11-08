@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 652 3/6",
-  "word": "stock",
-  "guesses": [
-    { "result": "🟨⬜⬜⬜🟨", "word": "crypt" },
-    { "result": "⬜🟨🟨🟩⬜", "word": "notch" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "stock" }
-  ]
-}

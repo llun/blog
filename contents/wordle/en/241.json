@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 241 3/6",
-  "word": "aroma",
-  "guesses": [
-    { "result": "🟨🟨🟨⬜⬜", "word": "roast" },
-    { "result": "⬜🟩🟩🟨⬜", "word": "broad" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "aroma" }
-  ]
-}

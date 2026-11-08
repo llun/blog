@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 463 3/6",
-  "word": "admit",
-  "guesses": [
-    { "result": "🟩🟩🟨⬜⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩⬜", "word": "admin" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "admit" }
-  ]
-}

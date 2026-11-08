@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 368 3/6",
-  "word": "awful",
-  "guesses": [
-    { "result": "⬜⬜⬜🟨⬜", "word": "bread" },
-    { "result": "⬜🟨🟨⬜⬜", "word": "quack" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "awful" }
-  ]
-}

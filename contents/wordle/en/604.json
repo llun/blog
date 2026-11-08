@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 604 3/6",
-  "word": "usage",
-  "guesses": [
-    { "result": "🟨⬜⬜🟨🟨", "word": "adieu" },
-    { "result": "🟨🟨🟨⬜🟩", "word": "saute" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "usage" }
-  ]
-}

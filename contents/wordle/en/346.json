@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 346 3/6",
-  "word": "manor",
-  "guesses": [
-    { "result": "⬜🟩⬜🟨⬜", "word": "fairy" },
-    { "result": "⬜🟩⬜🟩🟩", "word": "vapor" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "manor" }
-  ]
-}

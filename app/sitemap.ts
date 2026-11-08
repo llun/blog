@@ -1,9 +1,7 @@
 import type { MetadataRoute } from 'next'
 
-import { getAllCalendars } from '../libs/amsterdam'
 import { getAllPosts, getConfig } from '../libs/blog'
 import { getAllAlbums } from '../libs/gallery'
-import { getAllJourneys } from '../libs/journey'
 import { generateStaticParams as generateTagParams } from './(header)/tags/[tag]/page'
 import { COUNTRY } from './(header)/tags/ride/countries'
 
@@ -49,11 +47,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 
   const posts = getAllPosts()
   const albums = getAllAlbums()
-  const journeys = getAllJourneys()
-  const [calendars, tags] = await Promise.all([
-    getAllCalendars(),
-    generateTagParams()
-  ])
+  const tags = await generateTagParams()
 
   const categoryTimestamp = (category: string) =>
     newestTimestamp(
@@ -81,11 +75,6 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     {
       url: url('/gallery'),
       lastModified: lastModified(latestAlbum),
-      changeFrequency: 'monthly',
-      priority: 0.8
-    },
-    {
-      url: url('/journeys'),
       changeFrequency: 'monthly',
       priority: 0.8
     },
@@ -129,20 +118,6 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
         lastModified: lastModified(album.timestamp),
         changeFrequency: 'yearly',
         priority: 0.6
-      })
-    ),
-    ...journeys.map(
-      (journey): SitemapEntry => ({
-        url: url(`/journeys/${journey.name}`),
-        changeFrequency: 'monthly',
-        priority: 0.6
-      })
-    ),
-    ...calendars.map(
-      (calendar): SitemapEntry => ({
-        url: url(`/journeys/amsterdam/${calendar.id}`),
-        changeFrequency: 'yearly',
-        priority: 0.4
       })
     )
   ])

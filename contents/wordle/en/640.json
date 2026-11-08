@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 640 3/6",
-  "word": "tough",
-  "guesses": [
-    { "result": "⬜🟨🟩⬜⬜", "word": "shuck" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "rough" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "tough" }
-  ]
-}

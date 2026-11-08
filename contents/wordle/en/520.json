@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 520 2/6",
-  "word": "axiom",
-  "guesses": [
-    { "result": "🟩⬜🟩⬜⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "axiom" }
-  ]
-}

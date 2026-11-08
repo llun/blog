@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 333 3/6",
-  "word": "scour",
-  "guesses": [
-    { "result": "⬜🟨🟨🟨⬜", "word": "house" },
-    { "result": "🟩🟩🟩🟩⬜", "word": "scout" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "scour" }
-  ]
-}

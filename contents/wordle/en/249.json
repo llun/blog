@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 249 3/6",
-  "word": "trove",
-  "guesses": [
-    { "result": "⬜🟩⬜⬜🟩", "word": "crane" },
-    { "result": "⬜🟩⬜🟩🟩", "word": "drive" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "trove" }
-  ]
-}

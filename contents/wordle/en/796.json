@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 796 3/6",
-  "word": "wordy",
-  "guesses": [
-    { "result": "⬜🟨🟨🟨🟨", "word": "sword" },
-    { "result": "🟨🟨🟨🟨⬜", "word": "drown" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "wordy" }
-  ]
-}

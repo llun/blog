@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 598 3/6",
-  "word": "apple",
-  "guesses": [
-    { "result": "🟩⬜⬜🟨⬜", "word": "adieu" },
-    { "result": "🟩⬜⬜⬜🟩", "word": "aware" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "apple" }
-  ]
-}

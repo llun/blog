@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 380 2/6",
-  "word": "sever",
-  "guesses": [
-    { "result": "🟩🟩🟨🟨🟨", "word": "serve" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "sever" }
-  ]
-}

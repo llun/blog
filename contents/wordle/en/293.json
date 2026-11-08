@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 293 3/6",
-  "word": "scare",
-  "guesses": [
-    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
-    { "result": "⬜🟨🟩🟨⬜", "word": "beach" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "scare" }
-  ]
-}

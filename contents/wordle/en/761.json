@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 761 3/6",
-  "word": "flank",
-  "guesses": [
-    { "result": "⬜⬜🟩🟨🟩", "word": "chalk" },
-    { "result": "🟩🟩🟩⬜🟩", "word": "flask" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "flank" }
-  ]
-}

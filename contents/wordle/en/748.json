@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 748 3/6",
-  "word": "donut",
-  "guesses": [
-    { "result": "🟩🟨⬜⬜⬜", "word": "dusky" },
-    { "result": "🟩🟩🟨⬜🟩", "word": "doubt" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "donut" }
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 272 3/6",
-  "word": "saute",
-  "guesses": [
-    { "result": "⬜🟩⬜🟨🟩", "word": "raise" },
-    { "result": "⬜🟩🟨🟩🟩", "word": "waste" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "saute" }
-  ]
-}

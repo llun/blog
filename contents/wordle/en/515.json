@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 515 2/6",
-  "word": "baker",
-  "guesses": [
-    { "result": "🟨⬜⬜🟩⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "baker" }
-  ]
-}

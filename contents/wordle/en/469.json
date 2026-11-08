@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 469 3/6",
-  "word": "leave",
-  "guesses": [
-    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
-    { "result": "🟨🟨⬜🟨🟩", "word": "eagle" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "leave" }
-  ]
-}

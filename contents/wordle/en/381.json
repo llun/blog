@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 381 3/6",
-  "word": "field",
-  "guesses": [
-    { "result": "⬜🟨⬜⬜⬜", "word": "blast" },
-    { "result": "⬜🟨🟨🟨⬜", "word": "helix" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "field" }
-  ]
-}

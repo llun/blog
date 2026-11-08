@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 633 3/6",
-  "word": "surly",
-  "guesses": [
-    { "result": "🟨🟩🟨⬜🟩", "word": "rusty" },
-    { "result": "⬜🟩⬜⬜⬜", "word": "munch" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "surly" }
-  ]
-}

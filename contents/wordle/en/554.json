@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 554 3/6",
-  "word": "extra",
-  "guesses": [
-    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
-    { "result": "🟩🟨🟨🟨⬜", "word": "earth" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "extra" }
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 466 2/6",
-  "word": "usurp",
-  "guesses": [
-    { "result": "⬜⬜🟩⬜⬜", "word": "blunt" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "usurp" }
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 770 3/6",
-  "word": "curly",
-  "guesses": [
-    { "result": "🟩🟨🟨⬜⬜", "word": "crump" },
-    { "result": "🟩🟩🟩⬜🟩", "word": "curvy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "curly" }
-  ]
-}

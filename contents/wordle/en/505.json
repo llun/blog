@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 505 3/6",
-  "word": "stale",
-  "guesses": [
-    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
-    { "result": "⬜🟨⬜🟩🟩", "word": "eagle" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "stale" }
-  ]
-}
