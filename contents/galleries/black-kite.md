@@ -9,4 +9,4 @@ section: birds
 wikipedia: https://en.wikipedia.org/wiki/Black_kite
 ---
 
-A medium-sized bird of prey, and probably the most numerous hawk-like bird in the world, with an estimated population of up to 6.7 million. Some populations have still declined sharply.
+The black kite or fire kite is a medium-sized bird of prey in the family Accipitridae, which also includes many other diurnal raptors. It is thought to be the world's most abundant species of Accipitridae, although some populations have experienced dramatic declines or fluctuations. Current global population estimates run up to 6.7 million individuals.

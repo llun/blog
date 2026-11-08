@@ -71,7 +71,7 @@ export const albumPage = (section?: string) => {
               )}
               {album.wikipedia && (
                 <p className="text-muted-foreground mt-2 text-sm">
-                  Adapted from{' '}
+                  From{' '}
                   <a href={album.wikipedia} rel="noopener noreferrer">
                     Wikipedia
                   </a>

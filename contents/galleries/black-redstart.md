@@ -9,4 +9,4 @@ section: birds
 wikipedia: https://en.wikipedia.org/wiki/Black_redstart
 ---
 
-A small songbird of the Old World flycatcher family. It breeds in rocky places across Europe, North Africa and Asia as far as central China. Birds in milder areas stay all year, while northern and eastern birds migrate.
+The black redstart is a small passerine bird in the Old World flycatcher family. It is a widespread breeder in rocky habitats across Eurasia and North Africa, from the British Isles south to Morocco and east to central China. It is resident in the milder parts of its range, but northern and eastern birds migrate.

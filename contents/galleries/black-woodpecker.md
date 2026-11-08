@@ -9,4 +9,4 @@ section: birds
 wikipedia: https://en.wikipedia.org/wiki/Black_woodpecker
 ---
 
-The largest woodpecker in Europe and one of the largest in the world. It lives in mature forests across northern Europe and Asia, does not migrate, and feeds mostly on carpenter ants. Many other animals later move into the big holes it carves into trees.
+The black woodpecker is a large woodpecker that lives in mature forests across the northern Palearctic. It is the sole representative of its genus in that region, and its range is expanding. The black woodpecker is easily the largest woodpecker species in Europe as well as in the portion of Asia where it lives and is one of the largest species worldwide.

@@ -9,6 +9,4 @@ section: birds
 wikipedia: https://en.wikipedia.org/wiki/Eurasian_green_woodpecker
 ---
 
-A large green woodpecker with a bright red crown and a black moustache stripe.
-Males have red in the middle of the moustache, females do not. It lives all
-year across much of Europe, and is also known as the "yaffle".
+The Eurasian green woodpecker, also known as the yaffle and sometimes called a nickle, is a large green woodpecker with a bright red crown and a black moustache. Males have a red centre to the moustache stripe which is absent in females. It is resident across much of Europe and the western Palearctic but in Spain and Portugal it is replaced by the similar Iberian green woodpecker.
