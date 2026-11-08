@@ -1,6 +1,6 @@
 @layer components {
   .ride-title-image {
-    @apply inline-block align-middle p-0 mb-0 mr-2 border-none text-[var(--primary)];
+    @apply align-middle mb-0 mr-2;
   }
 
   .ride-title-icon {

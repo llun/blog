@@ -1,0 +1,7 @@
+@layer components {
+  .flag {
+    @apply inline-block shrink-0 border border-foreground;
+    width: 30px;
+    height: 20px;
+  }
+}

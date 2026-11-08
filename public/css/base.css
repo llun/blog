@@ -3,6 +3,18 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Icons follow the square Ink look: square line ends, mitred joins and no
+     rounded corners, overriding Lucide's round defaults */
+  svg.lucide {
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+  }
+
+  svg.lucide rect {
+    rx: 0;
+    ry: 0;
+  }
+
   body {
     @apply font-sans bg-background text-foreground font-normal antialiased;
     /* Thai stacks vowels and tone marks above and below the line */

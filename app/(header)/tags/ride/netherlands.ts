@@ -13,10 +13,7 @@ export const NETHERLANDS: CountryData = {
     description,
     imageUrl: `${url}/tags/ride/netherlands.png`
   },
-  icon: {
-    src: '/img/icons/netherlands.png',
-    alt: 'The Netherlands flag for ride in the Netherlands page'
-  },
+  flag: 'NL',
   rideStat: rideStats.netherlands,
   map: {
     zoomLevels: [5.7, 6.0, 6.6],

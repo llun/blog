@@ -1,12 +1,14 @@
 import cn from 'classnames'
-import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
-import { Bike, BookImage } from 'lucide-react'
+import { Bike } from 'lucide-react'
+
+import { Flag, FlagCode } from './Flag'
+import { GalleryIcon } from './icons'
 
 interface Props {
   className?: string
-  icon?: { src: string; alt: string }
+  flag?: FlagCode
 }
 
 const COUNTRIES = [
@@ -15,19 +17,11 @@ const COUNTRIES = [
   { name: 'Slovenia', code: 'SI', slug: 'slovenia' }
 ] as const
 
-const RideTitle: FC<Props> = ({ icon, className }) => (
+const RideTitle: FC<Props> = ({ flag, className }) => (
   <section className={cn('flex flex-col', className)}>
     <h3 className="flex-1">
-      {icon && (
-        <Image
-          className="ride-title-image"
-          {...icon}
-          alt="Page icon"
-          width={20}
-          height={20}
-        />
-      )}
-      {!icon && <Bike className="w-5 h-5 mr-2 inline align-text-bottom" />}
+      {flag && <Flag code={flag} className="ride-title-image" />}
+      {!flag && <Bike className="w-5 h-5 mr-2 inline align-text-bottom" />}
       <Link href="/tags/ride/" className="mr-2" aria-label="Link to post list">
         Posts
       </Link>
@@ -46,7 +40,7 @@ const RideTitle: FC<Props> = ({ icon, className }) => (
             className="mr-2"
             aria-label={`Link to my ${country.name} cycling photos`}
           >
-            <BookImage className="ride-title-icon" aria-hidden="true" />
+            <GalleryIcon className="ride-title-icon" aria-hidden="true" />
           </Link>
         </React.Fragment>
       ))}

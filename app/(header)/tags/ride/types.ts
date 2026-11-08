@@ -1,3 +1,4 @@
+import { FlagCode } from '@/components/Flag'
 import { YoutubeVideo } from '@/components/RideVideos'
 
 export interface CountryData {
@@ -7,10 +8,7 @@ export interface CountryData {
     description: string
     imageUrl: string
   }
-  icon: {
-    src: string
-    alt: string
-  }
+  flag: FlagCode
   rideStat: { distance: number; activities: number }
   map: {
     zoomLevels: [number, number, number]

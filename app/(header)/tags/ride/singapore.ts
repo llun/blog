@@ -12,10 +12,7 @@ export const SINGAPORE: CountryData = {
     description,
     imageUrl: `${url}/tags/ride/singapore.png`
   },
-  icon: {
-    src: '/img/icons/singapore.png',
-    alt: 'Singapore flag for ride in Singapore page'
-  },
+  flag: 'SG',
   rideStat: rideStats.singapore,
   map: {
     zoomLevels: [8, 9, 10.4],

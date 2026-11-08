@@ -13,10 +13,7 @@ export const SLOVENIA: CountryData = {
     description,
     imageUrl: `${url}/tags/ride/slovenia.png`
   },
-  icon: {
-    src: '/img/icons/slovenia.png',
-    alt: 'Slovenia flag for ride in Slovenia page'
-  },
+  flag: 'SI',
   rideStat: rideStats.slovenia,
   map: {
     zoomLevels: [5.8, 6.2, 6.8],
