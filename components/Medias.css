@@ -8,6 +8,78 @@
   }
 
   .ride-medias-image {
-    @apply p-0 border-none m-0 w-full aspect-square bg-muted cursor-pointer bg-center bg-cover;
+    @apply relative block p-0 border-none m-0 w-full aspect-square bg-muted cursor-pointer overflow-hidden appearance-none;
+  }
+
+  .ride-medias-image:focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+  }
+
+  .ride-medias-tile {
+    @apply h-full w-full;
+  }
+
+  .ride-medias-badge {
+    @apply absolute right-1.5 bottom-1.5 flex h-6 w-6 items-center justify-center bg-black/70 text-white;
+  }
+
+  .ride-medias-badge svg {
+    @apply h-3.5 w-3.5;
+  }
+
+  /* An image that fades in over its shimmer once it has loaded */
+  .media-image {
+    @apply block overflow-hidden;
+  }
+
+  .media-image-img {
+    @apply block h-full w-full object-cover m-0 border-none;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+
+  .media-image-img-loaded {
+    opacity: 1;
+  }
+
+  /* Loading placeholder with a moving shimmer band, as in activities.next. The
+     band is a transformed pseudo-element so the animation stays on the
+     compositor; reduced motion leaves the plain grey block. */
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--skeleton);
+  }
+
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--skeleton-highlight) 50%,
+      transparent
+    );
+    animation: skeleton-shimmer 1.6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes skeleton-shimmer {
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton::after {
+      display: none;
+    }
+
+    .media-image-img {
+      transition: none;
+    }
   }
 }

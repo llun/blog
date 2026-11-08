@@ -19,8 +19,7 @@
   "dependencies": {
     "classnames": "^2.5.1",
     "lucide-react": "^1.59.0",
-    "mapbox-gl": "^3.33.0",
-    "react-modal": "^3.16.3"
+    "mapbox-gl": "^3.33.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -32,7 +31,6 @@
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "@types/react-modal": "^3.16.3",
     "axios": "^1.20.0",
     "decimal.js": "^10.6.0",
     "dotenv-flow": "^4.1.0",

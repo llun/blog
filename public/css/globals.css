@@ -71,6 +71,9 @@
   --soft: rgba(0, 0, 0, 0.06);
   /* the darker bottom edge of a control */
   --edge: #3a3a3a;
+  /* loading placeholders: a grey block with a lighter band sweeping across */
+  --skeleton: #ebebeb;
+  --skeleton-highlight: rgba(255, 255, 255, 0.8);
   --font-sans:
     var(--font-latin), var(--font-thai), -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, sans-serif;
@@ -104,6 +107,8 @@
   --grid: #222222;
   --soft: rgba(255, 255, 255, 0.08);
   --edge: #9a9a9a;
+  --skeleton: #1c1c1c;
+  --skeleton-highlight: rgba(255, 255, 255, 0.09);
 
   --link: #f2f2f2;
   --link-visited: #c8c8c8;
@@ -124,5 +129,5 @@
 @import '../../components/PostList.css';
 @import '../../components/ThemeToggle.css';
 @import '../../components/Medias.css';
-@import '../../components/MediaModal.css';
+@import '../../components/MediaViewer.css';
 @import '../../components/Logo.css';

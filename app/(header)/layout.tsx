@@ -6,7 +6,6 @@ import { getConfig } from '../../libs/blog'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import { getMetadata } from '../../components/Meta'
-import { Modal } from '../../components/Modal'
 
 import { fontVariables } from '../../libs/fonts'
 
@@ -46,7 +45,6 @@ const RootLayout = ({ children }: Props) => {
             <main className="main-container">{children}</main>
             <Footer />
           </div>
-          <Modal />
         </ThemeProvider>
       </body>
     </html>
