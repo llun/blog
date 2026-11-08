@@ -1,5 +1,11 @@
 import { type NextRequest } from 'next/server'
 
+import {
+  MaxLookupRecords,
+  fetchCloudKitAssets,
+  isCloudKitAlbumToken,
+  isCloudKitRecordName
+} from '../../../libs/apple/cloudkit'
 import { fetchAssetsUrl } from '../../../libs/apple/webstream'
 import { ALLOW_ORIGINS, ALLOW_TOKEN_IDS } from '../../../libs/config'
 
@@ -63,6 +69,30 @@ export async function POST(request: NextRequest) {
       status: 404,
       headers
     })
+  }
+
+  if (isCloudKitAlbumToken(body.token)) {
+    const recordNames = body.photoGuids
+    if (
+      !Array.isArray(recordNames) ||
+      !recordNames.length ||
+      recordNames.length > MaxLookupRecords ||
+      !recordNames.every(isCloudKitRecordName)
+    ) {
+      return new Response(JSON.stringify({ error: 'Bad Request' }), {
+        status: 400,
+        headers
+      })
+    }
+
+    const assets = await fetchCloudKitAssets(body.token, recordNames)
+    if (!assets) {
+      return new Response(JSON.stringify({ error: 'Not Found' }), {
+        status: 404,
+        headers
+      })
+    }
+    return new Response(JSON.stringify(assets), { status: 200, headers })
   }
 
   const response = await fetchAssetsUrl(

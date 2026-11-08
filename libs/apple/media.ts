@@ -1,4 +1,5 @@
 import { AssetsRequest } from '../../app/api/apple/route'
+import { getCloudKitRecordNames, isCloudKitAlbumToken } from './cloudkit'
 import { Assets, Stream, VideoPosterDerivative } from './webstream'
 
 export interface Media {
@@ -62,7 +63,10 @@ export async function proxyAssetsUrl(
   const body: AssetsRequest = {
     partition,
     token,
-    photoGuids: medias.map((media) => media.guid)
+    // CloudKit albums look up the records that hold each derivative
+    photoGuids: isCloudKitAlbumToken(token)
+      ? getCloudKitRecordNames(medias)
+      : medias.map((media) => media.guid)
   }
   const response = await fetch(url, {
     body: JSON.stringify(body),
@@ -77,6 +81,7 @@ export function mergeMediaAssets(medias: Media[], assets: Assets) {
     const values = Object.values(media.derivatives)
     for (const value of values) {
       const item = assets.items[value.checksum]
+      if (!item || !assets.locations[item.url_location]) continue
       const scheme = assets.locations[item.url_location].scheme
       const host = assets.locations[item.url_location].hosts[0]
       const prefix = `${scheme}://${host}`

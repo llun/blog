@@ -73,6 +73,20 @@ yarn optimize-images
 
 `NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` must be present in `.env.local` before starting the dev server. Without it the Mapbox token resolves to an empty string and every page with a map - the ride pages - throws `An API access token is required to use Mapbox GL` at runtime and fails to render. Next.js inlines `NEXT_PUBLIC_*` values at build time, so restart `yarn dev` after adding it.
 
+## Gallery
+
+Each album is a markdown file in `contents/galleries/` whose front matter names the album `token` and the `image` base name in `public/gallery/`. Every album needs two images there:
+
+- `<image>.jpg` - 512 x 512 square, shown on the gallery list page
+- `<image>.card.jpg` - 1200 x 630, the album page's social card (`og:image`)
+
+Run `yarn optimize-images` afterwards to generate the `.webp` and `.avif` copies. The token must also be in `ALLOW_TOKEN_IDS` in `libs/config.ts`, or `/api/apple/` refuses it.
+
+Two kinds of iCloud shared album links work, told apart by the token's shape:
+
+- Old links, `https://www.icloud.com/sharedalbum/#B2GGPCdxkGnUx1C`: the token is the part after `#`, 14-15 characters. Read through the sharedstreams API in `libs/apple/webstream.ts`.
+- New links, `https://photos.icloud.com/shared/album/0a96jkMunB-gI9iQ-A54WJZKQ/`: the token is the 25-character key in the path. Read through CloudKit in `libs/apple/cloudkit.ts`: `public/records/resolve` exchanges the key for an anonymous 20-minute access token and the album's zone, then `shared/records/query` lists the photos at build time and `shared/records/lookup` returns fresh download URLs (they expire after about an hour) when `/api/apple/` is called. New albums carry no captions.
+
 ## Scripts
 
 The `scripts/` directory contains utility scripts for data processing.
