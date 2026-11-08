@@ -1,0 +1,47 @@
+public/birds/black-woodpecker.json
+  s_98b4cea69319c3::t_e29fbb0fe9259b 1
+public/birds/black-redstart.json
+  s_98b4cea69319c3::t_e29fbb0fe9259b 1
+contents/galleries/black-redstart.md
+  s_98b4cea69319c3::t_fd91ae635bf77d 1-12
+libs/gallery.ts
+  s_98b4cea69319c3::t_b90effe3c02ba8 21,34,55-62,64,92
+  s_98b4cea69319c3::t_fd91ae635bf77d 22,35,63,93
+public/birds/black-kite.json
+  s_98b4cea69319c3::t_e29fbb0fe9259b 1
+app/(header)/gallery/page.css
+  s_98b4cea69319c3::t_0512261ef3ee16 13
+  s_98b4cea69319c3::t_b90effe3c02ba8 6-12,14-15
+components/AlbumPage.tsx
+  s_98b4cea69319c3::t_0512261ef3ee16 55-61,71-86
+  s_98b4cea69319c3::t_b90effe3c02ba8 7,51-54,62-70,87-96
+public/birds/barn-swallow.json
+  s_98b4cea69319c3::t_e29fbb0fe9259b 1
+libs/config.ts
+  s_98b4cea69319c3::t_f183e63605dc1e 35-42,72
+contents/galleries/barn-swallow.md
+  s_98b4cea69319c3::t_fd91ae635bf77d 1-12
+contents/galleries/black-woodpecker.md
+  s_98b4cea69319c3::t_fd91ae635bf77d 1-12
+contents/galleries/black-kite.md
+  s_98b4cea69319c3::t_fd91ae635bf77d 1-12
+components/BirdMap.tsx
+  s_98b4cea69319c3::t_b75d84585e5bb7 36-40,54
+  s_98b4cea69319c3::t_b90effe3c02ba8 1-35,41-53,55-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2fa78db98da91fa4b6aa5f333a96224d44fd09d4",
+  "prompts": {},
+  "sessions": {
+    "s_98b4cea69319c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc53bb57-6166-43ea-9c9a-c09e6c2ac8b0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
