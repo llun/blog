@@ -1,0 +1,29 @@
+contents/galleries/black-woodpecker.md
+  s_98b4cea69319c3::t_6be2e3a93404f5 4
+contents/galleries/black-kite.md
+  s_98b4cea69319c3::t_6be2e3a93404f5 4
+contents/galleries/barn-swallow.md
+  s_98b4cea69319c3::t_6be2e3a93404f5 4
+contents/galleries/black-redstart.md
+  s_98b4cea69319c3::t_6be2e3a93404f5 4
+contents/galleries/green-woodpecker.md
+  s_98b4cea69319c3::t_6be2e3a93404f5 4
+components/AlbumPage.tsx
+  s_98b4cea69319c3::t_6be2e3a93404f5 60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3e26c911fd53455c30f59b09bca3f76b2297caf3",
+  "prompts": {},
+  "sessions": {
+    "s_98b4cea69319c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc53bb57-6166-43ea-9c9a-c09e6c2ac8b0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
