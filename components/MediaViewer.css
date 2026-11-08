@@ -1,0 +1,143 @@
+@layer components {
+  /* Full screen on black whatever the page theme, like activities.next */
+  .media-viewer {
+    --skeleton: #1c1c1c;
+    --skeleton-highlight: rgba(255, 255, 255, 0.09);
+    @apply fixed inset-0 z-50 flex flex-col bg-black text-white;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+      env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  }
+
+  .media-viewer-bar {
+    @apply flex items-center justify-between p-4;
+  }
+
+  .media-viewer-count {
+    @apply font-mono text-sm tracking-wide;
+  }
+
+  .media-viewer-button,
+  .media-viewer-arrow {
+    @apply flex items-center justify-center p-0 text-white cursor-pointer touch-manipulation;
+    background: transparent;
+    border: 1px solid transparent;
+  }
+
+  .media-viewer-button {
+    @apply h-10 w-10;
+  }
+
+  .media-viewer-button svg {
+    @apply h-6 w-6;
+  }
+
+  .media-viewer-button:hover,
+  .media-viewer-arrow:hover {
+    border-color: #ffffff;
+  }
+
+  .media-viewer-button:focus-visible,
+  .media-viewer-arrow:focus-visible,
+  .media-viewer-thumbnail:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+
+  .media-viewer-stage {
+    @apply relative flex min-h-0 flex-1 items-stretch px-2 md:px-22;
+  }
+
+  .media-viewer-arrow {
+    @apply absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 md:flex;
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .media-viewer-arrow svg {
+    @apply h-8 w-8;
+  }
+
+  .media-viewer-arrow-previous {
+    @apply left-4;
+  }
+
+  .media-viewer-arrow-next {
+    @apply right-4;
+  }
+
+  .media-viewer-viewport {
+    @apply relative h-full w-full overflow-hidden;
+    touch-action: pan-y;
+  }
+
+  .media-viewer-track {
+    @apply flex h-full;
+    width: 300%;
+  }
+
+  .media-viewer-track-single {
+    width: 100%;
+  }
+
+  .media-viewer-panel {
+    @apply flex h-full min-w-0 flex-1 items-center justify-center px-1;
+    container-type: size;
+  }
+
+  /* As big as fits in the panel, in the photo's own shape */
+  .media-viewer-frame {
+    width: min(100cqw, 100cqh * var(--ratio));
+    aspect-ratio: var(--ratio);
+  }
+
+  .media-viewer-media {
+    @apply block h-full w-full;
+  }
+
+  video.media-viewer-media {
+    @apply bg-black object-contain;
+  }
+
+  .media-viewer-media .media-image-img {
+    @apply object-contain;
+  }
+
+  .media-viewer-thumbnails {
+    @apply flex gap-2 overflow-x-auto px-4 pt-2 pb-4;
+    scrollbar-width: none;
+  }
+
+  .media-viewer-thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Centre a short strip; a long one scrolls from its first thumbnail */
+  .media-viewer-thumbnails > :first-child {
+    margin-left: auto;
+  }
+
+  .media-viewer-thumbnails > :last-child {
+    margin-right: auto;
+  }
+
+  .media-viewer-thumbnail {
+    @apply relative h-13 w-13 shrink-0 cursor-pointer overflow-hidden p-0 md:h-18 md:w-18;
+    background: transparent;
+    border: 2px solid transparent;
+    opacity: 0.55;
+    transition: opacity 150ms;
+  }
+
+  .media-viewer-thumbnail:hover {
+    opacity: 1;
+  }
+
+  .media-viewer-thumbnail-current {
+    border-color: #ffffff;
+    opacity: 1;
+  }
+
+  .media-viewer-thumbnail-image {
+    @apply block h-full w-full;
+  }
+}
