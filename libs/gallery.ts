@@ -8,6 +8,7 @@ import { fetchCloudKitAlbum, isCloudKitAlbumToken } from './apple/cloudkit'
 import { Media, getMediaList } from './apple/media'
 import { fetchStream } from './apple/webstream'
 import { Config, getConfig } from './blog'
+import { fetchGooglePhotosAlbum, isGooglePhotosToken } from './google/photos'
 import { getMarkdown } from './markdown'
 import { isSinglePathSegment } from './utils'
 
@@ -136,6 +137,17 @@ const loadAlbum = async (name: string): Promise<AlbumMedias | null> => {
   }
 
   const token = album.token
+  if (isGooglePhotosToken(token)) {
+    const medias = await fetchGooglePhotosAlbum(token)
+    return {
+      album,
+      medias: (medias ?? []).sort(
+        (first, second) => first.createdAt - second.createdAt
+      ),
+      partition: 0
+    }
+  }
+
   if (isCloudKitAlbumToken(token)) {
     const cloudKitAlbum = await fetchCloudKitAlbum(token)
     return {

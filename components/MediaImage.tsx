@@ -76,6 +76,8 @@ const LoadingImage: FC<Props> = ({
           height={height}
           loading={loading}
           decoding="async"
+          // Google Photos answers 429 to some referrers, such as localhost
+          referrerPolicy="no-referrer"
           draggable={false}
           className={cn(
             'media-image-img',

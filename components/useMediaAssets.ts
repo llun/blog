@@ -53,6 +53,17 @@ export const useMediaAssets = (
       inflight.current.add(batch)
       const current = session.current
       const slice = medias.slice(batch * BatchSize, (batch + 1) * BatchSize)
+      // Google Photos medias come with lasting URLs, nothing to fetch
+      if (
+        slice.every((media) =>
+          Object.values(media.derivatives).every(({ url }) => url)
+        )
+      ) {
+        inflight.current.delete(batch)
+        loaded.current.add(batch)
+        setVersion((value) => value + 1)
+        return
+      }
       try {
         const assets = await proxyAssetsUrl(partition, token, slice)
         if (current !== session.current) return
