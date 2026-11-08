@@ -4,6 +4,7 @@ import { DateTime } from 'luxon'
 import path from 'path'
 import yaml from 'yaml'
 
+import { fetchCloudKitAlbum, isCloudKitAlbumToken } from './apple/cloudkit'
 import { Media, getMediaList } from './apple/media'
 import { fetchStream } from './apple/webstream'
 import { Config, getConfig } from './blog'
@@ -118,6 +119,17 @@ const loadAlbum = async (name: string): Promise<AlbumMedias | null> => {
   }
 
   const token = album.token
+  if (isCloudKitAlbumToken(token)) {
+    const cloudKitAlbum = await fetchCloudKitAlbum(token)
+    return {
+      album,
+      medias: (cloudKitAlbum?.medias ?? []).sort(
+        (first, second) => first.createdAt - second.createdAt
+      ),
+      partition: cloudKitAlbum?.partition ?? 0
+    }
+  }
+
   const stream = await fetchStream(token)
   const medias = stream
     ? getMediaList(stream).sort(
