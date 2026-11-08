@@ -110,7 +110,7 @@ const post = async (url: string, body: unknown) => {
 
 async function resolveAlbum(key: string): Promise<AlbumAccess | null> {
   const data = await post(
-    `${CloudKitHost}/${CloudKitDatabase}/public/records/resolve?sharing_url_key=${encodeURIComponent(key)}`,
+    `${CloudKitHost}/${CloudKitDatabase}/public/records/resolve?remapEnums=true&sharing_url_key=${encodeURIComponent(key)}`,
     { shortGUIDs: [{ value: key }] }
   )
   const result = data?.results?.[0]
@@ -130,8 +130,10 @@ async function resolveAlbum(key: string): Promise<AlbumAccess | null> {
   }
 }
 
+// Without remapEnums=true CloudKit rejects the zoneID's zoneType string
+// (REGULAR_CUSTOM_ZONE) in query bodies with "BadRequestException: Unexpected input"
 const getRecordsUrl = (access: AlbumAccess, action: 'query' | 'lookup') =>
-  `${access.partitionUrl}/${CloudKitDatabase}/shared/records/${action}?sharing_url_key=${encodeURIComponent(access.key)}&publicAccessAuthToken=${encodeURIComponent(access.accessToken)}`
+  `${access.partitionUrl}/${CloudKitDatabase}/shared/records/${action}?remapEnums=true&sharing_url_key=${encodeURIComponent(access.key)}&publicAccessAuthToken=${encodeURIComponent(access.accessToken)}`
 
 async function queryAllRecords(access: AlbumAccess) {
   const records: CloudKitRecord[] = []
