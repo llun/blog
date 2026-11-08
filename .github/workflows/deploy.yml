@@ -131,6 +131,13 @@ jobs:
           # frozen copy of the feed forever instead of 404ing.
           aws s3 rm s3://${{ secrets.AWS_S3_BUCKET }}/feeds/rss.xml || true
 
+      - name: Remove retired journeys
+        run: |
+          # The journeys section (Wordle, Amsterdam, AirTag and Lasik) was
+          # removed from the site. The syncs above run without --delete, so
+          # its exported pages and photos would otherwise keep serving.
+          aws s3 rm s3://${{ secrets.AWS_S3_BUCKET }}/journeys/ --recursive || true
+
   invalidate-cdn:
     name: Invalidate CloudFront
     runs-on: ubuntu-latest
