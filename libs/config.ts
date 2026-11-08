@@ -32,12 +32,10 @@ export const HOME_COMPUTER_MUSEUM_HELMOND_2026_ALBUM_TOKEN =
 
 export const TOMAZ_ALBUM_TOKEN = 'B2GJqstnBGzYIBg'
 
-// Bird species albums, one shared album per species
+// iCloud bird species albums (the Google Photos ones need no allowlist)
 export const BIRD_ALBUM_TOKENS = [
-  '09auYGNqwDziySLLxccL38-2w', // Barn Swallow
   '0c8E688HLo60jAfJZGMHCmICA', // Black Kite
-  '0fdXNLrmofGgX3EB1MHMOrS2w', // Black Redstart
-  '0780Ab4GRmNTFI-o6jUw65XHA' // Black Woodpecker
+  '0fdXNLrmofGgX3EB1MHMOrS2w' // Black Redstart
 ]
 
 export const ALLOW_TOKEN_IDS = [

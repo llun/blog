@@ -3,8 +3,8 @@ title: Barn Swallow
 scientificName: Hirundo rustica
 description: Barn Swallow photos
 image: BirdBarnSwallow
-date: 2026-11-08T19:00:00+01:00
-token: 09auYGNqwDziySLLxccL38-2w
+date: 2026-11-08T21:00:00+01:00
+token: AF1QipPlXJlQJpH04GOD84klKLZ1jxUb2FFgPFWKhq9aONh2p5tkMe-6CnNjyLavizOJZg?key=MlRIdkczS1hGdTRQWGozXy1oVlk3RTZiR2V0aDdR
 section: birds
 wikipedia: https://en.wikipedia.org/wiki/Barn_swallow
 ---
