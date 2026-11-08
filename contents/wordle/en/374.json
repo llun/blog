@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 374 3/6",
-  "word": "droll",
-  "guesses": [
-    { "result": "⬜🟩⬜⬜🟨", "word": "bread" },
-    { "result": "🟩🟩🟩⬜⬜", "word": "droit" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "droll" }
-  ]
-}

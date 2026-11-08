@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 800 2/6",
-  "word": "write",
-  "guesses": [
-    { "result": "⬜🟨🟩⬜🟨", "word": "heist" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "write" }
-  ]
-}

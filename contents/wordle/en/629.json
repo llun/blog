@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 629 3/6",
-  "word": "revel",
-  "guesses": [
-    { "result": "⬜⬜⬜🟩⬜", "word": "adieu" },
-    { "result": "⬜🟩🟩🟩🟨", "word": "fever" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "revel" }
-  ]
-}

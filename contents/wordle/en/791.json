@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 791 3/6",
-  "word": "magma",
-  "guesses": [
-    { "result": "⬜⬜🟨🟩⬜", "word": "champ" },
-    { "result": "⬜🟩⬜🟩🟩", "word": "karma" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "magma" }
-  ]
-}

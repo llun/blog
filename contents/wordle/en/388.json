@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 388 3/6",
-  "word": "night",
-  "guesses": [
-    { "result": "🟨🟩⬜⬜⬜", "word": "timer" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "light" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "night" }
-  ]
-}

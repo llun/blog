@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 691 3/6",
-  "word": "broom",
-  "guesses": [
-    { "result": "⬜⬜🟩⬜⬜", "word": "cloth" },
-    { "result": "⬜🟨🟩⬜⬜", "word": "smoky" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "broom" }
-  ]
-}

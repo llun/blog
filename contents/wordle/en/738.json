@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 738 2/6",
-  "word": "about",
-  "guesses": [
-    { "result": "🟩⬜⬜🟩⬜", "word": "awful" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "about" }
-  ]
-}

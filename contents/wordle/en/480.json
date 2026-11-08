@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 480 3/6",
-  "word": "ionic",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
-    { "result": "🟩🟨⬜⬜🟨", "word": "intro" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "ionic" }
-  ]
-}

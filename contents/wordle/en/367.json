@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 367 3/6",
-  "word": "gloat",
-  "guesses": [
-    { "result": "⬜🟩🟨⬜⬜", "word": "blaze" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "float" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "gloat" }
-  ]
-}

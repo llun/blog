@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 489 3/6",
-  "word": "grove",
-  "guesses": [
-    { "result": "⬜⬜⬜🟨⬜", "word": "adieu" },
-    { "result": "🟨⬜⬜🟨⬜", "word": "elbow" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "grove" }
-  ]
-}

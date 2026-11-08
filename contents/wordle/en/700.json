@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 700 2/6",
-  "word": "flask",
-  "guesses": [
-    { "result": "⬜🟩⬜🟨🟩", "word": "cloak" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "flask" }
-  ]
-}

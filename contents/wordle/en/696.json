@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 696 3/6",
-  "word": "latte",
-  "guesses": [
-    { "result": "🟨⬜🟩⬜🟨", "word": "extra" },
-    { "result": "⬜🟩🟩⬜🟩", "word": "bathe" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "latte" }
-  ]
-}

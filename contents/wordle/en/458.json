@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 458 2/6",
-  "word": "alike",
-  "guesses": [
-    { "result": "🟩⬜🟩🟨⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "alike" }
-  ]
-}

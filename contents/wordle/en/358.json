@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 358 2/6",
-  "word": "float",
-  "guesses": [
-    { "result": "⬜🟩🟩🟩🟩", "word": "bloat" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "float" }
-  ]
-}

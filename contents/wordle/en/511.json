@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 511 3/6",
-  "word": "valet",
-  "guesses": [
-    { "result": "🟨⬜⬜🟩⬜", "word": "adieu" },
-    { "result": "🟨🟩🟨🟩⬜", "word": "later" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "valet" }
-  ]
-}

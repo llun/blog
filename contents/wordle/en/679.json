@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 679 2/6",
-  "word": "cedar",
-  "guesses": [
-    { "result": "🟨🟩⬜🟩⬜", "word": "delay" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "cedar" }
-  ]
-}

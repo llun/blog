@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 455 3/6",
-  "word": "chute",
-  "guesses": [
-    { "result": "⬜⬜⬜🟨🟨", "word": "adieu" },
-    { "result": "⬜🟨⬜🟨⬜", "word": "begun" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "chute" }
-  ]
-}

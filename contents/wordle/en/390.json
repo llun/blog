@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 390 3/6",
-  "word": "liver",
-  "guesses": [
-    { "result": "⬜🟨🟨🟨⬜", "word": "privy" },
-    { "result": "⬜🟩🟩🟩🟩", "word": "diver" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "liver" }
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 440 3/6",
-  "word": "charm",
-  "guesses": [
-    { "result": "🟨⬜⬜⬜⬜", "word": "adieu" },
-    { "result": "🟩🟨🟩⬜⬜", "word": "crazy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "charm" }
-  ]
-}

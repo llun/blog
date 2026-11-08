@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 508 3/6",
-  "word": "rainy",
-  "guesses": [
-    { "result": "🟨⬜🟩⬜⬜", "word": "adieu" },
-    { "result": "⬜🟩🟩🟨🟩", "word": "fairy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "rainy" }
-  ]
-}

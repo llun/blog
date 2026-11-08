@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 768 2/6",
-  "word": "disco",
-  "guesses": [
-    { "result": "⬜🟩🟨⬜⬜", "word": "width" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "disco" }
-  ]
-}

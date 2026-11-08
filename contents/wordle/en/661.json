@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 661 2/6",
-  "word": "qualm",
-  "guesses": [
-    { "result": "⬜🟩🟨🟨⬜", "word": "human" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "qualm" }
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 355 3/6",
-  "word": "girth",
-  "guesses": [
-    { "result": "⬜🟩⬜🟩🟩", "word": "sixth" },
-    { "result": "⬜⬜🟩⬜⬜", "word": "forum" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "girth" }
-  ]
-}

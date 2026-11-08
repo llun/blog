@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 728 2/6",
-  "word": "ranch",
-  "guesses": [
-    { "result": "⬜🟩🟩🟩⬜", "word": "fancy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "ranch" }
-  ]
-}

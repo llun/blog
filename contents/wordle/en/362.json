@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 362 3/6",
-  "word": "apron",
-  "guesses": [
-    { "result": "🟩⬜⬜🟩⬜", "word": "axiom" },
-    { "result": "🟩🟨⬜🟩🟩", "word": "arson" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "apron" }
-  ]
-}

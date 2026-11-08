@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 722 3/6",
-  "word": "guard",
-  "guesses": [
-    { "result": "⬜⬜🟨🟨🟩", "word": "squad" },
-    { "result": "⬜🟨🟩🟨🟩", "word": "fraud" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "guard" }
-  ]
-}

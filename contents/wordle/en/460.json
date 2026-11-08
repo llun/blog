@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 460 3/6",
-  "word": "saint",
-  "guesses": [
-    { "result": "🟨⬜🟩⬜⬜", "word": "adieu" },
-    { "result": "⬜🟩🟩🟨🟩", "word": "waist" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "saint" }
-  ]
-}

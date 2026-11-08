@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 726 2/6",
-  "word": "maybe",
-  "guesses": [
-    { "result": "⬜🟩🟨🟨⬜", "word": "camel" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "maybe" }
-  ]
-}

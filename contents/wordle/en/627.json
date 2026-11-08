@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 627 3/6",
-  "word": "regal",
-  "guesses": [
-    { "result": "🟨⬜⬜🟨⬜", "word": "adieu" },
-    { "result": "🟨🟨🟨⬜🟨", "word": "grape" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "regal" }
-  ]
-}

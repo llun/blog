@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 803 2/6",
-  "word": "bride",
-  "guesses": [
-    { "result": "⬜🟩🟩🟩🟩", "word": "pride" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "bride" }
-  ]
-}

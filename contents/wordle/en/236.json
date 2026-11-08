@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 236 2/6",
-  "word": "pause",
-  "guesses": [
-    { "result": "🟨⬜🟨⬜🟩", "word": "slate" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "pause" }
-  ]
-}

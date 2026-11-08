@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 631 3/6",
-  "word": "birth",
-  "guesses": [
-    { "result": "⬜🟩🟨⬜🟩", "word": "witch" },
-    { "result": "⬜🟩⬜🟩🟩", "word": "ninth" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "birth" }
-  ]
-}

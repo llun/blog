@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 359 3/6",
-  "word": "donor",
-  "guesses": [
-    { "result": "⬜⬜⬜🟨⬜", "word": "plane" },
-    { "result": "⬜🟨⬜🟩⬜", "word": "inbox" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "donor" }
-  ]
-}

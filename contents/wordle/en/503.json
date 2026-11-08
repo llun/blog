@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 503 3/6",
-  "word": "photo",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
-    { "result": "⬜⬜⬜🟨🟨", "word": "crypt" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "photo" }
-  ]
-}

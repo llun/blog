@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 672 2/6",
-  "word": "broke",
-  "guesses": [
-    { "result": "🟩🟨⬜⬜⬜", "word": "bezel" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "broke" }
-  ]
-}

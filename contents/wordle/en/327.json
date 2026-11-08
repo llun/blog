@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 327 2/6",
-  "word": "slung",
-  "guesses": [
-    { "result": "⬜⬜🟩🟨⬜", "word": "dough" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "slung" }
-  ]
-}

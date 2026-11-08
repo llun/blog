@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 408 3/6",
-  "word": "quart",
-  "guesses": [
-    { "result": "🟨⬜🟩⬜⬜", "word": "thank" },
-    { "result": "⬜⬜🟩⬜🟩", "word": "exact" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "quart" }
-  ]
-}

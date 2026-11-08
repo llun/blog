@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 710 3/6",
-  "word": "kneel",
-  "guesses": [
-    { "result": "⬜⬜🟨🟩⬜", "word": "honey" },
-    { "result": "⬜🟨⬜🟩🟨", "word": "seven" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "kneel" }
-  ]
-}

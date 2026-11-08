@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 727 3/6",
-  "word": "strap",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜⬜", "word": "clack" },
-    { "result": "⬜🟨🟩🟨⬜", "word": "harpy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "strap" }
-  ]
-}

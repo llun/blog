@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 472 3/6",
-  "word": "bough",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜🟨", "word": "adieu" },
-    { "result": "🟩🟩⬜🟨⬜", "word": "bonus" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "bough" }
-  ]
-}

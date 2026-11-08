@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 406 3/6",
-  "word": "bluff",
-  "guesses": [
-    { "result": "🟨⬜🟩⬜⬜", "word": "found" },
-    { "result": "⬜⬜🟩🟩🟩", "word": "stuff" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "bluff" }
-  ]
-}

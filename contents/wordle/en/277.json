@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 277 3/6",
-  "word": "purge",
-  "guesses": [
-    { "result": "🟩⬜⬜⬜🟩", "word": "plane" },
-    { "result": "🟩🟨⬜⬜🟩", "word": "pride" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "purge" }
-  ]
-}

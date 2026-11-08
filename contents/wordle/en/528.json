@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 528 3/6",
-  "word": "undue",
-  "guesses": [
-    { "result": "⬜🟨⬜🟨🟨", "word": "adieu" },
-    { "result": "🟨🟨⬜🟩⬜", "word": "debug" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "undue" }
-  ]
-}

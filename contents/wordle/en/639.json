@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 639 2/6",
-  "word": "glove",
-  "guesses": [
-    { "result": "⬜🟩🟩⬜🟩", "word": "clone" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "glove" }
-  ]
-}

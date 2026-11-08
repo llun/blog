@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 746 3/6",
-  "word": "venom",
-  "guesses": [
-    { "result": "🟨🟨⬜🟩⬜", "word": "enjoy" },
-    { "result": "⬜🟩🟨🟩🟨", "word": "lemon" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "venom" }
-  ]
-}

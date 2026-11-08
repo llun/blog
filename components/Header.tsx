@@ -1,4 +1,4 @@
-import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
+import { Bike, BookImage, Computer, LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -28,11 +28,6 @@ const DEFAULT_PAGES: Page[] = [
     url: '/gallery',
     icon: BookImage,
     title: 'Gallery'
-  },
-  {
-    url: '/journeys',
-    icon: BookMarked,
-    title: 'Journeys'
   }
 ]
 

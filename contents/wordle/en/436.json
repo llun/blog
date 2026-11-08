@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 436 3/6",
-  "word": "chief",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜⬜", "word": "lunar" },
-    { "result": "🟨⬜⬜⬜⬜", "word": "epoxy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "chief" }
-  ]
-}

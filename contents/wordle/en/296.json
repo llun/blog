@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 296 3/6",
-  "word": "squad",
-  "guesses": [
-    { "result": "⬜🟨⬜🟨⬜", "word": "raise" },
-    { "result": "⬜⬜🟨⬜🟨", "word": "chaos" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "squad" }
-  ]
-}

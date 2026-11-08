@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 685 3/6",
-  "word": "below",
-  "guesses": [
-    { "result": "🟨⬜⬜⬜⬜", "word": "eject" },
-    { "result": "⬜🟩🟩🟩⬜", "word": "melon" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "below" }
-  ]
-}

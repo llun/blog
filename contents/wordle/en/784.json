@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 784 3/6",
-  "word": "quick",
-  "guesses": [
-    { "result": "🟨⬜🟩⬜⬜", "word": "unify" },
-    { "result": "⬜🟩🟩⬜⬜", "word": "guilt" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "quick" }
-  ]
-}

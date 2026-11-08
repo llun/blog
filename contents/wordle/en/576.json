@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 576 3/6",
-  "word": "frock",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜⬜", "word": "adieu" },
-    { "result": "🟨⬜🟩⬜⬜", "word": "clogs" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "frock" }
-  ]
-}

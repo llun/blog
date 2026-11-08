@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 673 2/6",
-  "word": "unzip",
-  "guesses": [
-    { "result": "🟩🟩⬜🟩⬜", "word": "until" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "unzip" }
-  ]
-}

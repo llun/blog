@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 447 3/6",
-  "word": "theme",
-  "guesses": [
-    { "result": "⬜⬜⬜⬜🟩", "word": "ozone" },
-    { "result": "⬜🟨⬜🟩🟩", "word": "femme" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "theme" }
-  ]
-}

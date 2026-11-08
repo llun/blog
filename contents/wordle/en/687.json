@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 687 2/6",
-  "word": "ghoul",
-  "guesses": [
-    { "result": "🟩⬜🟩🟩⬜", "word": "group" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "ghoul" }
-  ]
-}

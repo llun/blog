@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 344 2/6",
-  "word": "bayou",
-  "guesses": [
-    { "result": "🟩🟩⬜🟩⬜", "word": "bacon" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "bayou" }
-  ]
-}

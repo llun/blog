@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 299 3/6",
-  "word": "mince",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜🟩", "word": "raise" },
-    { "result": "🟩⬜⬜🟨🟩", "word": "movie" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "mince" }
-  ]
-}

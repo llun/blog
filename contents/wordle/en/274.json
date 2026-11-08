@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 274 3/6",
-  "word": "renew",
-  "guesses": [
-    { "result": "⬜⬜⬜🟩⬜", "word": "adieu" },
-    { "result": "⬜⬜🟩🟩⬜", "word": "honey" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "renew" }
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 744 3/6",
-  "word": "hotel",
-  "guesses": [
-    { "result": "⬜🟩⬜🟩⬜", "word": "joker" },
-    { "result": "⬜🟩⬜🟩⬜", "word": "money" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "hotel" }
-  ]
-}

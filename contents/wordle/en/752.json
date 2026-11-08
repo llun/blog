@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 752 3/6",
-  "word": "earth",
-  "guesses": [
-    { "result": "⬜🟩⬜⬜🟨", "word": "cable" },
-    { "result": "🟩🟩⬜⬜⬜", "word": "eagle" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "earth" }
-  ]
-}

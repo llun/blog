@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 382 3/6",
-  "word": "fluff",
-  "guesses": [
-    { "result": "🟩🟩🟩⬜⬜", "word": "fluke" },
-    { "result": "🟩🟩🟩⬜⬜", "word": "flush" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "fluff" }
-  ]
-}

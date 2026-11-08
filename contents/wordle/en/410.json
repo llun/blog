@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 410 3/6",
-  "word": "youth",
-  "guesses": [
-    { "result": "⬜🟩🟩⬜⬜", "word": "mouse" },
-    { "result": "⬜🟩🟩⬜🟩", "word": "vouch" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "youth" }
-  ]
-}

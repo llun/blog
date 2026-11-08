@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 616 3/6",
-  "word": "fifty",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩⬜", "word": "fifth" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "fifty" }
-  ]
-}

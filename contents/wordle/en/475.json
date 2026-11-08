@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 475 2/6",
-  "word": "dandy",
-  "guesses": [
-    { "result": "🟨🟨⬜⬜⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "dandy" }
-  ]
-}

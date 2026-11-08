@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 237 3/6",
-  "word": "ulcer",
-  "guesses": [
-    { "result": "⬜🟨🟨🟩🟩", "word": "ruler" },
-    { "result": "⬜🟨🟨🟩🟩", "word": "puler" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "ulcer" }
-  ]
-}

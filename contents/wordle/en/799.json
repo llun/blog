@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 799 3/6",
-  "word": "peace",
-  "guesses": [
-    { "result": "🟨⬜🟩🟩⬜", "word": "exact" },
-    { "result": "⬜🟩🟩🟩⬜", "word": "beach" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "peace" }
-  ]
-}

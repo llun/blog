@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 328 3/6",
-  "word": "tipsy",
-  "guesses": [
-    { "result": "🟨🟩⬜⬜🟩", "word": "picky" },
-    { "result": "⬜🟩🟨🟨🟩", "word": "wispy" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "tipsy" }
-  ]
-}

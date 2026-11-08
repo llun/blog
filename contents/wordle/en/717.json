@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 717 2/6",
-  "word": "scout",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜🟩", "word": "grunt" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "scout" }
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 716 2/6",
-  "word": "ennui",
-  "guesses": [
-    { "result": "🟨⬜⬜🟩🟨", "word": "issue" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "ennui" }
-  ]
-}

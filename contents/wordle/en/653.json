@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 653 2/6",
-  "word": "flora",
-  "guesses": [
-    { "result": "⬜🟩🟨⬜⬜", "word": "clash" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "flora" }
-  ]
-}

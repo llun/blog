@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 476 3/6",
-  "word": "vigor",
-  "guesses": [
-    { "result": "⬜⬜🟨⬜⬜", "word": "adieu" },
-    { "result": "🟨🟨🟨🟨⬜", "word": "ivory" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "vigor" }
-  ]
-}

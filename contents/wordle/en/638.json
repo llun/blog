@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 638 3/6",
-  "word": "rodeo",
-  "guesses": [
-    { "result": "🟨🟨⬜⬜⬜", "word": "depth" },
-    { "result": "🟨⬜🟨🟨🟩", "word": "rodeo" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "creo" }
-  ]
-}

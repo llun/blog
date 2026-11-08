@@ -1,9 +1,0 @@
-{
-  "title": "Wordle 731 3/6",
-  "word": "frost",
-  "guesses": [
-    { "result": "⬜⬜🟩🟨⬜", "word": "cloth" },
-    { "result": "🟨⬜🟩🟨🟩", "word": "sport" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "frost" }
-  ]
-}

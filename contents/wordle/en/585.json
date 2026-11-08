@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 585 2/6",
-  "word": "maize",
-  "guesses": [
-    { "result": "🟨⬜🟩🟨⬜", "word": "adieu" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "maize" }
-  ]
-}

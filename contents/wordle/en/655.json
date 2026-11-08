@@ -1,8 +1,0 @@
-{
-  "title": "Wordle 655 2/6",
-  "word": "smash",
-  "guesses": [
-    { "result": "⬜🟨🟩⬜🟨", "word": "charm" },
-    { "result": "🟩🟩🟩🟩🟩", "word": "smash" }
-  ]
-}

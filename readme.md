@@ -71,7 +71,7 @@ yarn ride
 yarn optimize-images
 ```
 
-`NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` must be present in `.env.local` before starting the dev server. Without it the Mapbox token resolves to an empty string and every page with a map - the ride pages and the AirTag journey - throws `An API access token is required to use Mapbox GL` at runtime and fails to render. Next.js inlines `NEXT_PUBLIC_*` values at build time, so restart `yarn dev` after adding it.
+`NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` must be present in `.env.local` before starting the dev server. Without it the Mapbox token resolves to an empty string and every page with a map - the ride pages - throws `An API access token is required to use Mapbox GL` at runtime and fails to render. Next.js inlines `NEXT_PUBLIC_*` values at build time, so restart `yarn dev` after adding it.
 
 ## Scripts
 
