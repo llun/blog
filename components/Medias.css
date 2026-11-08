@@ -8,6 +8,6 @@
   }
 
   .ride-medias-image {
-    @apply p-0 border-none m-0 w-full aspect-square bg-gray-100 cursor-pointer bg-center bg-cover;
+    @apply p-0 border-none m-0 w-full aspect-square bg-muted cursor-pointer bg-center bg-cover;
   }
 }

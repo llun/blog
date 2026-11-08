@@ -11,7 +11,7 @@ My personal website and blog. 👉 https://www.llun.me
 - Strava activity integration for tracking rides
 - Photo galleries backed by iCloud shared albums
 - RSS, Atom and JSON feed support
-- Responsive design with Tailwind CSS
+- Responsive design with Tailwind CSS: square black, grey and white "Ink" theme, Noto Sans with the looped Noto Sans Thai and JetBrains Mono for labels (loaded with `next/font`)
 - Optimized images and assets for fast loading
 
 ## Technologies

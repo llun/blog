@@ -16,7 +16,7 @@ const PostList = ({ posts }: Props) => {
           <time dateTime={post.properties.date} className="post-list-item-date">
             {DateTime.fromMillis(post.timestamp)
               .setLocale('en-US')
-              .toLocaleString(DateTime.DATE_MED)}
+              .toFormat('dd LLL yyyy')}
           </time>
           <Link
             href={`/posts/${post.file.id}`}
@@ -25,6 +25,11 @@ const PostList = ({ posts }: Props) => {
           >
             {post.properties.title}
           </Link>
+          {post.file.category ? (
+            <span className="post-list-item-tag">{post.file.category}</span>
+          ) : (
+            <span />
+          )}
         </li>
       ))}
     </ul>

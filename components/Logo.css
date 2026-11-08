@@ -1,0 +1,18 @@
+@layer components {
+  .logo-mark {
+    @apply inline-flex h-6 w-6 shrink-0 flex-col items-center justify-center bg-primary text-primary-foreground;
+    gap: 2px;
+  }
+
+  .logo-mark-glyph {
+    @apply font-medium;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .logo-mark-cursor {
+    @apply block bg-current;
+    width: 10px;
+    height: 1.5px;
+  }
+}
