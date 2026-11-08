@@ -17,6 +17,7 @@ interface AlbumProperties {
   image: string
   date: string
   token: string
+  section?: string
 }
 
 export interface Album {
@@ -27,6 +28,7 @@ export interface Album {
   card: string
   timestamp: number
   token: string
+  section?: string
   content?: string
 }
 
@@ -46,7 +48,7 @@ export const parseAlbum = (
     const raw = fs.readFileSync(file).toString('utf-8')
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
-    const { title, description, image, date, token } = yaml.parse(
+    const { title, description, image, date, token, section } = yaml.parse(
       raw.substring(begin, end)
     ) as AlbumProperties
     const timestamp = DateTime.fromISO(date).toMillis()
@@ -58,7 +60,8 @@ export const parseAlbum = (
         image: `${image}.jpg`,
         card: `${image}.card.jpg`,
         timestamp,
-        token
+        token,
+        section
       }
     }
 
@@ -74,6 +77,7 @@ export const parseAlbum = (
       card: `${image}.card.jpg`,
       timestamp,
       token,
+      section,
       content
     }
   } catch (error) {

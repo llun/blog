@@ -1,11 +1,10 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 import React from 'react'
 
+import AlbumList from '../../../components/AlbumList'
 import { getMetadata } from '../../../components/Meta'
 import { getConfig } from '../../../libs/blog'
 import { getAllAlbums } from '../../../libs/gallery'
-import { isSafeSegment } from '../../../libs/utils'
 
 const { url, title, description } = getConfig()
 
@@ -15,41 +14,26 @@ export const metadata: Metadata = getMetadata({
   description
 })
 
-const SAFE_IMAGE_FILE = /^[A-Za-z0-9._-]+\.jpg$/i
-
 const Gallery = () => {
   const albums = getAllAlbums()
+  // Albums are sorted newest first, so the first bird album gives the Birds tile its cover.
+  const latestBird = albums.find((album) => album.section === 'birds')
+  const sections = latestBird
+    ? [
+        {
+          ...latestBird,
+          name: 'birds',
+          title: 'Birds',
+          description: 'Birds, one album per species'
+        }
+      ]
+    : []
   return (
     <>
       <h2 className="my-2">Image Gallery</h2>
-      <div className="gallery-list">
-        {albums.map(({ name, image, description, title: albumTitle }) => {
-          if (!isSafeSegment(name) || !SAFE_IMAGE_FILE.test(image)) {
-            return null
-          }
-
-          const avifImage = image.replace(/\.jpg$/i, '.avif')
-          const webpImage = image.replace(/\.jpg$/i, '.webp')
-          return (
-            <Link key={name} href={`/gallery/${name}`}>
-              <picture>
-                <source srcSet={`/gallery/${avifImage}`} type="image/avif" />
-                <source srcSet={`/gallery/${webpImage}`} type="image/webp" />
-                <img
-                  className="border-none p-0"
-                  width={512}
-                  height={512}
-                  src={`/gallery/${image}`}
-                  alt={description}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-              <h3>{albumTitle}</h3>
-            </Link>
-          )
-        })}
-      </div>
+      <AlbumList
+        albums={[...sections, ...albums.filter((album) => !album.section)]}
+      />
     </>
   )
 }
