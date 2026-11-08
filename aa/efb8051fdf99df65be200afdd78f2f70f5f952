@@ -1,0 +1,27 @@
+libs/gallery.ts
+  s_98b4cea69319c3::t_5f570897133a3c 20,31,51,63-64,80
+app/(header)/gallery/birds/page.tsx
+  s_98b4cea69319c3::t_a6ae5f20d7fde7 1-33
+app/(header)/gallery/page.tsx
+  s_98b4cea69319c3::t_e81d1361255c57 4,19-30,34-36
+components/AlbumList.tsx
+  s_98b4cea69319c3::t_c86a006d328861 1-44
+app/sitemap.ts
+  s_98b4cea69319c3::t_834696540af506 75-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "aaefb8051fdf99df65be200afdd78f2f70f5f952",
+  "prompts": {},
+  "sessions": {
+    "s_98b4cea69319c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc53bb57-6166-43ea-9c9a-c09e6c2ac8b0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
