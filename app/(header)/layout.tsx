@@ -8,6 +8,8 @@ import Header from '../../components/Header'
 import { getMetadata } from '../../components/Meta'
 import { Modal } from '../../components/Modal'
 
+import { fontVariables } from '../../libs/fonts'
+
 import '../../public/css/globals.css'
 
 const config = getConfig()
@@ -21,7 +23,11 @@ export const metadata: Metadata = getMetadata({
 
 export const viewport = {
   width: 'device-width',
-  initialScale: 1
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' }
+  ]
 }
 
 interface Props {
@@ -32,7 +38,7 @@ const RootLayout = ({ children }: Props) => {
   const { title, url } = getConfig()
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div id="app-root" className="layout-div">

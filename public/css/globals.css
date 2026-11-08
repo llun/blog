@@ -23,6 +23,8 @@
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
+  --color-grid: var(--grid);
+  --color-soft: var(--soft);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -42,65 +44,69 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* A3 "Ink, hard rules": black, grey and white only. Panels, tags and the header
+   rule are drawn in the text colour; --grid is the light rule between list rows.
+   Every corner is square (--radius 0). */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.97 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --radius: 0rem;
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #0a0a0a;
+  --primary-foreground: #ffffff;
+  --secondary: #fafafa;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f5f5f5;
+  --muted-foreground: #6e6e6e;
+  --accent: #f0f0f0;
+  --accent-foreground: #0a0a0a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #0a0a0a;
+  --input: #0a0a0a;
+  --ring: #0a0a0a;
+  --grid: #e6e6e6;
+  --soft: rgba(0, 0, 0, 0.06);
+  /* the darker bottom edge of a control */
+  --edge: #3a3a3a;
   --font-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
-    Cantarell, 'Helvetica Neue', sans-serif;
+    var(--font-latin), var(--font-thai), -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
   --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
+    var(--font-code), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', monospace;
 
-  /* Link colors */
-  --link: oklch(43.38% 0.117 257.32);
-  /* sky-800 */
-  --link-visited: oklch(26.26% 0.05 257.31);
-  /* sky-950 */
+  --link: #0a0a0a;
+  --link-visited: #3a3a3a;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #000000;
+  --foreground: #f2f2f2;
+  --card: #000000;
+  --card-foreground: #f2f2f2;
+  --popover: #0d0d0d;
+  --popover-foreground: #f2f2f2;
+  --primary: #f2f2f2;
+  --primary-foreground: #000000;
+  --secondary: #0d0d0d;
+  --secondary-foreground: #f2f2f2;
+  --muted: #141414;
+  --muted-foreground: #8a8a8a;
+  --accent: #1c1c1c;
+  --accent-foreground: #f2f2f2;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: #f2f2f2;
+  --input: #f2f2f2;
+  --ring: #f2f2f2;
+  --grid: #222222;
+  --soft: rgba(255, 255, 255, 0.08);
+  --edge: #9a9a9a;
 
-  /* Link colors */
-  --link: oklch(75.42% 0.163 243.48);
-  /* sky-400 */
-  --link-visited: oklch(84.36% 0.117 240.23);
-  /* sky-300 */
+  --link: #f2f2f2;
+  --link-visited: #c8c8c8;
 }
 
 @import './base.css';
@@ -121,3 +127,4 @@
 @import '../../components/ThemeToggle.css';
 @import '../../components/Medias.css';
 @import '../../components/MediaModal.css';
+@import '../../components/Logo.css';

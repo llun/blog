@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <>
       <PostList posts={posts} />
-      <div className="text-center mt-8">
+      <div className="mt-8">
         <Link href="/posts/" className="all-posts-link">
           View all posts
           <ArrowRight className="h-4 w-4" />

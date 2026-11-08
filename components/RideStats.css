@@ -1,9 +1,21 @@
 @layer components {
   .ride-stats {
-    @apply grid gap-2 md:grid-cols-2;
+    @apply my-4 grid grid-cols-2 border border-border;
   }
 
-  .ride-stats-card {
-    @apply border border-[var(--primary)] p-2;
+  .ride-stats-cell {
+    @apply flex min-w-0 flex-col-reverse px-4 py-3;
+  }
+
+  .ride-stats-cell + .ride-stats-cell {
+    @apply border-l border-border;
+  }
+
+  .ride-stats-label {
+    @apply mt-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground;
+  }
+
+  .ride-stats-value {
+    @apply m-0 text-2xl font-medium tabular-nums tracking-tight;
   }
 }

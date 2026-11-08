@@ -4,14 +4,50 @@
   }
 
   .post-header-back-link {
-    @apply inline-flex items-center gap-1 text-lg font-light;
+    @apply inline-flex items-center gap-1 text-base text-foreground no-underline hover:underline;
+  }
+
+  .post-header-back-link:visited {
+    @apply text-foreground;
+  }
+
+  /* the post opens on a ruled band: title, then a mono meta line, then a rule */
+  .post-head {
+    @apply mb-6 border-b border-border pb-3;
   }
 
   .post-title {
-    @apply text-4xl font-light tracking-tight;
+    @apply text-3xl font-medium tracking-tight md:text-4xl;
   }
 
-  .post-date {
-    @apply text-muted-foreground;
+  .post-meta {
+    @apply mt-2 mb-0 flex flex-wrap gap-x-3 font-mono text-xs uppercase tracking-wider text-muted-foreground;
+  }
+
+  .post-meta > * + * {
+    @apply flex items-center gap-3;
+  }
+
+  .post-meta > * + *::before {
+    content: '·';
+  }
+
+  .post-body {
+    @apply mb-8 text-[17px];
+  }
+
+  /* text keeps about 70 characters a line; photos, maps and videos use the
+     full column */
+  .post-body > :is(p, ul, ol, h2, h3, h4, h5, h6, pre, blockquote, table) {
+    @apply max-w-3xl;
+  }
+
+  .post-body > :first-child {
+    @apply mt-0;
+  }
+
+  .post-body h2,
+  .post-body h3 {
+    @apply mt-10 mb-3;
   }
 }

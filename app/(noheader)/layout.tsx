@@ -5,6 +5,8 @@ import { ThemeProvider } from 'next-themes'
 import { getMetadata } from '../../components/Meta'
 import { getConfig } from '../../libs/blog'
 
+import { fontVariables } from '../../libs/fonts'
+
 import '../../public/css/globals.css'
 
 const config = getConfig()
@@ -30,7 +32,7 @@ interface Props {
 
 const RootLayout = ({ children }: Props) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}

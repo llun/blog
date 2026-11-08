@@ -1,6 +1,8 @@
 @layer components {
+  /* a square key: 1px border and a darker 2px bottom edge */
   .theme-toggle {
-    @apply flex items-center p-1.5 cursor-pointer;
+    @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-border bg-background text-muted-foreground hover:bg-accent hover:text-foreground;
+    box-shadow: inset 0 -2px 0 var(--edge);
   }
 
   .theme-toggle-modal {
@@ -8,20 +10,21 @@
   }
 
   .theme-toggle-modal-content {
-    @apply absolute right-0 mt-2 z-20 bg-popover text-popover-foreground border border-border rounded-md shadow-lg p-2;
+    @apply absolute right-0 z-20 mt-1 min-w-36 border border-border bg-popover p-1 text-popover-foreground;
   }
 
   .theme-toggle-modal-button-container {
-    @apply flex flex-col space-y-2;
+    @apply flex flex-col gap-0.5;
   }
 
   .theme-toggle-modal-button {
-    @apply flex items-center space-x-2 p-2 rounded-sm cursor-pointer hover:bg-accent hover:text-accent-foreground;
+    @apply flex cursor-pointer items-center gap-2 px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground;
   }
 
   /* hover also resolves to bg-accent, so the selected row needs a second
      signal to stay distinguishable while another row is hovered */
   .theme-toggle-modal-button-selected {
-    @apply bg-accent text-accent-foreground font-medium ring-1 ring-border;
+    @apply bg-soft font-medium text-foreground;
+    box-shadow: inset 2px 0 0 var(--foreground);
   }
 }

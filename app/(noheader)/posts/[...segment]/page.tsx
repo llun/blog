@@ -85,18 +85,20 @@ const Post = ({ params }: Props) => {
         <ThemeToggle />
       </div>
 
-      <header className="space-y-2 mb-4">
+      <header className="post-head">
         <h1 className="post-title">{properties.title}</h1>
-        <p className="post-date">
-          Published on{' '}
-          {DateTime.fromMillis(post.timestamp)
-            .setLocale('en-US')
-            .toLocaleString(DateTime.DATE_MED)}
+        <p className="post-meta">
+          <time dateTime={properties.date}>
+            {DateTime.fromMillis(post.timestamp)
+              .setLocale('en-US')
+              .toFormat('dd LLL yyyy')}
+          </time>
+          {post.file.category && <span>{post.file.category}</span>}
         </p>
       </header>
 
       <div
-        className="space-y-6 mb-4"
+        className="post-body"
         dangerouslySetInnerHTML={{ __html: content || '' }}
       />
 

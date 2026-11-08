@@ -1,17 +1,37 @@
 @layer components {
+  /* a ruled list: light rules between rows, a mono date column and a tag */
   .post-list {
-    @apply space-y-2 max-w-4xl;
+    @apply m-0 max-w-4xl list-none space-y-0 p-0;
   }
 
   .post-list-item {
-    @apply flex items-baseline md:gap-2;
+    @apply grid items-baseline gap-x-4 border-t border-grid py-2.5 first:border-t-0;
+    grid-template-columns: 6.5rem minmax(0, 1fr) auto;
   }
 
   .post-list-item-date {
-    @apply text-xs text-muted-foreground w-24 flex-shrink-0 md:text-sm;
+    @apply font-mono text-xs uppercase tracking-wider text-muted-foreground tabular-nums;
   }
 
   .post-list-item-title {
-    @apply text-lg font-light hover:underline md:text-xl;
+    @apply min-w-0 text-base text-foreground no-underline hover:underline md:text-lg;
+  }
+
+  .post-list-item-title:visited {
+    @apply text-foreground;
+  }
+
+  .post-list-item-tag {
+    @apply border border-border px-1.5 py-0.5 font-mono text-[10px] uppercase leading-none tracking-wider text-muted-foreground;
+  }
+
+  @media (max-width: 480px) {
+    .post-list-item {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .post-list-item-date {
+      @apply col-span-2;
+    }
   }
 }

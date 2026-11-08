@@ -11,17 +11,21 @@ interface Props {
   className?: string
 }
 
+const format = (value: number) =>
+  new Intl.NumberFormat('en', { maximumFractionDigits: 0 }).format(value)
+
+// One ruled strip: cells share their borders, a value over a mono label
 const RideStats: FC<Props> = ({ stats, className }) => (
-  <section className={cn('ride-stats', className)}>
-    <div className="ride-stats-card">
-      <h2>Total Rides</h2>
-      <p>{new Intl.NumberFormat('en').format(stats.activities)} Rides</p>
+  <dl className={cn('ride-stats', className)}>
+    <div className="ride-stats-cell">
+      <dt className="ride-stats-label">Total rides</dt>
+      <dd className="ride-stats-value">{format(stats.activities)}</dd>
     </div>
-    <div className="ride-stats-card">
-      <h2>Total Distance</h2>
-      <p>{new Intl.NumberFormat('en').format(stats.distance)} Kilometers</p>
+    <div className="ride-stats-cell">
+      <dt className="ride-stats-label">Total distance, km</dt>
+      <dd className="ride-stats-value">{format(stats.distance)}</dd>
     </div>
-  </section>
+  </dl>
 )
 
 export default RideStats

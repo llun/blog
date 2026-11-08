@@ -4,11 +4,24 @@
   }
 
   body {
-    @apply font-sans bg-background text-foreground font-light;
+    @apply font-sans bg-background text-foreground font-normal antialiased;
+    /* Thai stacks vowels and tone marks above and below the line */
+    line-height: 1.75;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium;
+    line-height: 1.35;
+    text-wrap: balance;
   }
 
   h1 {
-    @apply text-4xl;
+    @apply text-3xl;
   }
 
   h2 {
@@ -36,8 +49,13 @@
   }
 
   a {
-    @apply underline;
+    @apply underline underline-offset-4;
     color: var(--link);
+    text-decoration-color: color-mix(in srgb, var(--link) 40%, transparent);
+  }
+
+  a:hover {
+    text-decoration-color: currentColor;
   }
 
   a:visited {
@@ -50,11 +68,15 @@
   }
 
   code {
-    @apply font-semibold break-words my-auto dark:bg-muted dark:text-muted-foreground;
+    @apply font-medium break-words my-auto bg-muted px-1;
   }
 
   pre {
-    @apply bg-black text-white text-left whitespace-pre break-normal hyphens-none p-4 my-2 overflow-x-auto dark:bg-muted dark:text-muted-foreground;
+    @apply bg-secondary text-foreground text-left whitespace-pre break-normal hyphens-none p-4 my-2 overflow-x-auto border border-border;
+  }
+
+  pre code {
+    @apply bg-transparent p-0 font-normal;
   }
 
   ul {
@@ -66,18 +88,19 @@
   }
 
   select {
-    @apply border-solid border-1 border-gray-800 p-2;
+    @apply border-solid border-1 border-border bg-background p-2;
   }
 
   img {
-    @apply max-w-full mx-auto mb-2 block border border-border p-1;
+    @apply max-w-full mx-auto mb-2 block;
   }
 
   figcaption {
-    @apply text-muted-foreground text-base text-center;
+    /* captions are often Thai, so no uppercase or letter-spacing here */
+    @apply text-sm text-muted-foreground text-center;
   }
 
   iframe {
-    @apply mx-auto border border-border p-1;
+    @apply mx-auto border border-border;
   }
 }

@@ -2,6 +2,8 @@ import { Bike, BookImage, BookMarked, Computer, LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
+import { LogoMark } from './Logo'
+import { NavLink } from './NavLink'
 import { ThemeToggle } from './ThemeToggle'
 
 export type Page = {
@@ -42,6 +44,10 @@ const getLinkRel = (item: Page) => {
   return rels.length > 0 ? rels.join(' ') : undefined
 }
 
+// The header shows the name without the handle's leading @; the full title
+// stays in page titles and feeds
+const getWordmark = (title: string) => title.replace(/^@/, '')
+
 type Props = {
   title: string
   url: string
@@ -51,26 +57,26 @@ type Props = {
 const Header = ({ title, url, pages = DEFAULT_PAGES }: Props) => (
   <header className="header">
     <div className="header-container">
-      <Link href={url} className="logo-link">
-        <span className="logo-text">{title}</span>
+      <Link href={url} className="logo-link" aria-label={title}>
+        <LogoMark />
+        <span className="logo-text">{getWordmark(title)}</span>
       </Link>
       <div className="nav-container">
         <nav className="nav-bar">
           {pages.map((item) => (
-            <Link
+            <NavLink
               key={item.url}
               href={item.url}
               target={item.target}
               rel={getLinkRel(item)}
-              className={'nav-link'}
-              aria-label={item.title}
+              label={item.title}
             >
               <item.icon
                 className="h-4 w-4 shrink-0 sm:mr-2"
                 aria-hidden="true"
               />
               <span className="nav-link-text">{item.title}</span>
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <ThemeToggle />
