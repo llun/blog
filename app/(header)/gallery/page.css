@@ -3,3 +3,13 @@
     @apply grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3;
   }
 }
+
+@layer components {
+  .bird-detail {
+    @apply grid grid-cols-1 gap-6 md:grid-cols-[240px_1fr];
+  }
+
+  .bird-drawing {
+    @apply w-full border border-gray-200 bg-white dark:border-gray-700;
+  }
+}

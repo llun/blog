@@ -4,6 +4,7 @@ import React from 'react'
 
 import { getConfig } from '../libs/blog'
 import { getAlbum, getAllAlbums } from '../libs/gallery'
+import BirdMap from './BirdMap'
 import Medias from './Medias'
 import { getMetadata } from './Meta'
 
@@ -47,6 +48,52 @@ export const albumPage = (section?: string) => {
     if (!data) notFound()
 
     const { partition, album, medias } = data
+    if (section === 'birds') {
+      return (
+        <>
+          <div className="bird-detail">
+            <img
+              className="bird-drawing"
+              src={`/gallery/${album.image}`}
+              width={512}
+              height={512}
+              alt={`Pencil drawing of a ${album.title}`}
+            />
+            <div>
+              <h2 className="mt-2">{album.title}</h2>
+              {album.scientificName && (
+                <p className="text-muted-foreground italic">
+                  {album.scientificName}
+                </p>
+              )}
+              {album.content && (
+                <div dangerouslySetInnerHTML={{ __html: album.content }} />
+              )}
+              {album.wikipedia && (
+                <p className="text-muted-foreground mt-2 text-sm">
+                  Adapted from{' '}
+                  <a href={album.wikipedia} rel="noopener noreferrer">
+                    Wikipedia
+                  </a>
+                  , under{' '}
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    rel="license noopener noreferrer"
+                  >
+                    CC BY-SA 4.0
+                  </a>
+                  .
+                </p>
+              )}
+            </div>
+          </div>
+          <h3 className="mt-6 mb-2">Where I saw it</h3>
+          <BirdMap dataPath={`/birds/${album.name}.json`} />
+          <h3 className="mt-6 mb-2">Photos</h3>
+          <Medias partition={partition} token={album.token} medias={medias} />
+        </>
+      )
+    }
     return (
       <>
         <h2 className="mt-2">{album.title}</h2>

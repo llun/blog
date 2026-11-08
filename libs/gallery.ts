@@ -18,6 +18,8 @@ interface AlbumProperties {
   date: string
   token: string
   section?: string
+  scientificName?: string
+  wikipedia?: string
 }
 
 export interface Album {
@@ -29,6 +31,8 @@ export interface Album {
   timestamp: number
   token: string
   section?: string
+  scientificName?: string
+  wikipedia?: string
   content?: string
 }
 
@@ -48,9 +52,16 @@ export const parseAlbum = (
     const raw = fs.readFileSync(file).toString('utf-8')
     const begin = raw.indexOf('---')
     const end = raw.indexOf('---', begin + 3)
-    const { title, description, image, date, token, section } = yaml.parse(
-      raw.substring(begin, end)
-    ) as AlbumProperties
+    const {
+      title,
+      description,
+      image,
+      date,
+      token,
+      section,
+      scientificName,
+      wikipedia
+    } = yaml.parse(raw.substring(begin, end)) as AlbumProperties
     const timestamp = DateTime.fromISO(date).toMillis()
     if (!includeContent) {
       return {
@@ -78,6 +89,8 @@ export const parseAlbum = (
       timestamp,
       token,
       section,
+      scientificName,
+      wikipedia,
       content
     }
   } catch (error) {
