@@ -1,7 +1,7 @@
 ---
 title: Black Kite
 scientificName: Milvus migrans
-description: Black Kite photos and drawing
+description: Black Kite photos
 image: BirdBlackKite
 date: 2026-11-08T19:00:00+01:00
 token: 0c8E688HLo60jAfJZGMHCmICA

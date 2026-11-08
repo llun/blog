@@ -1,7 +1,7 @@
 ---
 title: Black Woodpecker
 scientificName: Dryocopus martius
-description: Black Woodpecker photos and drawing
+description: Black Woodpecker photos
 image: BirdBlackWoodpecker
 date: 2026-11-08T19:00:00+01:00
 token: 0780Ab4GRmNTFI-o6jUw65XHA

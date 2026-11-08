@@ -57,7 +57,7 @@ export const albumPage = (section?: string) => {
               src={`/gallery/${album.image}`}
               width={512}
               height={512}
-              alt={`Pencil drawing of a ${album.title}`}
+              alt={album.description}
             />
             <div>
               <h2 className="mt-2">{album.title}</h2>

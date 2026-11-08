@@ -1,7 +1,7 @@
 ---
 title: Black Redstart
 scientificName: Phoenicurus ochruros
-description: Black Redstart photos and drawing
+description: Black Redstart photos
 image: BirdBlackRedstart
 date: 2026-11-08T19:00:00+01:00
 token: 0fdXNLrmofGgX3EB1MHMOrS2w
