@@ -1,7 +1,8 @@
-import { Bike, BookImage, Computer, LucideIcon } from 'lucide-react'
+import { Bike, LucideIcon, Terminal } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
+import { GalleryIcon } from './icons'
 import { LogoMark } from './Logo'
 import { NavLink } from './NavLink'
 import { ThemeToggle } from './ThemeToggle'
@@ -21,12 +22,12 @@ const DEFAULT_PAGES: Page[] = [
   },
   {
     url: '/tags/dev',
-    icon: Computer,
+    icon: Terminal,
     title: 'Dev'
   },
   {
     url: '/gallery',
-    icon: BookImage,
+    icon: GalleryIcon,
     title: 'Gallery'
   }
 ]

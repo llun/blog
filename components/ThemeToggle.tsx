@@ -1,9 +1,10 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { Sun, Moon, Laptop } from 'lucide-react'
+import { Sun, Moon } from 'lucide-react'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import cn from 'classnames'
+import { SystemIcon } from './icons'
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme()
@@ -42,7 +43,7 @@ export const ThemeToggle = () => {
       case 'dark':
         return <Moon size={16} />
       default:
-        return <Laptop size={16} />
+        return <SystemIcon width={16} height={16} />
     }
   }
 
@@ -112,7 +113,7 @@ export const ThemeToggle = () => {
                 aria-label="System preference"
                 aria-pressed={theme === 'system'}
               >
-                <Laptop size={16} />
+                <SystemIcon width={16} height={16} />
                 <span>System</span>
               </button>
             </div>

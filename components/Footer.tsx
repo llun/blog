@@ -1,4 +1,4 @@
-import { Activity, LucideIcon } from 'lucide-react'
+import { Bike, LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -31,7 +31,7 @@ const DEFAULT_LINKS: FooterLink[] = [
   {
     url: 'https://llun.social/@ride',
     title: '@ride@llun.social',
-    icon: Activity,
+    icon: Bike,
     target: '_blank',
     rel: 'me'
   },

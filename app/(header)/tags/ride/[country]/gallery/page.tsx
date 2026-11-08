@@ -32,7 +32,7 @@ export const generateMetadata = async ({
 
 const RideGallery = async ({ params }: Props) => {
   const { country } = await params
-  const { icon, rideStat, galleryToken } = COUNTRIES_DATA[country as COUNTRY]
+  const { flag, rideStat, galleryToken } = COUNTRIES_DATA[country as COUNTRY]
 
   const stream = await fetchStream(galleryToken)
   const medias = stream
@@ -43,7 +43,7 @@ const RideGallery = async ({ params }: Props) => {
 
   return (
     <>
-      <RideTitle className="mt-2" icon={icon} />
+      <RideTitle className="mt-2" flag={flag} />
       <RideStats className="mt-4" stats={rideStat} />
       <Medias
         className="mt-4"
