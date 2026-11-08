@@ -1,0 +1,62 @@
+contents/galleries/eurasian-magpie.md
+  s_98b4cea69319c3::t_00333e12a2ed74 1-12
+contents/galleries/great-tit.md
+  s_98b4cea69319c3::t_00333e12a2ed74 1-12
+contents/galleries/great-spotted-woodpecker.md
+  s_98b4cea69319c3::t_00333e12a2ed74 1-12
+public/birds/common-kingfisher.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+contents/galleries/barn-swallow.md
+  s_98b4cea69319c3::t_00333e12a2ed74 6-7
+contents/galleries/short-toed-treecreeper.md
+  s_98b4cea69319c3::t_00333e12a2ed74 1-12
+public/birds/eurasian-magpie.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+public/birds/short-toed-treecreeper.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+contents/galleries/common-kingfisher.md
+  s_98b4cea69319c3::t_92fdc4d6b9eb79 1-4,8,10-11
+  s_98b4cea69319c3::t_00333e12a2ed74 5-7,9,12
+contents/galleries/green-woodpecker.md
+  s_98b4cea69319c3::t_00333e12a2ed74 6
+public/birds/blue-tit.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+public/birds/great-spotted-woodpecker.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+libs/config.ts
+  s_98b4cea69319c3::t_1f65e5f56e4829 35,38
+contents/galleries/blue-tit.md
+  s_98b4cea69319c3::t_00333e12a2ed74 1-12
+contents/galleries/european-robin.md
+  s_98b4cea69319c3::t_00333e12a2ed74 1-12
+public/birds/common-kestrel.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+libs/google/photos.ts
+  s_98b4cea69319c3::t_bac05c18bf5f32 7-12,20,24-26,38-41,43,45,67-120,126-128,131,137-146
+contents/galleries/black-woodpecker.md
+  s_98b4cea69319c3::t_00333e12a2ed74 6-7
+public/birds/great-tit.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+public/birds/european-robin.json
+  s_98b4cea69319c3::t_00333e12a2ed74 1
+contents/galleries/common-kestrel.md
+  s_98b4cea69319c3::t_00333e12a2ed74 1-12
+"libs/Green Woodpecker: https:::photos.app.goo.md"
+  s_98b4cea69319c3::t_2be6ba5c4434da 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0c55774b69cebc0b964115134b32f1321c3896a6",
+  "prompts": {},
+  "sessions": {
+    "s_98b4cea69319c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc53bb57-6166-43ea-9c9a-c09e6c2ac8b0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
