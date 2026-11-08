@@ -32,12 +32,6 @@ export const HOME_COMPUTER_MUSEUM_HELMOND_2026_ALBUM_TOKEN =
 
 export const TOMAZ_ALBUM_TOKEN = 'B2GJqstnBGzYIBg'
 
-// iCloud bird species albums (the Google Photos ones need no allowlist)
-export const BIRD_ALBUM_TOKENS = [
-  '0c8E688HLo60jAfJZGMHCmICA', // Black Kite
-  '0fdXNLrmofGgX3EB1MHMOrS2w' // Black Redstart
-]
-
 export const ALLOW_TOKEN_IDS = [
   NETHERLANDS_ALBUM_TOKEN,
   SINGAPORE_ALBUM_TOKEN,
@@ -67,7 +61,6 @@ export const ALLOW_TOKEN_IDS = [
   SAIL_2025_ALBUM_TOKEN,
   APPLE_MUSEUM_UTRECHT_2026_ALBUM_TOKEN,
   HOME_COMPUTER_MUSEUM_HELMOND_2026_ALBUM_TOKEN,
-  ...BIRD_ALBUM_TOKENS,
 
   TOMAZ_ALBUM_TOKEN
 ]
