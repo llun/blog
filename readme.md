@@ -78,7 +78,7 @@ yarn optimize-images
 Each album is a markdown file in `contents/galleries/` whose front matter names the album `token` and the `image` base name in `public/gallery/`. Every album needs two images there:
 
 - `<image>.jpg` - 512 x 512 square, shown on the gallery list page
-- `<image>.card.jpg` - 1500 x 788 (the 1.91:1 social card ratio), the album page's social card (`og:image`)
+- `<image>.card.jpg` - 1200 x 630, the album page's social card (`og:image`)
 
 Keep the source photo's embedded colour profile (often Display P3) when cropping or resizing; dropping it makes the image look darker or washed out. Run `yarn optimize-images` afterwards to generate the `.webp` and `.avif` copies. The token must also be in `ALLOW_TOKEN_IDS` in `libs/config.ts`, or `/api/apple/` refuses it.
 
