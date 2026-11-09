@@ -7,8 +7,7 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import { getMetadata } from '../../components/Meta'
 
-import { fontVariables } from '../../libs/fonts'
-
+import '../fonts/fonts.css'
 import '../../public/css/globals.css'
 
 const config = getConfig()
@@ -37,7 +36,7 @@ const RootLayout = ({ children }: Props) => {
   const { title, url } = getConfig()
 
   return (
-    <html lang="en" className={fontVariables} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div id="app-root" className="layout-div">
