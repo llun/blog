@@ -1,6 +1,16 @@
 @layer components {
   .gallery-list {
-    @apply grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3;
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2 min-[45rem]:grid-cols-3;
+  }
+
+  /* Each cover fills its column, so tablets get three columns (iPad mini
+     portrait is 744px wide) instead of one 512px image in a wide column. */
+  .gallery-list img {
+    @apply m-0 block aspect-square h-auto w-full object-cover;
+  }
+
+  .gallery-list h3 {
+    @apply mt-2 mb-0;
   }
 }
 
