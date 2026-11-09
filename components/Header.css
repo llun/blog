@@ -11,10 +11,6 @@
     @apply mr-6 flex items-center gap-2 no-underline text-foreground;
   }
 
-  .logo-link:visited {
-    @apply text-foreground;
-  }
-
   .logo-text {
     @apply text-lg font-medium leading-none;
   }
@@ -29,10 +25,6 @@
 
   .nav-link {
     @apply inline-flex h-8 items-center justify-start whitespace-nowrap px-3 text-sm text-muted-foreground no-underline transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
-  }
-
-  .nav-link:visited {
-    @apply text-muted-foreground;
   }
 
   /* the current section: a soft fill and a 2px rule under it */

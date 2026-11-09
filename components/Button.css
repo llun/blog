@@ -1,0 +1,17 @@
+@layer components {
+  /* B1: two square keys, 36px tall with the 2px keycap bottom edge. The
+     outlined key is for everyday actions (Home, theme, try again); the black
+     key is the one primary action on a page. Neither is underlined. */
+  .key {
+    @apply inline-flex h-9 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap border border-border bg-background px-3.5 text-sm text-foreground no-underline hover:bg-accent;
+    box-shadow: inset 0 -2px 0 var(--edge);
+  }
+
+  .key-primary {
+    @apply border-primary bg-primary px-4 font-medium text-primary-foreground hover:bg-primary hover:opacity-90;
+  }
+
+  .key-square {
+    @apply w-9 px-0;
+  }
+}

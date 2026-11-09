@@ -1,0 +1,46 @@
+@layer components {
+  /* N2 segmented keys: square 36px keys with the keycap bottom edge, 8px
+     apart; each country key is split into its map and a 36px photos cell */
+  .ride-nav {
+    @apply mb-6 flex flex-wrap gap-2;
+  }
+
+  .ride-key {
+    @apply inline-flex items-stretch border border-border;
+    box-shadow: inset 0 -2px 0 var(--edge);
+  }
+
+  .ride-key-part {
+    @apply inline-flex h-9 items-center gap-2 whitespace-nowrap px-3 text-sm text-foreground no-underline hover:bg-accent;
+  }
+
+  .ride-key-part + .ride-key-part {
+    @apply border-l border-border;
+  }
+
+  .ride-key-photos {
+    @apply w-9 justify-center px-0;
+  }
+
+  /* the page being shown: filled black, edge kept so it still reads as a key */
+  .ride-key-current,
+  .ride-key-current .ride-key-part {
+    @apply bg-primary text-primary-foreground hover:bg-primary;
+  }
+
+  .ride-key-part.ride-key-current {
+    box-shadow: inset 0 -2px 0 var(--edge);
+  }
+
+  /* flags only from sm up, so all four keys fit one line on a phone */
+  .ride-key .ride-key-flag {
+    @apply hidden sm:inline-block;
+    width: 21px;
+    height: 14px;
+  }
+
+  .ride-key .ride-key-current .ride-key-flag,
+  .ride-key .ride-key-part.ride-key-current .ride-key-flag {
+    @apply border-primary-foreground;
+  }
+}

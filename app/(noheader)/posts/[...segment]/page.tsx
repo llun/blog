@@ -10,7 +10,7 @@ import { DateTime } from 'luxon'
 import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
-import { isSinglePathSegment } from '../../../../libs/utils'
+import { getTextLang, isSinglePathSegment } from '../../../../libs/utils'
 
 const getPost = _.memoize(
   (segment: string[]) => {
@@ -75,18 +75,23 @@ const Post = ({ params }: Props) => {
   }
 
   const { properties, content } = post
+  const lang = getTextLang(
+    `${properties.title} ${(content ?? '').slice(0, 4000)}`
+  )
   return (
     <main className="main-container">
       <div className="post-header">
-        <Link className="post-header-back-link" href="/">
-          <ArrowLeft className="mr-2 h-4 w-4" />
+        <Link className="key" href="/">
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Home
         </Link>
         <ThemeToggle />
       </div>
 
       <header className="post-head">
-        <h1 className="post-title">{properties.title}</h1>
+        <h1 className="post-title" lang={getTextLang(properties.title)}>
+          {properties.title}
+        </h1>
         <p className="post-meta">
           <time dateTime={properties.date}>
             {DateTime.fromMillis(post.timestamp)
@@ -98,12 +103,13 @@ const Post = ({ params }: Props) => {
       </header>
 
       <div
-        className="post-body"
+        className="post-body prose"
+        lang={lang}
         dangerouslySetInnerHTML={{ __html: content || '' }}
       />
 
-      <Link className="post-header-back-link" href="/">
-        <ArrowLeft className="mr-2 h-4 w-4" />
+      <Link className="key" href="/">
+        <ArrowLeft className="h-4 w-4" aria-hidden="true" />
         Home
       </Link>
     </main>

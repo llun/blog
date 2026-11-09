@@ -85,43 +85,44 @@
   --link-visited: #3a3a3a;
 }
 
+/* D2 "soft black": the page lifts off pure black and text drops a step, so long
+   Thai paragraphs glare less; rules still use the text colour as in light mode */
 .dark {
-  --background: #000000;
-  --foreground: #f2f2f2;
-  --card: #000000;
-  --card-foreground: #f2f2f2;
-  --popover: #0d0d0d;
-  --popover-foreground: #f2f2f2;
-  --primary: #f2f2f2;
-  --primary-foreground: #000000;
-  --secondary: #0d0d0d;
-  --secondary-foreground: #f2f2f2;
-  --muted: #141414;
-  --muted-foreground: #8a8a8a;
-  --accent: #1c1c1c;
-  --accent-foreground: #f2f2f2;
+  --background: #0b0b0b;
+  --foreground: #e8e8e8;
+  --card: #0b0b0b;
+  --card-foreground: #e8e8e8;
+  --popover: #121212;
+  --popover-foreground: #e8e8e8;
+  --primary: #e8e8e8;
+  --primary-foreground: #0b0b0b;
+  --secondary: #121212;
+  --secondary-foreground: #e8e8e8;
+  --muted: #171717;
+  --muted-foreground: #9a9a9a;
+  --accent: #1f1f1f;
+  --accent-foreground: #e8e8e8;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #f2f2f2;
-  --input: #f2f2f2;
-  --ring: #f2f2f2;
-  --grid: #222222;
+  --border: #e8e8e8;
+  --input: #e8e8e8;
+  --ring: #e8e8e8;
+  --grid: #262626;
   --soft: rgba(255, 255, 255, 0.08);
   --edge: #9a9a9a;
   --skeleton: #1c1c1c;
   --skeleton-highlight: rgba(255, 255, 255, 0.09);
 
-  --link: #f2f2f2;
-  --link-visited: #c8c8c8;
+  --link: #e8e8e8;
+  --link-visited: #c4c4c4;
 }
 
 @import './base.css';
 
 @import '../../app/(header)/layout.css';
-@import '../../app/(header)/page.css';
 @import '../../app/(header)/gallery/page.css';
 @import '../../app/(noheader)/layout.css';
 
-@import '../../components/RideTitle.css';
+@import '../../components/RideNav.css';
 @import '../../components/RideStats.css';
 @import '../../components/RideMap.css';
 @import '../../components/Footer.css';
@@ -132,3 +133,5 @@
 @import '../../components/MediaViewer.css';
 @import '../../components/Logo.css';
 @import '../../components/Flag.css';
+@import '../../components/Button.css';
+@import '../../components/PageHead.css';

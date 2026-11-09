@@ -61,14 +61,17 @@ const SHAPES: Record<FlagCode, React.ReactNode> = {
 interface Props {
   code: FlagCode
   className?: string
+  // Beside the country's name the flag adds nothing for screen readers
+  decorative?: boolean
 }
 
-export const Flag: FC<Props> = ({ code, className }) => (
+export const Flag: FC<Props> = ({ code, className, decorative }) => (
   <svg
     className={cn('flag', className)}
     viewBox="0 0 30 20"
-    role="img"
-    aria-label={`${NAMES[code]} flag`}
+    {...(decorative
+      ? { 'aria-hidden': true }
+      : { role: 'img', 'aria-label': `${NAMES[code]} flag` })}
   >
     {SHAPES[code]}
   </svg>

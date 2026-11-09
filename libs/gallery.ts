@@ -73,7 +73,8 @@ export const parseAlbum = (
         card: `${image}.card.jpg`,
         timestamp,
         token,
-        section
+        section,
+        scientificName
       }
     }
 

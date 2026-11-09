@@ -1,7 +1,7 @@
 @layer components {
   /* a square key: 1px border and a darker 2px bottom edge */
   .theme-toggle {
-    @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-border bg-background text-muted-foreground hover:bg-accent hover:text-foreground;
+    @apply flex h-9 w-9 cursor-pointer items-center justify-center border border-border bg-background text-muted-foreground hover:bg-accent hover:text-foreground;
     box-shadow: inset 0 -2px 0 var(--edge);
   }
 

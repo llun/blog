@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 import { getMetadata } from '../../../components/Meta'
+import PageHead from '../../../components/PageHead'
 import PostList from '../../../components/PostList'
 import { ThemeToggle } from '../../../components/ThemeToggle'
 import {
@@ -25,22 +26,24 @@ const Posts = () => {
   const posts = getAllPosts().sort(postDescendingComparison)
 
   return (
-    <main className="main-container space-y-8 mt-4">
+    <main className="main-container">
       <div className="post-header">
-        <Link className="post-header-back-link" href="/">
-          <ArrowLeft className="mr-2 h-4 w-4" />
+        <Link className="key" href="/">
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Home
         </Link>
         <ThemeToggle />
       </div>
 
-      <h2>All Posts</h2>
+      <PageHead title="All posts" meta={`${posts.length} posts`} />
       <PostList posts={posts} />
 
-      <Link className="post-header-back-link" href="/">
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Home
-      </Link>
+      <div className="mt-10 mb-8">
+        <Link className="key" href="/">
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+          Home
+        </Link>
+      </div>
     </main>
   )
 }

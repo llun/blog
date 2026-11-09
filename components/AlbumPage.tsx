@@ -4,9 +4,11 @@ import React from 'react'
 
 import { getConfig } from '../libs/blog'
 import { getAlbum, getAllAlbums } from '../libs/gallery'
+import { getTextLang } from '../libs/utils'
 import BirdMap from './BirdMap'
 import Medias from './Medias'
 import { getMetadata } from './Meta'
+import PageHead from './PageHead'
 
 interface Props {
   params: Promise<{ name: string }>
@@ -51,59 +53,80 @@ export const albumPage = (section?: string) => {
     if (section === 'birds') {
       return (
         <>
-          <div className="bird-detail">
-            <img
-              className="bird-drawing"
-              src={`/gallery/${album.image}`}
-              width={512}
-              height={512}
-              alt={album.description}
-            />
-            <div>
-              <h2 className="mt-2">{album.title}</h2>
-              {album.scientificName && (
-                <p className="text-muted-foreground italic">
-                  {album.scientificName}
-                </p>
-              )}
-              {album.content && (
-                <div dangerouslySetInnerHTML={{ __html: album.content }} />
-              )}
-              {album.wikipedia && (
-                <p className="text-muted-foreground mt-2 text-sm">
-                  From{' '}
-                  <a href={album.wikipedia} rel="noopener noreferrer">
-                    Wikipedia
-                  </a>
-                  , under{' '}
-                  <a
-                    href="https://creativecommons.org/licenses/by-sa/4.0/"
-                    rel="license noopener noreferrer"
-                  >
-                    CC BY-SA 4.0
-                  </a>
-                  .
-                </p>
-              )}
+          <PageHead
+            title={album.title}
+            meta={`${medias.length} photos`}
+            lang={getTextLang(album.title)}
+          />
+          <div className="album-sections">
+            <div className="bird-detail">
+              <img
+                className="bird-drawing"
+                src={`/gallery/${album.image}`}
+                width={512}
+                height={512}
+                alt={album.description}
+              />
+              <div className="prose">
+                {album.scientificName && (
+                  <p className="mt-0 text-muted-foreground italic">
+                    {album.scientificName}
+                  </p>
+                )}
+                {album.content && (
+                  <div dangerouslySetInnerHTML={{ __html: album.content }} />
+                )}
+                {album.wikipedia && (
+                  <p className="text-muted-foreground mt-2 text-sm">
+                    From{' '}
+                    <a href={album.wikipedia} rel="noopener noreferrer">
+                      Wikipedia
+                    </a>
+                    , under{' '}
+                    <a
+                      href="https://creativecommons.org/licenses/by-sa/4.0/"
+                      rel="license noopener noreferrer"
+                    >
+                      CC BY-SA 4.0
+                    </a>
+                    .
+                  </p>
+                )}
+              </div>
             </div>
+            <section>
+              <h2 className="album-section-title">Where I saw it</h2>
+              <BirdMap dataPath={`/birds/${album.name}.json`} />
+            </section>
+            <section>
+              <h2 className="album-section-title">Photos</h2>
+              <Medias
+                partition={partition}
+                token={album.token}
+                medias={medias}
+              />
+            </section>
           </div>
-          <h3 className="mt-6 mb-2">Where I saw it</h3>
-          <BirdMap dataPath={`/birds/${album.name}.json`} />
-          <h3 className="mt-6 mb-2">Photos</h3>
-          <Medias partition={partition} token={album.token} medias={medias} />
         </>
       )
     }
     return (
       <>
-        <h2 className="mt-2">{album.title}</h2>
-        {album.content && (
-          <div
-            className="text-muted-foreground"
-            dangerouslySetInnerHTML={{ __html: album.content }}
-          />
-        )}
-        <Medias partition={partition} token={album.token} medias={medias} />
+        <PageHead
+          title={album.title}
+          meta={`${medias.length} photos`}
+          lang={getTextLang(album.title)}
+        />
+        <div className="album-sections">
+          {album.content && (
+            <div
+              className="prose text-muted-foreground"
+              lang={getTextLang(album.content)}
+              dangerouslySetInnerHTML={{ __html: album.content }}
+            />
+          )}
+          <Medias partition={partition} token={album.token} medias={medias} />
+        </div>
       </>
     )
   }

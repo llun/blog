@@ -4,7 +4,8 @@ import React, { use } from 'react'
 import { getMetadata } from '../../../../../components/Meta'
 import RideMap from '../../../../../components/RideMap'
 import RideStats from '../../../../../components/RideStats'
-import RideTitle from '../../../../../components/RideTitle'
+import PageHead from '../../../../../components/PageHead'
+import RideNav from '../../../../../components/RideNav'
 
 import { COUNTRIES_DATA, COUNTRY } from '../countries'
 import RideVideos from '../../../../../components/RideVideos'
@@ -31,20 +32,16 @@ export const generateMetadata = async ({
 
 const Ride = ({ params }: Props) => {
   const { country } = use(params)
-  const { flag, rideStat, map } = COUNTRIES_DATA[country as COUNTRY]
+  const { name, rideStat, map, youtubes } = COUNTRIES_DATA[country as COUNTRY]
   return (
     <>
-      <RideTitle className="mt-2" flag={flag} />
-      <RideStats className="mt-4" stats={rideStat} />
-      <RideMap
-        className="mt-4"
-        {...map}
-        videos={COUNTRIES_DATA[country as COUNTRY].youtubes}
-      />
-      <RideVideos
-        className="mt-4"
-        videos={COUNTRIES_DATA[country as COUNTRY].youtubes}
-      />
+      <PageHead title={name} meta="Ride map" />
+      <RideNav current={{ country, view: 'map' }} />
+      <div className="ride-sections">
+        <RideStats stats={rideStat} />
+        <RideMap {...map} videos={youtubes} />
+        <RideVideos videos={youtubes} />
+      </div>
     </>
   )
 }

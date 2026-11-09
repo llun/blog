@@ -3,7 +3,8 @@ import React from 'react'
 
 import { getMetadata } from '../../../../components/Meta'
 import PostList from '../../../../components/PostList'
-import RideTitle from '../../../../components/RideTitle'
+import PageHead from '../../../../components/PageHead'
+import RideNav from '../../../../components/RideNav'
 import {
   getAllPosts,
   getConfig,
@@ -25,7 +26,8 @@ const Ride = () => {
     .sort(postDescendingComparison)
   return (
     <>
-      <RideTitle className="mt-2" />
+      <PageHead title="Ride" meta={`${posts.length} posts`} />
+      <RideNav />
       <PostList posts={posts} />
     </>
   )

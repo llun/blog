@@ -13,7 +13,13 @@ export const getMarkdown = (config: AbsolutePathConfig) => {
     linkify: true
   })
   md.use(markdownItAnchor, {
-    permalink: markdownItAnchor.permalink.linkInsideHeader({ space: true })
+    // The "#" is a mouse convenience: hidden from screen readers and skipped
+    // by the tab key, so headings are read and reached without it
+    permalink: markdownItAnchor.permalink.linkInsideHeader({
+      space: true,
+      ariaHidden: true,
+      renderAttrs: () => ({ tabindex: '-1' })
+    })
   })
   md.use(markdownItFigures, {
     figcaption: true

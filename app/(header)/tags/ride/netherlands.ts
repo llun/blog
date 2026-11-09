@@ -7,6 +7,7 @@ const config = getConfig()
 const { title, description, url } = config
 
 export const NETHERLANDS: CountryData = {
+  name: 'Netherlands',
   meta: {
     url,
     title: `${title}, Netherlands`,

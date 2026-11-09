@@ -1,0 +1,15 @@
+@layer components {
+  /* T3: every list page opens the same way, the title on the left and a mono
+     count on the right, over the black rule the post pages use */
+  .page-head {
+    @apply mb-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-border pb-3;
+  }
+
+  .page-title {
+    @apply m-0 text-2xl font-medium tracking-tight md:text-3xl;
+  }
+
+  .page-head-meta {
+    @apply m-0 font-mono text-xs uppercase tracking-wider text-muted-foreground tabular-nums;
+  }
+}
