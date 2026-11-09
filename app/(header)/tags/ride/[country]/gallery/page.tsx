@@ -4,7 +4,8 @@ import React from 'react'
 import Medias from '../../../../../../components/Medias'
 import { getMetadata } from '../../../../../../components/Meta'
 import RideStats from '../../../../../../components/RideStats'
-import RideTitle from '../../../../../../components/RideTitle'
+import PageHead from '../../../../../../components/PageHead'
+import RideNav from '../../../../../../components/RideNav'
 import { getMediaList } from '../../../../../../libs/apple/media'
 import { fetchStream } from '../../../../../../libs/apple/webstream'
 
@@ -32,7 +33,7 @@ export const generateMetadata = async ({
 
 const RideGallery = async ({ params }: Props) => {
   const { country } = await params
-  const { flag, rideStat, galleryToken } = COUNTRIES_DATA[country as COUNTRY]
+  const { name, rideStat, galleryToken } = COUNTRIES_DATA[country as COUNTRY]
 
   const stream = await fetchStream(galleryToken)
   const medias = stream
@@ -43,14 +44,16 @@ const RideGallery = async ({ params }: Props) => {
 
   return (
     <>
-      <RideTitle className="mt-2" flag={flag} />
-      <RideStats className="mt-4" stats={rideStat} />
-      <Medias
-        className="mt-4"
-        partition={stream?.partition ?? 0}
-        token={galleryToken}
-        medias={medias}
-      />
+      <PageHead title={name} meta="Ride photos" />
+      <RideNav current={{ country, view: 'photos' }} />
+      <div className="ride-sections">
+        <RideStats stats={rideStat} />
+        <Medias
+          partition={stream?.partition ?? 0}
+          token={galleryToken}
+          medias={medias}
+        />
+      </div>
     </>
   )
 }

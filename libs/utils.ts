@@ -23,3 +23,14 @@ export const isSinglePathSegment = (value: string): boolean =>
  */
 export const isSafeSegment = (value: string): boolean =>
   SAFE_ROUTE_SEGMENT.test(value) && isSinglePathSegment(value)
+
+const THAI_TEXT = /[฀-๿]/
+
+/**
+ * Picks the language attribute for a piece of content. Most posts are Thai
+ * with some English mixed in, so any Thai letter marks the text as Thai.
+ * @param text - A title or the start of a post
+ * @returns 'th' for Thai text, undefined to keep the page's English
+ */
+export const getTextLang = (text: string): 'th' | undefined =>
+  THAI_TEXT.test(text) ? 'th' : undefined

@@ -3,6 +3,7 @@ import React from 'react'
 
 import AlbumList from '../../../components/AlbumList'
 import { getMetadata } from '../../../components/Meta'
+import PageHead from '../../../components/PageHead'
 import { getConfig } from '../../../libs/blog'
 import { getAllAlbums } from '../../../libs/gallery'
 
@@ -20,7 +21,7 @@ const Birds = () => {
     .sort((first, second) => first.title.localeCompare(second.title))
   return (
     <>
-      <h2 className="my-2">Birds</h2>
+      <PageHead title="Birds" meta={`${albums.length} species`} />
       <AlbumList albums={albums} basePath="/birds" />
     </>
   )

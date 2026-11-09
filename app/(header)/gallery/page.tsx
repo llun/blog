@@ -3,6 +3,7 @@ import React from 'react'
 
 import AlbumList from '../../../components/AlbumList'
 import { getMetadata } from '../../../components/Meta'
+import PageHead from '../../../components/PageHead'
 import { getConfig } from '../../../libs/blog'
 import { getAllAlbums } from '../../../libs/gallery'
 
@@ -15,11 +16,11 @@ export const metadata: Metadata = getMetadata({
 })
 
 const Gallery = () => {
-  const albums = getAllAlbums()
+  const albums = getAllAlbums().filter((album) => !album.section)
   return (
     <>
-      <h2 className="my-2">Image Gallery</h2>
-      <AlbumList albums={albums.filter((album) => !album.section)} />
+      <PageHead title="Gallery" meta={`${albums.length} albums`} />
+      <AlbumList albums={albums} />
     </>
   )
 }

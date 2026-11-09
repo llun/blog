@@ -2,6 +2,7 @@ import { FlagCode } from '@/components/Flag'
 import { YoutubeVideo } from '@/components/RideVideos'
 
 export interface CountryData {
+  name: string
   meta: {
     url: string
     title: string

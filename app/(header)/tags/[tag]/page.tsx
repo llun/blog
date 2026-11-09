@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import React, { use } from 'react'
 
 import { getMetadata } from '../../../../components/Meta'
+import PageHead from '../../../../components/PageHead'
 import PostList from '../../../../components/PostList'
 import {
   getAllPosts,
@@ -40,7 +41,7 @@ const Tag = ({ params }: Props) => {
 
   return (
     <>
-      <h2 className="my-2">{getTagTitle(tag)}</h2>
+      <PageHead title={getTagTitle(tag)} meta={`${posts.length} posts`} />
       <PostList posts={posts} />
     </>
   )

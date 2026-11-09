@@ -1,9 +1,0 @@
-@layer components {
-  .ride-title-image {
-    @apply align-middle mb-0 mr-2;
-  }
-
-  .ride-title-icon {
-    @apply w-5 h-5 inline align-text-bottom text-[var(--primary)];
-  }
-}

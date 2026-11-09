@@ -6,6 +6,7 @@ import { CountryData } from './types'
 const config = getConfig()
 const { title, description, url } = config
 export const SINGAPORE: CountryData = {
+  name: 'Singapore',
   meta: {
     url,
     title: `${title}, Singapore`,

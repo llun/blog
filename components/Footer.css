@@ -10,8 +10,4 @@
   .footer-link {
     @apply inline-flex items-center gap-1.5 whitespace-nowrap px-2 py-1 font-mono text-xs text-muted-foreground no-underline transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
   }
-
-  .footer-link:visited {
-    @apply text-muted-foreground;
-  }
 }

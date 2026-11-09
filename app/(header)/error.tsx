@@ -18,18 +18,13 @@ const ErrorBoundary = ({ error, reset }: Props) => (
     {error.digest && (
       <p className="text-muted-foreground text-sm">Reference {error.digest}</p>
     )}
-    <div className="flex items-center justify-center gap-6">
-      <button
-        type="button"
-        className="post-header-back-link cursor-pointer underline"
-        style={{ color: 'var(--link)' }}
-        onClick={() => reset()}
-      >
-        <RotateCcw className="mr-2 h-4 w-4" />
+    <div className="flex items-center justify-center gap-3">
+      <button type="button" className="key key-primary" onClick={() => reset()}>
+        <RotateCcw className="h-4 w-4" aria-hidden="true" />
         Try again
       </button>
-      <Link className="post-header-back-link" href="/">
-        <ArrowLeft className="mr-2 h-4 w-4" />
+      <Link className="key" href="/">
+        <ArrowLeft className="h-4 w-4" aria-hidden="true" />
         Home
       </Link>
     </div>

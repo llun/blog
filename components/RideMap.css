@@ -8,7 +8,7 @@
   }
 
   .ride-map-marker-item {
-    @apply w-[32px] h-[32px] bg-white border border-gray-200;
+    @apply h-[32px] w-[32px] border border-foreground bg-background;
   }
 
   .ride-map-marker-image {

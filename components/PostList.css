@@ -1,11 +1,11 @@
 @layer components {
   /* a ruled list: light rules between rows, a mono date column and a tag */
   .post-list {
-    @apply m-0 max-w-4xl list-none space-y-0 p-0;
+    @apply m-0 list-none space-y-0 p-0;
   }
 
   .post-list-item {
-    @apply grid items-baseline gap-x-4 border-t border-grid py-2.5 first:border-t-0;
+    @apply grid items-baseline gap-x-4 border-t border-grid py-3 first:border-t-0;
     grid-template-columns: 6.5rem minmax(0, 1fr) auto;
   }
 
@@ -14,15 +14,11 @@
   }
 
   .post-list-item-title {
-    @apply min-w-0 text-base text-foreground no-underline hover:underline md:text-lg;
-  }
-
-  .post-list-item-title:visited {
-    @apply text-foreground;
+    @apply min-w-0 text-base text-foreground no-underline underline-offset-4 hover:underline md:text-[17px];
   }
 
   .post-list-item-tag {
-    @apply border border-border px-1.5 py-0.5 font-mono text-[10px] uppercase leading-none tracking-wider text-muted-foreground;
+    @apply border border-border px-1.5 py-1 font-mono text-xs uppercase leading-none tracking-wider text-muted-foreground;
   }
 
   @media (max-width: 480px) {

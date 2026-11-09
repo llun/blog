@@ -1,14 +1,6 @@
 @layer components {
   .post-header {
-    @apply flex items-center justify-between my-4;
-  }
-
-  .post-header-back-link {
-    @apply inline-flex items-center gap-1 text-base text-foreground no-underline hover:underline;
-  }
-
-  .post-header-back-link:visited {
-    @apply text-foreground;
+    @apply my-6 flex items-center justify-between;
   }
 
   /* the post opens on a ruled band: title, then a mono meta line, then a rule */
@@ -36,10 +28,10 @@
     @apply mb-8 text-[17px];
   }
 
-  /* text keeps about 70 characters a line; photos, maps and videos use the
-     full column */
+  /* text keeps about 70 characters a line (42rem at 17px); photos, maps and
+     videos use the full column */
   .post-body > :is(p, ul, ol, h2, h3, h4, h5, h6, pre, blockquote, table) {
-    @apply max-w-3xl;
+    max-width: 42rem;
   }
 
   .post-body > :first-child {

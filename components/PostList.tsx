@@ -3,6 +3,7 @@ import { DateTime } from 'luxon'
 import Link from 'next/link'
 
 import type { Post } from '../libs/blog'
+import { getTextLang } from '../libs/utils'
 
 interface Props {
   posts: Post[]
@@ -22,6 +23,7 @@ const PostList = ({ posts }: Props) => {
             href={`/posts/${post.file.id}`}
             className="post-list-item-title"
             title={post.properties.title}
+            lang={getTextLang(post.properties.title)}
           >
             {post.properties.title}
           </Link>

@@ -1,6 +1,9 @@
 @layer components {
   .flag {
     @apply inline-block shrink-0 border border-foreground;
+    /* the rule sits outside the 3:2 drawing; inside it would squeeze the
+       drawing into a box that is not 3:2 and leave white bars beside it */
+    box-sizing: content-box;
     width: 30px;
     height: 20px;
   }

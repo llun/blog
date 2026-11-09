@@ -1,6 +1,15 @@
 @layer components {
+  /* S1: 40px between the sections of a country page */
+  .ride-sections {
+    @apply flex flex-col gap-10;
+  }
+
+  .ride-sections > * {
+    @apply m-0;
+  }
+
   .ride-stats {
-    @apply my-4 grid grid-cols-2 border border-border;
+    @apply m-0 grid grid-cols-2 border border-border;
   }
 
   .ride-stats-cell {
@@ -12,7 +21,7 @@
   }
 
   .ride-stats-label {
-    @apply mt-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground;
+    @apply mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground;
   }
 
   .ride-stats-value {
