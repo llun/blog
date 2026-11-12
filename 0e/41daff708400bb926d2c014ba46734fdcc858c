@@ -1,0 +1,21 @@
+contents/galleries/copper-throated-sunbird.md
+  s_2deff2f9d474ec::t_3534a0828e3cc1 1-12
+public/birds/copper-throated-sunbird.json
+  s_2deff2f9d474ec::t_3534a0828e3cc1 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0e41daff708400bb926d2c014ba46734fdcc858c",
+  "prompts": {},
+  "sessions": {
+    "s_2deff2f9d474ec": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45713ae5-6efa-4eef-abbe-b6df01e19f67",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
