@@ -1,0 +1,29 @@
+public/birds/great-crested-grebe.json
+  s_33b0a365914989::t_57afe55d6e2b1f 1
+public/birds/grey-wagtail.json
+  s_33b0a365914989::t_57afe55d6e2b1f 1
+contents/galleries/grey-wagtail.md
+  s_33b0a365914989::t_57afe55d6e2b1f 1-12
+public/birds/white-wagtail.json
+  s_33b0a365914989::t_57afe55d6e2b1f 1
+contents/galleries/white-wagtail.md
+  s_33b0a365914989::t_57afe55d6e2b1f 1-12
+contents/galleries/great-crested-grebe.md
+  s_33b0a365914989::t_57afe55d6e2b1f 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "789e0f4dfac05a00c2d5291b6be9f42dafc995d1",
+  "prompts": {},
+  "sessions": {
+    "s_33b0a365914989": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7fdbb21c-f9c2-4a72-a08e-92c353efc0af",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
