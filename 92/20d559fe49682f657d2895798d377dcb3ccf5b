@@ -1,0 +1,40 @@
+contents/galleries-hidden/blue-tit.json
+  s_9d23dd387abcf3::t_6089a2a9fab95d 1-84
+scripts/birds-dedupe.ts
+  s_9d23dd387abcf3::t_88d57c7dad37b7 1-12,15-21,23-31,36-70,72-176,178-244,246-261,272-284,287-290,293-316,318-359
+  s_9d23dd387abcf3::t_6089a2a9fab95d 360
+  s_9d23dd387abcf3::t_62a133f5933c01 286,291-292,317
+  s_9d23dd387abcf3::t_133cc69efd4536 22
+  s_9d23dd387abcf3::t_a5a531c4f7c109 177
+  s_9d23dd387abcf3::t_9d84f7768d4031 13-14,285
+  s_9d23dd387abcf3::t_a574776678abb9 71
+  s_9d23dd387abcf3::t_6e876900f99769 32-35,245,262-271
+contents/galleries-hidden/barn-swallow.json
+  s_9d23dd387abcf3::t_6089a2a9fab95d 1-60
+.gitignore
+  s_9d23dd387abcf3::t_a574776678abb9 22
+scripts/birds-dedupe.check.ts
+  s_9d23dd387abcf3::t_6089a2a9fab95d 1-28
+contents/galleries-hidden/collared-kingfisher.json
+  s_9d23dd387abcf3::t_6089a2a9fab95d 1-10
+package.json
+  s_9d23dd387abcf3::t_a574776678abb9 15-16
+libs/gallery.ts
+  s_9d23dd387abcf3::t_2202a6f83a9806 121-136,159,162-164
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9220d559fe49682f657d2895798d377dcb3ccf5b",
+  "prompts": {},
+  "sessions": {
+    "s_9d23dd387abcf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fd364a1-b152-4fb2-b57c-424f505ec338",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
