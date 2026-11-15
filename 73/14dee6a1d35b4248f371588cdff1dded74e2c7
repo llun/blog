@@ -1,0 +1,19 @@
+components/AlbumPage.tsx
+  s_ec85d486028d03::t_2f0524f484b1ab 16-17,20-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7314dee6a1d35b4248f371588cdff1dded74e2c7",
+  "prompts": {},
+  "sessions": {
+    "s_ec85d486028d03": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c8a9ffaa-b65b-43c0-8c93-e8a1b53055fd",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
