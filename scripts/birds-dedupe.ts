@@ -12,6 +12,15 @@
  *     pick of each group stays, the rest of the group is hidden. Ids in the
  *     album's `keep` list are never hidden. A three-way split goes to the
  *     first votes file, so list the most careful judge first.
+ *
+ *   yarn birds:dedupe blur <slug...>|--all
+ *     Writes every visible photo not checked before to
+ *     .cache/birds-dedupe/<slug>/blur/NNN.jpg for the models to judge.
+ *
+ *   yarn birds:dedupe apply-blur <slug> <votes.json...>
+ *     Each votes file is a list of photo numbers one model found blurry. A
+ *     photo most models flag is hidden, unless that would leave the album
+ *     with fewer than MinVisible photos.
  */
 import fs from 'fs'
 import path from 'path'
@@ -34,6 +43,7 @@ const Columns = 3
 // Full frames next to each sheet, for zooming in on small birds
 const FrameSize = 1600
 const Letters = 'abcdefghijklmnopqrstuvwxyz'
+const MinVisible = 5
 
 interface Photo {
   id: string
@@ -238,7 +248,7 @@ const writeSheet = async (file: string, photos: Photo[]) => {
 const group = async (slug: string) => {
   const photos = await loadPhotos(slug)
   const byId = new Map(photos.map((photo) => [photo.id, photo]))
-  const { keep } = readHidden(slug)
+  const { hidden, keep } = readHidden(slug)
   const dir = path.join(CacheDir, slug)
   for (const file of fs.readdirSync(dir)) {
     if (file.startsWith('group-'))
@@ -249,7 +259,10 @@ const group = async (slug: string) => {
   for (const ids of groupPhotos(photos)) {
     if (ids.length < 2) continue
     // Sheets hold at most 26 frames; a longer burst is split, sharpest first
+    // Earlier runs already settled hidden frames; a group only needs a vote
+    // again when a new upload joins its kept photo
     const ordered = ids
+      .filter((id) => !hidden.includes(id))
       .map((id) => byId.get(id)!)
       .sort((a, b) => b.sharpness - a.sharpness)
     for (let i = 0; i < ordered.length; i += Letters.length) {
@@ -276,9 +289,9 @@ const group = async (slug: string) => {
     path.join(dir, 'groups.json'),
     JSON.stringify(groups, null, 2)
   )
-  const hidden = groups.reduce((total, { ids }) => total + ids.length - 1, 0)
+  const toHide = groups.reduce((total, { ids }) => total + ids.length - 1, 0)
   console.log(
-    `${slug}: ${photos.length} photos, ${groups.length} groups, ${photos.length - hidden} would stay`
+    `${slug}: ${photos.length} photos, ${groups.length} groups to vote on, ${photos.length - hidden.length - toHide} would stay`
   )
 }
 
@@ -300,8 +313,8 @@ const apply = (slug: string, voteFiles: string[]) => {
   const votes: Record<string, string>[] = voteFiles.map((file) =>
     JSON.parse(fs.readFileSync(file, 'utf8'))
   )
-  const { keep } = readHidden(slug)
-  const hidden: string[] = []
+  const { hidden: earlier, keep } = readHidden(slug)
+  const hidden = new Set(earlier)
   const decisions: Record<string, string> = {}
   for (const { number, ids } of groups) {
     const letters = votes
@@ -317,41 +330,133 @@ const apply = (slug: string, voteFiles: string[]) => {
     const winner = pickWinner(letters)
     decisions[number] = winner
     ids.forEach((id, index) => {
-      if (Letters[index] !== winner && !keep.includes(id)) hidden.push(id)
+      if (Letters[index] !== winner && !keep.includes(id)) hidden.add(id)
     })
   }
   fs.mkdirSync(HiddenDir, { recursive: true })
   fs.writeFileSync(
     path.join(HiddenDir, `${slug}.json`),
-    `${JSON.stringify({ hidden: hidden.sort(), keep }, null, 2)}\n`
+    `${JSON.stringify({ hidden: [...hidden].sort(), keep }, null, 2)}\n`
   )
   fs.writeFileSync(
     path.join(dir, 'decisions.json'),
     JSON.stringify(decisions, null, 2)
   )
-  console.log(`${slug}: hid ${hidden.length} photos`)
+  console.log(`${slug}: ${hidden.size} photos hidden`)
 }
+
+const blurCheckedFile = (slug: string) =>
+  path.join(CacheDir, slug, 'blur-checked.json')
+
+const readBlurChecked = (slug: string): string[] =>
+  fs.existsSync(blurCheckedFile(slug))
+    ? JSON.parse(fs.readFileSync(blurCheckedFile(slug), 'utf8'))
+    : []
+
+const blur = async (slug: string) => {
+  const photos = await loadPhotos(slug)
+  const { hidden } = readHidden(slug)
+  const checked = readBlurChecked(slug)
+  const dir = path.join(CacheDir, slug, 'blur')
+  fs.rmSync(dir, { recursive: true, force: true })
+  fs.mkdirSync(dir, { recursive: true })
+  const todo = photos
+    .filter(
+      (photo) => !hidden.includes(photo.id) && !checked.includes(photo.id)
+    )
+    .map((photo, index) => ({
+      number: index + 1,
+      id: photo.id,
+      url: photo.url
+    }))
+  for (let i = 0; i < todo.length; i += Concurrency) {
+    await Promise.all(
+      todo
+        .slice(i, i + Concurrency)
+        .map(async ({ number, url }) =>
+          fs.promises.writeFile(
+            path.join(dir, `${String(number).padStart(3, '0')}.jpg`),
+            await download(`${url}=w${FrameSize}-h${FrameSize}`)
+          )
+        )
+    )
+  }
+  fs.writeFileSync(
+    path.join(dir, 'photos.json'),
+    JSON.stringify(todo.map(({ number, id }) => ({ number, id })))
+  )
+  console.log(`${slug}: ${todo.length} photos to check for blur`)
+}
+
+/** Photo numbers flagged by more than half of the votes files. */
+export const pickBlurry = (votes: number[][]) => {
+  const counts = new Map<number, number>()
+  for (const vote of votes)
+    for (const number of new Set(vote))
+      counts.set(number, (counts.get(number) ?? 0) + 1)
+  return [...counts]
+    .filter(([, count]) => count > votes.length / 2)
+    .map(([number]) => number)
+}
+
+const applyBlur = (slug: string, voteFiles: string[]) => {
+  const dir = path.join(CacheDir, slug, 'blur')
+  const todo: { number: number; id: string }[] = JSON.parse(
+    fs.readFileSync(path.join(dir, 'photos.json'), 'utf8')
+  )
+  const votes: number[][] = voteFiles.map((file) =>
+    JSON.parse(fs.readFileSync(file, 'utf8')).map(Number)
+  )
+  const { hidden: earlier, keep } = readHidden(slug)
+  const photos = JSON.parse(
+    fs.readFileSync(path.join(CacheDir, slug, 'photos.json'), 'utf8')
+  )
+  const blurry = pickBlurry(votes)
+    .map((number) => todo.find((photo) => photo.number === number)?.id)
+    .filter((id): id is string => !!id && !keep.includes(id))
+  const hidden = new Set([...earlier, ...blurry])
+  if (Object.keys(photos).length - hidden.size < MinVisible) {
+    console.log(
+      `${slug}: hiding ${blurry.length} blurry photos would leave too few, skipped`
+    )
+    return
+  }
+  fs.writeFileSync(
+    path.join(HiddenDir, `${slug}.json`),
+    `${JSON.stringify({ hidden: [...hidden].sort(), keep }, null, 2)}\n`
+  )
+  fs.writeFileSync(
+    blurCheckedFile(slug),
+    JSON.stringify([...readBlurChecked(slug), ...todo.map(({ id }) => id)])
+  )
+  console.log(`${slug}: ${blurry.length} blurry photos hidden`)
+}
+
+const birdSlugs = () =>
+  fs
+    .readdirSync(Galleries)
+    .filter((file) =>
+      /^section:\s*birds\s*$/m.test(
+        fs.readFileSync(path.join(Galleries, file), 'utf8')
+      )
+    )
+    .map((file) => file.replace(/\.md$/, ''))
 
 const main = async () => {
   const [command, ...args] = process.argv.slice(2)
-  if (command === 'group') {
-    const slugs =
-      args[0] === '--all'
-        ? fs
-            .readdirSync(Galleries)
-            .filter((file) =>
-              /^section:\s*birds\s*$/m.test(
-                fs.readFileSync(path.join(Galleries, file), 'utf8')
-              )
-            )
-            .map((file) => file.replace(/\.md$/, ''))
-        : args
+  if (command === 'blur') {
+    for (const slug of args[0] === '--all' ? birdSlugs() : args)
+      await blur(slug)
+  } else if (command === 'apply-blur' && args.length >= 2) {
+    applyBlur(args[0], args.slice(1))
+  } else if (command === 'group') {
+    const slugs = args[0] === '--all' ? birdSlugs() : args
     for (const slug of slugs) await group(slug)
   } else if (command === 'apply' && args.length >= 2) {
     apply(args[0], args.slice(1))
   } else {
     console.log(
-      'Usage: birds-dedupe group <slug...>|--all, or apply <slug> <votes.json...>'
+      'Usage: birds-dedupe group|blur <slug...>|--all, apply|apply-blur <slug> <votes.json...>'
     )
     process.exitCode = 1
   }

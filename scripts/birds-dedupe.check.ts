@@ -1,7 +1,7 @@
 // Self-check for the dedupe grouping and voting: yarn tsx scripts/birds-dedupe.check.ts
 import assert from 'assert'
 
-import { groupPhotos, pickWinner } from './birds-dedupe'
+import { groupPhotos, pickBlurry, pickWinner } from './birds-dedupe'
 
 const photo = (id: string, seconds: number, hash: string) => ({
   id,
@@ -26,3 +26,12 @@ assert.deepStrictEqual(
 assert.strictEqual(pickWinner(['b', 'c', 'c']), 'c')
 assert.strictEqual(pickWinner(['a', 'b', 'c']), 'a')
 console.log('ok')
+assert.deepStrictEqual(
+  pickBlurry([
+    [1, 2],
+    [2, 3],
+    [2, 1]
+  ]).sort(),
+  [1, 2]
+)
+console.log('blur ok')
