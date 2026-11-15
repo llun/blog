@@ -1,6 +1,6 @@
 You are judging bird photos for a photo blog. Do not edit any file except the votes files named below.
 
-Albums to judge: every folder under .cache/birds-dedupe/ (relative to the repo root, the current directory) whose groups.json is a non-empty list and that has no votes-MODEL.json newer than its groups.json. Each such folder has, for every group N, a contact sheet group-NNN.jpg (frames labelled a, b, c...) and a folder group-NNN/ with the same frames at full size as a.jpg, b.jpg, ... Every group is one burst of near-identical frames of the same bird.
+Albums to judge: the album names listed (one per line) in ALBUMS_FILE. Each album is a folder .cache/birds-dedupe/<album>/ (relative to the repo root, the current directory). Each folder has, for every group N, a contact sheet group-NNN.jpg (frames labelled a, b, c...) and a folder group-NNN/ with the same frames at full size as a.jpg, b.jpg, ... Every group is one burst of near-identical frames of the same bird.
 
 For every group, pick the single best frame to keep. Judge the BIRD, not the background:
 1. The bird is in sharp focus, ideally the eye. Open the full-size frames and zoom into the bird; birds are often small, and sharp branches don't count.

@@ -329,8 +329,10 @@ const apply = (slug: string, voteFiles: string[]) => {
     if (letters.length === 0) continue
     const winner = pickWinner(letters)
     decisions[number] = winner
+    // Re-applying with more votes replaces this group's earlier decision
     ids.forEach((id, index) => {
       if (Letters[index] !== winner && !keep.includes(id)) hidden.add(id)
+      else hidden.delete(id)
     })
   }
   fs.mkdirSync(HiddenDir, { recursive: true })
