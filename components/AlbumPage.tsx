@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
@@ -9,6 +12,14 @@ import BirdMap from './BirdMap'
 import Medias from './Medias'
 import { getMetadata } from './Meta'
 import PageHead from './PageHead'
+
+// Birds with no GPS in any photo have an empty map file, so they get no map.
+const hasBirdMap = (name: string) => {
+  const file = path.join(process.cwd(), 'public', 'birds', `${name}.json`)
+  if (!fs.existsSync(file)) return false
+  const { features } = JSON.parse(fs.readFileSync(file, 'utf8'))
+  return Array.isArray(features) && features.length > 0
+}
 
 interface Props {
   params: Promise<{ name: string }>
@@ -94,10 +105,12 @@ export const albumPage = (section?: string) => {
                 )}
               </div>
             </div>
-            <section>
-              <h2 className="album-section-title">Where I saw it</h2>
-              <BirdMap dataPath={`/birds/${album.name}.json`} />
-            </section>
+            {hasBirdMap(album.name) && (
+              <section>
+                <h2 className="album-section-title">Where I saw it</h2>
+                <BirdMap dataPath={`/birds/${album.name}.json`} />
+              </section>
+            )}
             <section>
               <h2 className="album-section-title">Photos</h2>
               <Medias
