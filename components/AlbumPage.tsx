@@ -13,12 +13,19 @@ import Medias from './Medias'
 import { getMetadata } from './Meta'
 import PageHead from './PageHead'
 
-// Birds with no GPS in any photo have an empty map file, so they get no map.
+// Birds with no GPS in any photo have an empty map file (or none), so they
+// get no map. A broken file only hides that bird's map, like parseAlbum.
 const hasBirdMap = (name: string) => {
   const file = path.join(process.cwd(), 'public', 'birds', `${name}.json`)
-  if (!fs.existsSync(file)) return false
-  const { features } = JSON.parse(fs.readFileSync(file, 'utf8'))
-  return Array.isArray(features) && features.length > 0
+  try {
+    const features = JSON.parse(fs.readFileSync(file, 'utf8'))?.features
+    return Array.isArray(features) && features.length > 0
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
+      console.warn(`Cannot read bird map ${file}`, error)
+    }
+    return false
+  }
 }
 
 interface Props {
