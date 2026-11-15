@@ -12,7 +12,8 @@
     "feeds": "yarn ride:exec scripts/generate-feeds.ts",
     "optimize-images": "scripts/optimize-images.sh",
     "ride:exec": "tsx",
-    "ride": "yarn ride:exec scripts/load-netherlands-activities.ts && yarn ride:exec scripts/load-slovenia-activities.ts && yarn ride:exec scripts/simplify-gps.ts && yarn ride:exec scripts/generate-rides-stats.ts"
+    "ride": "yarn ride:exec scripts/load-netherlands-activities.ts && yarn ride:exec scripts/load-slovenia-activities.ts && yarn ride:exec scripts/simplify-gps.ts && yarn ride:exec scripts/generate-rides-stats.ts",
+    "birds:dedupe": "tsx scripts/birds-dedupe.ts"
   },
   "author": "Maythee Anegboonlap <contact@llun.dev>",
   "license": "UNLICENSED",

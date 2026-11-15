@@ -19,3 +19,4 @@ scripts/singapore.json
 scripts/slovenia.json
 .yarn
 *.tsbuildinfo
+.cache

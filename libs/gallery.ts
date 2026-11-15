@@ -118,6 +118,22 @@ export const getAllAlbums = memoize(() => {
   return albums
 })
 
+/**
+ * Duplicate photos (bursts) hidden from an album on the blog, written by
+ * scripts/birds-dedupe.ts. The photos stay in Google Photos.
+ */
+const readHiddenPhotos = (name: string): string[] => {
+  const file = path.join(
+    process.cwd(),
+    'contents',
+    'galleries-hidden',
+    `${name}.json`
+  )
+  if (!fs.existsSync(file)) return []
+  const list = JSON.parse(fs.readFileSync(file, 'utf8'))
+  return Array.isArray(list.hidden) ? list.hidden : []
+}
+
 export interface AlbumMedias {
   album: Album
   medias: Media[]
@@ -140,11 +156,12 @@ const loadAlbum = async (name: string): Promise<AlbumMedias | null> => {
   const token = album.token
   if (isGooglePhotosToken(token)) {
     const medias = await fetchGooglePhotosAlbum(token)
+    const hidden = new Set(readHiddenPhotos(name))
     return {
       album,
-      medias: (medias ?? []).sort(
-        (first, second) => first.createdAt - second.createdAt
-      ),
+      medias: (medias ?? [])
+        .filter((media) => !hidden.has(media.guid))
+        .sort((first, second) => first.createdAt - second.createdAt),
       partition: 0
     }
   }
