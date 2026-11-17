@@ -207,7 +207,11 @@ const loadPhotos = async (slug: string): Promise<Photo[]> => {
   return photos
 }
 
-const writeSheet = async (file: string, photos: Photo[]) => {
+const writeSheet = async (
+  file: string,
+  photos: { url: string }[],
+  labels: string[] = Letters.split('')
+) => {
   const rows = Math.ceil(photos.length / Columns)
   const tiles = await Promise.all(
     photos.map(async (photo, index) => {
@@ -222,7 +226,7 @@ const writeSheet = async (file: string, photos: Photo[]) => {
         .png()
         .toBuffer()
       const label = Buffer.from(
-        `<svg width="44" height="44"><rect width="44" height="44" rx="6" fill="black" opacity="0.75"/><text x="22" y="31" font-size="28" text-anchor="middle" fill="white" font-family="Helvetica">${Letters[index]}</text></svg>`
+        `<svg width="64" height="44"><rect width="64" height="44" rx="6" fill="black" opacity="0.75"/><text x="32" y="31" font-size="26" text-anchor="middle" fill="white" font-family="Helvetica">${labels[index]}</text></svg>`
       )
       const left = (index % Columns) * TileSize
       const top = Math.floor(index / Columns) * TileSize
@@ -357,14 +361,19 @@ const readBlurChecked = (slug: string): string[] =>
 
 const blur = async (slug: string) => {
   const photos = await loadPhotos(slug)
-  const { hidden } = readHidden(slug)
+  const { hidden, keep } = readHidden(slug)
   const checked = readBlurChecked(slug)
   const dir = path.join(CacheDir, slug, 'blur')
   fs.rmSync(dir, { recursive: true, force: true })
   fs.mkdirSync(dir, { recursive: true })
-  const todo = photos
+  // Time order, so a model sees each scene's bursts side by side
+  const todo = [...photos]
+    .sort((a, b) => a.createdAt - b.createdAt)
     .filter(
-      (photo) => !hidden.includes(photo.id) && !checked.includes(photo.id)
+      (photo) =>
+        !hidden.includes(photo.id) &&
+        !keep.includes(photo.id) &&
+        !checked.includes(photo.id)
     )
     .map((photo, index) => ({
       number: index + 1,
@@ -383,11 +392,20 @@ const blur = async (slug: string) => {
         )
     )
   }
+  // Numbered overview sheets, 12 photos each, for a first pass
+  for (let i = 0; i < todo.length; i += 12) {
+    const chunk = todo.slice(i, i + 12)
+    await writeSheet(
+      path.join(dir, `sheet-${String(i / 12 + 1).padStart(3, '0')}.jpg`),
+      chunk,
+      chunk.map(({ number }) => String(number))
+    )
+  }
   fs.writeFileSync(
     path.join(dir, 'photos.json'),
     JSON.stringify(todo.map(({ number, id }) => ({ number, id })))
   )
-  console.log(`${slug}: ${todo.length} photos to check for blur`)
+  console.log(`${slug}: ${todo.length} photos to check`)
 }
 
 /** Photo numbers flagged by more than half of the votes files. */
