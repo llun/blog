@@ -87,6 +87,28 @@ function getStreamBaseUrl(token: string) {
 }
 
 /**
+ * Apple moves shared albums between servers. The old server then answers
+ * with HTTP 330 and a body naming the new one, e.g.
+ * { "X-Apple-MMe-Host": "p140-sharedstreams.icloud.com" }
+ */
+const SharedStreamsHost = /^p(\d+)-sharedstreams\.icloud\.com$/
+
+async function getRedirectHost(response: Response): Promise<string | null> {
+  try {
+    const data = (await response.json()) as { 'X-Apple-MMe-Host'?: unknown }
+    const host = data['X-Apple-MMe-Host']
+    if (typeof host !== 'string' || !SharedStreamsHost.test(host)) return null
+    return host
+  } catch {
+    return null
+  }
+}
+
+function getPartitionFromHost(host: string) {
+  return parseInt(SharedStreamsHost.exec(host)?.[1] ?? '0', 10)
+}
+
+/**
  * Fetch all media information from public iCloud Shared Album
  *
  * @param token shared album id, this is the string after hash e.g.
@@ -107,16 +129,17 @@ export async function fetchStream(token: string): Promise<Stream | null> {
     requestOptions
   )
   if (response.status === 330) {
-    const data = await response.json()
-    const newPartition = response.headers.get('x-apple-user-partition')
+    const host = await getRedirectHost(response)
+    if (!host) return null
     const redirectResponse = await fetch(
-      `https://${data['X-Apple-MMe-Host']}/${token}/sharedstreams/webstream`,
+      `https://${host}/${token}/sharedstreams/webstream`,
       requestOptions
     )
+    if (redirectResponse.status !== 200) return null
 
     return {
       ...(await redirectResponse.json()),
-      partition: parseInt(newPartition || '0', 10)
+      partition: getPartitionFromHost(host)
     }
   }
   if (response.status !== 200) return null
@@ -128,18 +151,30 @@ export async function fetchAssetsUrl(
   token: string,
   photoGuids: string[]
 ): Promise<Response | null> {
+  const requestOptions = {
+    headers: {
+      'cache-control': 'no-cache',
+      'content-type': 'text/plain',
+      pragma: 'no-cache'
+    },
+    body: JSON.stringify({ photoGuids }),
+    method: 'POST'
+  }
   const response = await fetch(
     `https://p${partition}-sharedstreams.icloud.com/${token}/sharedstreams/webasseturls`,
-    {
-      headers: {
-        'cache-control': 'no-cache',
-        'content-type': 'text/plain',
-        pragma: 'no-cache'
-      },
-      body: JSON.stringify({ photoGuids }),
-      method: 'POST'
-    }
+    requestOptions
   )
+  // Pages built before Apple moved the album still send the old partition
+  if (response.status === 330) {
+    const host = await getRedirectHost(response)
+    if (!host) return null
+    const redirectResponse = await fetch(
+      `https://${host}/${token}/sharedstreams/webasseturls`,
+      requestOptions
+    )
+    if (redirectResponse.status !== 200) return null
+    return redirectResponse
+  }
   if (response.status !== 200) return null
   return response
 }

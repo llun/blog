@@ -95,6 +95,13 @@ export async function POST(request: NextRequest) {
     return new Response(JSON.stringify(assets), { status: 200, headers })
   }
 
+  if (!Number.isInteger(body.partition) || body.partition < 0) {
+    return new Response(JSON.stringify({ error: 'Bad Request' }), {
+      status: 400,
+      headers
+    })
+  }
+
   const response = await fetchAssetsUrl(
     body.partition,
     body.token,
