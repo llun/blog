@@ -1,0 +1,14 @@
+# Keeps the SHA-pinned workflow actions current. Action updates are reviewed by hand:
+# dependabot-automerge.yml only auto-merges npm security updates.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 8
+    groups:
+      actions:
+        patterns:
+          - '*'
