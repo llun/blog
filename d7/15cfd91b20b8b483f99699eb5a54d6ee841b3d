@@ -1,0 +1,29 @@
+.github/dependabot.yml
+  s_0303642889c22e::t_8add66d841c5ba 1-14
+.github/workflows/dependabot-automerge.yml
+  s_0303642889c22e::t_8add66d841c5ba 12-13
+.github/workflows/codeql.yml
+  s_0303642889c22e::t_544758f761b3ba 27,30,35,38
+.github/workflows/deploy.yml
+  s_0303642889c22e::t_544758f761b3ba 18,24,38,49,55,147
+.github/workflows/ci.yml
+  s_0303642889c22e::t_544758f761b3ba 19,25
+next-env.d.ts
+  s_0303642889c22e::t_8add66d841c5ba 3-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d715cfd91b20b8b483f99699eb5a54d6ee841b3d",
+  "prompts": {},
+  "sessions": {
+    "s_0303642889c22e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b9e80880-6d1c-448c-bf09-ce18b6ac927f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Maythee Anegboonlap <contact@llun.dev>"
+    }
+  }
+}
