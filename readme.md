@@ -169,16 +169,15 @@ Architecture:
 
 `.github/workflows/ci.yml` runs on pull requests (and can be dispatched manually) and checks the branch with `yarn lint`, `yarn typecheck` and `yarn export` - the same static export the deploy workflow builds. Run the same three commands locally before pushing.
 
-### Required GitHub Secrets
+### Required GitHub Secrets and Variables
 
-For the deployment workflow to work, configure these secrets in your repository:
-- `NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` - Mapbox public token, inlined into the site during the build step
-- `AWS_ACCESS_KEY_ID` - AWS access key for deployment
-- `AWS_SECRET_ACCESS_KEY` - AWS secret key for deployment
-- `AWS_S3_BUCKET` - S3 bucket name for hosting
-- `AWS_DISTRIBUTION_ID` - CloudFront distribution ID
+For the deployment workflow to work, configure these in your repository:
+- `NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` (secret) - Mapbox public token, inlined into the site during the build step
+- `AWS_S3_BUCKET` (secret) - S3 bucket name for hosting
+- `AWS_DISTRIBUTION_ID` (secret) - CloudFront distribution ID
+- `AWS_DEPLOY_ROLE_ARN` (variable) - the IAM role the upload and invalidation jobs assume through GitHub OIDC; there are no stored AWS keys. The role, its trust policy (this repo's `master` only) and its permissions live in llun/labs `infrastructure/aws/blog/github-deploy.*.json`.
 
-The build job runs in the `production` environment, so `NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` has to be reachable from that environment. The upload and invalidation jobs declare no environment and read the `AWS_*` secrets at repository level.
+The build job runs in the `production` environment, so `NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` has to be reachable from that environment. The upload and invalidation jobs declare no environment, so their OIDC token's subject is `repo:llun/blog:ref:refs/heads/master`, which the role's trust policy requires, and they read the `AWS_*` secrets at repository level.
 
 ## Notes
 
