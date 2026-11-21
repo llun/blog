@@ -28,7 +28,7 @@ const AlbumList = ({ albums, basePath = '/gallery' }: Props) => (
         return (
           <Link
             key={name}
-            href={`${basePath}/${name}`}
+            href={`${basePath}/${name}/`}
             className="gallery-card"
           >
             <picture>

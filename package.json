@@ -8,12 +8,13 @@
     "build": "yarn feeds && next build --turbopack",
     "lint": "oxlint --deny-warnings",
     "typecheck": "tsc --noEmit",
-    "export": "yarn feeds && BLOG_EXPORT=1 next build --turbopack",
+    "export": "yarn feeds && BLOG_EXPORT=1 next build --turbopack && yarn check-links",
     "feeds": "yarn ride:exec scripts/generate-feeds.ts",
     "optimize-images": "scripts/optimize-images.sh",
     "ride:exec": "tsx",
     "ride": "yarn ride:exec scripts/load-netherlands-activities.ts && yarn ride:exec scripts/load-slovenia-activities.ts && yarn ride:exec scripts/simplify-gps.ts && yarn ride:exec scripts/generate-rides-stats.ts",
-    "birds:dedupe": "tsx scripts/birds-dedupe.ts"
+    "birds:dedupe": "tsx scripts/birds-dedupe.ts",
+    "check-links": "node scripts/check-links.mjs"
   },
   "author": "Maythee Anegboonlap <contact@llun.dev>",
   "license": "UNLICENSED",
