@@ -22,20 +22,41 @@ const walk = (dir) =>
     return entry.isDirectory() ? walk(full) : [full]
   })
 
+// One pass, so "&amp;lt;" decodes to "&lt;" and not on to "<"
+const ENTITIES = {
+  '&amp;': '&',
+  '&quot;': '"',
+  '&#x27;': "'",
+  '&#39;': "'",
+  '&lt;': '<',
+  '&gt;': '>'
+}
 const decodeEntities = (value) =>
-  value
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#x27;/g, "'")
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
+  value.replace(/&(amp|quot|#x27|#39|lt|gt);/g, (entity) => ENTITIES[entity])
+
+// Drops <script> elements by scanning for their tags rather than with a
+// regular expression. The input is our own exported HTML, not untrusted
+// markup; script bodies (JSON-LD, RSC payloads) hold URLs that are not links.
+const withoutScripts = (html) => {
+  const lower = html.toLowerCase()
+  let result = ''
+  let position = 0
+  while (position < html.length) {
+    const start = lower.indexOf('<script', position)
+    if (start < 0) break
+    result += html.slice(position, start)
+    const close = lower.indexOf('</script', start)
+    if (close < 0) return result
+    const end = lower.indexOf('>', close)
+    position = end < 0 ? html.length : end + 1
+  }
+  return result + html.slice(position)
+}
 
 const ATTRIBUTE = /\s(href|src|srcset|poster)\s*=\s*("([^"]*)"|'([^']*)')/gi
 
 const extractUrls = (html) => {
-  // Script bodies (JSON-LD, RSC payloads) hold URLs that are not links
-  const markup = html.replace(/<script\b[\s\S]*?<\/script>/gi, '')
+  const markup = withoutScripts(html)
   const urls = []
   for (const tag of markup.match(
     /<(a|img|source|link|video|audio)\b[^>]*>/gi
