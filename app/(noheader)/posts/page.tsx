@@ -3,6 +3,7 @@ import React from 'react'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
+import JsonLd from '../../../components/JsonLd'
 import { getMetadata } from '../../../components/Meta'
 import PageHead from '../../../components/PageHead'
 import PostList from '../../../components/PostList'
@@ -13,25 +14,51 @@ import {
   postDescendingComparison
 } from '../../../libs/blog'
 import { fitDescription, pageTitle, yearRange } from '../../../libs/seo'
+import {
+  breadcrumbList,
+  collectionPage,
+  graph
+} from '../../../libs/structuredData'
 
-export const generateMetadata = async (): Promise<Metadata> => {
+const getPostsSeo = () => {
   const { url } = getConfig()
   const posts = getAllPosts()
-  return getMetadata({
+  return {
     url,
     path: '/posts',
     title: pageTitle('All posts on life, cycling and code'),
     description: fitDescription(
       `Every post on @แนท, ${posts.length} of them from ${yearRange(posts.map((post) => post.timestamp))}: life in Singapore and the Netherlands, ride reports and gear, and notes on code and self-hosting, mostly in Thai.`
     )
-  })
+  }
 }
+
+export const generateMetadata = async (): Promise<Metadata> =>
+  getMetadata(getPostsSeo())
 
 const Posts = () => {
   const posts = getAllPosts().sort(postDescendingComparison)
+  const seo = getPostsSeo()
 
   return (
     <main className="main-container">
+      <JsonLd
+        data={graph(
+          collectionPage(seo.url, {
+            path: seo.path,
+            name: seo.title,
+            description: seo.description,
+            items: posts.map((post) => ({
+              name: post.properties.title,
+              path: `/posts/${post.file.id}`
+            }))
+          }),
+          breadcrumbList(seo.url, [
+            { name: 'Home', path: '/' },
+            { name: 'Posts', path: seo.path }
+          ])
+        )}
+      />
       <div className="post-header">
         <Link className="key" href="/">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />

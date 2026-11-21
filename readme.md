@@ -75,9 +75,14 @@ yarn images
 
 # Check out/ for internal links that 404 (runs after export)
 yarn check-links
+
+# Check the JSON-LD on every exported page (runs after export)
+yarn check-structured-data
 ```
 
 Images in posts need no manual step: `yarn images` (`scripts/optimize-images.ts`, with sharp) writes WebP copies 640, 1280 and 2000 px wide (never wider than the original, re-encoded at lower quality until under 300 KB) and a 1200 px JPEG social card for every image in `public/posts`, `public/tags` and `public/img` into the git-ignored `public/_img/`, and lists their sizes in `.cache/image-manifest.json`. The markdown renderer points `<img>` at those copies with `srcset`, `sizes`, `width`/`height` and `loading="lazy"` (except the first image), and links to an image (such as `route-full.png`) open the 2000 px copy. Only images whose content changed are encoded again; CI caches `public/_img`. Without the manifest (`next dev` alone) pages fall back to the originals.
+
+Every page carries schema.org JSON-LD built in `libs/structuredData.ts`: `BlogPosting` on posts, `WebSite` and `Person` on the home page, `CollectionPage` on lists, `ImageGallery` on albums and bird pages, and a `BreadcrumbList` everywhere. The builders are typed with `schema-dts`, so `yarn typecheck` rejects properties or values schema.org does not define.
 
 `BLOG_OFFLINE=1 yarn export` builds without calling iCloud or Google Photos (albums render with no photos), for machines that cannot reach them.
 

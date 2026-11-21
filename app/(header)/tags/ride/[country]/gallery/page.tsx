@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import JsonLd from '../../../../../../components/JsonLd'
 import React from 'react'
 
 import Medias from '../../../../../../components/Medias'
@@ -8,7 +9,12 @@ import RideNav from '../../../../../../components/RideNav'
 import { getMediaList } from '../../../../../../libs/apple/media'
 import { fetchStream } from '../../../../../../libs/apple/webstream'
 
-import { COUNTRIES_DATA, COUNTRY, getCountryMetadata } from '../../countries'
+import {
+  COUNTRIES_DATA,
+  COUNTRY,
+  getCountryJsonLd,
+  getCountryMetadata
+} from '../../countries'
 
 interface Props {
   params: Promise<{ country: string }>
@@ -42,6 +48,7 @@ const RideGallery = async ({ params }: Props) => {
 
   return (
     <>
+      <JsonLd data={getCountryJsonLd(country as COUNTRY, 'photos')} />
       <PageHead title={name} meta="Ride photos" />
       <RideNav current={{ country, view: 'photos' }} />
       <div className="ride-sections">

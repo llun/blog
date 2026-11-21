@@ -9,8 +9,16 @@ import { DateTime } from 'luxon'
 
 import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
-import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
+import JsonLd from '../../../../components/JsonLd'
+import { Post, getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
 import {
+  Crumb,
+  blogPosting,
+  breadcrumbList,
+  graph
+} from '../../../../libs/structuredData'
+import {
+  defaultImage,
   firstParagraph,
   fitDescription,
   monthYear,
@@ -55,27 +63,15 @@ const CATEGORY_LABEL: Record<string, string> = {
   ride: 'Ride'
 }
 
-export const generateMetadata = async ({
-  params
-}: Props): Promise<Metadata> => {
-  const { segment } = await params
+// Title, description and social image, shared by the metadata and JSON-LD
+const getPostSeo = (post: Post) => {
   const { url } = getConfig()
-  const post = getPost(segment)
-  if (!post) {
-    return getMetadata({
-      url,
-      title: pageTitle('Post not found'),
-      description: 'This post does not exist on @แนท.',
-      noindex: true
-    })
-  }
-
   const { properties, file, content, firstImage } = post
   const label = CATEGORY_LABEL[file.category ?? ''] ?? 'Life'
   const heroImage = properties.image
     ? { src: properties.image, alt: properties.title }
     : firstImage
-  return getMetadata({
+  return {
     url,
     path: `/posts/${file.id}`,
     title: pageTitle(
@@ -88,22 +84,57 @@ export const generateMetadata = async ({
       `A ${label.toLowerCase()} post on @แนท from ${monthYear(post.timestamp)}.`,
       '@แนท is a personal blog about life, cycling and code.'
     ),
-    image: heroImage
-      ? socialImage(
+    image:
+      (heroImage &&
+        socialImage(
           url,
           `posts/${file.id}/${heroImage.src}`,
           heroImage.alt || properties.title
-        )
-      : null,
+        )) ||
+      defaultImage(url, properties.title)
+  }
+}
+
+// Home > Posts > (Code | Ride) > post
+const getPostCrumbs = (post: Post): Crumb[] => [
+  { name: 'Home', path: '/' },
+  { name: 'Posts', path: '/posts' },
+  ...(post.file.category
+    ? [
+        {
+          name: CATEGORY_LABEL[post.file.category] ?? post.file.category,
+          path: `/tags/${post.file.category}`
+        }
+      ]
+    : []),
+  { name: post.properties.title, path: `/posts/${post.file.id}` }
+]
+
+export const generateMetadata = async ({
+  params
+}: Props): Promise<Metadata> => {
+  const { segment } = await params
+  const post = getPost(segment)
+  if (!post) {
+    return getMetadata({
+      url: getConfig().url,
+      title: pageTitle('Post not found'),
+      description: 'This post does not exist on @แนท.',
+      noindex: true
+    })
+  }
+
+  return getMetadata({
+    ...getPostSeo(post),
     article: {
       publishedTime: toIsoDate(post.timestamp),
       modifiedTime: toIsoDate(post.modifiedTimestamp),
-      tags: properties.tags
+      tags: post.properties.tags
     }
   })
 }
 
-const Post = ({ params }: Props) => {
+const PostPage = ({ params }: Props) => {
   const { segment } = use(params)
   const post = getPost(segment)
   if (!post) {
@@ -111,11 +142,18 @@ const Post = ({ params }: Props) => {
   }
 
   const { properties, content } = post
+  const seo = getPostSeo(post)
   const lang = getTextLang(
     `${properties.title} ${(content ?? '').slice(0, 4000)}`
   )
   return (
     <main className="main-container">
+      <JsonLd
+        data={graph(
+          blogPosting(seo.url, post, seo.description, seo.image),
+          breadcrumbList(seo.url, getPostCrumbs(post))
+        )}
+      />
       <div className="post-header">
         <Link className="key" href="/">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -152,4 +190,4 @@ const Post = ({ params }: Props) => {
   )
 }
 
-export default Post
+export default PostPage

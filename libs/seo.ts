@@ -167,8 +167,15 @@ export const defaultImage = (origin: string, alt: string): PageImage => ({
   alt
 })
 
+/**
+ * Language of a page's own text; the Thai site name that appears in most
+ * titles and descriptions does not make an English page Thai.
+ */
+export const pageLang = (text: string) =>
+  getTextLang(text.split(SITE_NAME).join(' ')) ?? 'en'
+
 export const ogLocale = (text: string) =>
-  getTextLang(text) === 'th' ? 'th_TH' : 'en_US'
+  pageLang(text) === 'th' ? 'th_TH' : 'en_US'
 
 export const toIsoDate = (timestamp: number) =>
   DateTime.fromMillis(timestamp).toISO() ?? undefined

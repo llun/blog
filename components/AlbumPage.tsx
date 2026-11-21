@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { getConfig } from '../libs/blog'
-import { getAlbum, getAllAlbums } from '../libs/gallery'
+import { Album, getAlbum, getAllAlbums } from '../libs/gallery'
 import {
   firstParagraph,
   fitDescription,
@@ -14,8 +14,16 @@ import {
   pageTitle,
   socialImage
 } from '../libs/seo'
+import {
+  Crumb,
+  birdTaxon,
+  breadcrumbList,
+  collectionPage,
+  graph
+} from '../libs/structuredData'
 import { getTextLang } from '../libs/utils'
 import BirdMap from './BirdMap'
+import JsonLd from './JsonLd'
 import Medias from './Medias'
 import { getMetadata } from './Meta'
 import PageHead from './PageHead'
@@ -33,6 +41,79 @@ const hasBirdMap = (name: string) => {
     }
     return false
   }
+}
+
+// Title, description and social image of an album, shared by the metadata
+// and the JSON-LD
+const getAlbumSeo = (album: Album, section?: string) => {
+  const { url } = getConfig()
+  const image = socialImage(url, `gallery/${album.card}`, album.title, {
+    width: 1200,
+    height: 630
+  })
+  if (section === 'birds') {
+    const species = album.scientificName
+      ? `${album.title} (${album.scientificName})`
+      : album.title
+    return {
+      url,
+      path: `/birds/${album.name}`,
+      title: pageTitle(species, 'Bird photos'),
+      description: fitDescription(
+        `${species}: my photos, a map of where I saw it and an introduction from Wikipedia.`,
+        firstParagraph(album.content)
+      ),
+      image
+    }
+  }
+  return {
+    url,
+    path: `/gallery/${album.name}`,
+    title: pageTitle(album.title, `Photos, ${monthYear(album.timestamp)}`),
+    description: fitDescription(
+      album.description,
+      firstParagraph(album.content),
+      `A photo album from ${monthYear(album.timestamp)} in the @แนท gallery.`
+    ),
+    image
+  }
+}
+
+// Home > Gallery (or Birds) > album
+const getAlbumCrumbs = (album: Album, section?: string): Crumb[] => [
+  { name: 'Home', path: '/' },
+  section === 'birds'
+    ? { name: 'Birds', path: '/birds' }
+    : { name: 'Gallery', path: '/gallery' },
+  {
+    name: album.title,
+    path: `/${section === 'birds' ? 'birds' : 'gallery'}/${album.name}`
+  }
+]
+
+const AlbumJsonLd = ({
+  album,
+  section
+}: {
+  album: Album
+  section?: string
+}) => {
+  const seo = getAlbumSeo(album, section)
+  return (
+    <JsonLd
+      data={graph(
+        collectionPage(seo.url, {
+          path: seo.path,
+          name: seo.title,
+          description: seo.description,
+          type: 'ImageGallery',
+          image: seo.image,
+          ...(section === 'birds' ? { about: birdTaxon(album) } : null)
+        }),
+        breadcrumbList(seo.url, getAlbumCrumbs(album, section))
+      )}
+    />
+  )
 }
 
 interface Props {
@@ -65,37 +146,7 @@ export const albumPage = (section?: string) => {
       })
     }
 
-    const { album } = data
-    const image = socialImage(url, `gallery/${album.card}`, album.title, {
-      width: 1200,
-      height: 630
-    })
-    if (section === 'birds') {
-      const species = album.scientificName
-        ? `${album.title} (${album.scientificName})`
-        : album.title
-      return getMetadata({
-        url,
-        path: `/birds/${album.name}`,
-        title: pageTitle(species, 'Bird photos'),
-        description: fitDescription(
-          `${species}: my photos, a map of where I saw it and an introduction from Wikipedia.`,
-          firstParagraph(album.content)
-        ),
-        image
-      })
-    }
-    return getMetadata({
-      url,
-      path: `/gallery/${album.name}`,
-      title: pageTitle(album.title, `Photos, ${monthYear(album.timestamp)}`),
-      description: fitDescription(
-        album.description,
-        firstParagraph(album.content),
-        `A photo album from ${monthYear(album.timestamp)} in the @แนท gallery.`
-      ),
-      image
-    })
+    return getMetadata(getAlbumSeo(data.album, section))
   }
 
   const Page = async ({ params }: Props) => {
@@ -107,6 +158,7 @@ export const albumPage = (section?: string) => {
     if (section === 'birds') {
       return (
         <>
+          <AlbumJsonLd album={album} section={section} />
           <PageHead
             title={album.title}
             meta={`${medias.length} photos`}
@@ -168,6 +220,7 @@ export const albumPage = (section?: string) => {
     }
     return (
       <>
+        <AlbumJsonLd album={album} section={section} />
         <PageHead
           title={album.title}
           meta={`${medias.length} photos`}
