@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 
@@ -8,6 +9,15 @@ import {
   postDescendingComparison
 } from '../../libs/blog'
 import PostList from '../../components/PostList'
+import { getMetadata } from '../../components/Meta'
+import { HOME_DESCRIPTION, HOME_TITLE } from '../../libs/seo'
+
+export const metadata: Metadata = getMetadata({
+  url: getConfig().url,
+  path: '/',
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION
+})
 
 const Index = () => {
   const posts = getAllPosts().sort(postDescendingComparison).slice(0, 20)

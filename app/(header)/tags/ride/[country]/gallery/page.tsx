@@ -2,14 +2,13 @@ import { Metadata } from 'next'
 import React from 'react'
 
 import Medias from '../../../../../../components/Medias'
-import { getMetadata } from '../../../../../../components/Meta'
 import RideStats from '../../../../../../components/RideStats'
 import PageHead from '../../../../../../components/PageHead'
 import RideNav from '../../../../../../components/RideNav'
 import { getMediaList } from '../../../../../../libs/apple/media'
 import { fetchStream } from '../../../../../../libs/apple/webstream'
 
-import { COUNTRIES_DATA, COUNTRY } from '../../countries'
+import { COUNTRIES_DATA, COUNTRY, getCountryMetadata } from '../../countries'
 
 interface Props {
   params: Promise<{ country: string }>
@@ -27,8 +26,7 @@ export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
   const { country } = await params
-  const { meta } = COUNTRIES_DATA[country as COUNTRY]
-  return getMetadata(meta)
+  return getCountryMetadata(country as COUNTRY, 'photos')
 }
 
 const RideGallery = async ({ params }: Props) => {

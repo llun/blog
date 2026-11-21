@@ -1,13 +1,12 @@
 import { Metadata } from 'next'
 import React, { use } from 'react'
 
-import { getMetadata } from '../../../../../components/Meta'
 import RideMap from '../../../../../components/RideMap'
 import RideStats from '../../../../../components/RideStats'
 import PageHead from '../../../../../components/PageHead'
 import RideNav from '../../../../../components/RideNav'
 
-import { COUNTRIES_DATA, COUNTRY } from '../countries'
+import { COUNTRIES_DATA, COUNTRY, getCountryMetadata } from '../countries'
 import RideVideos from '../../../../../components/RideVideos'
 
 interface Props {
@@ -26,8 +25,7 @@ export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
   const { country } = await params
-  const { meta } = COUNTRIES_DATA[country as COUNTRY]
-  return getMetadata(meta)
+  return getCountryMetadata(country as COUNTRY, 'map')
 }
 
 const Ride = ({ params }: Props) => {

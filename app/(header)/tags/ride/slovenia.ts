@@ -1,19 +1,10 @@
 import rideStats from '../../../../public/tags/ride/stats.json'
 import { SLOVENIA_ALBUM_TOKEN } from '../../../../libs/config'
-import { getConfig } from '../../../../libs/blog'
 import { CountryData } from './types'
-
-const config = getConfig()
-const { title, description, url } = config
 
 export const SLOVENIA: CountryData = {
   name: 'Slovenia',
-  meta: {
-    url,
-    title: `${title}, Slovenia`,
-    description,
-    imageUrl: `${url}/tags/ride/slovenia.png`
-  },
+  image: 'tags/ride/slovenia.png',
   flag: 'SI',
   rideStat: rideStats.slovenia,
   map: {

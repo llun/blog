@@ -10,6 +10,14 @@ import { DateTime } from 'luxon'
 import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
 import { getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
+import {
+  firstParagraph,
+  fitDescription,
+  monthYear,
+  pageTitle,
+  socialImage,
+  toIsoDate
+} from '../../../../libs/seo'
 import { getTextLang, isSinglePathSegment } from '../../../../libs/utils'
 
 const getPost = _.memoize(
@@ -42,28 +50,56 @@ export const generateStaticParams = async () => {
   }))
 }
 
+const CATEGORY_LABEL: Record<string, string> = {
+  dev: 'Code',
+  ride: 'Ride'
+}
+
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
   const { segment } = await params
-  const { url, title, description } = getConfig()
+  const { url } = getConfig()
   const post = getPost(segment)
   if (!post) {
     return getMetadata({
       url,
-      title,
-      description
+      title: pageTitle('Post not found'),
+      description: 'This post does not exist on @แนท.',
+      noindex: true
     })
   }
 
-  const { properties, file } = post
+  const { properties, file, content, firstImage } = post
+  const label = CATEGORY_LABEL[file.category ?? ''] ?? 'Life'
+  const heroImage = properties.image
+    ? { src: properties.image, alt: properties.title }
+    : firstImage
   return getMetadata({
     url,
-    title: `${title}, ${properties.title}`,
-    description: properties.description,
-    imageUrl: properties.image
-      ? `${url}/posts/${file.id}/${properties.image}`
-      : null
+    path: `/posts/${file.id}`,
+    title: pageTitle(
+      properties.title,
+      `${label} post, ${monthYear(post.timestamp)}`
+    ),
+    description: fitDescription(
+      properties.description,
+      firstParagraph(content),
+      `A ${label.toLowerCase()} post on @แนท from ${monthYear(post.timestamp)}.`,
+      '@แนท is a personal blog about life, cycling and code.'
+    ),
+    image: heroImage
+      ? socialImage(
+          url,
+          `posts/${file.id}/${heroImage.src}`,
+          heroImage.alt || properties.title
+        )
+      : null,
+    article: {
+      publishedTime: toIsoDate(post.timestamp),
+      modifiedTime: toIsoDate(post.modifiedTimestamp),
+      tags: properties.tags
+    }
   })
 }
 

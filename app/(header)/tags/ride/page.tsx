@@ -10,14 +10,28 @@ import {
   getConfig,
   postDescendingComparison
 } from '../../../../libs/blog'
+import {
+  fitDescription,
+  pageTitle,
+  socialImage,
+  yearRange
+} from '../../../../libs/seo'
 
-const { title, description, url } = getConfig()
+const { url } = getConfig()
+const ridePosts = getAllPosts().filter((post) => post.file.category === 'ride')
 
 export const metadata: Metadata = getMetadata({
   url,
-  title: `${title}, Rides`,
-  description,
-  imageUrl: `${url}/tags/ride/netherlands.png`
+  path: '/tags/ride',
+  title: pageTitle('Ride: cycling stories, maps and gear'),
+  description: fitDescription(
+    `${ridePosts.length} cycling posts on @แนท from ${yearRange(ridePosts.map((post) => post.timestamp))}: rides around Singapore, Gran Fondo and Festive 500, bikes and gear, with ride maps of Singapore, the Netherlands and Slovenia.`
+  ),
+  image: socialImage(
+    url,
+    'tags/ride/netherlands.png',
+    'Ride heatmap of the Netherlands'
+  )
 })
 
 const Ride = () => {

@@ -6,13 +6,18 @@ import { getMetadata } from '../../../components/Meta'
 import PageHead from '../../../components/PageHead'
 import { getConfig } from '../../../libs/blog'
 import { getAllAlbums } from '../../../libs/gallery'
+import { fitDescription, pageTitle, yearRange } from '../../../libs/seo'
 
-const { url, title, description } = getConfig()
+const { url } = getConfig()
+const galleryAlbums = getAllAlbums().filter((album) => !album.section)
 
 export const metadata: Metadata = getMetadata({
   url,
-  title: `${title}, Gallery`,
-  description
+  path: '/gallery',
+  title: pageTitle('Gallery: photo albums from trips and events'),
+  description: fitDescription(
+    `${galleryAlbums.length} photo albums on @แนท from ${yearRange(galleryAlbums.map((album) => album.timestamp))}: trips around the Netherlands and Europe, Singapore, museums, flower parks, concerts and more.`
+  )
 })
 
 const Gallery = () => {

@@ -3,12 +3,8 @@ import { YoutubeVideo } from '@/components/RideVideos'
 
 export interface CountryData {
   name: string
-  meta: {
-    url: string
-    title: string
-    description: string
-    imageUrl: string
-  }
+  // Ride heatmap under public/, also the pages' social image
+  image: string
   flag: FlagCode
   rideStat: { distance: number; activities: number }
   map: {

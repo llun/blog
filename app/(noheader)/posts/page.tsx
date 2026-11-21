@@ -12,13 +12,18 @@ import {
   getConfig,
   postDescendingComparison
 } from '../../../libs/blog'
+import { fitDescription, pageTitle, yearRange } from '../../../libs/seo'
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const { url, title, description } = getConfig()
+  const { url } = getConfig()
+  const posts = getAllPosts()
   return getMetadata({
     url,
-    title: `${title}, all posts`,
-    description
+    path: '/posts',
+    title: pageTitle('All posts on life, cycling and code'),
+    description: fitDescription(
+      `Every post on @แนท, ${posts.length} of them from ${yearRange(posts.map((post) => post.timestamp))}: life in Singapore and the Netherlands, ride reports and gear, and notes on code and self-hosting, mostly in Thai.`
+    )
   })
 }
 

@@ -1,18 +1,10 @@
 import rideStats from '../../../../public/tags/ride/stats.json'
-import { getConfig } from '../../../../libs/blog'
 import { SINGAPORE_ALBUM_TOKEN } from '../../../../libs/config'
 import { CountryData } from './types'
 
-const config = getConfig()
-const { title, description, url } = config
 export const SINGAPORE: CountryData = {
   name: 'Singapore',
-  meta: {
-    url,
-    title: `${title}, Singapore`,
-    description,
-    imageUrl: `${url}/tags/ride/singapore.png`
-  },
+  image: 'tags/ride/singapore.png',
   flag: 'SG',
   rideStat: rideStats.singapore,
   map: {

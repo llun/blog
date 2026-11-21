@@ -7,6 +7,13 @@ import React from 'react'
 
 import { getConfig } from '../libs/blog'
 import { getAlbum, getAllAlbums } from '../libs/gallery'
+import {
+  firstParagraph,
+  fitDescription,
+  monthYear,
+  pageTitle,
+  socialImage
+} from '../libs/seo'
 import { getTextLang } from '../libs/utils'
 import BirdMap from './BirdMap'
 import Medias from './Medias'
@@ -47,18 +54,47 @@ export const albumPage = (section?: string) => {
 
   const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
     const { name } = await params
-    const { title, description, url } = getConfig()
+    const { url } = getConfig()
     const data = await getSectionAlbum(name)
     if (!data) {
-      return getMetadata({ url, title, description })
+      return getMetadata({
+        url,
+        title: pageTitle('Album not found'),
+        description: 'This album does not exist on @แนท.',
+        noindex: true
+      })
     }
 
     const { album } = data
+    const image = socialImage(url, `gallery/${album.card}`, album.title, {
+      width: 1200,
+      height: 630
+    })
+    if (section === 'birds') {
+      const species = album.scientificName
+        ? `${album.title} (${album.scientificName})`
+        : album.title
+      return getMetadata({
+        url,
+        path: `/birds/${album.name}`,
+        title: pageTitle(species, 'Bird photos'),
+        description: fitDescription(
+          `${species}: my photos, a map of where I saw it and an introduction from Wikipedia.`,
+          firstParagraph(album.content)
+        ),
+        image
+      })
+    }
     return getMetadata({
       url,
-      title: `${title}, ${album.title}`,
-      description: album.description,
-      imageUrl: `${url}/gallery/${album.card}`
+      path: `/gallery/${album.name}`,
+      title: pageTitle(album.title, `Photos, ${monthYear(album.timestamp)}`),
+      description: fitDescription(
+        album.description,
+        firstParagraph(album.content),
+        `A photo album from ${monthYear(album.timestamp)} in the @แนท gallery.`
+      ),
+      image
     })
   }
 
