@@ -53,11 +53,20 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     newestTimestamp(
       posts
         .filter((post) => post.file.category === category)
-        .map((post) => post.timestamp)
+        .map((post) => post.modifiedTimestamp)
     )
 
-  const latestPost = newestTimestamp(posts.map((post) => post.timestamp))
-  const latestAlbum = newestTimestamp(albums.map((album) => album.timestamp))
+  const latestPost = newestTimestamp(
+    posts.map((post) => post.modifiedTimestamp)
+  )
+  const latestBird = newestTimestamp(
+    albums
+      .filter((album) => album.section === 'birds')
+      .map((album) => album.timestamp)
+  )
+  const latestGalleryAlbum = newestTimestamp(
+    albums.filter((album) => !album.section).map((album) => album.timestamp)
+  )
 
   return dedupe([
     {
@@ -76,6 +85,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       ? [
           {
             url: url('/birds'),
+            lastModified: lastModified(latestBird),
             changeFrequency: 'monthly' as const,
             priority: 0.7
           }
@@ -83,7 +93,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       : []),
     {
       url: url('/gallery'),
-      lastModified: lastModified(latestAlbum),
+      lastModified: lastModified(latestGalleryAlbum),
       changeFrequency: 'monthly',
       priority: 0.8
     },
@@ -108,7 +118,8 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     })),
     ...posts.map((post): SitemapEntry => ({
       url: url(`/posts/${post.file.id}`),
-      lastModified: lastModified(post.timestamp),
+      // 'updated' in front matter, or the publish date
+      lastModified: lastModified(post.modifiedTimestamp),
       changeFrequency: 'yearly',
       priority: 0.7
     })),
