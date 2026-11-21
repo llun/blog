@@ -4,12 +4,17 @@ import path from 'path'
 import React, { use } from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Map as MapIcon } from 'lucide-react'
 import { DateTime } from 'luxon'
 
 import { ThemeToggle } from '../../../../components/ThemeToggle'
 import { getMetadata } from '../../../../components/Meta'
+import Breadcrumbs from '../../../../components/Breadcrumbs'
+import { GalleryIcon } from '../../../../components/icons'
 import JsonLd from '../../../../components/JsonLd'
+import PageLink from '../../../../components/PageLink'
+import Pager from '../../../../components/Pager'
+import PostList from '../../../../components/PostList'
 import { Post, getAllPosts, getConfig, parsePost } from '../../../../libs/blog'
 import {
   Crumb,
@@ -17,6 +22,11 @@ import {
   breadcrumbList,
   graph
 } from '../../../../libs/structuredData'
+import {
+  adjacentPosts,
+  postCountries,
+  relatedPosts
+} from '../../../../libs/related'
 import {
   defaultImage,
   firstParagraph,
@@ -143,6 +153,14 @@ const PostPage = ({ params }: Props) => {
 
   const { properties, content } = post
   const seo = getPostSeo(post)
+  const crumbs = getPostCrumbs(post)
+  const allPosts = getAllPosts()
+  const { older, newer } = adjacentPosts(post, allPosts)
+  const related = relatedPosts(post, allPosts).filter(
+    (other) =>
+      other.file.id !== older?.file.id && other.file.id !== newer?.file.id
+  )
+  const countries = postCountries(post)
   const lang = getTextLang(
     `${properties.title} ${(content ?? '').slice(0, 4000)}`
   )
@@ -151,7 +169,7 @@ const PostPage = ({ params }: Props) => {
       <JsonLd
         data={graph(
           blogPosting(seo.url, post, seo.description, seo.image),
-          breadcrumbList(seo.url, getPostCrumbs(post))
+          breadcrumbList(seo.url, crumbs)
         )}
       />
       <div className="post-header">
@@ -162,6 +180,7 @@ const PostPage = ({ params }: Props) => {
         <ThemeToggle />
       </div>
 
+      <Breadcrumbs crumbs={crumbs} />
       <header className="post-head">
         <h1 className="post-title" lang={getTextLang(properties.title)}>
           {properties.title}
@@ -172,7 +191,16 @@ const PostPage = ({ params }: Props) => {
               .setLocale('en-US')
               .toFormat('dd LLL yyyy')}
           </time>
-          {post.file.category && <span>{post.file.category}</span>}
+          {post.file.category && (
+            <span>
+              <PageLink
+                href={`/tags/${post.file.category}/`}
+                className="post-meta-link"
+              >
+                {post.file.category}
+              </PageLink>
+            </span>
+          )}
         </p>
       </header>
 
@@ -182,7 +210,64 @@ const PostPage = ({ params }: Props) => {
         dangerouslySetInnerHTML={{ __html: content || '' }}
       />
 
-      <Link className="key" href="/">
+      {countries.length > 0 && (
+        <section className="page-section" aria-labelledby="post-rides">
+          <h2 id="post-rides" className="page-section-title">
+            Rides in {countries.map((country) => country.name).join(' and ')}
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {countries.flatMap((country) => [
+              <Link
+                key={`${country.slug}-map`}
+                className="key"
+                href={`/tags/ride/${country.slug}/`}
+              >
+                <MapIcon className="h-4 w-4" aria-hidden="true" />
+                {country.name} ride map
+              </Link>,
+              <Link
+                key={`${country.slug}-photos`}
+                className="key"
+                href={`/tags/ride/${country.slug}/gallery/`}
+              >
+                <GalleryIcon className="h-4 w-4" aria-hidden="true" />
+                {country.name} ride photos
+              </Link>
+            ])}
+          </div>
+        </section>
+      )}
+
+      <section className="page-section">
+        <Pager
+          label="More posts"
+          previous={
+            older && {
+              href: `/posts/${older.file.id}/`,
+              title: older.properties.title
+            }
+          }
+          previousLabel="Older post"
+          next={
+            newer && {
+              href: `/posts/${newer.file.id}/`,
+              title: newer.properties.title
+            }
+          }
+          nextLabel="Newer post"
+        />
+      </section>
+
+      {related.length > 0 && (
+        <section className="page-section" aria-labelledby="post-related">
+          <h2 id="post-related" className="page-section-title">
+            Related posts
+          </h2>
+          <PostList posts={related} />
+        </section>
+      )}
+
+      <Link className="key mt-10 mb-8" href="/">
         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
         Home
       </Link>

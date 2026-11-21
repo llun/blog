@@ -1,4 +1,8 @@
 import { Metadata } from 'next'
+import Breadcrumbs from '../../../../../components/Breadcrumbs'
+import PostList from '../../../../../components/PostList'
+import { getAllPosts } from '../../../../../libs/blog'
+import { countryPosts } from '../../../../../libs/related'
 import JsonLd from '../../../../../components/JsonLd'
 import React, { use } from 'react'
 
@@ -11,6 +15,7 @@ import {
   COUNTRIES_DATA,
   COUNTRY,
   countryIntro,
+  getCountryCrumbs,
   getCountryJsonLd,
   getCountryMetadata
 } from '../countries'
@@ -38,9 +43,11 @@ export const generateMetadata = async ({
 const Ride = ({ params }: Props) => {
   const { country } = use(params)
   const { name, rideStat, map, youtubes } = COUNTRIES_DATA[country as COUNTRY]
+  const posts = countryPosts(country, getAllPosts())
   return (
     <>
       <JsonLd data={getCountryJsonLd(country as COUNTRY, 'map')} />
+      <Breadcrumbs crumbs={getCountryCrumbs(country as COUNTRY, 'map')} />
       <PageHead title={name} meta="Ride map" />
       <RideNav current={{ country, view: 'map' }} />
       <p className="ride-intro">
@@ -50,6 +57,14 @@ const Ride = ({ params }: Props) => {
         <RideStats stats={rideStat} />
         <RideMap {...map} videos={youtubes} />
         <RideVideos videos={youtubes} />
+        {posts.length > 0 && (
+          <section aria-labelledby="country-posts">
+            <h2 id="country-posts" className="page-section-title">
+              Posts from {name}
+            </h2>
+            <PostList posts={posts} />
+          </section>
+        )}
       </div>
     </>
   )

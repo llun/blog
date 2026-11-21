@@ -16,6 +16,10 @@
     @apply mt-2 mb-0 flex flex-wrap gap-x-3 font-mono text-xs uppercase tracking-wider text-muted-foreground;
   }
 
+  .post-meta-link {
+    @apply text-muted-foreground no-underline underline-offset-4 hover:text-foreground hover:underline;
+  }
+
   .post-meta > * + * {
     @apply flex items-center gap-3;
   }

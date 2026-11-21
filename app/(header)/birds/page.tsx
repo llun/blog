@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import React from 'react'
 
 import AlbumList from '../../../components/AlbumList'
+import Breadcrumbs from '../../../components/Breadcrumbs'
 import JsonLd from '../../../components/JsonLd'
 import { getMetadata } from '../../../components/Meta'
 import PageHead from '../../../components/PageHead'
@@ -30,6 +31,11 @@ const seo = {
 
 export const metadata: Metadata = getMetadata(seo)
 
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Birds', path: seo.path }
+]
+
 const Birds = () => {
   const albums = getAllAlbums()
     .filter((album) => album.section === 'birds')
@@ -47,12 +53,10 @@ const Birds = () => {
               path: `/birds/${album.name}`
             }))
           }),
-          breadcrumbList(url, [
-            { name: 'Home', path: '/' },
-            { name: 'Birds', path: seo.path }
-          ])
+          breadcrumbList(url, crumbs)
         )}
       />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHead title="Birds" meta={`${albums.length} species`} />
       <AlbumList albums={albums} basePath="/birds" />
     </>

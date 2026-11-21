@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import React, { use } from 'react'
 
+import Breadcrumbs from '../../../../components/Breadcrumbs'
 import JsonLd from '../../../../components/JsonLd'
 import { getMetadata } from '../../../../components/Meta'
 import PageHead from '../../../../components/PageHead'
@@ -72,6 +73,10 @@ const Tag = ({ params }: Props) => {
   const { tag } = use(params)
   const seo = getTagSeo(tag)
   const { posts } = seo
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: getTagTitle(tag), path: seo.path }
+  ]
 
   return (
     <>
@@ -86,12 +91,10 @@ const Tag = ({ params }: Props) => {
               path: `/posts/${post.file.id}`
             }))
           }),
-          breadcrumbList(seo.url, [
-            { name: 'Home', path: '/' },
-            { name: getTagTitle(tag), path: seo.path }
-          ])
+          breadcrumbList(seo.url, crumbs)
         )}
       />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHead title={getTagTitle(tag)} meta={`${posts.length} posts`} />
       <PostList posts={posts} />
     </>

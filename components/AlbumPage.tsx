@@ -22,11 +22,18 @@ import {
   graph
 } from '../libs/structuredData'
 import { getTextLang } from '../libs/utils'
+import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+
+import { albumNeighbours } from '../libs/related'
+import AlbumList from './AlbumList'
 import BirdMap from './BirdMap'
+import Breadcrumbs from './Breadcrumbs'
 import JsonLd from './JsonLd'
 import Medias from './Medias'
 import { getMetadata } from './Meta'
 import PageHead from './PageHead'
+import Pager from './Pager'
 
 // Birds with no GPS in any photo have an empty map file (or none), so they
 // get no map. A broken file only hides that bird's map, like parseAlbum.
@@ -90,6 +97,49 @@ const getAlbumCrumbs = (album: Album, section?: string): Crumb[] => [
     path: `/${section === 'birds' ? 'birds' : 'gallery'}/${album.name}`
   }
 ]
+
+// Previous and next album, then six more after them (fills 1, 2 or 3 columns), so every album page
+// links to its neighbours in the list
+const AlbumLinks = ({ album, section }: { album: Album; section?: string }) => {
+  const birds = section === 'birds'
+  const basePath = birds ? '/birds' : '/gallery'
+  const albums = getAllAlbums().filter((other) => other.section === section)
+  const sorted = birds
+    ? [...albums].sort((first, second) =>
+        first.title.localeCompare(second.title)
+      )
+    : albums
+  const { previous, next, more } = albumNeighbours(album, sorted, 6)
+  const toLink = (other: Album | null) =>
+    other && { href: `${basePath}/${other.name}/`, title: other.title }
+  return (
+    <>
+      <Pager
+        label={birds ? 'More birds' : 'More albums'}
+        previous={toLink(previous)}
+        next={toLink(next)}
+        previousLabel={birds ? 'Previous bird' : 'Previous album'}
+        nextLabel={birds ? 'Next bird' : 'Next album'}
+      />
+      {more.length > 0 && (
+        <section aria-labelledby="album-more">
+          <h2 id="album-more" className="album-section-title">
+            {birds ? 'More birds' : 'More albums'}
+          </h2>
+          <AlbumList albums={more} basePath={basePath} headingLevel={3} />
+          <p className="mt-4 mb-0">
+            <Link className="key" href={`${basePath}/`}>
+              {birds
+                ? `All ${albums.length} birds`
+                : `All ${albums.length} albums`}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </p>
+        </section>
+      )}
+    </>
+  )
+}
 
 const AlbumJsonLd = ({
   album,
@@ -159,6 +209,7 @@ export const albumPage = (section?: string) => {
       return (
         <>
           <AlbumJsonLd album={album} section={section} />
+          <Breadcrumbs crumbs={getAlbumCrumbs(album, section)} />
           <PageHead
             title={album.title}
             meta={`${medias.length} photos`}
@@ -214,6 +265,7 @@ export const albumPage = (section?: string) => {
                 medias={medias}
               />
             </section>
+            <AlbumLinks album={album} section={section} />
           </div>
         </>
       )
@@ -221,6 +273,7 @@ export const albumPage = (section?: string) => {
     return (
       <>
         <AlbumJsonLd album={album} section={section} />
+        <Breadcrumbs crumbs={getAlbumCrumbs(album, section)} />
         <PageHead
           title={album.title}
           meta={`${medias.length} photos`}
@@ -235,6 +288,7 @@ export const albumPage = (section?: string) => {
             />
           )}
           <Medias partition={partition} token={album.token} medias={medias} />
+          <AlbumLinks album={album} section={section} />
         </div>
       </>
     )

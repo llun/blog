@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Breadcrumbs from '../../../../../../components/Breadcrumbs'
 import JsonLd from '../../../../../../components/JsonLd'
 import React from 'react'
 
@@ -13,6 +14,7 @@ import {
   COUNTRIES_DATA,
   COUNTRY,
   countryIntro,
+  getCountryCrumbs,
   getCountryJsonLd,
   getCountryMetadata
 } from '../../countries'
@@ -50,6 +52,7 @@ const RideGallery = async ({ params }: Props) => {
   return (
     <>
       <JsonLd data={getCountryJsonLd(country as COUNTRY, 'photos')} />
+      <Breadcrumbs crumbs={getCountryCrumbs(country as COUNTRY, 'photos')} />
       <PageHead title={name} meta="Ride photos" />
       <RideNav current={{ country, view: 'photos' }} />
       <p className="ride-intro">

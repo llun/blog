@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import React from 'react'
 
+import Breadcrumbs from '../../../../components/Breadcrumbs'
 import JsonLd from '../../../../components/JsonLd'
 import { getMetadata } from '../../../../components/Meta'
 import PostList from '../../../../components/PostList'
@@ -42,6 +43,11 @@ const seo = {
 
 export const metadata: Metadata = getMetadata(seo)
 
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Ride', path: seo.path }
+]
+
 const Ride = () => {
   const posts = getAllPosts()
     .filter((post) => post.file.category === 'ride')
@@ -60,12 +66,10 @@ const Ride = () => {
               path: `/posts/${post.file.id}`
             }))
           }),
-          breadcrumbList(url, [
-            { name: 'Home', path: '/' },
-            { name: 'Ride', path: seo.path }
-          ])
+          breadcrumbList(url, crumbs)
         )}
       />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHead title="Ride" meta={`${posts.length} posts`} />
       <RideNav />
       <PostList posts={posts} />

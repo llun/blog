@@ -3,6 +3,7 @@ import React from 'react'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
+import Breadcrumbs from '../../../components/Breadcrumbs'
 import JsonLd from '../../../components/JsonLd'
 import { getMetadata } from '../../../components/Meta'
 import PageHead from '../../../components/PageHead'
@@ -39,6 +40,10 @@ export const generateMetadata = async (): Promise<Metadata> =>
 const Posts = () => {
   const posts = getAllPosts().sort(postDescendingComparison)
   const seo = getPostsSeo()
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'Posts', path: seo.path }
+  ]
 
   return (
     <main className="main-container">
@@ -53,10 +58,7 @@ const Posts = () => {
               path: `/posts/${post.file.id}`
             }))
           }),
-          breadcrumbList(seo.url, [
-            { name: 'Home', path: '/' },
-            { name: 'Posts', path: seo.path }
-          ])
+          breadcrumbList(seo.url, crumbs)
         )}
       />
       <div className="post-header">
@@ -67,6 +69,7 @@ const Posts = () => {
         <ThemeToggle />
       </div>
 
+      <Breadcrumbs crumbs={crumbs} />
       <PageHead title="All posts" meta={`${posts.length} posts`} />
       <PostList posts={posts} />
 
