@@ -99,18 +99,13 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       changeFrequency: 'weekly',
       priority: 0.8
     })),
-    ...Object.values(COUNTRY).flatMap((country): SitemapEntry[] => [
-      {
-        url: url(`/tags/ride/${country}`),
-        changeFrequency: 'monthly',
-        priority: 0.7
-      },
-      {
-        url: url(`/tags/ride/${country}/gallery`),
-        changeFrequency: 'monthly',
-        priority: 0.5
-      }
-    ]),
+    // The ride photo grids (/tags/ride/<country>/gallery/) are noindex, so
+    // only the map pages are listed
+    ...Object.values(COUNTRY).map((country): SitemapEntry => ({
+      url: url(`/tags/ride/${country}`),
+      changeFrequency: 'monthly',
+      priority: 0.7
+    })),
     ...posts.map((post): SitemapEntry => ({
       url: url(`/posts/${post.file.id}`),
       lastModified: lastModified(post.timestamp),

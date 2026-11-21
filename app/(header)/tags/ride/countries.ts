@@ -34,6 +34,20 @@ const formatNumber = (value: number) =>
 export const rideSummary = ({ rideStat }: CountryData) =>
   `${formatNumber(rideStat.distance)} km over ${formatNumber(rideStat.activities)} rides`
 
+/** Opening paragraph of a country's ride map and photos pages */
+export const countryIntro = (data: CountryData, view: 'map' | 'photos') => {
+  if (data.intro) return data.intro
+  const summary = rideSummary(data)
+  if (view === 'photos') {
+    return `Photos from my rides in ${data.name}, where I have recorded ${summary} on Strava. They come from a shared iCloud album, newest first. The ride map shows every route, and the ride posts tell the stories behind them.`
+  }
+  const videos =
+    data.youtubes.length > 0
+      ? ` The ${data.youtubes.length} pins mark rides I filmed; open one to play the video.`
+      : ''
+  return `Every ride I recorded on Strava in ${data.name}, ${summary}, drawn on one map. Zoom in to follow single routes.${videos} The photos tab has pictures from these rides, and the ride posts tell the stories behind them.`
+}
+
 export const getCountrySeo = (country: COUNTRY, view: 'map' | 'photos') => {
   const data = COUNTRIES_DATA[country]
   const { url } = getConfig()

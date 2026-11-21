@@ -12,6 +12,7 @@ import { fetchStream } from '../../../../../../libs/apple/webstream'
 import {
   COUNTRIES_DATA,
   COUNTRY,
+  countryIntro,
   getCountryJsonLd,
   getCountryMetadata
 } from '../../countries'
@@ -51,6 +52,9 @@ const RideGallery = async ({ params }: Props) => {
       <JsonLd data={getCountryJsonLd(country as COUNTRY, 'photos')} />
       <PageHead title={name} meta="Ride photos" />
       <RideNav current={{ country, view: 'photos' }} />
+      <p className="ride-intro">
+        {countryIntro(COUNTRIES_DATA[country as COUNTRY], 'photos')}
+      </p>
       <div className="ride-sections">
         <RideStats stats={rideStat} />
         <Medias

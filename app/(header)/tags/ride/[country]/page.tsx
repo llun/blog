@@ -10,6 +10,7 @@ import RideNav from '../../../../../components/RideNav'
 import {
   COUNTRIES_DATA,
   COUNTRY,
+  countryIntro,
   getCountryJsonLd,
   getCountryMetadata
 } from '../countries'
@@ -42,6 +43,9 @@ const Ride = ({ params }: Props) => {
       <JsonLd data={getCountryJsonLd(country as COUNTRY, 'map')} />
       <PageHead title={name} meta="Ride map" />
       <RideNav current={{ country, view: 'map' }} />
+      <p className="ride-intro">
+        {countryIntro(COUNTRIES_DATA[country as COUNTRY], 'map')}
+      </p>
       <div className="ride-sections">
         <RideStats stats={rideStat} />
         <RideMap {...map} videos={youtubes} />
