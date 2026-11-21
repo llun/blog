@@ -1,3 +1,5 @@
+import { BLOG_OFFLINE } from '../config'
+
 interface Derivative {
   fileSize: number
   checksum: string
@@ -115,6 +117,7 @@ function getPartitionFromHost(host: string) {
  *  https://www.icloud.com/sharedalbum/#B125ON9t3mbLNC id is B125ON9t3mbLNC
  */
 export async function fetchStream(token: string): Promise<Stream | null> {
+  if (BLOG_OFFLINE) return null
   const requestOptions = {
     method: 'POST',
     headers: {

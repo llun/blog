@@ -1,3 +1,10 @@
+// BLOG_OFFLINE=1 builds without calling iCloud or Google Photos, so a sandbox
+// with no access to them can still export and check the site. Albums render
+// with no photos.
+export const BLOG_OFFLINE = ['1', 'true', 'yes'].includes(
+  (process.env.BLOG_OFFLINE ?? '').toLowerCase()
+)
+
 export const MAPBOX_PUBLIC_KEY = process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_KEY ?? ''
 export const NETHERLANDS_ALBUM_TOKEN = 'B125ON9t3mbLNC'
 export const SINGAPORE_ALBUM_TOKEN = 'B12GqkRUiGojvkQ'

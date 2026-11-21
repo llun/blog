@@ -24,10 +24,7 @@ function isRelativePath(src: string) {
   )
 }
 
-const MarkdownItAbsolutePath = (
-  md: MarkdownIt,
-  opt?: AbsolutePathConfig
-) => {
+const MarkdownItAbsolutePath = (md: MarkdownIt, opt?: AbsolutePathConfig) => {
   md.core.ruler.push('absolute_image', (state) => {
     if (!opt) return
 

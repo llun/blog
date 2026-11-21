@@ -203,10 +203,8 @@ export const buildFeeds = (config: Config, sortedPosts: Post[]) => {
   }
 }
 
-export const getConfig = memoize(
-  (): Config => ({
-    title: '@แนท',
-    description: 'Life, Ride and Code',
-    url: process.env.NEXT_PUBLIC_DOMAIN || 'https://www.llun.me'
-  })
-)
+export const getConfig = memoize((): Config => ({
+  title: '@แนท',
+  description: 'Life, Ride and Code',
+  url: process.env.NEXT_PUBLIC_DOMAIN || 'https://www.llun.me'
+}))

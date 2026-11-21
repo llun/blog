@@ -8,6 +8,7 @@ import { fetchCloudKitAlbum, isCloudKitAlbumToken } from './apple/cloudkit'
 import { Media, getMediaList } from './apple/media'
 import { fetchStream } from './apple/webstream'
 import { Config, getConfig } from './blog'
+import { BLOG_OFFLINE } from './config'
 import { fetchGooglePhotosAlbum, isGooglePhotosToken } from './google/photos'
 import { getMarkdown } from './markdown'
 import { isSinglePathSegment } from './utils'
@@ -152,6 +153,8 @@ const loadAlbum = async (name: string): Promise<AlbumMedias | null> => {
   if (!album) {
     return null
   }
+
+  if (BLOG_OFFLINE) return { album, medias: [], partition: 0 }
 
   const token = album.token
   if (isGooglePhotosToken(token)) {
