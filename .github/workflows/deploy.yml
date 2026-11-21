@@ -33,6 +33,17 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Restore resized images
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          # scripts/optimize-images.ts re-encodes only images whose hash
+          # changed, so a restored cache keeps the build fast
+          path: |
+            public/_img
+            .cache/image-manifest.json
+          key: images-${{ hashFiles('scripts/optimize-images.ts', 'libs/images.ts', 'public/posts/**', 'public/tags/**/*.png', 'public/tags/**/*.jpg', 'public/img/**') }}
+          restore-keys: images-
+
       - name: Build site
         run: yarn export
         env:

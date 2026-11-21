@@ -12,7 +12,7 @@ My personal website and blog. 👉 https://www.llun.me
 - Photo galleries backed by iCloud shared albums
 - RSS, Atom and JSON feed support
 - Responsive design with Tailwind CSS: square black, grey and white "Ink" theme, Noto Sans with the looped Noto Sans Thai and JetBrains Mono for labels (loaded with `next/font`)
-- Optimized images and assets for fast loading
+- Responsive WebP copies of post images generated at build time, with a build-time internal link check
 
 ## Technologies
 
@@ -67,9 +67,19 @@ yarn typecheck
 # Process Strava activities and generate ride statistics
 yarn ride
 
-# Optimize images
+# Optimize gallery cover images (needs ImageMagick)
 yarn optimize-images
+
+# Resize post, ride and site images (runs before dev, build and export)
+yarn images
+
+# Check out/ for internal links that 404 (runs after export)
+yarn check-links
 ```
+
+Images in posts need no manual step: `yarn images` (`scripts/optimize-images.ts`, with sharp) writes WebP copies 640, 1280 and 2000 px wide (never wider than the original, re-encoded at lower quality until under 300 KB) and a 1200 px JPEG social card for every image in `public/posts`, `public/tags` and `public/img` into the git-ignored `public/_img/`, and lists their sizes in `.cache/image-manifest.json`. The markdown renderer points `<img>` at those copies with `srcset`, `sizes`, `width`/`height` and `loading="lazy"` (except the first image), and links to an image (such as `route-full.png`) open the 2000 px copy. Only images whose content changed are encoded again; CI caches `public/_img`. Without the manifest (`next dev` alone) pages fall back to the originals.
+
+`BLOG_OFFLINE=1 yarn export` builds without calling iCloud or Google Photos (albums render with no photos), for machines that cannot reach them.
 
 `NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` must be present in `.env.local` before starting the dev server. Without it the Mapbox token resolves to an empty string and every page with a map - the ride pages - throws `An API access token is required to use Mapbox GL` at runtime and fails to render. Next.js inlines `NEXT_PUBLIC_*` values at build time, so restart `yarn dev` after adding it.
 

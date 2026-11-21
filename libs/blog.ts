@@ -97,7 +97,8 @@ export const parsePost = (
     }
 
     const md = getMarkdown({
-      rootURL: `${config.url}/posts/${postPath.join('/')}`
+      rootURL: `${config.url}/posts/${postPath.join('/')}`,
+      publicPath: `posts/${postPath.join('/')}`
     })
     const content = md.render(raw.substring(end + 3).trim())
     return {
