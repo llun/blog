@@ -9,7 +9,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    # npm security updates only; action bumps get a human look.
+    # npm security updates only; action bumps (SHA pins) get a human look.
     if: ${{ github.actor == 'dependabot[bot]' && startsWith(github.head_ref, 'dependabot/npm_and_yarn/') }}
     steps:
       - name: Enable auto-merge for Dependabot PRs
