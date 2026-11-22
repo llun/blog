@@ -1,6 +1,12 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 import { ArrowLeft } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: { absolute: 'Page not found — @แนท' },
+  robots: { index: false, follow: true }
+}
 
 const NotFound = () => (
   <main className="main-container">

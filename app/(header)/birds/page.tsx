@@ -2,18 +2,39 @@ import { Metadata } from 'next'
 import React from 'react'
 
 import AlbumList from '../../../components/AlbumList'
+import Breadcrumbs from '../../../components/Breadcrumbs'
+import JsonLd from '../../../components/JsonLd'
 import { getMetadata } from '../../../components/Meta'
 import PageHead from '../../../components/PageHead'
 import { getConfig } from '../../../libs/blog'
 import { getAllAlbums } from '../../../libs/gallery'
+import { fitDescription, pageTitle } from '../../../libs/seo'
+import {
+  breadcrumbList,
+  collectionPage,
+  graph
+} from '../../../libs/structuredData'
 
-const { url, title, description } = getConfig()
+const { url } = getConfig()
+const birdCount = getAllAlbums().filter(
+  (album) => album.section === 'birds'
+).length
 
-export const metadata: Metadata = getMetadata({
+const seo = {
   url,
-  title: `${title}, Birds`,
-  description
-})
+  path: '/birds',
+  title: pageTitle('Birds: species I have photographed'),
+  description: fitDescription(
+    `${birdCount} bird species I have photographed, from tits and woodpeckers to kites and kingfishers. Each has its own page of photos, a map of where I saw it and an introduction from Wikipedia.`
+  )
+}
+
+export const metadata: Metadata = getMetadata(seo)
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Birds', path: seo.path }
+]
 
 const Birds = () => {
   const albums = getAllAlbums()
@@ -21,6 +42,21 @@ const Birds = () => {
     .sort((first, second) => first.title.localeCompare(second.title))
   return (
     <>
+      <JsonLd
+        data={graph(
+          collectionPage(url, {
+            path: seo.path,
+            name: seo.title,
+            description: seo.description,
+            items: albums.map((album) => ({
+              name: album.title,
+              path: `/birds/${album.name}`
+            }))
+          }),
+          breadcrumbList(url, crumbs)
+        )}
+      />
+      <Breadcrumbs crumbs={crumbs} />
       <PageHead title="Birds" meta={`${albums.length} species`} />
       <AlbumList albums={albums} basePath="/birds" />
     </>

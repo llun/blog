@@ -1,0 +1,53 @@
+@layer components {
+  /* two square cells in one black frame, like the ride stats strip */
+  .pager {
+    @apply grid grid-cols-1 border border-border sm:grid-cols-2;
+  }
+
+  .pager-link,
+  .pager-empty {
+    @apply flex min-w-0 flex-col gap-1 px-4 py-3;
+  }
+
+  .pager-link {
+    @apply text-foreground no-underline hover:bg-accent;
+  }
+
+  .pager > * + * {
+    @apply border-t border-border sm:border-t-0 sm:border-l;
+  }
+
+  .pager-empty {
+    @apply hidden sm:flex;
+  }
+
+  /* on a phone the empty cell is hidden, so the next cell needs no rule */
+  .pager > .pager-empty + * {
+    @apply border-t-0;
+  }
+
+  .pager-link-next {
+    @apply sm:items-end sm:text-right;
+  }
+
+  .pager-label {
+    @apply inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-muted-foreground;
+  }
+
+  .pager-title {
+    @apply text-base leading-snug underline-offset-4;
+  }
+
+  .pager-link:hover .pager-title {
+    @apply underline;
+  }
+
+  /* sections added under a post or album: related posts, more birds */
+  .page-section {
+    @apply mt-10;
+  }
+
+  .page-section-title {
+    @apply mt-0 mb-3 text-xl font-medium;
+  }
+}

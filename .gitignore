@@ -20,3 +20,4 @@ scripts/slovenia.json
 .yarn
 *.tsbuildinfo
 .cache
+public/_img

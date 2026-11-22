@@ -12,7 +12,7 @@ My personal website and blog. 👉 https://www.llun.me
 - Photo galleries backed by iCloud shared albums
 - RSS, Atom and JSON feed support
 - Responsive design with Tailwind CSS: square black, grey and white "Ink" theme, Noto Sans with the looped Noto Sans Thai and JetBrains Mono for labels (loaded with `next/font`)
-- Optimized images and assets for fast loading
+- Responsive WebP copies of post images generated at build time, with a build-time internal link check
 
 ## Technologies
 
@@ -67,9 +67,24 @@ yarn typecheck
 # Process Strava activities and generate ride statistics
 yarn ride
 
-# Optimize images
+# Optimize gallery cover images (needs ImageMagick)
 yarn optimize-images
+
+# Resize post, ride and site images (runs before dev, build and export)
+yarn images
+
+# Check out/ for internal links that 404 (runs after export)
+yarn check-links
+
+# Check the JSON-LD on every exported page (runs after export)
+yarn check-structured-data
 ```
+
+Images in posts need no manual step: `yarn images` (`scripts/optimize-images.ts`, with sharp) writes WebP copies 640, 1280 and 2000 px wide (never wider than the original, re-encoded at lower quality until under 300 KB) and a 1200 px JPEG social card for every image in `public/posts`, `public/tags` and `public/img` into the git-ignored `public/_img/`, and lists their sizes in `.cache/image-manifest.json`. The markdown renderer points `<img>` at those copies with `srcset`, `sizes`, `width`/`height` and `loading="lazy"` (except the first image), and links to an image (such as `route-full.png`) open the 2000 px copy. Only images whose content changed are encoded again; CI caches `public/_img`. Without the manifest (`next dev` alone) pages fall back to the originals.
+
+Every page carries schema.org JSON-LD built in `libs/structuredData.ts`: `BlogPosting` on posts, `WebSite` and `Person` on the home page, `CollectionPage` on lists, `ImageGallery` on albums and bird pages, and a `BreadcrumbList` everywhere. The builders are typed with `schema-dts`, so `yarn typecheck` rejects properties or values schema.org does not define.
+
+`BLOG_OFFLINE=1 yarn export` builds without calling iCloud or Google Photos (albums render with no photos), for machines that cannot reach them.
 
 `NEXT_PUBLIC_MAPBOX_PUBLIC_KEY` must be present in `.env.local` before starting the dev server. Without it the Mapbox token resolves to an empty string and every page with a map - the ride pages - throws `An API access token is required to use Mapbox GL` at runtime and fails to render. Next.js inlines `NEXT_PUBLIC_*` values at build time, so restart `yarn dev` after adding it.
 
@@ -145,15 +160,17 @@ This project uses ESLint and Prettier for code formatting and quality.
 
 The project has two deployment targets and both are live.
 
-**1. Static site on S3 + CloudFront** - the public website at https://www.llun.me. Deployed by `.github/workflows/deploy.yml` on every push to master, in three stages:
+**1. Static site on S3 + CloudFront** - the public website at https://www.llun.me. Deployed by `.github/workflows/deploy.yml` on every push to master, in four stages:
 
 1. **Build**: Exports static site using Next.js (`yarn export`, which sets `BLOG_EXPORT=1` and turns on `output: 'export'`)
 2. **Upload to S3**: Four parallel syncs, one per caching policy
-   - HTML and other text assets with `no-cache`, so CloudFront revalidates them
+   - HTML and other text assets (and the Atom feeds) with `public, max-age=0, s-maxage=86400, stale-while-revalidate=604800`: CloudFront keeps them a day and serves a stale copy while it refetches, browsers revalidate every time, and the invalidation below makes new posts show at once
    - Content-hashed build output under `_next/static/` with a one-year immutable cache - the filename changes whenever the bytes do
    - Images (jpg, jpeg, png, webp, avif, ico) with a 7-day cache
    - Atom feeds (`feeds/main`, `feeds/atom.xml`) with an `application/atom+xml` content-type
-3. **CDN Invalidation**: CloudFront cache invalidation for immediate updates
+   - Then an empty object with a website redirect at every page folder without its slash (`posts/x` -> `/posts/x/`, listed by `scripts/list-page-dirs.mjs`), so the S3 website origin answers slashless URLs with a 301 instead of its default 302
+3. **CDN Invalidation**: CloudFront cache invalidation for immediate updates, then a check that prints the home page's TTFB and cache headers
+4. **IndexNow**: `scripts/indexnow.mjs` compares the new `sitemap.xml` with the one that was live before the deploy and submits the new or changed URLs (by `<lastmod>`) to `https://api.indexnow.org`. The key is `public/<key>.txt`; a post edited after publishing should set `updated:` in its front matter so its lastmod moves
 
 **2. Vercel** - builds the same repository without `BLOG_EXPORT`, so `output: 'export'` stays off and `app/api/apple` is deployed as a real route handler. This is the only thing Vercel serves that the static site cannot do itself: the exported pages call it cross-origin at `https://next.llun.dev/api/apple/` (`libs/apple/media.ts`) to resolve iCloud shared album asset URLs, and the route restricts callers with the `ALLOW_ORIGINS` and `ALLOW_TOKEN_IDS` lists in `libs/config.ts`. In development the same code calls the local `/api/apple/` route instead. There is no `vercel.json` in the repository, so the Vercel side is configured in its dashboard rather than here.
 

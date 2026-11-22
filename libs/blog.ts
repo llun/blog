@@ -6,6 +6,7 @@ import path from 'path'
 import yaml from 'yaml'
 
 import { getMarkdown } from './markdown'
+import { firstMarkdownImage } from './seo'
 
 interface PostProperties {
   title: string
@@ -14,6 +15,9 @@ interface PostProperties {
   date: string
   image?: string
   tags?: string[]
+  // Set when a post is edited after it is published; feeds the modified dates
+  // in metadata, JSON-LD and the sitemap
+  updated?: string
 }
 
 interface PostFile {
@@ -26,6 +30,10 @@ export interface Post {
   properties: PostProperties
   file: PostFile
   timestamp: number
+  // properties.updated, or the publish time when the post was never edited
+  modifiedTimestamp: number
+  // First image in the body, a fallback social image when there is no `image`
+  firstImage: { alt: string; src: string } | null
   content?: string
 }
 
@@ -83,6 +91,12 @@ export const parsePost = (
     const end = raw.indexOf('---', begin + 3)
     const properties: PostProperties = yaml.parse(raw.substring(begin, end))
     const timestamp = DateTime.fromISO(properties.date).toMillis()
+    const updated = properties.updated
+      ? DateTime.fromISO(properties.updated).toMillis()
+      : Number.NaN
+    const modifiedTimestamp = Number.isFinite(updated) ? updated : timestamp
+    const body = raw.substring(end + 3).trim()
+    const firstImage = firstMarkdownImage(body)
 
     if (!includeContent) {
       return {
@@ -92,14 +106,17 @@ export const parsePost = (
           category: postPath.length > 1 ? postPath[0] : null,
           name: postPath[postPath.length - 1]
         },
-        timestamp
+        timestamp,
+        modifiedTimestamp,
+        firstImage
       }
     }
 
     const md = getMarkdown({
-      rootURL: `${config.url}/posts/${postPath.join('/')}`
+      rootURL: `${config.url}/posts/${postPath.join('/')}`,
+      publicPath: `posts/${postPath.join('/')}`
     })
-    const content = md.render(raw.substring(end + 3).trim())
+    const content = md.render(body)
     return {
       properties,
       file: {
@@ -108,7 +125,9 @@ export const parsePost = (
         name: postPath[postPath.length - 1]
       },
       content,
-      timestamp
+      timestamp,
+      modifiedTimestamp,
+      firstImage
     }
   } catch {
     return null
@@ -203,10 +222,8 @@ export const buildFeeds = (config: Config, sortedPosts: Post[]) => {
   }
 }
 
-export const getConfig = memoize(
-  (): Config => ({
-    title: '@แนท',
-    description: 'Life, Ride and Code',
-    url: process.env.NEXT_PUBLIC_DOMAIN || 'https://www.llun.me'
-  })
-)
+export const getConfig = memoize((): Config => ({
+  title: '@แนท',
+  description: 'Life, Ride and Code',
+  url: process.env.NEXT_PUBLIC_DOMAIN || 'https://www.llun.me'
+}))

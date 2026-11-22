@@ -3,12 +3,11 @@ import { YoutubeVideo } from '@/components/RideVideos'
 
 export interface CountryData {
   name: string
-  meta: {
-    url: string
-    title: string
-    description: string
-    imageUrl: string
-  }
+  // Ride heatmap under public/, also the pages' social image
+  image: string
+  // Opening paragraph of the map and photos pages; when left out, one is
+  // written from the ride stats (see countryIntro in countries.ts)
+  intro?: string
   flag: FlagCode
   rideStat: { distance: number; activities: number }
   map: {

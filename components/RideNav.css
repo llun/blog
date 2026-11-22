@@ -43,4 +43,9 @@
   .ride-key .ride-key-part.ride-key-current .ride-key-flag {
     @apply border-primary-foreground;
   }
+
+  /* the country pages open with a short paragraph under the keys */
+  .ride-intro {
+    @apply mt-0 mb-6 max-w-2xl text-muted-foreground;
+  }
 }

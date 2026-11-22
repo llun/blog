@@ -1,8 +1,8 @@
 import React from 'react'
 import { DateTime } from 'luxon'
-import Link from 'next/link'
 
 import type { Post } from '../libs/blog'
+import PageLink from './PageLink'
 import { getTextLang } from '../libs/utils'
 
 interface Props {
@@ -19,14 +19,14 @@ const PostList = ({ posts }: Props) => {
               .setLocale('en-US')
               .toFormat('dd LLL yyyy')}
           </time>
-          <Link
-            href={`/posts/${post.file.id}`}
+          <PageLink
+            href={`/posts/${post.file.id}/`}
             className="post-list-item-title"
             title={post.properties.title}
             lang={getTextLang(post.properties.title)}
           >
             {post.properties.title}
-          </Link>
+          </PageLink>
           {post.file.category ? (
             <span className="post-list-item-tag">{post.file.category}</span>
           ) : (

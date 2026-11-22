@@ -53,11 +53,20 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     newestTimestamp(
       posts
         .filter((post) => post.file.category === category)
-        .map((post) => post.timestamp)
+        .map((post) => post.modifiedTimestamp)
     )
 
-  const latestPost = newestTimestamp(posts.map((post) => post.timestamp))
-  const latestAlbum = newestTimestamp(albums.map((album) => album.timestamp))
+  const latestPost = newestTimestamp(
+    posts.map((post) => post.modifiedTimestamp)
+  )
+  const latestBird = newestTimestamp(
+    albums
+      .filter((album) => album.section === 'birds')
+      .map((album) => album.timestamp)
+  )
+  const latestGalleryAlbum = newestTimestamp(
+    albums.filter((album) => !album.section).map((album) => album.timestamp)
+  )
 
   return dedupe([
     {
@@ -76,6 +85,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       ? [
           {
             url: url('/birds'),
+            lastModified: lastModified(latestBird),
             changeFrequency: 'monthly' as const,
             priority: 0.7
           }
@@ -83,7 +93,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       : []),
     {
       url: url('/gallery'),
-      lastModified: lastModified(latestAlbum),
+      lastModified: lastModified(latestGalleryAlbum),
       changeFrequency: 'monthly',
       priority: 0.8
     },
@@ -93,42 +103,32 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       changeFrequency: 'weekly',
       priority: 0.8
     },
-    ...tags.map(
-      ({ tag }): SitemapEntry => ({
-        url: url(`/tags/${tag}`),
-        lastModified: lastModified(categoryTimestamp(tag)),
-        changeFrequency: 'weekly',
-        priority: 0.8
-      })
-    ),
-    ...Object.values(COUNTRY).flatMap((country): SitemapEntry[] => [
-      {
-        url: url(`/tags/ride/${country}`),
-        changeFrequency: 'monthly',
-        priority: 0.7
-      },
-      {
-        url: url(`/tags/ride/${country}/gallery`),
-        changeFrequency: 'monthly',
-        priority: 0.5
-      }
-    ]),
-    ...posts.map(
-      (post): SitemapEntry => ({
-        url: url(`/posts/${post.file.id}`),
-        lastModified: lastModified(post.timestamp),
-        changeFrequency: 'yearly',
-        priority: 0.7
-      })
-    ),
-    ...albums.map(
-      (album): SitemapEntry => ({
-        url: url(`/${album.section ?? 'gallery'}/${album.name}`),
-        lastModified: lastModified(album.timestamp),
-        changeFrequency: 'yearly',
-        priority: 0.6
-      })
-    )
+    ...tags.map(({ tag }): SitemapEntry => ({
+      url: url(`/tags/${tag}`),
+      lastModified: lastModified(categoryTimestamp(tag)),
+      changeFrequency: 'weekly',
+      priority: 0.8
+    })),
+    // The ride photo grids (/tags/ride/<country>/gallery/) are noindex, so
+    // only the map pages are listed
+    ...Object.values(COUNTRY).map((country): SitemapEntry => ({
+      url: url(`/tags/ride/${country}`),
+      changeFrequency: 'monthly',
+      priority: 0.7
+    })),
+    ...posts.map((post): SitemapEntry => ({
+      url: url(`/posts/${post.file.id}`),
+      // 'updated' in front matter, or the publish date
+      lastModified: lastModified(post.modifiedTimestamp),
+      changeFrequency: 'yearly',
+      priority: 0.7
+    })),
+    ...albums.map((album): SitemapEntry => ({
+      url: url(`/${album.section ?? 'gallery'}/${album.name}`),
+      lastModified: lastModified(album.timestamp),
+      changeFrequency: 'yearly',
+      priority: 0.6
+    }))
   ])
 }
 

@@ -1,7 +1,7 @@
 ---
 title: Cloud services for my personal projects in 2023
 lang: en
-description: Cloud services I use for my projects are getting more in number recently with distributed tracing and Redis that just added to my list. I start to forget what are the services I am using now.
+description: The cloud services behind my personal projects keep growing, with distributed tracing and Redis just added, so here is the list before I forget them.
 date: 2023-10-27T16:28:38+02:00
 tags:
   - hobby project
