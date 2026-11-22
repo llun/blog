@@ -1,4 +1,4 @@
-# Keeps the SHA-pinned workflow actions current. Action updates are reviewed by hand:
+# Opens a PR when a workflow action has a new major tag. Action updates are reviewed by hand:
 # dependabot-automerge.yml only auto-merges npm security updates.
 version: 2
 updates:
